@@ -1,0 +1,57 @@
+{
+  "id": "Pancavimsati_Gilgit",
+  "title_sanskrit": "Pañcaviṃśatisāhasrikā Prajñāpāramitā",
+  "title_english": "Perfection of Wisdom in 25,000 Lines",
+  "source": "Gilgit Manuscript, Chapter 3, folios 20v-22v",
+  "date": "c. 7th century CE",
+  "notes": "This is the source passage from which the Heart Sūtra's core section was extracted. The Heart Sūtra contains a paraphrase of this text, consistent with first having been translated into Chinese (by Kumārajīva as T223) and then incorporated into the Heart Sūtra composition.",
+  "relationship": "PRAJNAPARAMITA → HEART_SUTRA (extraction source)",
+  "chinese_translation": "T223 (Kumārajīva, 404 CE)",
+  "parallel_passage": {
+    "location": "Chapter 3 (Subhūti section)",
+    "gilgit_folios": "20v-22v",
+    "description": "The passage where Subhūti describes the characteristics of dharmas in emptiness, which was extracted and condensed to form the core doctrinal section of the Heart Sūtra.",
+    "key_sections": [
+      {
+        "id": "PP:skandhas",
+        "sanskrit": "rūpaṃ śūnyam, vedanā śūnyā, saṃjñā śūnyā, saṃskārāḥ śūnyāḥ, vijñānaṃ śūnyam",
+        "note": "Five aggregates are empty - source for Heart Sūtra negation series"
+      },
+      {
+        "id": "PP:ayatanas",
+        "sanskrit": "cakṣuḥ śūnyam, śrotraṃ śūnyam, ghrāṇaṃ śūnyam, jihvā śūnyā, kāyaḥ śūnyaḥ, manaḥ śūnyam",
+        "note": "Six sense faculties - source for āyatana negations"
+      },
+      {
+        "id": "PP:dhatus",
+        "sanskrit": "cakṣur-dhātuḥ śūnyaḥ... manovijñāna-dhātuḥ śūnyaḥ",
+        "note": "Eighteen elements - source for dhātu negations"
+      },
+      {
+        "id": "PP:pratityasamutpada",
+        "sanskrit": "avidyā śūnyā... jarā-maraṇaṃ śūnyam. avidyā-nirodhaḥ śūnyaḥ... jarā-maraṇa-nirodhaḥ śūnyaḥ",
+        "note": "Dependent origination - NOTE: uses 'nirodha' (cessation), whereas Heart Sūtra Sanskrit uses 'kṣaya' (destruction), evidence of back-translation"
+      },
+      {
+        "id": "PP:truths",
+        "sanskrit": "duḥkhaṃ śūnyam, samudayaḥ śūnyaḥ, nirodhaḥ śūnyaḥ, mārgaḥ śūnyaḥ",
+        "note": "Four Noble Truths"
+      }
+    ]
+  },
+  "back_translation_evidence": {
+    "key_term": "kṣaya vs nirodha",
+    "analysis": "The Large Prajñāpāramitā consistently uses 'nirodha' (cessation) for the ending of ignorance, old age and death, etc. The Heart Sūtra Sanskrit uses 'kṣaya' (destruction/exhaustion) instead. This is consistent with Nattier's thesis that the Sanskrit was back-translated from Chinese, where both terms can be rendered with the same character 盡 (jìn). The back-translator, unfamiliar with standard Prajñāpāramitā idiom, chose the wrong Sanskrit equivalent.",
+    "chinese_character": "盡",
+    "chinese_reading": "jìn",
+    "chinese_meanings": ["exhaustion", "end", "cessation", "destruction"],
+    "standard_pp_sanskrit": "nirodha",
+    "heart_sutra_sanskrit": "kṣaya",
+    "scholarly_ref": "Nattier 1992: 167-169"
+  },
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Karashima, Seishi et al. (2016). Gilgit Manuscripts in the National Archives of India. Tokyo.",
+    "Kimura, Takayasu (1986). Pañcaviṃśatisāhasrikā Prajñāpāramitā. Tokyo."
+  ]
+}
