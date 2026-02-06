@@ -1,0 +1,103 @@
+{
+  "id": "T251",
+  "title_chinese": "般若波羅蜜多心經",
+  "title_pinyin": "Bōrě bōluómìduō xīn jīng",
+  "title_english": "Heart Sūtra of the Perfection of Wisdom",
+  "translator": "Xuanzang (玄奘)",
+  "date": "649 CE",
+  "source": "Taishō Tripiṭaka Vol. 8, No. 251",
+  "recension": "short",
+  "character_count": 260,
+  "notes": "Most widely used Chinese recension. First to use 'Heart' (心) in title. Analytical base text for critical edition following Chinese compositional priority methodology.",
+  "text": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。是故空中，無色，無受想行識，無眼耳鼻舌身意，無色聲香味觸法，無眼界，乃至無意識界。無無明，亦無無明盡，乃至無老死，亦無老死盡。無苦集滅道，無智亦無得，以無所得故。菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+  "segments": [
+    {
+      "id": "T251:1",
+      "section": "opening",
+      "text": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+      "pinyin": "Guānzìzài púsà, xíng shēn bōrě bōluómìduō shí, zhàojiàn wǔyùn jiē kōng, dù yīqiè kǔ è.",
+      "english_gloss": "When Avalokiteśvara Bodhisattva was practicing the profound prajñāpāramitā, he illuminated the five aggregates and saw that they are all empty, thus transcending all suffering."
+    },
+    {
+      "id": "T251:2",
+      "section": "form_emptiness",
+      "text": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+      "pinyin": "Shèlìzǐ, sè bù yì kōng, kōng bù yì sè; sè jí shì kōng, kōng jí shì sè. Shòu xiǎng xíng shí yì fù rúshì.",
+      "english_gloss": "Śāriputra, form is not different from emptiness, emptiness is not different from form; form is emptiness, emptiness is form. Feeling, perception, formation, and consciousness are also like this."
+    },
+    {
+      "id": "T251:3",
+      "section": "characteristics",
+      "text": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+      "pinyin": "Shèlìzǐ, shì zhūfǎ kōng xiāng, bù shēng bù miè, bù gòu bù jìng, bù zēng bù jiǎn.",
+      "english_gloss": "Śāriputra, the emptiness characteristic of all dharmas is: not arising, not ceasing; not defiled, not pure; not increasing, not decreasing."
+    },
+    {
+      "id": "T251:4",
+      "section": "negations_skandhas",
+      "text": "是故空中，無色，無受想行識，",
+      "pinyin": "Shìgù kōng zhōng, wú sè, wú shòu xiǎng xíng shí,",
+      "english_gloss": "Therefore, in emptiness there is no form, no feeling, perception, formation, or consciousness;"
+    },
+    {
+      "id": "T251:5",
+      "section": "negations_ayatanas",
+      "text": "無眼耳鼻舌身意，無色聲香味觸法，",
+      "pinyin": "wú yǎn ěr bí shé shēn yì, wú sè shēng xiāng wèi chù fǎ,",
+      "english_gloss": "no eyes, ears, nose, tongue, body, or mind; no forms, sounds, smells, tastes, tangibles, or mental objects;"
+    },
+    {
+      "id": "T251:6",
+      "section": "negations_dhatus",
+      "text": "無眼界，乃至無意識界。",
+      "pinyin": "wú yǎn jiè, nǎizhì wú yìshí jiè.",
+      "english_gloss": "no eye-element, up to and including no mind-consciousness element."
+    },
+    {
+      "id": "T251:7",
+      "section": "negations_pratityasamutpada",
+      "text": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+      "pinyin": "Wú wúmíng, yì wú wúmíng jìn, nǎizhì wú lǎosǐ, yì wú lǎosǐ jìn.",
+      "english_gloss": "No ignorance and no ending of ignorance, up to and including no old age and death, and no ending of old age and death."
+    },
+    {
+      "id": "T251:8",
+      "section": "negations_truths",
+      "text": "無苦集滅道，無智亦無得，以無所得故。",
+      "pinyin": "Wú kǔ jí miè dào, wú zhì yì wú dé, yǐ wú suǒ dé gù.",
+      "english_gloss": "No suffering, origination, cessation, or path; no wisdom and no attainment, because there is nothing to attain."
+    },
+    {
+      "id": "T251:9",
+      "section": "bodhisattva_result",
+      "text": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+      "pinyin": "Pútísàduǒ, yī bōrě bōluómìduō gù. Xīn wú guà'ài, wú guà'ài gù. Wú yǒu kǒngbù, yuǎnlí diāndǎo mèngxiǎng, jiūjìng nièpán.",
+      "english_gloss": "Because bodhisattvas rely on prajñāpāramitā, their minds are without obstruction. Without obstruction, they have no fear, are far removed from inverted views and dreams, and attain ultimate nirvāṇa."
+    },
+    {
+      "id": "T251:10",
+      "section": "buddha_result",
+      "text": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+      "pinyin": "Sānshì zhū fó, yī bōrě bōluómìduō gù, dé ānòuduōluó sānmiǎo sānpútí.",
+      "english_gloss": "All buddhas of the three times, relying on prajñāpāramitā, attain anuttarā-samyak-saṃbodhi."
+    },
+    {
+      "id": "T251:11",
+      "section": "mantra_praise",
+      "text": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+      "pinyin": "Gùzhī bōrě bōluómìduō, shì dà shén zhòu, shì dà míng zhòu, shì wúshàng zhòu, shì wú děngděng zhòu, néng chú yīqiè kǔ, zhēnshí bù xū gù.",
+      "english_gloss": "Therefore know that prajñāpāramitā is the great mantra, the mantra of great illumination, the supreme mantra, the unequalled mantra, which can remove all suffering; it is true and not false."
+    },
+    {
+      "id": "T251:12",
+      "section": "mantra",
+      "text": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+      "pinyin": "Shuō bōrě bōluómìduō zhòu, jí shuō zhòu yuē: Jiēdì jiēdì, bōluó jiēdì, bōluó sēng jiēdì, pútí sēng suōhē.",
+      "english_gloss": "Therefore proclaim the prajñāpāramitā mantra, proclaim the mantra that says: Gate gate pāragate pārasaṃgate bodhi svāhā."
+    }
+  ],
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2017). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 12: 28-62."
+  ]
+}

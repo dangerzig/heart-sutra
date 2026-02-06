@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Sūtra Critical Edition - Architecture Document</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24pt;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 16pt;
+            border-bottom: 1px solid #666;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 13pt;
+            margin-top: 20px;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            font-size: 11pt;
+            font-style: italic;
+            margin-top: 15px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            background: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        pre {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            page-break-inside: avoid;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        blockquote {
+            border-left: 3px solid #666;
+            margin: 15px 0;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        /* Sanskrit/Tibetan text styling */
+        .devanagari {
+            font-family: 'Noto Sans Devanagari', serif;
+        }
+
+        .tibetan {
+            font-family: 'Noto Sans Tibetan', serif;
+        }
+
+        /* Print-specific */
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            h1 {
+                page-break-before: avoid;
+            }
+
+            h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            pre, table, blockquote {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: #333;
+                text-decoration: none;
+            }
+
+            a[href]:after {
+                content: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1 id="heart-sutra-critical-edition-architecture-document">Heart Sūtra Critical Edition - Architecture Document</h1>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>This project implements a <strong>multilingual electronic critical edition</strong> of the Prajñāpāramitāhṛdaya (Heart Sūtra) following a methodology fundamentally different from traditional Lachmannian textual criticism. Rather than reconstructing a hypothetical Sanskrit Ur-text, this edition treats the Heart Sūtra as a <strong>textual complex</strong> with <strong>Chinese compositional priority</strong>, documenting the subsequent multilingual textualization across Chinese, Sanskrit, and Tibetan traditions.</p>
+<hr />
+<h2 id="1-project-architecture">1. Project Architecture</h2>
+<h3 id="11-directory-structure">1.1 Directory Structure</h3>
+<pre><code>heart-sutra/
+├── src/
+│   └── hrdaya/                    # Core Python library
+│       ├── __init__.py            # Package initialization &amp; exports
+│       ├── models.py              # Data models (634 lines)
+│       ├── witnesses.py           # Witness catalog (450+ lines)
+│       ├── transliterate.py       # Devanagari ↔ IAST conversion
+│       ├── collate.py             # Collation engine
+│       └── synoptic.py            # Parallel presentation builder
+├── data/
+│   ├── chinese/
+│   │   ├── taisho/                # Taishō Canon texts
+│   │   ├── dunhuang/              # Dunhuang manuscripts
+│   │   └── manuscripts/           # Other Chinese witnesses
+│   ├── sanskrit/
+│   │   ├── gretil/                # GRETIL edition
+│   │   ├── dsbc/                  # Digital Sanskrit Buddhist Canon
+│   │   └── manuscripts/           # Organized by provenance
+│   │       ├── nepalese/          # Na-Nl (Conze sigla)
+│   │       ├── japanese/          # Ja, Jb
+│   │       ├── chinese-inscriptions/  # Ca-Cg
+│   │       └── central-asian/     # Gilgit, Dunhuang
+│   ├── tibetan/
+│   │   ├── kangyur/               # Canonical versions
+│   │   └── dunhuang/              # Early manuscripts
+│   ├── prajnaparamita/            # Source texts (Large PP parallels)
+│   ├── collation/                 # Collation output
+│   ├── critical/                  # Critical edition output
+│   └── aligned/                   # Synoptic alignments
+├── docs/
+│   ├── ARCHITECTURE.md            # This document
+│   └── METHODOLOGY.md             # Scholarly methodology
+├── scripts/
+│   └── generate_synoptic.py       # Output generation
+└── README.md                      # Project overview
+</code></pre>
+<h3 id="12-core-library-modules">1.2 Core Library Modules</h3>
+<h4 id="modelspy-data-models"><code>models.py</code> - Data Models</h4>
+<p>Defines the fundamental data structures for the critical edition:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WitnessType</code></td>
+<td>Enum: CHINESE, SANSKRIT, TIBETAN, PRAJNAPARAMITA</td>
+</tr>
+<tr>
+<td><code>Script</code></td>
+<td>Enum: TRADITIONAL_CHINESE, DEVANAGARI, IAST, TIBETAN, WYLIE</td>
+</tr>
+<tr>
+<td><code>VariantType</code></td>
+<td>Classification of textual variants (11 types)</td>
+</tr>
+<tr>
+<td><code>DependenceDirection</code></td>
+<td>Direction of textual borrowing (7 directions)</td>
+</tr>
+<tr>
+<td><code>Token</code></td>
+<td>Single word with linguistic analysis</td>
+</tr>
+<tr>
+<td><code>Segment</code></td>
+<td>Text segment in one language/witness</td>
+</tr>
+<tr>
+<td><code>Variant</code></td>
+<td>Textual variant with full apparatus annotation</td>
+</tr>
+<tr>
+<td><code>Witness</code></td>
+<td>Manuscript/edition metadata</td>
+</tr>
+<tr>
+<td><code>MultilingualSegment</code></td>
+<td>Aligned segments across all traditions</td>
+</tr>
+<tr>
+<td><code>CriticalApparatus</code></td>
+<td>Complete apparatus for the edition</td>
+</tr>
+</tbody>
+</table>
+<h4 id="witnessespy-witness-catalog"><code>witnesses.py</code> - Witness Catalog</h4>
+<p>Comprehensive catalog of all witnesses with scholarly metadata:</p>
+<pre><code class="language-python">CHINESE_WITNESSES = {...}      # 9 witnesses (T250-T257, S2464)
+SANSKRIT_WITNESSES = {...}     # 17 witnesses (Ja-Jb, Na-Nl, Ca-Cg, Gilgit)
+TIBETAN_WITNESSES = {...}      # 4 witnesses (Toh21, Toh531, Stok, IOL_J751)
+PRAJNAPARAMITA_WITNESSES = {...}  # 2 source texts
+</code></pre>
+<h4 id="transliteratepy-script-conversion"><code>transliterate.py</code> - Script Conversion</h4>
+<p>Bidirectional conversion between Devanagari and IAST:</p>
+<pre><code class="language-python">devanagari_to_iast(&quot;प्रज्ञापारमिता&quot;)  # → &quot;prajñāpāramitā&quot;
+iast_to_devanagari(&quot;śūnyatā&quot;)         # → &quot;शून्यता&quot;
+</code></pre>
+<h4 id="collatepy-collation-engine"><code>collate.py</code> - Collation Engine</h4>
+<p>Implements multilingual collation with:
+- Chinese as analytical base
+- Direction-of-dependence classification
+- Variant type identification
+- Cross-linguistic alignment</p>
+<h4 id="synopticpy-parallel-presentation"><code>synoptic.py</code> - Parallel Presentation</h4>
+<p>Generates synoptic alignments in multiple formats:
+- Markdown (for documentation)
+- HTML (for web viewing)
+- JSON (for programmatic access)</p>
+<hr />
+<h2 id="2-witnesses-included">2. Witnesses Included</h2>
+<h3 id="21-chinese-witnesses-compositionally-prior">2.1 Chinese Witnesses (Compositionally Prior)</h3>
+<p>The Chinese tradition is treated as <strong>compositionally prior</strong> following Nattier (1992). The edition includes all major Taishō Canon versions:</p>
+<table>
+<thead>
+<tr>
+<th>Siglum</th>
+<th>Title</th>
+<th>Date</th>
+<th>Recension</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T251</strong></td>
+<td>般若波羅蜜多心經</td>
+<td>649 CE</td>
+<td>Short</td>
+<td><strong>Base text</strong>. Xuanzang's translation. First to use "Heart" (心) in title. Most widely used.</td>
+</tr>
+<tr>
+<td>T250</td>
+<td>摩訶般若波羅蜜大明咒經</td>
+<td>c. 402-412</td>
+<td>Long</td>
+<td>Attributed to Kumārajīva. Earliest Chinese witness (attribution disputed).</td>
+</tr>
+<tr>
+<td>T252</td>
+<td>般若波羅蜜多心經</td>
+<td>c. 700</td>
+<td>Short</td>
+<td>Alternate short version for comparison.</td>
+</tr>
+<tr>
+<td>T253</td>
+<td>般若波羅蜜多心經</td>
+<td>c. 700-730</td>
+<td>Long</td>
+<td>Fayue's translation. Long version with frame narrative.</td>
+</tr>
+<tr>
+<td>T254</td>
+<td>普遍智藏般若波羅蜜多心經</td>
+<td>c. 733</td>
+<td>Long</td>
+<td>Prajñā's translation.</td>
+</tr>
+<tr>
+<td>T255</td>
+<td>般若波羅蜜多心經</td>
+<td>c. 790</td>
+<td>Long</td>
+<td>Prajñācakra's translation.</td>
+</tr>
+<tr>
+<td><strong>T256</strong></td>
+<td>般若波羅蜜多心經 (唐梵翻對字音)</td>
+<td>c. 7th-8th c.</td>
+<td>Transliterated</td>
+<td><strong>Critical witness</strong>. Sanskrit transliterated into Chinese characters. Key evidence for back-translation thesis.</td>
+</tr>
+<tr>
+<td>T257</td>
+<td>般若波羅蜜多心經</td>
+<td>c. 850-1000</td>
+<td>Long</td>
+<td>Facheng's translation. May be based on Tibetan.</td>
+</tr>
+<tr>
+<td>S2464</td>
+<td>Stein Collection</td>
+<td>c. 600-700</td>
+<td>Short</td>
+<td>Dunhuang manuscript. Early physical witness.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Selection Rationale</strong>: T251 is the analytical base because it is (1) compositionally central according to Nattier's analysis, (2) the most widely used recension, and (3) the first to use the distinctive "Heart Sūtra" title. T256 is critical for demonstrating the Chinese → Sanskrit transmission.</p>
+<h3 id="22-sanskrit-witnesses-derived-tradition">2.2 Sanskrit Witnesses (Derived Tradition)</h3>
+<p>Sanskrit witnesses are treated as evidence of <strong>reception and re-Sanskritization</strong>, not as sources for correcting Chinese readings. Following Conze (1967) with updates:</p>
+<h4 id="japanese-provenance">Japanese Provenance</h4>
+<table>
+<thead>
+<tr>
+<th>Siglum</th>
+<th>Name</th>
+<th>Date</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ja</strong></td>
+<td>Hōryū-ji Palm-leaf</td>
+<td>c. 8th c.</td>
+<td>Earliest undated Sanskrit manuscript. Despite traditional 609 CE date (unreliable), provides earliest physical Sanskrit evidence. Shows significant scribal errors indicating secondary transmission.</td>
+</tr>
+<tr>
+<td>Jb</td>
+<td>Hase-ji Long Text</td>
+<td>c. 9th c.</td>
+<td>Long version brought from China. Evidence of East Asian Sanskrit transmission.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="nepalese-provenance">Nepalese Provenance</h4>
+<table>
+<thead>
+<tr>
+<th>Siglum</th>
+<th>Name</th>
+<th>Date</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Na</td>
+<td>India Office 7712</td>
+<td>c. 18th c.</td>
+<td>Representative of late Nepalese tradition.</td>
+</tr>
+<tr>
+<td><strong>Nb</strong></td>
+<td>Cambridge Add. 1485</td>
+<td>1677 CE</td>
+<td>Well-preserved, precisely dated. Gold on black paper in Rañjana script.</td>
+</tr>
+<tr>
+<td>Nc</td>
+<td>Bodleian 1449</td>
+<td>1819 CE</td>
+<td>Comparison witness.</td>
+</tr>
+<tr>
+<td>Nd</td>
+<td>RAS no. 79 V</td>
+<td>c. 1820</td>
+<td>Comparison witness.</td>
+</tr>
+<tr>
+<td>Ne</td>
+<td>Cambridge Add. 1553</td>
+<td>c. 18th c.</td>
+<td>Comparison witness.</td>
+</tr>
+<tr>
+<td>Nf-Ng</td>
+<td>Asiatic Society Bengal</td>
+<td>—</td>
+<td>Additional comparison.</td>
+</tr>
+<tr>
+<td>Nh</td>
+<td>Cambridge Add. 1164</td>
+<td>—</td>
+<td>Fragment (first 6 lines only).</td>
+</tr>
+<tr>
+<td>Ni</td>
+<td>Société Asiatique 14</td>
+<td>—</td>
+<td>Long text version in Nepalese tradition.</td>
+</tr>
+<tr>
+<td><strong>Nk</strong></td>
+<td>Cambridge Add. 1680</td>
+<td>c. 1200 CE</td>
+<td><strong>One of oldest Nepalese witnesses</strong>. Palm leaf, 13th century. Critical for establishing early Nepalese readings.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="chinese-provenance-sanskrit">Chinese-Provenance Sanskrit</h4>
+<table>
+<thead>
+<tr>
+<th>Siglum</th>
+<th>Name</th>
+<th>Date</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ca</td>
+<td>Chinese blockprint</td>
+<td>c. 17th c.</td>
+<td>Evidence of Chinese Sanskrit preservation.</td>
+</tr>
+<tr>
+<td><strong>Cb</strong></td>
+<td>Stein S. 2464</td>
+<td>c. 600-700</td>
+<td>Sanskrit in Chinese characters. Same as T256. <strong>Critical for back-translation thesis</strong>.</td>
+</tr>
+<tr>
+<td>Cc</td>
+<td>Mironov Mongolian</td>
+<td>c. 10th-11th c.</td>
+<td>Stone inscription. Evidence of Central Asian transmission.</td>
+</tr>
+<tr>
+<td>Cd</td>
+<td>Mironov Bronze Bell</td>
+<td>—</td>
+<td>Incomplete. Physical inscription evidence.</td>
+</tr>
+<tr>
+<td>Ce</td>
+<td>Feer Polyglot</td>
+<td>c. 17th c.</td>
+<td>Historical polyglot edition.</td>
+</tr>
+<tr>
+<td>Cf</td>
+<td>Stein Ch. 00330</td>
+<td>c. 850</td>
+<td>Dunhuang Sanskrit.</td>
+</tr>
+<tr>
+<td><strong>Cg</strong></td>
+<td>Pelliot Sogdien 62</td>
+<td>c. 950</td>
+<td>Birch bark in Siddham. Central Asian transmission evidence.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="central-asian">Central Asian</h4>
+<table>
+<thead>
+<tr>
+<th>Siglum</th>
+<th>Name</th>
+<th>Date</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gilgit</strong></td>
+<td>Gilgit Fragments</td>
+<td>c. 6th-7th c.</td>
+<td><strong>Earliest Sanskrit fragments</strong>. Covers ~80% of text. Critical for establishing early Sanskrit readings, though still post-dates Chinese composition.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Selection Rationale</strong>: All witnesses from Conze's critical edition are included to enable comprehensive comparison. Priority witnesses (bold) are those that either (1) are earliest, (2) are most precisely dated, or (3) provide critical evidence for transmission history.</p>
+<h3 id="23-tibetan-witnesses-mediating">2.3 Tibetan Witnesses (Mediating)</h3>
+<p>Tibetan witnesses serve as <strong>mediating evidence</strong> that may reflect earlier Sanskrit forms while still participating in a secondary transmission chain:</p>
+<table>
+<thead>
+<tr>
+<th>Siglum</th>
+<th>Name</th>
+<th>Date</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Toh21</strong></td>
+<td>Degé Kangyur (Prajñāpāramitā section)</td>
+<td>c. 9th c. (trans.)</td>
+<td><strong>Primary Tibetan witness</strong>. Long version. Translated by Vimalamitra and Rinchen Dé. Standard canonical version.</td>
+</tr>
+<tr>
+<td>Toh531</td>
+<td>Degé Kangyur (Tantra section)</td>
+<td>c. 9th c.</td>
+<td>Alternative canonical location.</td>
+</tr>
+<tr>
+<td>Stok</td>
+<td>Stok Palace Kangyur</td>
+<td>—</td>
+<td>Alternative recension (Recension B). Differs in title, mantra, phrasings. Critical for understanding Tibetan textual variation.</td>
+</tr>
+<tr>
+<td><strong>IOL_J751</strong></td>
+<td>Dunhuang</td>
+<td>c. 823 CE</td>
+<td><strong>Earliest dated Tibetan witness</strong>. Late Old Tibetan version. Differs from both Kangyur versions and Sanskrit/Chinese texts. Critical for early transmission.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Selection Rationale</strong>: Tibetan is included because (1) it may preserve earlier Sanskrit readings than surviving Indic manuscripts, (2) it provides independent evidence for triangulating transmission stages, and (3) the Dunhuang manuscript (IOL_J751) is one of the earliest precisely dated witnesses in any tradition.</p>
+<h3 id="24-prajnaparamita-source-texts">2.4 Prajñāpāramitā Source Texts</h3>
+<p>The Heart Sūtra's core section was extracted from larger Prajñāpāramitā texts:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Title</th>
+<th>Date</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T223</strong></td>
+<td>摩訶般若波羅蜜經</td>
+<td>404 CE</td>
+<td>Kumārajīva's Chinese translation of the Large PP. <strong>Primary source</strong> from which Heart Sūtra core was extracted.</td>
+</tr>
+<tr>
+<td><strong>Pañcaviṃśati (Gilgit)</strong></td>
+<td>Pañcaviṃśatisāhasrikā</td>
+<td>c. 7th c.</td>
+<td>Sanskrit 25,000-line PP. Contains the passage paralleling the Heart Sūtra core. Critical for demonstrating extraction and back-translation evidence (nirodha vs. kṣaya).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Selection Rationale</strong>: These texts are essential for demonstrating that the Heart Sūtra was composed by extracting and condensing material from larger Prajñāpāramitā literature, and for identifying back-translation artifacts in the Sanskrit Heart Sūtra.</p>
+<hr />
+<h2 id="3-results">3. Results</h2>
+<h3 id="31-data-files-created">3.1 Data Files Created</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Contents</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/chinese/taisho/T251.json</code></td>
+<td>Base text with 12 segments, pinyin, English glosses</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td><code>data/sanskrit/gretil/prajnaparamitahrdaya.json</code></td>
+<td>GRETIL text in IAST + Devanagari with Chinese parallels</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td><code>data/tibetan/kangyur/toh21.json</code></td>
+<td>Long version with Tibetan script + Wylie</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td><code>data/prajnaparamita/pancavimsati_parallel.json</code></td>
+<td>Source extraction data with kṣaya/nirodha analysis</td>
+<td>Complete</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-generated-outputs">3.2 Generated Outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/aligned/synoptic_alignment.md</code></td>
+<td>Markdown</td>
+<td>12 segments with Chinese, Sanskrit (dual script), Tibetan, English in parallel</td>
+</tr>
+<tr>
+<td><code>data/aligned/synoptic_alignment.html</code></td>
+<td>HTML</td>
+<td>Web-viewable parallel presentation</td>
+</tr>
+<tr>
+<td><code>data/aligned/synoptic_alignment.json</code></td>
+<td>JSON</td>
+<td>Machine-readable alignment for programmatic access</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-scholarly-annotations-implemented">3.3 Scholarly Annotations Implemented</h3>
+<p>The edition currently includes the following scholarly annotations:</p>
+<ol>
+<li>
+<p><strong>Back-translation evidence</strong>: Segment T251:7/GRETIL:8 notes the use of <em>kṣaya</em> instead of <em>nirodha</em>, flagged as evidence of Chinese → Sanskrit back-translation (Nattier 1992).</p>
+</li>
+<li>
+<p><strong>Grammatical anomalies</strong>: Segment GRETIL:2 notes unusual imperfect tense (<em>vyavalokayati sma</em>) atypical for sūtra style.</p>
+</li>
+<li>
+<p><strong>Controversial readings</strong>: Segment GRETIL:10 flags <em>niṣṭhā-nirvāṇa</em> as a controversial reading (Attwood 2018).</p>
+</li>
+<li>
+<p><strong>Frame narrative differences</strong>: Tibetan Toh21 prologue notes that the frame narrative is not present in Chinese short version T251.</p>
+</li>
+</ol>
+<h3 id="34-code-statistics">3.4 Code Statistics</h3>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Lines</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>models.py</code></td>
+<td>200+</td>
+<td>Data structures</td>
+</tr>
+<tr>
+<td><code>witnesses.py</code></td>
+<td>450+</td>
+<td>Witness catalog</td>
+</tr>
+<tr>
+<td><code>transliterate.py</code></td>
+<td>200+</td>
+<td>Script conversion</td>
+</tr>
+<tr>
+<td><code>collate.py</code></td>
+<td>300+</td>
+<td>Collation engine</td>
+</tr>
+<tr>
+<td><code>synoptic.py</code></td>
+<td>350+</td>
+<td>Parallel presentation</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~1,500</strong></td>
+<td>Core library</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-future-work">4. Future Work</h2>
+<h3 id="41-immediate-priorities">4.1 Immediate Priorities</h3>
+<h4 id="additional-witnesses">Additional Witnesses</h4>
+<ul>
+<li>[ ] Add remaining Chinese witnesses (T250, T252-257)</li>
+<li>[ ] Add Sanskrit manuscript transcriptions from prajnaparamitahrdaya.wordpress.com (Nb, Nk diplomatic editions)</li>
+<li>[ ] Add Dunhuang Tibetan manuscript (IOL Tib J 751)</li>
+<li>[ ] Add Stok Palace Kangyur variant readings</li>
+</ul>
+<h4 id="enhanced-collation">Enhanced Collation</h4>
+<ul>
+<li>[ ] Implement word-level alignment algorithm</li>
+<li>[ ] Build variant classification heuristics based on Nattier's criteria</li>
+<li>[ ] Add confidence scoring for direction-of-dependence annotations</li>
+<li>[ ] Create apparatus generation for identified variants</li>
+</ul>
+<h3 id="42-medium-term-goals">4.2 Medium-Term Goals</h3>
+<h4 id="export-formats">Export Formats</h4>
+<ul>
+<li>[ ] <strong>LaTeX/PDF</strong>: Critical edition typesetting using <code>reledmac</code> package</li>
+<li>Parallel text presentation</li>
+<li>Critical apparatus at foot of page</li>
+<li>Sigla and witness references</li>
+<li>[ ] <strong>TEI-XML</strong>: Standard scholarly edition format for interoperability</li>
+<li>[ ] <strong>HTML5</strong>: Interactive web edition with hover annotations</li>
+</ul>
+<h4 id="analysis-tools">Analysis Tools</h4>
+<ul>
+<li>[ ] Search across all traditions</li>
+<li>[ ] Variant frequency analysis</li>
+<li>[ ] Extraction pattern identification (PP → Heart Sūtra)</li>
+<li>[ ] Back-translation marker detection</li>
+</ul>
+<h4 id="lemmatization">Lemmatization</h4>
+<ul>
+<li>[ ] Sanskrit lemmatization using Digital Pāli Dictionary (DPD) Sanskrit data</li>
+<li>[ ] Chinese word segmentation</li>
+<li>[ ] Tibetan syllable analysis</li>
+</ul>
+<h3 id="43-long-term-vision">4.3 Long-Term Vision</h3>
+<h4 id="interactive-edition">Interactive Edition</h4>
+<ul>
+<li>Web-based interface for exploring the textual complex</li>
+<li>Clickable variants with scholarly commentary</li>
+<li>Visual transmission diagram</li>
+<li>Audio pronunciations for Sanskrit and Tibetan</li>
+</ul>
+<h4 id="scholarly-commentary">Scholarly Commentary</h4>
+<ul>
+<li>Section-by-section philological commentary</li>
+<li>Extraction analysis (which PP passages map to which Heart Sūtra sections)</li>
+<li>Translation technique analysis</li>
+<li>Historical contextualization</li>
+</ul>
+<h4 id="community-features">Community Features</h4>
+<ul>
+<li>Annotation system for scholarly contributions</li>
+<li>Version control for textual emendations</li>
+<li>Export to Zotero/citation managers</li>
+</ul>
+<hr />
+<h2 id="5-technical-dependencies">5. Technical Dependencies</h2>
+<h3 id="current-standard-library-only">Current (Standard Library Only)</h3>
+<ul>
+<li><code>json</code> - Data serialization</li>
+<li><code>pathlib</code> - Cross-platform paths</li>
+<li><code>dataclasses</code> - Data structures</li>
+<li><code>enum</code> - Enumerations</li>
+<li><code>difflib</code> - Sequence alignment</li>
+<li><code>typing</code> - Type hints</li>
+</ul>
+<h3 id="planned">Planned</h3>
+<ul>
+<li><code>lxml</code> - TEI-XML generation</li>
+<li><code>jinja2</code> - Template rendering</li>
+<li><code>flask</code> or <code>fastapi</code> - Web interface (optional)</li>
+</ul>
+<hr />
+<h2 id="6-scholarly-foundation">6. Scholarly Foundation</h2>
+<h3 id="primary-methodology-sources">Primary Methodology Sources</h3>
+<ol>
+<li><strong>Nattier, Jan (1992)</strong>. "The Heart Sūtra: a Chinese apocryphal text?" <em>Journal of the International Association of Buddhist Studies</em> 15(2): 153-223.</li>
+<li>Establishes Chinese compositional priority</li>
+<li>Identifies back-translation evidence</li>
+<li>
+<p>Provides extraction analysis from Large PP</p>
+</li>
+<li>
+<p><strong>Conze, Edward (1967)</strong>. "The Prajñāpāramitā-Hṛdaya Sūtra." In <em>Thirty Years of Buddhist Studies</em>, pp. 147-167.</p>
+</li>
+<li>Critical edition of Sanskrit text</li>
+<li>Witness sigla system</li>
+<li>
+<p>Manuscript descriptions</p>
+</li>
+<li>
+<p><strong>Attwood, Jayarava (2015-2020)</strong>. Series in <em>Journal of the Oxford Centre for Buddhist Studies</em>.</p>
+</li>
+<li>Corrections to Conze's edition</li>
+<li>Extended back-translation analysis</li>
+<li>
+<p>Detailed textual problems</p>
+</li>
+<li>
+<p><strong>Silk, Jonathan A. (1994)</strong>. <em>The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions Contained in the Kanjur</em>. Vienna.</p>
+</li>
+<li>Tibetan critical edition</li>
+<li>Recension analysis</li>
+</ol>
+<h3 id="digital-resources-used">Digital Resources Used</h3>
+<ul>
+<li><strong>GRETIL</strong> (Göttingen Register of Electronic Texts in Indian Languages)</li>
+<li><strong>CBETA</strong> (Chinese Buddhist Electronic Text Association)</li>
+<li><strong>84000: Translating the Words of the Buddha</strong></li>
+<li><strong>Digital Sanskrit Buddhist Canon</strong> (University of the West)</li>
+<li><strong>prajnaparamitahrdaya.wordpress.com</strong> (Jayarava Attwood's research site)</li>
+</ul>
+<hr />
+<h2 id="7-conclusion">7. Conclusion</h2>
+<p>This project represents a new approach to editing the Heart Sūtra that takes seriously the scholarly consensus on its Chinese compositional origin. Rather than treating Sanskrit as the source and Chinese as a translation, the edition inverts this assumption and documents how a Chinese composition became a multilingual Buddhist scripture.</p>
+<p>The architecture is designed to be:
+- <strong>Extensible</strong>: New witnesses can be added without restructuring
+- <strong>Transparent</strong>: All editorial decisions are documented in the data
+- <strong>Reproducible</strong>: Scripts generate outputs from source data
+- <strong>Scholarly</strong>: Follows established critical edition principles adapted for multilingual, non-archetypal texts</p>
+<p>The result is not a reconstruction of a lost original, but a <strong>documented history of how a sūtra was made</strong>.</p>
+<hr />
+<p><em>Document version: 1.0</em>
+<em>Last updated: February 2026</em></p>
+<footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; font-size: 9pt; color: #666; text-align: center;">
+    <p>Heart Sūtra Critical Edition Project</p>
+</footer>
+</body>
+</html>

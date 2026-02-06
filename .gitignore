@@ -1,0 +1,20 @@
+# Emacs backup files
+*~
+\#*\#
+.\#*
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS files
+.DS_Store

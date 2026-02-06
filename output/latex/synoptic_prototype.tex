@@ -1,0 +1,168 @@
+% Heart Sutra Synoptic Critical Edition - Prototype
+% Three-column parallel text with stacked scripts
+% Landscape A4
+
+\documentclass[11pt,landscape,a4paper]{article}
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+
+% Page geometry - landscape with reasonable margins
+\usepackage[landscape,margin=1.5cm]{geometry}
+
+% Font support for multilingual text
+\usepackage{fontspec}
+\usepackage{xeCJK}
+
+% Tables
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+
+% Colors (optional, for visual distinction)
+\usepackage{xcolor}
+
+% ============================================================================
+% FONTS
+% ============================================================================
+
+% Main font (for English, IAST)
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+
+% Chinese
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+
+% Sanskrit (Devanagari) - define a command
+\newfontfamily\devanagarifont{Noto Serif Devanagari}
+\newcommand{\deva}[1]{{\devanagarifont #1}}
+
+% Tibetan - define a command
+\newfontfamily\tibetanfont{Noto Serif Tibetan}
+\newcommand{\tib}[1]{{\tibetanfont #1}}
+
+% ============================================================================
+% CUSTOM COMMANDS
+% ============================================================================
+
+% Segment number
+\newcommand{\segnum}[1]{\textbf{[#1]}}
+
+% Romanization (smaller, italic)
+\newcommand{\rom}[1]{{\small\itshape #1}}
+
+% English translation (spanning row)
+\newcommand{\engltrans}[1]{\multicolumn{3}{p{0.95\textwidth}}{\small\itshape ``#1''}}
+
+% ============================================================================
+% DOCUMENT
+% ============================================================================
+
+\begin{document}
+
+% Title
+\begin{center}
+{\LARGE\bfseries Prajñāpāramitāhṛdaya}\\[0.3em]
+{\LARGE 般若波羅蜜多心經}\\[0.3em]
+{\large Heart Sūtra -- Synoptic Critical Edition}\\[1em]
+{\small Chinese (T251) · Sanskrit (GRETIL) · Tibetan (Toh 21)}
+\end{center}
+
+\vspace{1em}
+
+% ============================================================================
+% SYNOPTIC TABLE
+% ============================================================================
+
+\noindent
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Chinese (T251)} & \textbf{Sanskrit} & \textbf{Tibetan (Toh 21)} \\
+\hline
+\hline
+
+% --- Segment 1: Opening ---
+\segnum{1} 觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。
+\newline\rom{Guānzìzài púsà, xíng shēn bōrě bōluómìduō shí, zhàojiàn wǔyùn jiē kōng, dù yīqiè kǔ'è.}
+&
+\deva{आर्यावलोकितेश्वरबोधिसत्त्वो गम्भीरां प्रज्ञापारमिताचर्यां चरमाणो व्यवलोकयति स्म।}
+\newline\rom{āryāvalokiteśvarabodhisattvo gambhīrāṃ prajñāpāramitācaryāṃ caramāṇo vyavalokayati sma.}
+&
+\tib{འཕགས་པ་སྤྱན་རས་གཟིགས་དབང་ཕྱུག་བྱང་ཆུབ་སེམས་དཔའ་སེམས་དཔའ་ཆེན་པོ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ཟབ་མོ་སྤྱོད་པ་སྤྱད་པ།}
+\newline\rom{'phags pa spyan ras gzigs dbang phyug byang chub sems dpa' sems dpa' chen po shes rab kyi pha rol tu phyin pa zab mo spyod pa spyad pa.}
+\\
+\hline
+\engltrans{The noble Avalokiteśvara Bodhisattva, while practicing the profound prajñāpāramitā, looked down and saw that the five aggregates are all empty, and crossed beyond all suffering.} \\
+\hline
+\hline
+
+% --- Segment 2: Śāriputra address ---
+\segnum{2} 舍利子，色不異空，空不異色；色即是空，空即是色。受、想、行、識，亦復如是。
+\newline\rom{Shèlìzǐ, sè bù yì kōng, kōng bù yì sè; sè jí shì kōng, kōng jí shì sè. Shòu, xiǎng, xíng, shí, yì fù rú shì.}
+&
+\deva{इह शारिपुत्र रूपं शून्यता शून्यतैव रूपं। रूपान्न पृथक् शून्यता शून्यताया न पृथग् रूपम्।}
+\newline\rom{iha śāriputra rūpaṃ śūnyatā śūnyataiva rūpaṃ. rūpānna pṛthak śūnyatā śūnyatāyā na pṛthag rūpam.}
+&
+\tib{ཤཱ་རིའི་བུ་གཟུགས་སྟོང་པའོ། སྟོང་པ་ཉིད་གཟུགས་སོ། གཟུགས་ལས་སྟོང་པ་ཉིད་གཞན་མ་ཡིན། སྟོང་པ་ཉིད་ལས་ཀྱང་གཟུགས་གཞན་མ་ཡིན་ནོ།}
+\newline\rom{shā ri'i bu gzugs stong pa'o. stong pa nyid gzugs so. gzugs las stong pa nyid gzhan ma yin. stong pa nyid las kyang gzugs gzhan ma yin no.}
+\\
+\hline
+\engltrans{Śāriputra, form is not different from emptiness, emptiness is not different from form; form is exactly emptiness, emptiness is exactly form. Sensation, perception, volition, and consciousness are also like this.} \\
+\hline
+\hline
+
+% --- Segment 3: Dharmas are empty ---
+\segnum{3} 舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。
+\newline\rom{Shèlìzǐ, shì zhūfǎ kōng xiāng, bù shēng bù miè, bù gòu bù jìng, bù zēng bù jiǎn.}
+&
+\deva{इह शारिपुत्र सर्वधर्माः शून्यतालक्षणा अनुत्पन्ना अनिरुद्धा अमला अविमला अनूना अपरिपूर्णाः।}
+\newline\rom{iha śāriputra sarvadharmāḥ śūnyatālakṣaṇā anutpannā aniruddhā amalā avimalā anūnā aparipūrṇāḥ.}
+&
+\tib{ཤཱ་རིའི་བུ་དེ་ལྟ་བས་ན་ཆོས་ཐམས་ཅད་སྟོང་པ་ཉིད་དེ། མཚན་ཉིད་མེད་པ། མ་སྐྱེས་པ། མ་འགགས་པ། དྲི་མ་མེད་པ། དྲི་མ་དང་བྲལ་བ་མེད་པ། བྲི་བ་མེད་པ། གང་བ་མེད་པའོ།}
+\newline\rom{shā ri'i bu de lta bas na chos thams cad stong pa nyid de. mtshan nyid med pa. ma skyes pa. ma 'gags pa. dri ma med pa. dri ma dang bral ba med pa. bri ba med pa. gang ba med pa'o.}
+\\
+\hline
+\engltrans{Śāriputra, all dharmas are marked by emptiness: not born, not destroyed; not defiled, not pure; not increasing, not decreasing.} \\
+\hline
+\hline
+
+% --- Segment 4: Therefore in emptiness ---
+\segnum{4} 是故空中無色，無受、想、行、識；無眼、耳、鼻、舌、身、意；無色、聲、香、味、觸、法。
+\newline\rom{Shìgù kōng zhōng wú sè, wú shòu, xiǎng, xíng, shí; wú yǎn, ěr, bí, shé, shēn, yì; wú sè, shēng, xiāng, wèi, chù, fǎ.}
+&
+\deva{तस्माच्छारिपुत्र शून्यतायां न रूपं न वेदना न संज्ञा न संस्कारा न विज्ञानम्। न चक्षुः न श्रोत्रं न घ्राणं न जिह्वा न कायो न मनः।}
+\newline\rom{tasmācchāriputra śūnyatāyāṃ na rūpaṃ na vedanā na saṃjñā na saṃskārā na vijñānam. na cakṣuḥ na śrotraṃ na ghrāṇaṃ na jihvā na kāyo na manaḥ.}
+&
+\tib{དེ་ལྟ་བས་ན་སྟོང་པ་ཉིད་ལ་གཟུགས་མེད། ཚོར་བ་མེད། འདུ་ཤེས་མེད། འདུ་བྱེད་མེད། རྣམ་པར་ཤེས་པ་མེད། མིག་མེད། རྣ་བ་མེད། སྣ་མེད། ལྕེ་མེད། ལུས་མེད། ཡིད་མེད།}
+\newline\rom{de lta bas na stong pa nyid la gzugs med. tshor ba med. 'du shes med. 'du byed med. rnam par shes pa med. mig med. rna ba med. sna med. lce med. lus med. yid med.}
+\\
+\hline
+\engltrans{Therefore, in emptiness there is no form, no sensation, perception, volition, or consciousness; no eye, ear, nose, tongue, body, or mind; no form, sound, smell, taste, touch, or mental objects.} \\
+\hline
+\hline
+
+% --- Segment 5: No realm of... ---
+\segnum{5} 無眼界，乃至無意識界；無無明，亦無無明盡；乃至無老死，亦無老死盡。
+\newline\rom{Wú yǎn jiè, nǎizhì wú yìshí jiè; wú wúmíng, yì wú wúmíng jìn; nǎizhì wú lǎosǐ, yì wú lǎosǐ jìn.}
+&
+\deva{न चक्षुर्धातुर्यावन्न मनोविज्ञानधातुः। न विद्या नाविद्या न विद्याक्षयो नाविद्याक्षयो यावन्न जरामरणं न जरामरणक्षयः।}
+\newline\rom{na cakṣurdhāturyāvanna manovijñānadhātuḥ. na vidyā nāvidyā na vidyākṣayo nāvidyākṣayo yāvanna jarāmaraṇaṃ na jarāmaraṇakṣayaḥ.}
+&
+\tib{མིག་གི་ཁམས་མེད་པ་ནས་ཡིད་ཀྱི་རྣམ་པར་ཤེས་པའི་ཁམས་ཀྱི་བར་དུ་ཡང་མེད་དོ། མ་རིག་པ་མེད། མ་རིག་པ་ཟད་པ་མེད་པ་ནས་རྒ་ཤི་མེད། རྒ་ཤི་ཟད་པའི་བར་དུ་ཡང་མེད་དོ།}
+\newline\rom{mig gi khams med pa nas yid kyi rnam par shes pa'i khams kyi bar du yang med do. ma rig pa med. ma rig pa zad pa med pa nas rga shi med. rga shi zad pa'i bar du yang med do.}
+\\
+\hline
+\engltrans{No realm of eye, up to no realm of mind-consciousness; no ignorance, and no ending of ignorance; up to no old age and death, and no ending of old age and death.} \\
+\hline
+
+\end{tabularx}
+
+\vspace{2em}
+\begin{center}
+{\small\itshape [Prototype -- segments 1-5 of 12]}
+\end{center}
+
+\end{document}

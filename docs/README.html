@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Sūtra Critical Edition</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24pt;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 16pt;
+            border-bottom: 1px solid #666;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 13pt;
+            margin-top: 20px;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            font-size: 11pt;
+            font-style: italic;
+            margin-top: 15px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            background: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        pre {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            page-break-inside: avoid;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        blockquote {
+            border-left: 3px solid #666;
+            margin: 15px 0;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        /* Sanskrit/Tibetan text styling */
+        .devanagari {
+            font-family: 'Noto Sans Devanagari', serif;
+        }
+
+        .tibetan {
+            font-family: 'Noto Sans Tibetan', serif;
+        }
+
+        /* Print-specific */
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            h1 {
+                page-break-before: avoid;
+            }
+
+            h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            pre, table, blockquote {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: #333;
+                text-decoration: none;
+            }
+
+            a[href]:after {
+                content: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1 id="heart-sutra-critical-edition">Heart Sūtra Critical Edition</h1>
+<p>A multilingual electronic critical edition of the Prajñāpāramitāhṛdaya (Heart Sūtra) treating the text as a textual complex with Chinese compositional priority.</p>
+<h2 id="overview">Overview</h2>
+<p>This project creates a scholarly critical edition of the Heart Sūtra that:</p>
+<ul>
+<li><strong>Treats Chinese as compositionally prior</strong> following Nattier (1992) and subsequent scholarship</li>
+<li><strong>Presents Sanskrit as derived tradition</strong> - evidence of reception and back-translation</li>
+<li><strong>Uses Tibetan as mediating witness</strong> for triangulating transmission stages</li>
+<li><strong>Provides dual-script Sanskrit</strong> in both Devanagari and IAST</li>
+<li><strong>Annotates direction-of-dependence</strong> in the critical apparatus</li>
+</ul>
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>heart-sutra/
+├── src/
+│   └── hrdaya/              # Core Python library
+│       ├── __init__.py      # Package initialization
+│       ├── models.py        # Data models (Witness, Segment, Variant, etc.)
+│       ├── witnesses.py     # Witness catalog with full metadata
+│       └── transliterate.py # Devanagari ↔ IAST conversion
+├── data/
+│   ├── chinese/
+│   │   ├── taisho/          # Taishō Canon texts (T250-T257)
+│   │   ├── dunhuang/        # Dunhuang manuscripts
+│   │   └── manuscripts/     # Other Chinese manuscripts
+│   ├── sanskrit/
+│   │   ├── gretil/          # GRETIL edition
+│   │   ├── dsbc/            # Digital Sanskrit Buddhist Canon
+│   │   └── manuscripts/     # Manuscript transcriptions by provenance
+│   │       ├── nepalese/
+│   │       ├── japanese/
+│   │       ├── chinese-inscriptions/
+│   │       └── central-asian/
+│   ├── tibetan/
+│   │   ├── kangyur/         # Kangyur versions
+│   │   └── dunhuang/        # Dunhuang Tibetan manuscripts
+│   ├── prajnaparamita/      # Source texts (Large PP parallels)
+│   ├── collation/           # Collation output
+│   ├── critical/            # Critical edition output
+│   └── aligned/             # Synoptic alignments
+├── docs/
+│   └── METHODOLOGY.md       # Full methodological framework
+├── refs/                    # Scholarly references
+└── scripts/                 # Utility scripts
+</code></pre>
+<h2 id="methodology">Methodology</h2>
+<p>This edition follows the methodological principles outlined in <code>docs/METHODOLOGY.md</code>:</p>
+<ol>
+<li><strong>Abandon single-original-text assumption</strong> - No Ur-Sanskrit reconstruction</li>
+<li><strong>Define object as textual complex</strong> - Multiple related but non-equivalent forms</li>
+<li><strong>Chinese base text (T251)</strong> - Analytical anchor, not authoritative text</li>
+<li><strong>Exhaustive witness collation</strong> - All traditions systematically compared</li>
+<li><strong>Sanskrit as derived</strong> - Evidence of reception, not origin</li>
+<li><strong>Tibetan as mediating</strong> - Triangulates transmission stages</li>
+<li><strong>Direction-of-dependence annotation</strong> - Apparatus encodes history</li>
+<li><strong>Parallel presentation</strong> - Chinese critical text + multilingual synoptic</li>
+<li><strong>Composition-focused commentary</strong> - Historical/philological priority</li>
+<li><strong>Transparent about limits</strong> - Probabilistic conclusions clearly marked</li>
+</ol>
+<h2 id="witnesses">Witnesses</h2>
+<h3 id="chinese-taisho-canon">Chinese (Taishō Canon)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Title</th>
+<th>Date</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T251</td>
+<td>般若波羅蜜多心經</td>
+<td>649 CE</td>
+<td>Base text</td>
+</tr>
+<tr>
+<td>T250</td>
+<td>摩訶般若波羅蜜大明咒經</td>
+<td>c. 402-412</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>T252-257</td>
+<td>Various</td>
+<td>c. 700-1000</td>
+<td>Short/Long</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sanskrit">Sanskrit</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Date</th>
+<th>Provenance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ja</td>
+<td>Hōryū-ji palm-leaf</td>
+<td>c. 8th c.</td>
+<td>Japan</td>
+</tr>
+<tr>
+<td>Nb</td>
+<td>Cambridge Add. 1485</td>
+<td>1677 CE</td>
+<td>Nepal</td>
+</tr>
+<tr>
+<td>Nk</td>
+<td>Cambridge Add. 1680</td>
+<td>c. 13th c.</td>
+<td>Nepal</td>
+</tr>
+<tr>
+<td>Gilgit</td>
+<td>Gilgit fragments</td>
+<td>c. 6th-7th c.</td>
+<td>Central Asia</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tibetan">Tibetan</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Toh21</td>
+<td>Degé Kangyur</td>
+<td>c. 9th c. (trans.)</td>
+</tr>
+<tr>
+<td>IOL_J751</td>
+<td>Dunhuang</td>
+<td>c. 823 CE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-formats">Data Formats</h2>
+<h3 id="source-texts-json">Source Texts (JSON)</h3>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;T251&quot;,
+  &quot;title_chinese&quot;: &quot;般若波羅蜜多心經&quot;,
+  &quot;translator&quot;: &quot;Xuanzang&quot;,
+  &quot;date&quot;: &quot;649 CE&quot;,
+  &quot;recension&quot;: &quot;short&quot;,
+  &quot;text&quot;: &quot;觀自在菩薩...&quot;,
+  &quot;segments&quot;: [
+    {
+      &quot;id&quot;: &quot;T251:1&quot;,
+      &quot;section&quot;: &quot;opening&quot;,
+      &quot;text&quot;: &quot;觀自在菩薩，行深般若波羅蜜多時...&quot;,
+      &quot;pinyin&quot;: &quot;Guānzìzài púsà...&quot;,
+      &quot;english_gloss&quot;: &quot;When Avalokiteśvara Bodhisattva...&quot;
+    }
+  ]
+}
+</code></pre>
+<h3 id="sanskrit-with-dual-script">Sanskrit with Dual Script</h3>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;GRETIL:3&quot;,
+  &quot;section&quot;: &quot;form_emptiness&quot;,
+  &quot;iast&quot;: &quot;Iha Śāriputra rūpaṃ śūnyatā...&quot;,
+  &quot;devanagari&quot;: &quot;इह शारिपुत्र रूपं शून्यता...&quot;,
+  &quot;chinese_parallel&quot;: &quot;T251:2&quot;
+}
+</code></pre>
+<h2 id="installation">Installation</h2>
+<pre><code class="language-bash"># Clone repository
+git clone &lt;repository-url&gt;
+cd heart-sutra
+
+# Create virtual environment (optional)
+python -m venv venv
+source venv/bin/activate
+
+# No external dependencies required (standard library only)
+</code></pre>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-python">from hrdaya import Witness, WitnessType
+from hrdaya.witnesses import get_witness, CHINESE_WITNESSES
+
+# Get witness information
+t251 = get_witness(&quot;T251&quot;)
+print(f&quot;{t251.name} ({t251.date})&quot;)
+
+# List all Sanskrit witnesses
+from hrdaya.witnesses import SANSKRIT_WITNESSES
+for siglum, witness in SANSKRIT_WITNESSES.items():
+    print(f&quot;{siglum}: {witness.name}&quot;)
+</code></pre>
+<h2 id="key-scholarship">Key Scholarship</h2>
+<ul>
+<li><strong>Nattier, Jan (1992)</strong>. "The Heart Sūtra: a Chinese apocryphal text?" <em>JIABS</em> 15(2): 153-223.</li>
+<li><strong>Conze, Edward (1967)</strong>. "The Prajñāpāramitā-Hṛdaya Sūtra." In <em>Thirty Years of Buddhist Studies</em>.</li>
+<li><strong>Attwood, Jayarava (2015-2020)</strong>. Series of articles in <em>JOCBS</em> on Heart Sūtra textual problems.</li>
+<li><strong>Silk, Jonathan (1994)</strong>. <em>The Heart Sūtra in Tibetan</em>. Vienna.</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>This project is under active development. Current status:</p>
+<ul>
+<li>[x] Project structure and data models</li>
+<li>[x] Witness catalog with metadata</li>
+<li>[x] Chinese base text (T251)</li>
+<li>[x] Sanskrit text (GRETIL) with dual script</li>
+<li>[x] Tibetan text (Kangyur Toh 21)</li>
+<li>[x] Transliteration utilities</li>
+<li>[x] Methodology documentation</li>
+<li>[ ] Full collation system</li>
+<li>[ ] Synoptic alignment tool</li>
+<li>[ ] Variant classification</li>
+<li>[ ] Critical apparatus generation</li>
+<li>[ ] Export formats (LaTeX, TEI-XML)</li>
+</ul>
+<h2 id="license">License</h2>
+<p>This project is for scholarly use. Individual texts may have their own licensing terms from their respective sources (GRETIL, CBETA, 84000, etc.).</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<ul>
+<li>GRETIL (Göttingen Register of Electronic Texts in Indian Languages)</li>
+<li>CBETA (Chinese Buddhist Electronic Text Association)</li>
+<li>84000: Translating the Words of the Buddha</li>
+<li>Digital Sanskrit Buddhist Canon</li>
+<li>Jayarava Attwood's Heart Sūtra research at prajnaparamitahrdaya.wordpress.com</li>
+</ul>
+<hr />
+<p><em>February 2026</em></p>
+<footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; font-size: 9pt; color: #666; text-align: center;">
+    <p>Heart Sūtra Critical Edition Project</p>
+</footer>
+</body>
+</html>

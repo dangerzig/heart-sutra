@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Methodology: A Modern Critical Edition of the Heart Sūtra</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24pt;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 16pt;
+            border-bottom: 1px solid #666;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 13pt;
+            margin-top: 20px;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            font-size: 11pt;
+            font-style: italic;
+            margin-top: 15px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            background: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        pre {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            page-break-inside: avoid;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        blockquote {
+            border-left: 3px solid #666;
+            margin: 15px 0;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            font-style: italic;
+        }
+
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        /* Sanskrit/Tibetan text styling */
+        .devanagari {
+            font-family: 'Noto Sans Devanagari', serif;
+        }
+
+        .tibetan {
+            font-family: 'Noto Sans Tibetan', serif;
+        }
+
+        /* Print-specific */
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            h1 {
+                page-break-before: avoid;
+            }
+
+            h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            pre, table, blockquote {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: #333;
+                text-decoration: none;
+            }
+
+            a[href]:after {
+                content: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1 id="methodology-a-modern-critical-edition-of-the-heart-sutra">Methodology: A Modern Critical Edition of the Heart Sūtra</h1>
+<h2 id="purpose">Purpose</h2>
+<p>This document outlines the methodological principles governing this critical edition of the Heart Sūtra (Prajñāpāramitāhṛdaya). Following current scholarship on the text's origin, transmission, and multilingual history, this edition adopts an approach fundamentally different from traditional Lachmannian textual criticism.</p>
+<h2 id="1-abandoning-the-single-original-text-assumption">1. Abandoning the Single-Original-Text Assumption</h2>
+<p>This edition explicitly rejects the goal of reconstructing a single "Ur-text," especially an Ur-Sanskrit. Strong evidence indicates that the Heart Sūtra was likely composed in Chinese and only later rendered into Sanskrit and Tibetan.</p>
+<h3 id="stated-aim">Stated Aim</h3>
+<p>To reconstruct the earliest recoverable <strong>Chinese composition</strong> and to document the subsequent multilingual textualization of that composition.</p>
+<h3 id="key-scholarship">Key Scholarship</h3>
+<ul>
+<li><strong>Nattier, Jan (1992)</strong>. "The Heart Sūtra: a Chinese apocryphal text?" <em>Journal of the International Association of Buddhist Studies</em> 15(2): 153-223.</li>
+<li><strong>Attwood, Jayarava (2017-2020)</strong>. Series of articles in <em>Journal of the Oxford Centre for Buddhist Studies</em> extending Nattier's analysis.</li>
+</ul>
+<h2 id="2-the-object-of-study-a-textual-complex">2. The Object of Study: A Textual Complex</h2>
+<p>The Heart Sūtra is treated as a constellation of related but non-equivalent textual forms:</p>
+<table>
+<thead>
+<tr>
+<th>Tradition</th>
+<th>Status</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chinese extract-text</td>
+<td>Compositionally prior</td>
+<td>Analytical base</td>
+</tr>
+<tr>
+<td>Chinese ritualized recensions</td>
+<td>Secondary development</td>
+<td>Short and long versions</td>
+</tr>
+<tr>
+<td>Tibetan translation</td>
+<td>Mediating witness</td>
+<td>May preserve earlier Sanskrit forms</td>
+</tr>
+<tr>
+<td>Sanskrit witnesses</td>
+<td>Derived tradition</td>
+<td>Evidence of back-translation</td>
+</tr>
+</tbody>
+</table>
+<p>These witnesses do not stand in equal relation to a single archetype and must not be treated as such.</p>
+<h2 id="3-chinese-base-text">3. Chinese Base Text</h2>
+<h3 id="selection-taisho-251-t251">Selection: Taishō 251 (T251)</h3>
+<p>The edition selects T251 (Xuanzang's translation, 649 CE) as the analytical base text:</p>
+<ul>
+<li><strong>260 characters</strong> - the standard short recension</li>
+<li><strong>First to use "Heart" (心) in the title</strong></li>
+<li><strong>Most widely used</strong> in East Asian Buddhist practice</li>
+<li><strong>Compositionally central</strong> according to Nattier's analysis</li>
+</ul>
+<h3 id="clarification">Clarification</h3>
+<p>The base text is:
+- Compositionally central
+- Historically prior in probability
+- <strong>NOT</strong> privileged as doctrinally or ritually superior</p>
+<h2 id="4-witness-classification">4. Witness Classification</h2>
+<h3 id="chinese-witnesses-taisho-canon">Chinese Witnesses (Taishō Canon)</h3>
+<table>
+<thead>
+<tr>
+<th>Siglum</th>
+<th>Title</th>
+<th>Date</th>
+<th>Recension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T250</td>
+<td>摩訶般若波羅蜜大明咒經</td>
+<td>c. 402-412</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>T251</td>
+<td>般若波羅蜜多心經</td>
+<td>649</td>
+<td>Short (base)</td>
+</tr>
+<tr>
+<td>T252</td>
+<td>般若波羅蜜多心經</td>
+<td>c. 700</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>T253</td>
+<td>般若波羅蜜多心經</td>
+<td>c. 700-730</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>T254</td>
+<td>普遍智藏般若波羅蜜多心經</td>
+<td>c. 733</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>T255</td>
+<td>般若波羅蜜多心經</td>
+<td>c. 790</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>T256</td>
+<td>般若波羅蜜多心經 (唐梵翻對字音)</td>
+<td>c. 7th-8th c.</td>
+<td>Transliterated Sanskrit</td>
+</tr>
+<tr>
+<td>T257</td>
+<td>般若波羅蜜多心經</td>
+<td>c. 850-1000</td>
+<td>Long</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sanskrit-witnesses">Sanskrit Witnesses</h3>
+<p>Following Conze (1967) with updates:</p>
+<p><strong>Japanese Provenance:</strong>
+- Ja: Hōryū-ji palm-leaf (c. 8th century)
+- Jb: Hase-ji long text (c. 9th century)</p>
+<p><strong>Nepalese Provenance:</strong>
+- Na-Nl: Various manuscripts (13th-19th centuries)</p>
+<p><strong>Chinese Provenance:</strong>
+- Ca-Cg: Blockprints, inscriptions, Dunhuang manuscripts</p>
+<p><strong>Central Asian:</strong>
+- Gilgit fragments (c. 6th-7th century)</p>
+<h3 id="tibetan-witnesses">Tibetan Witnesses</h3>
+<ul>
+<li>Toh 21: Degé Kangyur (Prajñāpāramitā section)</li>
+<li>Toh 531: Degé Kangyur (Tantra section)</li>
+<li>Stok Palace Kangyur (alternative recension)</li>
+<li>IOL Tib J 751: Dunhuang manuscript (c. 823 CE)</li>
+</ul>
+<h2 id="5-sanskrit-as-derived-tradition">5. Sanskrit as Derived Tradition</h2>
+<p>Sanskrit witnesses are presented as evidence of <strong>reception and re-Sanskritization</strong>, not as controls for correcting Chinese readings.</p>
+<h3 id="evidence-of-back-translation">Evidence of Back-Translation</h3>
+<ol>
+<li><strong>Non-idiomatic vocabulary</strong>: Uses <em>kṣaya</em> (destruction) instead of standard <em>nirodha</em> (cessation)</li>
+<li><strong>Grammatical anomalies</strong>: Unusual verb tenses for sūtra style</li>
+<li><strong>Structural mismatches</strong>: Segments that presuppose Chinese word order</li>
+</ol>
+<h3 id="editorial-practice">Editorial Practice</h3>
+<p>The apparatus will:
+- Present Sanskrit texts synoptically
+- Flag readings that presuppose Chinese syntax or idiom
+- Annotate likely back-translations or misunderstandings</p>
+<h2 id="6-tibetan-as-mediating-witness">6. Tibetan as Mediating Witness</h2>
+<p>Tibetan witnesses serve as independent but mediating evidence:</p>
+<ul>
+<li>May reflect <strong>earlier Sanskrit forms</strong> than surviving Indic manuscripts</li>
+<li>Still participate in a <strong>secondary transmission chain</strong></li>
+<li>Used to <strong>triangulate stages of Sanskritization</strong></li>
+</ul>
+<h2 id="7-direction-of-dependence-annotation">7. Direction-of-Dependence Annotation</h2>
+<p>The apparatus explicitly marks probable directions of borrowing:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PP→HS</td>
+<td>Larger Prajñāpāramitā → Heart Sūtra extraction</td>
+</tr>
+<tr>
+<td>ZH→SA</td>
+<td>Chinese → Sanskrit (back-translation)</td>
+</tr>
+<tr>
+<td>ZH→BO</td>
+<td>Chinese → Tibetan</td>
+</tr>
+<tr>
+<td>BO→SA</td>
+<td>Tibetan → Sanskrit</td>
+</tr>
+<tr>
+<td>SA→BO</td>
+<td>Sanskrit → Tibetan</td>
+</tr>
+</tbody>
+</table>
+<p>This transforms the critical apparatus into an <strong>argument about textual history</strong> rather than a neutral list of variants.</p>
+<h2 id="8-variant-classification">8. Variant Classification</h2>
+<p>Variants are categorized, not merely listed:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orthographic</td>
+<td>Spelling differences without semantic change</td>
+</tr>
+<tr>
+<td>Scribal Error</td>
+<td>Clear copying mistakes</td>
+</tr>
+<tr>
+<td>Stylistic</td>
+<td>Improvements to flow/readability</td>
+</tr>
+<tr>
+<td>Doctrinal</td>
+<td>Alignment with doctrinal norms</td>
+</tr>
+<tr>
+<td>Extraction Artifact</td>
+<td>Traces of source Prajñāpāramitā text</td>
+</tr>
+<tr>
+<td>Back-translation</td>
+<td>Evidence of translation from Chinese</td>
+</tr>
+<tr>
+<td>Distinctive</td>
+<td>Genuinely different textual reading</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-parallel-presentation">9. Parallel Presentation</h2>
+<p>The edition includes two parallel components:</p>
+<ol>
+<li><strong>Critically edited Chinese text</strong> with full apparatus</li>
+<li><strong>Multilingual synoptic alignment</strong> (Chinese, Sanskrit, Tibetan) with commentary explaining divergences</li>
+</ol>
+<p>Collapsing these into a single "clean" text would obscure the text's historical complexity.</p>
+<h2 id="10-dual-script-sanskrit">10. Dual-Script Sanskrit</h2>
+<p>Sanskrit is presented in both:
+- <strong>Devanagari</strong> (देवनागरी) - for traditional readability
+- <strong>IAST</strong> (International Alphabet of Sanskrit Transliteration) - for scholarly precision</p>
+<h2 id="11-commentary-focus">11. Commentary Focus</h2>
+<p>The commentary prioritizes questions of <strong>composition and textual formation</strong>:</p>
+<ul>
+<li>Why specific phrases were selected from larger PP texts</li>
+<li>Why register shifts occur</li>
+<li>How extraction and condensation function</li>
+<li>Why the mantra appears where it does</li>
+</ul>
+<p>Doctrinal explanation is secondary to historical and philological analysis.</p>
+<h2 id="12-transparency-about-limits">12. Transparency About Limits</h2>
+<p>This edition clearly states:
+- Which conclusions are probabilistic
+- Where evidence is insufficient
+- What cannot be recovered or decided</p>
+<p>The goal is not to resolve all questions, but to <strong>stabilize scholarly discussion</strong> with transparent methods and evidence.</p>
+<h2 id="summary">Summary</h2>
+<p>A genuinely modern critical edition of the Heart Sūtra is:
+- <strong>Multilingual</strong> - Chinese, Sanskrit, Tibetan in parallel
+- <strong>Non-archetypal</strong> - no single Ur-text assumed
+- <strong>Explicit about directionality</strong> - apparatus encodes transmission history
+- <strong>Historically staged</strong> - acknowledges compositional priority
+- <strong>Transparent about uncertainty</strong> - probabilistic, not dogmatic</p>
+<p>Such an edition functions less as a reconstruction of a lost original and more as a <strong>documented history of how a sūtra was made</strong>.</p>
+<hr />
+<h2 id="bibliography">Bibliography</h2>
+<h3 id="primary-scholarship">Primary Scholarship</h3>
+<ul>
+<li>Conze, Edward (1967). "The Prajñāpāramitā-Hṛdaya Sūtra." In <em>Thirty Years of Buddhist Studies</em>, pp. 147-167.</li>
+<li>Müller, F. Max (1881). "The Ancient Palm Leaves." <em>Journal of the Royal Asiatic Society</em>.</li>
+<li>Nattier, Jan (1992). "The Heart Sūtra: a Chinese apocryphal text?" <em>JIABS</em> 15(2): 153-223.</li>
+<li>Silk, Jonathan A. (1994). <em>The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions Contained in the Kanjur</em>. Vienna.</li>
+</ul>
+<h3 id="recent-scholarship">Recent Scholarship</h3>
+<ul>
+<li>Attwood, Jayarava (2015). "Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya." <em>JOCBS</em> 12: 28-62.</li>
+<li>Attwood, Jayarava (2017). "Form is (Not) Emptiness: The Enigma at the Heart of the Heart Sutra." <em>JOCBS</em> 13: 52-80.</li>
+<li>Attwood, Jayarava (2018). "A Note on Nisthanirvana in the Heart Sutra." <em>JOCBS</em> 14: 10-17.</li>
+<li>Attwood, Jayarava (2020). "Ungarbling Section VI of the Sanskrit Heart Sutra." <em>JOCBS</em> 18: 11-41.</li>
+<li>Karashima, Seishi et al. (2016). <em>Gilgit Manuscripts in the National Archives of India</em>. Tokyo: Soka University.</li>
+</ul>
+<h3 id="digital-resources">Digital Resources</h3>
+<ul>
+<li>84000: Translating the Words of the Buddha. https://84000.co/</li>
+<li>CBETA Chinese Electronic Tripiṭaka. https://cbetaonline.dila.edu.tw/</li>
+<li>Digital Sanskrit Buddhist Canon. https://www.dsbcproject.org/</li>
+<li>GRETIL. https://gretil.sub.uni-goettingen.de/</li>
+</ul>
+<hr />
+<p><em>Last updated: February 2026</em></p>
+<footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; font-size: 9pt; color: #666; text-align: center;">
+    <p>Heart Sūtra Critical Edition Project</p>
+</footer>
+</body>
+</html>

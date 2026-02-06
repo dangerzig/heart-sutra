@@ -1,0 +1,258 @@
+"""
+Data models for the Heart Sūtra multilingual critical edition.
+
+Design Principles:
+1. Chinese compositional priority - Chinese is the analytical base
+2. Sanskrit as derived tradition - evidence of reception, not origin
+3. Tibetan as mediating witness - triangulates transmission stages
+4. Direction-of-dependence annotation - apparatus encodes textual history
+5. Dual script support - Sanskrit in both Devanagari and IAST
+"""
+
+from dataclasses import dataclass, field
+from enum import Enum
+from typing import Optional
+
+
+class WitnessType(Enum):
+    """Type of textual witness by language tradition and function."""
+    # Heart Sūtra witnesses by language
+    CHINESE = "chinese"
+    SANSKRIT = "sanskrit"
+    TIBETAN = "tibetan"
+    # Functional types (used with language witnesses)
+    SOURCE = "source"  # Source text from which Heart Sūtra was extracted (e.g., T223)
+    PARALLEL = "parallel"  # Comparative parallel text (e.g., Sanskrit Pañcaviṃśatisāhasrikā)
+
+
+class Script(Enum):
+    """Script/writing system for text representation."""
+    # Chinese scripts
+    TRADITIONAL_CHINESE = "hant"  # Traditional Chinese characters
+    SIMPLIFIED_CHINESE = "hans"  # Simplified Chinese
+
+    # Sanskrit scripts
+    DEVANAGARI = "deva"  # देवनागरी
+    IAST = "iast"  # International Alphabet of Sanskrit Transliteration
+    SIDDHAM = "sidd"  # 悉曇 - used in East Asian Buddhist manuscripts
+
+    # Tibetan scripts
+    TIBETAN = "tibt"  # Uchen script
+    WYLIE = "wylie"  # Wylie transliteration
+
+    # Other
+    ROMANIZED = "latn"  # Generic romanization
+
+
+class VariantType(Enum):
+    """Classification of textual variants following the methodology."""
+    # Mechanical/scribal
+    ORTHOGRAPHIC = "orthographic"  # Spelling differences without semantic change
+    SCRIBAL_ERROR = "scribal_error"  # Clear copying mistakes
+
+    # Stylistic
+    STYLISTIC_SMOOTHING = "stylistic"  # Improvements to flow/readability
+    REGISTER_SHIFT = "register"  # Change in formality/style level
+
+    # Doctrinal/content
+    DOCTRINAL_HARMONIZATION = "doctrinal"  # Alignment with doctrinal norms
+    EXPANSION = "expansion"  # Added material
+    ABBREVIATION = "abbreviation"  # Shortened/condensed
+
+    # Extraction-related
+    EXTRACTION_ARTIFACT = "extraction"  # Traces of source Prajñāpāramitā text
+
+    # Translation-related
+    BACK_TRANSLATION = "back_translation"  # Evidence of translation from Chinese
+    TRANSLATION_CHOICE = "translation_choice"  # Different rendering of same meaning
+    GRAMMATICAL_ADAPTATION = "grammatical"  # Adaptation to target language grammar
+
+    # Genuine variants
+    DISTINCTIVE_READING = "distinctive"  # Genuinely different textual reading
+
+    # Unknown/unclear
+    UNCERTAIN = "uncertain"
+
+
+class DependenceDirection(Enum):
+    """Direction of textual dependence/borrowing."""
+    # Primary directions
+    PRAJNAPARAMITA_TO_HEART = "pp→hs"  # Larger PP text → Heart Sūtra
+    CHINESE_TO_SANSKRIT = "zh→sa"  # Chinese → Sanskrit (back-translation)
+    CHINESE_TO_TIBETAN = "zh→bo"  # Chinese → Tibetan
+    TIBETAN_TO_SANSKRIT = "bo→sa"  # Tibetan → Sanskrit
+    SANSKRIT_TO_TIBETAN = "sa→bo"  # Sanskrit → Tibetan
+
+    # Uncertain/complex
+    SHARED_SOURCE = "shared"  # Both derive from common source
+    UNCERTAIN = "uncertain"
+    INDEPENDENT = "independent"  # Independent development
+
+
+@dataclass
+class Token:
+    """A single word/morpheme with linguistic analysis."""
+    # Surface form
+    text: str
+
+    # Alternative script representations
+    devanagari: Optional[str] = None  # For Sanskrit
+    iast: Optional[str] = None  # For Sanskrit
+
+    # Linguistic analysis
+    lemma: Optional[str] = None
+    pos: Optional[str] = None  # Part of speech
+    morphology: Optional[dict] = None  # Case, number, gender, etc.
+
+    # For Chinese
+    pinyin: Optional[str] = None
+
+    # Notes
+    note: Optional[str] = None
+
+
+@dataclass
+class Segment:
+    """A text segment in a single language/witness."""
+    id: str  # Unique segment identifier
+    text: str  # Primary text representation
+
+    # Witness information
+    witness_id: str  # Which manuscript/edition
+    witness_type: WitnessType = WitnessType.CHINESE
+    script: Script = Script.TRADITIONAL_CHINESE
+
+    # Alternative representations
+    alt_scripts: dict[Script, str] = field(default_factory=dict)
+
+    # Tokenization
+    tokens: Optional[list[Token]] = None
+
+    # Source reference (folio, page, etc.)
+    source_ref: Optional[str] = None
+
+    # Notes
+    notes: list[str] = field(default_factory=list)
+
+
+@dataclass
+class Variant:
+    """A textual variant with full critical apparatus annotation."""
+    # Position in base text
+    segment_id: str
+    position: int  # Word/character position
+
+    # Readings
+    base_reading: str  # Reading in base text
+    variant_reading: str  # Alternative reading
+
+    # Witness support
+    base_witnesses: list[str] = field(default_factory=list)
+    variant_witnesses: list[str] = field(default_factory=list)
+
+    # Classification
+    variant_type: VariantType = VariantType.UNCERTAIN
+    dependence: DependenceDirection = DependenceDirection.UNCERTAIN
+
+    # Cross-linguistic evidence
+    chinese_parallel: Optional[str] = None
+    sanskrit_parallel: Optional[str] = None
+    tibetan_parallel: Optional[str] = None
+    prajnaparamita_parallel: Optional[str] = None
+
+    # Commentary
+    note: Optional[str] = None
+    scholarly_refs: list[str] = field(default_factory=list)
+
+    # Confidence
+    confidence: float = 0.5  # 0.0 to 1.0
+
+
+@dataclass
+class Witness:
+    """A textual witness (manuscript, edition, inscription)."""
+    id: str  # Short siglum (e.g., "Ja", "Nb", "T251")
+    name: str  # Full name
+    witness_type: WitnessType
+
+    # Dating
+    date: Optional[str] = None  # Date or date range
+    date_circa: bool = True  # Is date approximate?
+
+    # Location/provenance
+    location: Optional[str] = None  # Current repository
+    provenance: Optional[str] = None  # Origin
+
+    # Physical description
+    material: Optional[str] = None  # Palm leaf, paper, stone, etc.
+    script: Script = Script.IAST
+
+    # Scholarly information
+    first_published: Optional[str] = None  # When first published/described
+    edition_used: Optional[str] = None  # Which edition transcription follows
+
+    # Relationship to other witnesses
+    derived_from: Optional[str] = None  # Parent witness if known
+
+    # Notes
+    description: Optional[str] = None
+    scholarly_refs: list[str] = field(default_factory=list)
+
+
+@dataclass
+class MultilingualSegment:
+    """Aligned segments across all language traditions."""
+    id: str  # Segment identifier (e.g., "hs:1.1")
+
+    # Chinese (compositionally prior)
+    chinese: Optional[Segment] = None
+    chinese_variants: list[Variant] = field(default_factory=list)
+
+    # Sanskrit (derived tradition)
+    sanskrit: Optional[Segment] = None
+    sanskrit_devanagari: Optional[str] = None  # Devanagari rendering
+    sanskrit_variants: list[Variant] = field(default_factory=list)
+
+    # Tibetan (mediating witness)
+    tibetan: Optional[Segment] = None
+    tibetan_wylie: Optional[str] = None  # Wylie transliteration
+    tibetan_variants: list[Variant] = field(default_factory=list)
+
+    # Source Prajñāpāramitā parallel (if applicable)
+    prajnaparamita_ref: Optional[str] = None
+    prajnaparamita_text: Optional[str] = None
+
+    # Cross-linguistic analysis
+    dependence_notes: list[str] = field(default_factory=list)
+    translation_notes: list[str] = field(default_factory=list)
+
+    # Commentary
+    philological_note: Optional[str] = None
+
+
+@dataclass
+class CriticalApparatus:
+    """Complete critical apparatus for the Heart Sūtra."""
+    # Metadata
+    version: str = "0.1.0"
+    methodology: str = "chinese-priority-multilingual"
+
+    # Base text
+    base_text_id: str = "T251"  # Taishō 251 as default base
+    base_text_justification: str = ""
+
+    # Witnesses by tradition
+    chinese_witnesses: list[Witness] = field(default_factory=list)
+    sanskrit_witnesses: list[Witness] = field(default_factory=list)
+    tibetan_witnesses: list[Witness] = field(default_factory=list)
+
+    # Aligned segments
+    segments: list[MultilingualSegment] = field(default_factory=list)
+
+    # Global notes
+    introduction: str = ""
+    methodology_notes: str = ""
+    limitations: list[str] = field(default_factory=list)
+
+    # Bibliography
+    scholarly_refs: list[str] = field(default_factory=list)
