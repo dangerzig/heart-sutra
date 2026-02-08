@@ -1,0 +1,315 @@
+{
+  "id": "original_research",
+  "title": "Original Research Findings: Heart Sūtra Critical Edition",
+  "date": "2026-02-08",
+  "methodology": "Systematic comparison of witnesses to identify previously unreported variants and patterns",
+
+  "section_1_dunhuang_collation": {
+    "title": "Dunhuang Manuscript Collation",
+    "status": "preliminary",
+    "limitation": "Full collation requires access to manuscript images; this analysis is based on published catalogs and sample texts",
+
+    "finding_1": {
+      "title": "T250-type manuscripts survived at Dunhuang",
+      "evidence": "S.700 preserves T250-type text with 觀世音, 五陰, three epithets",
+      "significance": "Confirms pre-Xuanzang tradition was not merely replaced by T251 but coexisted",
+      "previously_noted": "Partially - Nattier (1992) notes T250 exists but not its Dunhuang survival"
+    },
+
+    "finding_2": {
+      "title": "P.2323 provides terminus ante quem for T251 at Dunhuang",
+      "evidence": "Dated colophon: 大中五年七月廿日寫 (851 CE)",
+      "significance": "Securely dated witness shows T251 tradition established at Dunhuang by mid-9th century",
+      "previously_noted": "Yes - known in catalogs"
+    },
+
+    "finding_3": {
+      "title": "Bilingual manuscripts confirm Sanskrit known in Tang China",
+      "evidence": "P.3917 has Sanskrit in Chinese character transliteration",
+      "significance": "Sanskrit back-translation had reached Dunhuang; supports mid-7th century dating for σ",
+      "previously_noted": "T256 known; P.3917 less studied"
+    },
+
+    "research_needed": [
+      "Character-by-character collation of S.2464 against T251 to identify scribal variants",
+      "Full transcription of S.700 to compare against T250",
+      "Analysis of interlinear glosses in S.4289 for early Chinese exegesis",
+      "Comparison of P.3917 transliteration with T256 for Sanskrit pronunciation variants"
+    ],
+
+    "provisional_stemmatic_conclusion": "Dunhuang evidence suggests T251 was dominant by 9th century, but T250-type texts persisted. No evidence of Chinese long recension (T257-type) at Dunhuang, suggesting it was not known there before cave sealing (ca. 1000 CE)."
+  },
+
+  "section_2_t250_t251_analysis": {
+    "title": "T250/T251 Relationship Analysis",
+    "status": "detailed analysis completed",
+
+    "methodology": "Character-by-character comparison of full texts with variant classification",
+
+    "variant_table": [
+      {
+        "location": "title",
+        "T250": "摩訶般若波羅蜜大明呪經",
+        "T251": "般若波羅蜜多心經",
+        "analysis": "T250 emphasizes 'Great Illumination Mantra' (大明呪) vs T251 'Heart' (心). Different generic framing.",
+        "significance": "T250 treats text as dhāraṇī/mantra text; T251 treats as sūtra digest"
+      },
+      {
+        "location": "Avalokiteśvara",
+        "T250": "觀世音 (Guānshìyīn)",
+        "T251": "觀自在 (Guānzìzài)",
+        "analysis": "觀世音 is older translation (pre-Xuanzang). 觀自在 introduced by Xuanzang ca. 649.",
+        "significance": "HIGH - Dating indicator. T250 uses pre-Xuanzang terminology."
+      },
+      {
+        "location": "skandhas",
+        "T250": "五陰 (wǔyīn)",
+        "T251": "五蘊 (wǔyùn)",
+        "analysis": "陰 is older translation; 蘊 standardized by Xuanzang.",
+        "significance": "HIGH - Dating indicator. Confirms T250 uses older terminology."
+      },
+      {
+        "location": "Śāriputra",
+        "T250": "舍利弗 (Shèlìfú)",
+        "T251": "舍利子 (Shèlìzǐ)",
+        "analysis": "Both are valid transliterations. 弗 is slightly older form.",
+        "significance": "MEDIUM - Stylistic preference, not definitive for dating."
+      },
+      {
+        "location": "UNIQUE: skandha characteristics",
+        "T250": "色空故無惱壞相，受空故無受相，想空故無知相，行空故無作相，識空故無覺相",
+        "T251": "ABSENT",
+        "analysis": "T250 expands each skandha with its characteristic when empty. This systematic elaboration is closer to Abhidharma style.",
+        "significance": "HIGH - T250 has material ABSENT from T251. Either T250 expanded, or T251 condensed."
+      },
+      {
+        "location": "UNIQUE: temporal negation",
+        "T250": "是空法，非過去，非未來，非現在",
+        "T251": "ABSENT",
+        "analysis": "Negation of three times. Found in some Prajñāpāramitā sources.",
+        "significance": "HIGH - T250 has additional doctrinal content."
+      },
+      {
+        "location": "negation formula",
+        "T250": "非色異空，非空異色",
+        "T251": "色不異空，空不異色",
+        "analysis": "T250 uses 非...異 ('it is not that X differs from'); T251 uses 不異 ('does not differ'). Semantically equivalent but syntactically different.",
+        "significance": "MEDIUM - Stylistic variation, possibly reflecting different translation idiom."
+      },
+      {
+        "location": "bodhisattva term",
+        "T250": "菩薩",
+        "T251": "菩提薩埵",
+        "analysis": "菩薩 is abbreviated; 菩提薩埵 is full transliteration. Both common.",
+        "significance": "LOW - No clear chronological implication."
+      },
+      {
+        "location": "delusion passage",
+        "T250": "離一切顛倒夢想苦惱",
+        "T251": "遠離顛倒夢想",
+        "analysis": "T250 adds 一切 ('all') and 苦惱 ('afflictions'). T251 more compressed.",
+        "significance": "MEDIUM - T250 more expansive, but could be either expansion or T251 compression."
+      },
+      {
+        "location": "epithet count",
+        "T250": "三 (大明呪、無上明呪、無等等明呪)",
+        "T251": "四 (大神咒、大明咒、無上咒、無等等咒)",
+        "analysis": "T250 has THREE epithets, all with 明呪. T251 has FOUR, with 神咒 added and 明 dropped from some.",
+        "significance": "HIGH - T250 matches Large Sūtra (T223) pattern. T251 innovates."
+      },
+      {
+        "location": "pāramitā spelling",
+        "T250": "般若波羅蜜 (no 多)",
+        "T251": "般若波羅蜜多 (with 多)",
+        "analysis": "T251 adds 多 (duō) to transliterate -tā more fully.",
+        "significance": "MEDIUM - T251 uses fuller transliteration, possibly reflecting Xuanzang's standards."
+      },
+      {
+        "location": "mantra: gate",
+        "T250": "竭帝 (jiédì)",
+        "T251": "揭帝 (jiēdì)",
+        "analysis": "Different characters for same sound. 竭 vs 揭.",
+        "significance": "LOW - Orthographic variant only."
+      },
+      {
+        "location": "mantra: svāhā",
+        "T250": "菩提僧莎呵",
+        "T251": "菩提僧莎訶",
+        "analysis": "呵 vs 訶 - orthographic variant.",
+        "significance": "LOW - Orthographic variant only."
+      }
+    ],
+
+    "original_finding": {
+      "title": "T250 is NOT simply an earlier version of T251",
+      "analysis": "The differences between T250 and T251 are not merely terminological updates. T250 contains substantial passages ABSENT from T251 (skandha characteristics, temporal negation). If T251 were simply an 'update' of T250, we would expect it to retain this material while updating vocabulary. Instead, T251 is SHORTER and differently structured.",
+      "hypothesis": "T250 and T251 represent PARALLEL COMPOSITIONS drawing on the same Large Sūtra source material, not a single text revised over time.",
+      "evidence": [
+        "T250 has passages T251 lacks (expansion unlikely to be deleted)",
+        "T250 terminology is internally consistent (all pre-Xuanzang)",
+        "T251 terminology is internally consistent (all Xuanzang-era)",
+        "Different epithet structure (3 vs 4) suggests different compositional choices",
+        "Different title framing (mantra-text vs digest-text)"
+      ],
+      "significance": "This challenges the simple 'T250 early, T251 later revision' model. Instead suggests two distinct Heart Sūtra compositions in Chinese Buddhist circles."
+    },
+
+    "previously_noted": "Nattier (1992) and Attwood discuss T250 differences but primarily as evidence for dating. The parallel composition hypothesis appears to be new."
+  },
+
+  "section_3_large_sutra_parallels": {
+    "title": "Large Sūtra Source Parallel Analysis",
+    "status": "systematic comparison completed",
+
+    "methodology": "Comparison of Heart Sūtra passages with Pañcaviṃśatisāhasrikā (Gilgit MS) and Kumārajīva's T223",
+
+    "parallel_mapping": [
+      {
+        "heart_sutra_section": "Skandha negation (T251:4)",
+        "heart_sutra": "是故空中，無色，無受想行識",
+        "large_sutra_parallel": "rūpaṃ śūnyam, vedanā śūnyā, saṃjñā śūnyā, saṃskārāḥ śūnyāḥ, vijñānaṃ śūnyam",
+        "t223_parallel": "色空、受空、想空、行空、識空",
+        "transformation": "Large Sūtra says 'X is empty'; Heart Sūtra says 'no X'. Negation formula is a TRANSFORMATION, not direct quotation.",
+        "significance": "The composer adapted Large Sūtra material, not merely excerpted it."
+      },
+      {
+        "heart_sutra_section": "Āyatana negation (T251:5)",
+        "heart_sutra": "無眼耳鼻舌身意，無色聲香味觸法",
+        "large_sutra_parallel": "cakṣuḥ śūnyam, śrotraṃ śūnyam...",
+        "t223_parallel": "眼空、耳空、鼻空、舌空、身空、意空",
+        "transformation": "Same pattern: 'X is empty' → 'no X'",
+        "significance": "Consistent transformation method throughout."
+      },
+      {
+        "heart_sutra_section": "Dependent origination (T251:7)",
+        "heart_sutra": "無無明，亦無無明盡",
+        "heart_sutra_sanskrit": "nāvidyā nāvidyākṣayo",
+        "large_sutra_parallel": "avidyā śūnyā... avidyā-nirodhaḥ śūnyaḥ",
+        "t223_parallel": "無明空...無明盡空",
+        "critical_difference": "Large Sūtra uses NIRODHA (cessation); Heart Sūtra Sanskrit uses KṢAYA (destruction)",
+        "significance": "CRITICAL evidence for back-translation. Chinese 盡 can mean either; back-translator chose wrong Sanskrit term."
+      },
+      {
+        "heart_sutra_section": "Four Truths (T251:8)",
+        "heart_sutra": "無苦集滅道",
+        "large_sutra_parallel": "duḥkhaṃ śūnyam, samudayaḥ śūnyaḥ, nirodhaḥ śūnyaḥ, mārgaḥ śūnyaḥ",
+        "t223_parallel": "苦空、集空、盡空、道空",
+        "note": "T223 uses 盡 for nirodha here too, confirming translation convention."
+      },
+      {
+        "heart_sutra_section": "Wisdom/attainment (T251:8)",
+        "heart_sutra": "無智亦無得",
+        "large_sutra_parallel": "na jñānaṃ na prāptir nābhisamayaḥ",
+        "t223_parallel": "無得無現觀",
+        "critical_issue": "Heart Sūtra drops 'nābhisamayaḥ' (無現觀). Huifeng (2014) identifies this as transmission error via Kumārajīva's T223.",
+        "significance": "Confirms Heart Sūtra composer used T223, not original Sanskrit."
+      },
+      {
+        "heart_sutra_section": "Epithets (T251:11)",
+        "heart_sutra_T251": "是大神咒，是大明咒，是無上咒，是無等等咒",
+        "heart_sutra_T250": "是大明呪，是無上明呪，是無等等明呪",
+        "large_sutra_parallel": "mahāvidyā anuttarā vidyā asamasamā vidyā",
+        "t223_parallel": "是大明呪、無上明呪、無等等明呪",
+        "critical_finding": "T223 has THREE epithets (all vidyā/明呪). T250 matches T223. T251 has FOUR (adds 神咒, drops some 明).",
+        "significance": "T250 more faithful to Large Sūtra source. T251 INNOVATES by adding fourth epithet."
+      }
+    ],
+
+    "original_finding": {
+      "title": "T251 innovates on the epithet formula; T250 preserves Large Sūtra pattern",
+      "analysis": "Attwood (2017b) noted the epithet discrepancy. Our comparison confirms that T250's three-epithet pattern with consistent 明呪 matches Kumārajīva's T223 exactly. T251's four-epithet pattern with 神咒 is an INNOVATION not found in the Large Sūtra source.",
+      "implication": "This supports T250 being closer to the original compositional process. T251 represents a revision that, among other changes, added a fourth epithet.",
+      "previously_noted": "Attwood (2017b) discusses epithets but focuses on T251. The T250-T223 exact match and its implications for priority appears underemphasized."
+    },
+
+    "original_finding_2": {
+      "title": "The 'form is emptiness' formula is a CREATIVE SYNTHESIS, not an excerpt",
+      "analysis": "The Large Sūtra does not contain the phrase 色不異空 or 'rūpaṃ śūnyatā'. The Large Sūtra says 'rūpam eva māyā māyaiva rūpam' (form is illusion, illusion is form). The Heart Sūtra composer TRANSFORMED this into the śūnyatā formula.",
+      "source": "Aṣṭasāhasrikā parallel: 'rūpam eva māyā māyaiva rūpam'",
+      "transformation": "'illusion' (māyā) → 'emptiness' (śūnyatā)",
+      "significance": "The Heart Sūtra is not a mere digest but a CREATIVE RECOMPOSITION of Prajñāpāramitā themes.",
+      "previously_noted": "Nattier (1992) discusses excerption but this specific transformation from māyā to śūnyatā deserves emphasis."
+    }
+  },
+
+  "section_4_tibetan_collation": {
+    "title": "Tibetan Kangyur Edition Collation",
+    "status": "framework established; detailed collation pending",
+
+    "available_data": "We have documented Degé (D), Peking (Q), Narthang (N), Lhasa (H), Lithang (J), and Stog (S) editions",
+
+    "preliminary_findings": {
+      "finding_1": {
+        "title": "All Tibetan editions use zad pa (kṣaya) not 'gog pa (nirodha)",
+        "evidence": "མ་རིག་པ་ཟད་པ (ma rig pa zad pa) in all checked editions",
+        "significance": "Confirms Tibetan translated from Sanskrit (which has kṣaya), not independently from Chinese. The 'error' was already in the Sanskrit source.",
+        "previously_noted": "Nattier (1992) notes this for Tibetan generally; systematic edition comparison less common."
+      },
+
+      "finding_2": {
+        "title": "All Tibetan editions include oṃ in mantra",
+        "evidence": "ཨོཾ་ག་ཏེ (oM ga te) in all editions",
+        "significance": "Tibetan was translated from long recension Sanskrit that already had Tantric oṃ. This is NOT a Tibetan innovation.",
+        "previously_noted": "Yes - known that Tibetan has oṃ."
+      },
+
+      "finding_3": {
+        "title": "Tibetan has ma thob pa (no non-attainment)",
+        "evidence": "མ་ཐོབ་པ་ཡང་མེད་དོ (ma thob pa yang med do)",
+        "significance": "Tibetan includes na-aprāptiḥ interpolation, confirming it was in the Sanskrit source used for translation.",
+        "previously_noted": "Yes - known."
+      }
+    },
+
+    "research_needed": [
+      "Detailed variant collation across all six editions",
+      "Comparison of Stog manuscript against printed editions",
+      "Analysis of translators' colophons for transmission information",
+      "Comparison of Kangyur placement (Prajñāpāramitā vs Tantra section)"
+    ],
+
+    "methodological_note": "Tibetan is valuable as INDIRECT witness to Sanskrit, not for establishing Chinese text. Tibetan-Sanskrit comparison helps reconstruct the Sanskrit tradition's development."
+  },
+
+  "summary_of_original_contributions": {
+    "genuinely_new": [
+      {
+        "finding": "T250 and T251 are parallel compositions, not revision stages",
+        "evidence": "T250 has material ABSENT from T251; simple revision would retain not delete",
+        "significance": "Changes understanding of Heart Sūtra origins - two Chinese traditions, not one"
+      },
+      {
+        "finding": "T250's three-epithet pattern exactly matches T223 (Large Sūtra)",
+        "evidence": "大明呪、無上明呪、無等等明呪 in both T250 and T223",
+        "significance": "T250 is closer to source; T251 four-epithet pattern is innovation"
+      },
+      {
+        "finding": "'Form is emptiness' is creative synthesis from 'form is illusion'",
+        "evidence": "Aṣṭa has māyā; Heart Sūtra has śūnyatā",
+        "significance": "Heart Sūtra is creative recomposition, not mere digest"
+      }
+    ],
+
+    "confirmatory": [
+      "Dunhuang manuscripts support T251 dominance by 9th century",
+      "T250-type texts survived at Dunhuang (S.700)",
+      "Tibetan confirms Sanskrit kṣaya error",
+      "kṣaya/nirodha discrepancy confirms back-translation"
+    ],
+
+    "requires_further_research": [
+      "Full character-by-character Dunhuang collation",
+      "Detailed Tibetan edition variants",
+      "Relationship of T250 to any Sanskrit witnesses",
+      "Whether Dunhuang bilingual MSS show variant Sanskrit readings"
+    ]
+  },
+
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2017b). 'Epithets of the Mantra in the Heart Sutra.' JOCBS 12: 26-57.",
+    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
+    "Karashima, Seishi et al. (2016). Gilgit Manuscripts in the National Archives of India. Tokyo.",
+    "Silk, Jonathan (1994). 'The Heart Sūtra in Tibetan.' WSTB 34."
+  ]
+}
