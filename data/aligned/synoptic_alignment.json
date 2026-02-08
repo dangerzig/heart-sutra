@@ -3,15 +3,18 @@
   "methodology": "chinese-priority",
   "witnesses": {
     "chinese_primary": "T251",
-    "chinese_secondary": ["T250", "Fangshan"],
-    "sanskrit": "GRETIL",
+    "chinese_secondary": ["T250", "Fangshan", "T256"],
+    "sanskrit_primary": "GRETIL",
+    "sanskrit_manuscripts": ["Horyuji"],
     "tibetan": "Toh21"
   },
   "witness_descriptions": {
     "T251": "Xuanzang's Xīnjīng (649 CE), canonical short version",
     "T250": "Dàmíngzhòujīng, attributed to Kumārajīva, possibly earlier tradition",
     "Fangshan": "Fangshan Stele (661 CE), oldest dated physical witness",
+    "T256": "Bilingual text with Sanskrit transliterated in Chinese characters, Tang dynasty",
     "GRETIL": "Sanskrit text based on Conze (1967) with corrections",
+    "Horyuji": "Hōryūji palm-leaf manuscript (7th-8th c.), Conze's 'Ja', one of oldest Sanskrit witnesses",
     "Toh21": "Tibetan Kangyur, long version with frame narrative"
   },
   "rows": [
@@ -260,7 +263,9 @@
     "Sanskrit textual corrections based on Attwood (2015, 2017a, 2017b, 2018a, 2020a, 2021) and Huifeng (2014)",
     "Gilgit Pañcaviṃśatisāhasrikā (Karashima et al. 2016) provides key Large Sutra parallels for textual analysis",
     "T250 (Dàmíngzhòujīng) preserves possibly earlier Chinese tradition with additional passages and three-epithet pattern",
-    "Fangshan Stele (661 CE) is oldest dated witness; virtually identical to T251 with minor orthographic variants"
+    "Fangshan Stele (661 CE) is oldest dated witness; virtually identical to T251 with minor orthographic variants",
+    "T256 provides Sanskrit text in Chinese character transliteration, crucial for Tang-era pronunciation and confirming Sanskrit tradition",
+    "Hōryūji manuscript (7th-8th c.) is one of oldest Sanskrit witnesses; lacks oṃ in mantra and na-aprāptiḥ, supporting late interpolation thesis"
   ],
   "scholarly_refs": [
     "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",

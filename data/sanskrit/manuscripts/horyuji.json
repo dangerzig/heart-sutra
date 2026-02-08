@@ -1,0 +1,167 @@
+{
+  "id": "Horyuji",
+  "title_english": "Hōryūji Palm-Leaf Manuscript",
+  "title_japanese": "法隆寺貝葉心経",
+  "title_romanized": "Hōryūji Baiyō Shingyō",
+  "conze_siglum": "Ja",
+  "type": "palm_leaf_manuscript",
+  "script": "Siddham (Siddhamātṛkā)",
+  "location": "Tokyo National Museum (東京国立博物館)",
+  "provenance": "Hōryūji Temple (法隆寺), Nara, Japan",
+  "date": "7th-8th century CE",
+  "date_notes": "Dating is based on paleographic analysis of the Siddham script. The manuscript may have been brought to Japan during the Nara period (710-794 CE), possibly by a returning Japanese monk or a visiting Chinese/Indian monk.",
+  "physical_description": {
+    "material": "Palm leaf (tāla-patra)",
+    "dimensions": "Approximately 26 cm × 5.5 cm",
+    "folios": "Single folio, written on both sides",
+    "condition": "Well-preserved, some areas darkened with age",
+    "script_style": "North Indian Siddham, characteristic of manuscripts from the 7th-8th centuries"
+  },
+  "recension": "short",
+  "notes": "The Hōryūji manuscript is one of the oldest and most important Sanskrit witnesses for the Heart Sutra. It was one of Conze's primary sources for his critical edition (siglum 'Ja'). The manuscript preserves the short recension without frame narrative. It lacks the oṃ before 'gate gate' and lacks the elaborate maṅgala found in later Nepalese manuscripts, supporting the view that these are late additions.",
+  "text_iast": "namas sarvajñāya |\n\nāryāvalokiteśvaro bodhisatvo gambhīrāyāṃ prajñāpāramitāyāṃ caryāṃ caramāṇo vyavalokayati sma | pañcaskandhās tāṃś ca svabhāvaśūnyān paśyati sma |\n\niha śāriputra rūpaṃ śūnyatā śūnyataiva rūpam | rūpān na pṛthak śūnyatā śūnyatāyā na pṛthag rūpam | yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam | evam eva vedanāsaṃjñāsaṃskāravijñānāni |\n\niha śāriputra sarvadharmāḥ śūnyatālakṣaṇā anutpannā aniruddhā amalā avimalā anūnā aparipūrṇāḥ |\n\ntasmāc chāriputra śūnyatāyāṃ na rūpaṃ na vedanā na saṃjñā na saṃskārā na vijñānam | na cakṣuḥśrotraghrāṇajihvākāyamanāṃsi | na rūpaśabdagandharasaspraṣṭavyadharmāḥ | na cakṣurdhātur yāvan na manovijñānadhātuḥ | nāvidyā nāvidyākṣayo yāvan na jarāmaraṇaṃ na jarāmaraṇakṣayaḥ | na duḥkhasamudayanirodhamārgā | na jñānaṃ na prāptiḥ |\n\ntasmāc chāriputra aprāptitvena bodhisatvasya prajñāpāramitām āśritya viharatyacittāvaraṇaḥ | cittāvaraṇanāstitvād atrasto viparyāsātikrānto niṣṭhānirvāṇaḥ |\n\ntryadhvavyavasthitāḥ sarvabuddhāḥ prajñāpāramitām āśritya anuttarāṃ samyaksaṃbodhim abhisaṃbuddhāḥ |\n\ntasmāj jñātavyaṃ prajñāpāramitā mahāmantro mahāvidyāmantro 'nuttaramantro samasamamantraḥ sarvaduḥkhapraśamanaḥ satyam amithyatvāt |\n\nprajñāpāramitāyām ukto mantraḥ | tadyathā gate gate pāragate pārasaṃgate bodhi svāhā |\n\niti prajñāpāramitāhṛdayasūtraṃ samāptam |",
+  "text_siddham": "[Siddham script text would be represented here - requires specialized Unicode support]",
+  "segments": [
+    {
+      "id": "Horyuji:1",
+      "section": "mangala",
+      "iast": "namas sarvajñāya |",
+      "english": "Homage to the Omniscient One",
+      "notes": "Simple salutation to sarvajña (omniscience/the omniscient one), unlike the elaborate Tantric maṅgala in later Nepalese manuscripts. This is the more historically appropriate salutation (Attwood 2021)."
+    },
+    {
+      "id": "Horyuji:2",
+      "section": "opening",
+      "iast": "āryāvalokiteśvaro bodhisatvo gambhīrāyāṃ prajñāpāramitāyāṃ caryāṃ caramāṇo vyavalokayati sma | pañcaskandhās tāṃś ca svabhāvaśūnyān paśyati sma |",
+      "notes": [
+        "Uses bodhisatva (single t) - proper Buddhist Hybrid Sanskrit spelling",
+        "pañcaskandhās appears to be nominative here (as in Conze), though some read accusative pañcaskandhāṃs",
+        "gambhīrāyāṃ prajñāpāramitāyāṃ caryāṃ - locative construction differs slightly from Conze's gambhīrāṃ prajñāpāramitācaryāṃ"
+      ],
+      "variants_from_conze": [
+        "gambhīrāyāṃ prajñāpāramitāyāṃ caryāṃ vs Conze gambhīrāṃ prajñāpāramitācaryāṃ"
+      ]
+    },
+    {
+      "id": "Horyuji:3",
+      "section": "form_emptiness",
+      "iast": "iha śāriputra rūpaṃ śūnyatā śūnyataiva rūpam | rūpān na pṛthak śūnyatā śūnyatāyā na pṛthag rūpam | yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam | evam eva vedanāsaṃjñāsaṃskāravijñānāni |",
+      "notes": "Includes 'yad rūpaṃ sā śūnyatā' line which Nattier (1992) identified as absent from Chinese and likely a later interpolation. Hōryūji includes it, suggesting this line was already in some Sanskrit traditions by the 7th-8th century."
+    },
+    {
+      "id": "Horyuji:4",
+      "section": "characteristics",
+      "iast": "iha śāriputra sarvadharmāḥ śūnyatālakṣaṇā anutpannā aniruddhā amalā avimalā anūnā aparipūrṇāḥ |"
+    },
+    {
+      "id": "Horyuji:5",
+      "section": "negations",
+      "iast": "tasmāc chāriputra śūnyatāyāṃ na rūpaṃ na vedanā na saṃjñā na saṃskārā na vijñānam | na cakṣuḥśrotraghrāṇajihvākāyamanāṃsi | na rūpaśabdagandharasaspraṣṭavyadharmāḥ | na cakṣurdhātur yāvan na manovijñānadhātuḥ | nāvidyā nāvidyākṣayo yāvan na jarāmaraṇaṃ na jarāmaraṇakṣayaḥ | na duḥkhasamudayanirodhamārgā | na jñānaṃ na prāptiḥ |",
+      "notes": [
+        "Uses kṣaya (destruction) not nirodha (cessation) - evidence of back-translation from Chinese (Nattier 1992)",
+        "Ends with 'na jñānaṃ na prāptiḥ' - does NOT include na-aprāptiḥ",
+        "Absence of na-aprāptiḥ supports Huifeng (2014) that this is a later interpolation"
+      ],
+      "significant_readings": {
+        "ksaya_vs_nirodha": "Uses kṣaya (jarāmaraṇakṣayaḥ) matching Chinese 盡 (jìn), not standard Prajñāpāramitā nirodha",
+        "no_aprapti": "Lacks na-aprāptiḥ that appears in Conze's edition and later manuscripts"
+      }
+    },
+    {
+      "id": "Horyuji:6",
+      "section": "bodhisattva_result",
+      "iast": "tasmāc chāriputra aprāptitvena bodhisatvasya prajñāpāramitām āśritya viharatyacittāvaraṇaḥ | cittāvaraṇanāstitvād atrasto viparyāsātikrānto niṣṭhānirvāṇaḥ |",
+      "notes": [
+        "aprāptitvena (instrumental) vs Conze aprāptitvād (ablative)",
+        "bodhisatvasya (genitive) - Conze noted variation between genitive and nominative across witnesses",
+        "niṣṭhānirvāṇaḥ WITHOUT prāptaḥ - masculine nominative adjective describing bodhisattva",
+        "This supports Attwood's (2018a) analysis that niṣṭhānirvāṇaḥ is a bahuvrīhi compound"
+      ],
+      "significant_readings": {
+        "nistha_nirvana": "niṣṭhānirvāṇaḥ (without prāptaḥ) - bahuvrīhi 'one whose nirvāṇa is complete'",
+        "genitive_bodhisattva": "bodhisatvasya (genitive singular)"
+      }
+    },
+    {
+      "id": "Horyuji:7",
+      "section": "buddha_result",
+      "iast": "tryadhvavyavasthitāḥ sarvabuddhāḥ prajñāpāramitām āśritya anuttarāṃ samyaksaṃbodhim abhisaṃbuddhāḥ |"
+    },
+    {
+      "id": "Horyuji:8",
+      "section": "mantra_praise",
+      "iast": "tasmāj jñātavyaṃ prajñāpāramitā mahāmantro mahāvidyāmantro 'nuttaramantro samasamamantraḥ sarvaduḥkhapraśamanaḥ satyam amithyatvāt |",
+      "notes": "Uses samasamamantraḥ not 'samasama-mantraḥ - slight orthographic difference"
+    },
+    {
+      "id": "Horyuji:9",
+      "section": "mantra",
+      "iast": "prajñāpāramitāyām ukto mantraḥ | tadyathā gate gate pāragate pārasaṃgate bodhi svāhā |",
+      "notes": [
+        "NO oṃ before gate gate",
+        "This is significant: Conze (1967) includes oṃ but notes it is absent from most witnesses",
+        "Supports Attwood's (2021) argument that oṃ is a late Tantric interpolation"
+      ],
+      "significant_readings": {
+        "no_om": "Mantra begins directly with 'gate gate' without oṃ prefix"
+      }
+    },
+    {
+      "id": "Horyuji:10",
+      "section": "colophon",
+      "iast": "iti prajñāpāramitāhṛdayasūtraṃ samāptam |",
+      "notes": "Simple colophon: 'Thus the Heart Sūtra of the Perfection of Wisdom is complete.'"
+    }
+  ],
+  "critical_significance": {
+    "for_text_criticism": [
+      "One of the oldest Sanskrit manuscript witnesses",
+      "Preserves readings that differ from Conze's conflated text",
+      "Absence of oṃ in mantra confirms it as late interpolation",
+      "Absence of na-aprāptiḥ supports Huifeng's analysis",
+      "niṣṭhānirvāṇaḥ without prāptaḥ supports Attwood's bahuvrīhi analysis",
+      "Uses simple namas sarvajñāya maṅgala, not elaborate Tantric salutation"
+    ],
+    "for_dating": [
+      "7th-8th century date makes it roughly contemporary with Chinese composition (ca. 649-661 CE)",
+      "Demonstrates Sanskrit version existed within a generation or two of Chinese original",
+      "Supports Nattier's thesis that Sanskrit is back-translation"
+    ],
+    "conze_usage": "Conze designated this manuscript 'Ja' and treated it as authoritative, though his critical edition sometimes departs from its readings in favor of later Nepalese manuscripts"
+  },
+  "diplomatic_editions": [
+    {
+      "editor": "Müller, F. Max and Nanjio, Bunyiu",
+      "title": "The Ancient Palm Leaves containing the Prajñāpāramitā-Hṛidaya Sūtra and Uṣṇīṣa-vijaya-Dhāraṇī",
+      "publication": "Buddhist Texts from Japan, Vol. 1, Part 3",
+      "year": 1884,
+      "publisher": "Oxford University Press",
+      "notes": "First diplomatic edition; introduced punctuation not in original manuscript"
+    },
+    {
+      "editor": "Harada, Waso",
+      "title": "An Annotated Translation of The Prajñāpāramitāhṛdaya",
+      "publication": "Association of Esoteric Buddhist Studies, No. 209",
+      "year": 2002,
+      "pages": "L17-L62"
+    },
+    {
+      "editor": "Saitō, Akira",
+      "title": "Avalokiteśvara in the Prajñāpāramitāhṛdaya",
+      "publication": "Acta Asiatica 121",
+      "year": 2021,
+      "pages": "1-21"
+    }
+  ],
+  "scholarly_refs": [
+    "Conze, Edward (1948). 'Text, Sources, and Bibliography of the Prajñāpāramitā-hṛdaya.' JRAS 80(1-2): 33-51.",
+    "Conze, Edward (1967). 'The Prajñāpāramitā-Hṛdaya Sūtra.' In Thirty Years of Buddhist Studies, pp. 147-167.",
+    "Müller, F. Max and Nanjio, Bunyiu (1884). Buddhist Texts from Japan, Vol. 1, Part 3. Oxford.",
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
+    "Attwood, Jayarava (2018a). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' JOCBS 14: 10-17.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.",
+    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
+    "Saitō, Akira (2021). 'Avalokiteśvara in the Prajñāpāramitāhṛdaya.' Acta Asiatica 121: 1-21."
+  ]
+}
