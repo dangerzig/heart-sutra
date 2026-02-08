@@ -64,7 +64,7 @@ We acknowledge significant limitations:
 
 - The question of T250's date and attribution remains unresolved.
 
-We therefore describe this work as a **critical apparatus with edition** rather than a definitive critical edition. It is intended as a foundation for further research rather than a final word.
+We therefore describe this work as a **preliminary critical apparatus** rather than a definitive critical edition. It is intended as a foundation for further research rather than a final word.
 
 ---
 
