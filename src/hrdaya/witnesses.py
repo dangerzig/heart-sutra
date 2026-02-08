@@ -110,17 +110,17 @@ CHINESE_WITNESSES = {
     ),
     "T257": Witness(
         id="T257",
-        name="般若波羅蜜多心經 (Bōrě bōluómìduō xīn jīng)",
+        name="佛說聖佛母般若波羅蜜多經 (Fó shuō shèng fómǔ bōrě bōluómìduō jīng)",
         witness_type=WitnessType.CHINESE,
-        date="c. 850-1000 CE",
-        date_circa=True,
+        date="1005 CE",
+        date_circa=False,
         location="Taishō Tripiṭaka Vol. 8, No. 257",
-        provenance="China",
+        provenance="China (Song dynasty translation)",
         script=Script.TRADITIONAL_CHINESE,
         edition_used="Taishō Shinshū Daizōkyō",
-        description="Attributed to Facheng (法成). Long version, "
-                    "possibly based on Tibetan source.",
-        scholarly_refs=["Nattier 1992"],
+        description="Dānapāla (施護) translation from Sanskrit long recension. "
+                    "Includes oṃ in mantra and full frame narrative.",
+        scholarly_refs=["Nattier 1992", "Attwood 2021"],
     ),
     # Dunhuang manuscripts
     "S2464": Witness(

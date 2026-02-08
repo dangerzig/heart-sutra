@@ -10,6 +10,8 @@ this edition:
 - Presents Sanskrit as evidence of reception and re-Sanskritization
 - Uses Tibetan as mediating witness for triangulating transmission
 - Explicitly annotates direction-of-dependence in variants
+
+Requires: Python 3.9+
 """
 
 from .models import (
@@ -25,7 +27,7 @@ from .models import (
     CriticalApparatus,
 )
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 __all__ = [
     "Witness",
     "WitnessType",

@@ -1,0 +1,56 @@
+# License
+
+This scholarly project contains multiple components with different licensing terms.
+
+## Original Content
+
+All original scholarly work in this repository, including:
+- Critical apparatus and analysis
+- Methodology documentation
+- Original research findings
+- Python source code
+- LaTeX edition templates
+
+is licensed under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**.
+
+You are free to:
+- Share — copy and redistribute the material in any medium or format
+- Adapt — remix, transform, and build upon the material for any purpose, even commercially
+
+Under the following terms:
+- Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+## Third-Party Sources
+
+The following source texts are included or referenced with their respective permissions:
+
+### GRETIL (Göttingen Register of Electronic Texts in Indian Languages)
+Sanskrit texts from GRETIL are used under their terms of scholarly use.
+http://gretil.sub.uni-goettingen.de/
+
+### CBETA (Chinese Buddhist Electronic Text Association)
+Chinese Buddhist texts from CBETA are used under their open access terms.
+https://www.cbeta.org/
+
+### 84000: Translating the Words of the Buddha
+Tibetan texts referenced follow 84000's licensing for scholarly use.
+https://84000.co/
+
+### Taishō Tripiṭaka
+The Taishō Shinshū Daizōkyō is in the public domain.
+
+## Academic Citation
+
+When citing this edition:
+
+```
+Zigmond, Dan et al. (2026). Heart Sūtra Critical Edition.
+Electronic multilingual critical edition with Chinese compositional priority.
+https://github.com/[repository-url]
+```
+
+---
+
+*February 2026*
