@@ -16,7 +16,7 @@
       "iast": "Oṃ Namo Bhagavatyai Ārya-prajñāpāramitāyai!",
       "devanagari": "ॐ नमो भगवत्यै आर्य-प्रज्ञापारमितायै!",
       "chinese_parallel": "T251:title",
-      "note": "Invocation not present in Chinese T251"
+      "note": "Maṅgala absent from Chinese T251 and most Sanskrit short-text witnesses. Late Tantric interpolation from Nepalese manuscripts (Attwood 2021). If salutation needed, namas sarvajñāya is more historically appropriate."
     },
     {
       "id": "GRETIL:2",
@@ -24,14 +24,15 @@
       "iast": "Ārya-avalokiteśvaro bodhisattvo gambhīrāṃ prajñāpāramitācaryāṃ caramāṇo vyavalokayati sma: pañca-skandhās, tāṃś ca svabhāva-śūnyān paśyati sma.",
       "devanagari": "आर्य-अवलोकितेश्वरो बोधिसत्त्वो गम्भीरां प्रज्ञापारमिताचर्यां चरमाणो व्यवलोकयति स्म: पञ्च-स्कन्धास्, तांश्च स्वभाव-शून्यान् पश्यति स्म।",
       "chinese_parallel": "T251:1",
-      "note": "vyavalokayati sma - imperfect tense unusual for sūtra style"
+      "note": "Section I error (Attwood 2015): pañca-skandhās should be pañcaskandhāṃs (accusative). The skandhas are objects of vyavalokayati sma ('examined'), not nominative subjects. Also: vyavalokayati sma uses imperfect tense unusual for sūtra style."
     },
     {
       "id": "GRETIL:3",
       "section": "form_emptiness",
       "iast": "Iha Śāriputra rūpaṃ śūnyatā śūnyataiva rūpam, rūpān na pṛthak śūnyatā śūnyatāyā na pṛthag rūpam, yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam; evam eva vedanā-saṃjñā-saṃskāra-vijñānāni.",
       "devanagari": "इह शारिपुत्र रूपं शून्यता शून्यतैव रूपम्, रूपान् न पृथक् शून्यता शून्यतायाः न पृथग् रूपम्, यद् रूपं सा शून्यता या शून्यता तद् रूपम्; एवमेव वेदना-संज्ञा-संस्कार-विज्ञानानि।",
-      "chinese_parallel": "T251:2"
+      "chinese_parallel": "T251:2",
+      "note": "The phrase 'yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam' has no Chinese counterpart and is absent from most Conze witnesses. Late interpolation not in Large Sutra parallels (Nattier 1992, Attwood 2017a). Original Aṣṭa reading was 'rūpam eva māyā māyaiva rūpam' (appearance is only illusion)."
     },
     {
       "id": "GRETIL:4",
@@ -74,7 +75,8 @@
       "section": "negations_truths",
       "iast": "Na duḥkha-samudaya-nirodha-mārgā. Na jñānaṃ, na prāptir na-aprāptiḥ.",
       "devanagari": "न दुःख-समुदय-निरोध-मार्गा। न ज्ञानं, न प्राप्तिर् न-अप्राप्तिः।",
-      "chinese_parallel": "T251:8"
+      "chinese_parallel": "T251:8",
+      "note": "na-aprāptiḥ is a late interpolation not found in any Large Sutra version (Huifeng 2014). Should be 'na prāptir nābhisamayaḥ' (no attainment, no realization). The pair prāpti/abhisamaya refers to mārga/phala (path and fruition). Kumārajīva's T223 error was copied into the Heart Sutra (Attwood 2020a)."
     },
     {
       "id": "GRETIL:10",
@@ -82,7 +84,7 @@
       "iast": "Tasmāc Chāriputra aprāptitvād bodhisattvasya prajñāpāramitām āśritya viharaty acittāvaraṇaḥ. Cittāvaraṇa-nāstitvād atrastro viparyāsa-atikrānto niṣṭhā-nirvāṇa-prāptaḥ.",
       "devanagari": "तस्माच् छारिपुत्र अप्राप्तित्वाद् बोधिसत्त्वस्य प्रज्ञापारमितामाश्रित्य विहरत्यचित्तावरणः। चित्तावरण-नास्तित्वाद् अत्रस्त्रो विपर्यास-अतिक्रान्तो निष्ठा-निर्वाण-प्राप्तः।",
       "chinese_parallel": "T251:9",
-      "note": "niṣṭhā-nirvāṇa controversial reading (Attwood 2018)"
+      "note": "Section VI error (Attwood 2018a, 2020a): Conze's wrongly placed full stop creates a sentence fragment. niṣṭhānirvāṇaḥ is a bahuvrīhi compound (masculine adjective) meaning 'one whose nirvāṇa is complete' - it describes the bodhisattva, not a separate neuter noun. Corrected reading removes the period: 'viharaty acittāvaraṇaś cittāvaraṇanāstitvād atrasto viparyāsātikrānto niṣṭhānirvāṇaḥ'."
     },
     {
       "id": "GRETIL:11",
@@ -96,14 +98,16 @@
       "section": "mantra_praise",
       "iast": "Tasmāj jñātavyam: prajñāpāramitā mahā-mantro mahā-vidyā-mantro 'nuttara-mantro 'samasama-mantraḥ, sarva-duḥkha-praśamanaḥ, satyam amithyatvāt.",
       "devanagari": "तस्माज् ज्ञातव्यम्: प्रज्ञापारमिता महा-मन्त्रो महा-विद्या-मन्त्रो ऽनुत्तर-मन्त्रो ऽसमसम-मन्त्रः, सर्व-दुःख-प्रशमनः, सत्यमम् इथ्यत्वात्।",
-      "chinese_parallel": "T251:11"
+      "chinese_parallel": "T251:11",
+      "note": "Epithets section (Attwood 2017b): Standard Prajñāpāramitā has three epithets (mahā-, anuttara-, asamasama-) representing vidyā, not mantra. Gilgit Pañc has 'mahāvidyeyaṃ...anuttareyaṃ vidyā...asamasameyaṃ vidyā'. Chinese míngzhòu 明咒 represents vidyā. The fourth epithet shénzhòu 神咒 may be a synonym for míngzhòu."
     },
     {
       "id": "GRETIL:13",
       "section": "mantra",
       "iast": "Prajñāpāramitāyām ukto mantraḥ. Tadyathā: Oṃ gate gate pāragate pārasaṃgate bodhi svāhā.",
       "devanagari": "प्रज्ञापारमितायामुक्तो मन्त्रः। तद्यथा: ॐ गते गते पारगते पारसंगते बोधि स्वाहा।",
-      "chinese_parallel": "T251:12"
+      "chinese_parallel": "T251:12",
+      "note": "Oṃ before 'gate gate' is absent from most Sanskrit manuscripts including the Hōryūji manuscript, and from all Chinese versions except T.257 (11th century Dānapāla translation). Late Tantric interpolation (Attwood 2021). Conze (1975) omits oṃ from his translation."
     },
     {
       "id": "GRETIL:14",
@@ -117,6 +121,43 @@
   "scholarly_refs": [
     "Conze, Edward (1967). 'The Prajñāpāramitā-Hṛdaya Sūtra' in Thirty Years of Buddhist Studies, pp. 147-167.",
     "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
-    "Attwood, Jayarava (2018). 'A Note on Nisthanirvana in the Heart Sutra.' JOCBS 14: 10-17."
-  ]
+    "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
+    "Attwood, Jayarava (2017a). 'Form is (Not) Emptiness: The Enigma at the Heart of the Heart Sutra.' JOCBS 13: 52-80.",
+    "Attwood, Jayarava (2017b). 'Epithets of the Mantra in the Heart Sutra.' JOCBS 12: 26-57.",
+    "Attwood, Jayarava (2018a). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' JOCBS 14: 10-17.",
+    "Attwood, Jayarava (2020a). 'Ungarbling Section VI of the Heart Sutra.' JOCBS 18: 11-41.",
+    "Attwood, Jayarava (2020c). 'The History of the Heart Sutra as a Palimpsest.' Pacific World Series 4, no.1: 155-182.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft, July 2021.",
+    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems: Non-attainment, Apprehension, and Mental Hanging in the Prajñāpāramitā Hṛdaya.' JOCBS 6: 72-105.",
+    "Kotyk, Jeffrey (2019). 'Chinese State and Buddhist Historical Sources on Xuanzang.' T'oung Pao 105(5-6): 513-544.",
+    "Karashima, Seishi et al. (2016). Mahāyāna Texts: Prajñāpāramitā Texts (1). Gilgit Manuscripts in the National Archives of India."
+  ],
+  "textual_notes": {
+    "section_I_error": {
+      "description": "Conze's pañca-skandhās (nominative plural) should be pañcaskandhāṃs (accusative plural). The skandhas are objects of vyavalokayati sma ('examined'), not a separate nominative subject.",
+      "reference": "Attwood 2015",
+      "corrected_reading": "pañcaskandhāṃs tāṃś ca svabhāvaśūnyān paśyati sma"
+    },
+    "section_VI_error": {
+      "description": "Conze's wrongly placed full stop between acittāvaraṇaḥ and cittāvaraṇanāstitvād creates a sentence fragment. niṣṭhānirvāṇaḥ is a bahuvrīhi compound (masculine nominative singular adjective) meaning 'one whose nirvāṇa is complete', describing the bodhisattva.",
+      "reference": "Attwood 2018a, 2020a",
+      "corrected_reading": "viharaty acittāvaraṇaś cittāvaraṇanāstitvād atrasto viparyāsātikrānto niṣṭhānirvāṇaḥ"
+    },
+    "na_aprapti_interpolation": {
+      "description": "na-aprāptiḥ does not occur in any version of the Large Sutra. Should be na prāptir nābhisamayaḥ ('no attainment, no realization'). The pair refers to mārga/phala (path and fruition).",
+      "reference": "Huifeng 2014, Attwood 2020a"
+    },
+    "mangala_interpolation": {
+      "description": "The maṅgala (Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai) is absent from Chinese versions and most Sanskrit sources of the short text. It reflects late Tantric influence from Nepalese manuscripts.",
+      "reference": "Attwood 2021"
+    },
+    "yad_rupam_interpolation": {
+      "description": "yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpaṃ has no counterpart in Chinese texts and is absent from most of Conze's witnesses. Late interpolation not found in Large Sutra parallels.",
+      "reference": "Nattier 1992, Attwood 2017a"
+    },
+    "om_in_mantra": {
+      "description": "Oṃ before gate gate is absent from most Sanskrit manuscripts including the Hōryūji manuscript, and from all Chinese versions except T.257 (11th century). Late Tantric interpolation.",
+      "reference": "Attwood 2021"
+    }
+  }
 }
