@@ -1,0 +1,144 @@
+{
+  "id": "Fangshan",
+  "title_chinese": "房山心經",
+  "title_pinyin": "Fángshān Xīnjīng",
+  "title_english": "Fangshan Heart Sutra Stele",
+  "type": "stone_inscription",
+  "location": "Yunju Temple (雲居寺), Fangshan District, Beijing",
+  "date": "13 March 661 CE",
+  "date_chinese": "唐龍朔元年二月八日",
+  "date_notes": "Dated by colophon. This is the earliest reliably dated physical witness of the Heart Sutra.",
+  "source": "Fangshan Stone Sutras Collection",
+  "recension": "short",
+  "carver": "Unknown",
+  "notes": "The Fangshan Stele is virtually identical to the canonical T251, with only minor orthographic variants typical of Tang dynasty stone inscriptions. This early date (661 CE) supports the hypothesis that the Heart Sutra was composed in the mid-7th century, likely by or in the circle of Xuanzang. The stele predates all known Sanskrit manuscripts.",
+  "text": "般若波羅蜜多心經。觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。舍利子，色不異空，空不異色，色即是空，空即是色。受想行識亦復如是。舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。是故空中无色，无受想行識，无眼耳鼻舌身意，无色聲香味觸法，无眼界，乃至无意識界，无无明，亦无无明盡，乃至无老死，亦无老死盡，无苦集滅道，无智亦无得，以无所得故。菩提薩埵依般若波羅蜜多故，心无罣礙，无罣礙故，无有恐怖，遠離顛倒夢想，究竟涅槃。三世諸佛依般若波羅蜜多故，得阿耨多羅三藐三菩提。故知般若波羅蜜多是大神呪，是大明呪，是无上呪，是无等等呪，能除一切苦，真實不虛。故說般若波羅蜜多呪，即說呪曰：揭諦揭諦，波羅揭諦，波羅僧揭諦，菩提薩婆訶。",
+  "text_normalized": "般若波羅蜜多心經。觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。舍利子，色不異空，空不異色，色即是空，空即是色。受想行識亦復如是。舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。是故空中無色，無受想行識，無眼耳鼻舌身意，無色聲香味觸法，無眼界，乃至無意識界，無無明，亦無無明盡，乃至無老死，亦無老死盡，無苦集滅道，無智亦無得，以無所得故。菩提薩埵依般若波羅蜜多故，心無罣礙，無罣礙故，無有恐怖，遠離顛倒夢想，究竟涅槃。三世諸佛依般若波羅蜜多故，得阿耨多羅三藐三菩提。故知般若波羅蜜多是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，真實不虛。故說般若波羅蜜多咒，即說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提薩婆訶。",
+  "orthographic_variants": {
+    "summary": "The Fangshan Stele uses variant characters common in Tang dynasty stone inscriptions. When normalized, the text is virtually identical to T251.",
+    "variants": [
+      {
+        "stele": "无",
+        "standard": "無",
+        "note": "Simplified form of 無 (wú, 'without/not'), used throughout the stele. This was a common variant in Tang epigraphy."
+      },
+      {
+        "stele": "諦",
+        "standard": "帝",
+        "location": "mantra",
+        "note": "揭諦 (jiēdì) instead of 揭帝 (jiēdì). Both characters have the same pronunciation; 諦 means 'truth' and is perhaps a more meaningful choice for a Buddhist text."
+      },
+      {
+        "stele": "呪",
+        "standard": "咒",
+        "note": "Variant form of 咒 (zhòu, 'mantra/spell'). Both forms were used interchangeably."
+      },
+      {
+        "stele": "薩婆訶",
+        "standard": "僧莎訶",
+        "location": "mantra ending",
+        "note": "薩婆訶 (sàpóhē) for svāhā instead of T251's 僧莎訶 (sēng suōhē). The Fangshan reading 薩婆訶 is actually more accurate as a transliteration of svāhā."
+      }
+    ]
+  },
+  "segments": [
+    {
+      "id": "Fangshan:1",
+      "section": "opening",
+      "text": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+      "comparison_T251": "identical"
+    },
+    {
+      "id": "Fangshan:2",
+      "section": "form_emptiness",
+      "text": "舍利子，色不異空，空不異色，色即是空，空即是色。受想行識亦復如是。",
+      "comparison_T251": "identical"
+    },
+    {
+      "id": "Fangshan:3",
+      "section": "characteristics",
+      "text": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+      "comparison_T251": "identical"
+    },
+    {
+      "id": "Fangshan:4",
+      "section": "negations_skandhas",
+      "text": "是故空中无色，无受想行識，",
+      "text_normalized": "是故空中無色，無受想行識，",
+      "comparison_T251": "identical (orthographic variant 无 for 無)"
+    },
+    {
+      "id": "Fangshan:5",
+      "section": "negations_ayatanas",
+      "text": "无眼耳鼻舌身意，无色聲香味觸法，",
+      "text_normalized": "無眼耳鼻舌身意，無色聲香味觸法，",
+      "comparison_T251": "identical (orthographic variant)"
+    },
+    {
+      "id": "Fangshan:6",
+      "section": "negations_dhatus",
+      "text": "无眼界，乃至无意識界，",
+      "text_normalized": "無眼界，乃至無意識界，",
+      "comparison_T251": "identical (orthographic variant)"
+    },
+    {
+      "id": "Fangshan:7",
+      "section": "negations_pratityasamutpada",
+      "text": "无无明，亦无无明盡，乃至无老死，亦无老死盡，",
+      "text_normalized": "無無明，亦無無明盡，乃至無老死，亦無老死盡，",
+      "comparison_T251": "identical (orthographic variant)"
+    },
+    {
+      "id": "Fangshan:8",
+      "section": "negations_truths",
+      "text": "无苦集滅道，无智亦无得，以无所得故。",
+      "text_normalized": "無苦集滅道，無智亦無得，以無所得故。",
+      "comparison_T251": "identical (orthographic variant)"
+    },
+    {
+      "id": "Fangshan:9",
+      "section": "bodhisattva_result",
+      "text": "菩提薩埵依般若波羅蜜多故，心无罣礙，无罣礙故，无有恐怖，遠離顛倒夢想，究竟涅槃。",
+      "text_normalized": "菩提薩埵依般若波羅蜜多故，心無罣礙，無罣礙故，無有恐怖，遠離顛倒夢想，究竟涅槃。",
+      "comparison_T251": "identical (orthographic variant)"
+    },
+    {
+      "id": "Fangshan:10",
+      "section": "buddha_result",
+      "text": "三世諸佛依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+      "comparison_T251": "identical"
+    },
+    {
+      "id": "Fangshan:11",
+      "section": "mantra_praise",
+      "text": "故知般若波羅蜜多是大神呪，是大明呪，是无上呪，是无等等呪，能除一切苦，真實不虛。",
+      "text_normalized": "故知般若波羅蜜多是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，真實不虛。",
+      "comparison_T251": "identical (orthographic variants 呪/咒, 无/無)"
+    },
+    {
+      "id": "Fangshan:12",
+      "section": "mantra",
+      "text": "故說般若波羅蜜多呪，即說呪曰：揭諦揭諦，波羅揭諦，波羅僧揭諦，菩提薩婆訶。",
+      "text_normalized": "故說般若波羅蜜多咒，即說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提薩婆訶。",
+      "comparison_T251": "variants: 諦 for 帝 in mantra; 薩婆訶 for 僧莎訶 at end",
+      "note": "The Fangshan reading 薩婆訶 (sàpóhē) is a more accurate transliteration of Sanskrit svāhā than T251's 僧莎訶 (sēng suōhē), which appears to be corrupt."
+    }
+  ],
+  "historical_significance": {
+    "dating": "The colophon dates the stele to the 8th day of the 2nd month of the 1st year of Longshuo (龍朔), which corresponds to 13 March 661 CE by the Julian calendar.",
+    "earliest_witness": "This is the earliest reliably dated physical witness of the Heart Sutra, predating all known Sanskrit manuscripts by several centuries.",
+    "textual_stability": "The virtual identity between the 661 CE stele and the canonical T251 demonstrates remarkable textual stability over more than 1,300 years.",
+    "composition_date": "The stele's early date supports the hypothesis that the Heart Sutra was composed in the mid-7th century. Combined with Kotyk's (2019) identification of a 656 CE letter mentioning Xuanzang giving a gold-lettered Heart Sutra to Emperor Gaozong, this suggests composition between roughly 649-656 CE.",
+    "svaha_reading": "The Fangshan svāhā transliteration (薩婆訶) is superior to the canonical T251 reading (僧莎訶), suggesting possible textual corruption in the received tradition."
+  },
+  "stemmatic_position": {
+    "relationship": "The Fangshan Stele and T251 derive from a common exemplar, likely the text composed by or attributed to Xuanzang circa 649-656 CE.",
+    "variants_pattern": "The pattern of variants (无/無, 諦/帝, svāhā readings) helps establish transmission relationships. Attwood (2019) uses these patterns to construct a provisional stemma."
+  },
+  "scholarly_refs": [
+    "Attwood, Jayarava (2019). 'Xuánzàng's Relationship to the Heart Sutra in light of the Fangshan Stele.' Journal of Chinese Buddhist Studies 32: 1-30.",
+    "Fangshan Shijing (房山石經). Beijing Library Press.",
+    "Kotyk, Jeffrey (2019). 'Chinese State and Buddhist Historical Sources on Xuanzang.' T'oung Pao 105(5-6): 513-544.",
+    "Lancaster, Lewis (1975). 'The Oldest Mahāyāna Sūtra: Its Significance for the Study of Buddhist Development.' The Eastern Buddhist 8(1): 30-41."
+  ]
+}
