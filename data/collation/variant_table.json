@@ -1,0 +1,255 @@
+{
+  "id": "variant_collation",
+  "title": "Collation of Key Textual Variants",
+  "description": "This table collates significant textual variants across all witnesses of the Heart Sutra. Following Nattier (1992) and Attwood (2015, 2021), these variants help establish the stemmatic relationships between witnesses and identify later interpolations.",
+  "methodology": {
+    "base_text": "T251 (Xuanzang attribution, ca. 649-656 CE) as earliest datable witness",
+    "principle": "Chinese compositional priority (Nattier 1992) - Sanskrit is back-translation from Chinese",
+    "critical_apparatus": "Variants that distinguish original composition from later elaborations"
+  },
+  "witnesses": {
+    "chinese": [
+      {"siglum": "T250", "name": "Dàmíngzhòujīng", "date": "4th-5th c.?", "recension": "short"},
+      {"siglum": "T251", "name": "Xuanzang Heart Sutra", "date": "ca. 649-656 CE", "recension": "short"},
+      {"siglum": "Fangshan", "name": "Fangshan Stele", "date": "661 CE", "recension": "short"},
+      {"siglum": "T256", "name": "Tang-Sanskrit Transliteration", "date": "8th-9th c.", "recension": "short"},
+      {"siglum": "T257", "name": "Dānapāla Translation", "date": "1005 CE", "recension": "long"}
+    ],
+    "sanskrit": [
+      {"siglum": "Ja", "name": "Hōryūji Manuscript", "date": "7th-8th c.", "recension": "short"},
+      {"siglum": "Na-Ne", "name": "Nepalese Manuscripts", "date": "11th-19th c.", "recension": "mostly long"}
+    ],
+    "tibetan": [
+      {"siglum": "Tib-S", "name": "Tibetan Short Recension", "date": "8th-9th c.", "recension": "short"},
+      {"siglum": "Tib-L", "name": "Tibetan Long Recension", "date": "8th-9th c.", "recension": "long"}
+    ]
+  },
+  "variants": [
+    {
+      "id": "VAR-001",
+      "location": "maṅgala (opening salutation)",
+      "issue": "Presence and form of opening salutation",
+      "readings": {
+        "T250": {"text": "—", "note": "No maṅgala"},
+        "T251": {"text": "—", "note": "No maṅgala"},
+        "Fangshan": {"text": "—", "note": "No maṅgala"},
+        "T256": {"text": "—", "note": "No maṅgala in Chinese; Sanskrit has simple form"},
+        "T257": {"text": "—", "note": "No maṅgala (has nidāna instead)"},
+        "Ja": {"text": "namas sarvajñāya", "note": "Simple salutation to Omniscient One"},
+        "Na-Ne": {"text": "Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai!", "note": "Elaborate Tantric salutation to Goddess"}
+      },
+      "analysis": "The simple 'namas sarvajñāya' in Hōryūji is original; the elaborate Tantric maṅgala in Nepalese MSS is a late interpolation reflecting Vajrayāna influence (Attwood 2021).",
+      "stemmatic_significance": "high"
+    },
+    {
+      "id": "VAR-002",
+      "location": "Section I: skandha observation",
+      "issue": "pañcaskandhāḥ (nominative) vs pañcaskandhāṃs (accusative)",
+      "readings": {
+        "T251": {"text": "照見五蘊皆空", "note": "Accusative sense: 'saw the five skandhas'"},
+        "T256": {"text": "pañca-skandhāṃs", "note": "Accusative (reconstructed from transliteration)"},
+        "Ja": {"text": "pañcaskandhās", "note": "Appears nominative (Müller/Nanjio reading)"},
+        "Conze": {"text": "pañcaskandhāḥ", "note": "Nominative (incorrect per Attwood 2015)"}
+      },
+      "analysis": "The Chinese requires accusative (object of 照見 'illuminated and saw'). Conze's nominative is a grammatical error. Attwood (2015) demonstrates accusative is correct.",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "Attwood (2015) 'Heart Murmurs' pp. 32-35"
+    },
+    {
+      "id": "VAR-003",
+      "location": "Section II: 'yad rūpaṃ sā śūnyatā' line",
+      "issue": "Presence of 'that which is form is emptiness' line",
+      "readings": {
+        "T250": {"text": "—", "note": "Absent"},
+        "T251": {"text": "—", "note": "Absent"},
+        "Fangshan": {"text": "—", "note": "Absent"},
+        "T256": {"text": "—", "note": "Absent from Chinese; unclear in Sanskrit portion"},
+        "T257": {"text": "—", "note": "Absent"},
+        "Ja": {"text": "yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam", "note": "Present"},
+        "Na-Ne": {"text": "yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam", "note": "Present"}
+      },
+      "analysis": "This line is absent from all Chinese versions but present in Sanskrit. Nattier (1992) identified this as evidence that Sanskrit added material not in the Chinese original. The line may be a later expansion in Sanskrit tradition.",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "Nattier (1992) pp. 175-177"
+    },
+    {
+      "id": "VAR-004",
+      "location": "Section V: na-aprāptiḥ",
+      "issue": "Presence of 'no non-attainment' after 'no attainment'",
+      "readings": {
+        "T250": {"text": "無智無得", "note": "No non-attainment"},
+        "T251": {"text": "無智亦無得", "note": "No non-attainment"},
+        "Fangshan": {"text": "无智亦无得", "note": "No non-attainment"},
+        "T256": {"text": "na jñānaṃ na prāptir nāprāptiḥ", "note": "Includes na-aprāptiḥ"},
+        "T257": {"text": "無智無所得亦無無得", "note": "Includes 亦無無得 (na-aprāptiḥ)"},
+        "Ja": {"text": "na jñānaṃ na prāptiḥ", "note": "NO na-aprāptiḥ"},
+        "Conze": {"text": "na jñānaṃ na prāptir nāprāptiḥ", "note": "Includes na-aprāptiḥ"},
+        "Na-Ne": {"text": "na jñānaṃ na prāptir nāprāptiḥ", "note": "Late MSS include it"}
+      },
+      "analysis": "The na-aprāptiḥ is absent from T251, Fangshan, and crucially from the Hōryūji MS. Its presence in late Sanskrit MSS and Conze's edition is an interpolation. Huifeng (2014) argues original should be 'na prāptir nābhisamayaḥ' based on Large Sutra parallels.",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "Huifeng (2014) 'Apocryphal Treatment' pp. 85-92"
+    },
+    {
+      "id": "VAR-005",
+      "location": "Section VI: niṣṭhānirvāṇa",
+      "issue": "niṣṭhānirvāṇaḥ vs niṣṭhānirvāṇaprāptaḥ",
+      "readings": {
+        "T251": {"text": "究竟涅槃", "note": "'ultimate nirvāṇa' (no 'attains')"},
+        "Fangshan": {"text": "究竟涅槃", "note": "'ultimate nirvāṇa' (no 'attains')"},
+        "Ja": {"text": "niṣṭhānirvāṇaḥ", "note": "Bahuvrīhi compound, no prāptaḥ"},
+        "Conze": {"text": "niṣṭhānirvāṇaprāptaḥ", "note": "With prāptaḥ (incorrect)"},
+        "Na-Ne": {"text": "niṣṭhānirvāṇaprāptaḥ", "note": "Late MSS add prāptaḥ"}
+      },
+      "analysis": "The Chinese 究竟涅槃 and Hōryūji niṣṭhānirvāṇaḥ support reading as bahuvrīhi compound ('one whose nirvāṇa is complete'). Conze's addition of prāptaḥ follows late MSS and breaks the syntax. Attwood (2018a) provides detailed grammatical analysis.",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "Attwood (2018a) 'A Note on Niṣṭhānirvāṇaḥ'"
+    },
+    {
+      "id": "VAR-006",
+      "location": "Section VII: oṃ in mantra",
+      "issue": "Presence of oṃ before 'gate gate'",
+      "readings": {
+        "T250": {"text": "羯諦羯諦...", "note": "No oṃ"},
+        "T251": {"text": "揭帝揭帝...", "note": "No oṃ"},
+        "Fangshan": {"text": "揭諦揭諦...", "note": "No oṃ"},
+        "T256": {"text": "gate gate...", "note": "No oṃ in transliteration"},
+        "T257": {"text": "唵 誐帝誐帝...", "note": "HAS oṃ (唵)"},
+        "Ja": {"text": "gate gate...", "note": "No oṃ"},
+        "Nb": {"text": "oṃ gate gate...", "note": "Has oṃ"},
+        "Ne": {"text": "oṃ gate gate...", "note": "Has oṃ"},
+        "Na": {"text": "gate gate...", "note": "No oṃ"}
+      },
+      "analysis": "The oṃ is absent from all early witnesses (T251, Fangshan, Hōryūji, T256, most Nepalese MSS). Only T257 (from late Tantric source) and late Nepalese MSS Nb and Ne include it. This is a Tantric interpolation based on the convention that all mantras begin with oṃ (Attwood 2021).",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "Attwood (2021) 'Revised Editions' Section 3.2"
+    },
+    {
+      "id": "VAR-007",
+      "location": "Section VII: svāhā ending",
+      "issue": "Form of svāhā transliteration",
+      "readings": {
+        "T250": {"text": "婆訶", "note": "pó hē (simple)"},
+        "T251": {"text": "僧莎訶", "note": "sēng suō hē (possibly corrupt)"},
+        "Fangshan": {"text": "薩婆訶", "note": "sà pó hē (accurate)"},
+        "T256": {"text": "莎賀", "note": "suō hè"},
+        "T257": {"text": "莎訶", "note": "suō hē"},
+        "Sanskrit": {"text": "svāhā", "note": "Standard mantra ending"}
+      },
+      "analysis": "The Fangshan reading 薩婆訶 is actually more accurate as a transliteration of svāhā than T251's 僧莎訶, which appears corrupt. This suggests possible textual corruption in the received T251 tradition.",
+      "stemmatic_significance": "medium"
+    },
+    {
+      "id": "VAR-008",
+      "location": "Title",
+      "issue": "Naming of the text",
+      "readings": {
+        "T250": {"text": "摩訶般若波羅蜜大明呪經", "note": "'Great Mantra Sūtra of Mahāprajñāpāramitā'"},
+        "T251": {"text": "般若波羅蜜多心經", "note": "'Heart Sūtra of Prajñāpāramitā'"},
+        "T257": {"text": "佛說聖佛母般若波羅蜜多經", "note": "'Holy Buddha-Mother Prajñāpāramitā Sūtra'"},
+        "Ja": {"text": "prajñāpāramitāhṛdayasūtram", "note": "'Heart Sūtra of Prajñāpāramitā'"},
+        "Na-Ne": {"text": "various including Pañcaviṃśatikā...", "note": "Diverse titles referencing syllable count"}
+      },
+      "analysis": "T250's title emphasizes mantra/dhāraṇī character. T251 and Sanskrit use 'heart' (心/hṛdaya). T257 calls Prajñāpāramitā 'Buddha-Mother'. Nepalese MSS show considerable title variation.",
+      "stemmatic_significance": "medium"
+    },
+    {
+      "id": "VAR-009",
+      "location": "Opening: Avalokiteśvara name",
+      "issue": "觀自在 vs 觀世音",
+      "readings": {
+        "T250": {"text": "觀世音菩薩", "note": "Guānshìyīn (earlier translation)"},
+        "T251": {"text": "觀自在菩薩", "note": "Guānzìzài (Xuanzang's translation)"},
+        "Fangshan": {"text": "觀自在菩薩", "note": "Guānzìzài"},
+        "T257": {"text": "觀自在", "note": "Guānzìzài"},
+        "Sanskrit": {"text": "Avalokiteśvara", "note": "Lord who looks down"}
+      },
+      "analysis": "觀世音 (Guānshìyīn, 'Perceiver of Sounds') was the standard pre-Xuanzang translation. 觀自在 (Guānzìzài, 'Lord of Self-Perception') was Xuanzang's new translation introduced ca. 649 CE. This helps date T250 to before Xuanzang's influence.",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "Nattier (1992) pp. 182-184"
+    },
+    {
+      "id": "VAR-010",
+      "location": "Opening: skandha terminology",
+      "issue": "五蘊 vs 五陰",
+      "readings": {
+        "T250": {"text": "五陰", "note": "wǔyīn (older translation)"},
+        "T251": {"text": "五蘊", "note": "wǔyùn (Xuanzang's translation)"},
+        "Fangshan": {"text": "五蘊", "note": "wǔyùn"},
+        "T257": {"text": "五蘊", "note": "wǔyùn"},
+        "Sanskrit": {"text": "pañcaskandha", "note": "five aggregates"}
+      },
+      "analysis": "陰 (yīn) was the older translation for skandha, while 蘊 (yùn) was standardized by Xuanzang. T250's use of 陰 supports its pre-Xuanzang dating.",
+      "stemmatic_significance": "medium"
+    },
+    {
+      "id": "VAR-011",
+      "location": "Mantra praise: epithet count",
+      "issue": "Number of mantra epithets (3 vs 4)",
+      "readings": {
+        "T250": {"text": "是大明呪、無上明呪、無等等明呪", "note": "3 epithets (all with 明呪)"},
+        "T251": {"text": "是大神咒、是大明咒、是無上咒、是無等等咒", "note": "4 epithets"},
+        "T257": {"text": "是大神咒、是大明咒、是無上咒、是無等等咒", "note": "4 epithets"},
+        "Sanskrit": {"text": "mahāmantro mahāvidyāmantro 'nuttaramantro 'samasama-mantraḥ", "note": "4 epithets"}
+      },
+      "analysis": "T250 has only three epithets, all using 明呪 (vidyāmantra). T251 and Sanskrit have four epithets. T250's divergence suggests an independent early tradition.",
+      "stemmatic_significance": "medium"
+    },
+    {
+      "id": "VAR-012",
+      "location": "Dependent origination: kṣaya vs nirodha",
+      "issue": "Use of 'destruction' vs 'cessation' terminology",
+      "readings": {
+        "T251": {"text": "盡", "note": "jìn = exhaustion/destruction"},
+        "Sanskrit": {"text": "kṣaya", "note": "destruction (not standard Buddhist nirodha)"},
+        "Large_Sutra": {"text": "nirodha", "note": "cessation (standard Prajñāpāramitā term)"}
+      },
+      "analysis": "The Sanskrit uses kṣaya (destruction) matching Chinese 盡, not the standard Prajñāpāramitā term nirodha (cessation). This is key evidence for back-translation: the Sanskrit calqued from Chinese rather than quoting the Large Sutra directly (Nattier 1992).",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "Nattier (1992) pp. 173-175"
+    },
+    {
+      "id": "VAR-013",
+      "location": "Frame narrative",
+      "issue": "Presence of nidāna (prologue) and epilogue",
+      "readings": {
+        "T250": {"text": "—", "note": "No frame narrative"},
+        "T251": {"text": "—", "note": "No frame narrative"},
+        "Fangshan": {"text": "—", "note": "No frame narrative"},
+        "T256": {"text": "—", "note": "No frame narrative"},
+        "T257": {"text": "Full frame", "note": "Complete nidāna and epilogue"},
+        "Ja": {"text": "—", "note": "No frame narrative"},
+        "Tibetan_Long": {"text": "Full frame", "note": "Complete nidāna and epilogue"},
+        "Na-Ne_Long": {"text": "Full frame", "note": "Complete nidāna and epilogue"}
+      },
+      "analysis": "The short recension (no frame) is original. The long recension with frame narrative was added later, probably to make the text conform to sūtra conventions. T257 was translated from the long recension tradition.",
+      "stemmatic_significance": "high"
+    }
+  ],
+  "stemma_notes": {
+    "summary": "Based on these variants, the witnesses can be organized into a provisional stemma.",
+    "early_chinese_tradition": [
+      "T250 represents an independent early Chinese tradition (pre-Xuanzang)",
+      "T251/Fangshan represent the Xuanzang tradition (ca. 649-661 CE)",
+      "T256 documents Sanskrit as studied in Tang China"
+    ],
+    "sanskrit_tradition": [
+      "Hōryūji (Ja) is the earliest Sanskrit MS witness, close to the back-translation",
+      "Nepalese MSS show progressive Tantric elaboration (oṃ, maṅgala, frame narrative)",
+      "Conze's critical edition unfortunately privileged late Nepalese readings"
+    ],
+    "late_translations": [
+      "T257 was translated from elaborated Sanskrit long recension (1005 CE)",
+      "Its oṃ and na-aprāptiḥ come from its Sanskrit source, not Chinese tradition"
+    ]
+  },
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
+    "Attwood, Jayarava (2018a). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' JOCBS 14: 10-17.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.",
+    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
+    "Conze, Edward (1967). 'The Prajñāpāramitā-Hṛdaya Sūtra.' In Thirty Years of Buddhist Studies, pp. 147-167.",
+    "Silk, Jonathan (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions.' WSTB 34."
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "id": "T257",
+  "title_chinese": "佛說聖佛母般若波羅蜜多經",
+  "title_pinyin": "Fó shuō shèng fómǔ bōrě bōluómìduō jīng",
+  "title_english": "Sūtra of the Holy Mother of Buddhas, the Perfection of Wisdom, Spoken by the Buddha",
+  "type": "translation",
+  "translator": "Dānapāla (施護, Shīhù)",
+  "translator_nationality": "Indian (from Uḍḍiyāna/Oḍḍiyāna)",
+  "date": "1005 CE",
+  "date_chinese": "宋景德二年",
+  "source": "Taishō Tripiṭaka Vol. 8, No. 257",
+  "recension": "long",
+  "notes": "T257 is Dānapāla's translation from a Sanskrit manuscript, completed in 1005 CE during the Song dynasty. Unlike T251 (which is likely a Chinese composition) and T250 (early Chinese tradition), T257 represents a genuine translation from the elaborated Sanskrit long recension. It includes the full frame narrative (nidāna), addresses Prajñāpāramitā as 'Buddha-Mother' (佛母), and notably includes oṃ (唵) in the mantra—the only Chinese Heart Sutra to do so. This confirms that the oṃ was present in Indian Sanskrit manuscripts by the 11th century (Attwood 2021).",
+  "text": "佛說聖佛母般若波羅蜜多經\n\n如是我聞。一時世尊。在王舍城鷲峯山中。與大苾芻眾。及大菩薩眾俱。爾時世尊。入三摩地名廣大甚深。爾時眾中有一菩薩摩訶薩。名觀自在。行甚深般若波羅蜜多行時。照見五蘊自性皆空。\n\n爾時具壽舍利子。承佛威神。白觀自在菩薩摩訶薩言。若善男子善女人。欲行甚深般若波羅蜜多行者。作何修行。\n\n觀自在菩薩摩訶薩。告具壽舍利子言。舍利子。若善男子善女人。欲行甚深般若波羅蜜多行者。應如是觀。照見五蘊自性皆空。\n\n舍利子。色即是空。空即是色。色不異空。空不異色。受想行識亦復如是。\n\n舍利子。是諸法性相空。不生不滅。不垢不淨。不增不減。\n\n舍利子。是故空中。無色。無受想行識。無眼耳鼻舌身意。無色聲香味觸法。無眼界。無眼識界。乃至無意界。無意識界。無無明。無無明盡。乃至無老死。亦無老死盡。無苦集滅道。無智。無所得。亦無無得。\n\n舍利子。由是無得故。菩薩摩訶薩。依般若波羅蜜多住。心無障礙。心無障礙故。無有恐怖。遠離顛倒。究竟涅槃。三世諸佛。依般若波羅蜜多故。得阿耨多羅三藐三菩提。\n\n是故應知般若波羅蜜多。是大神咒。是大明咒。是無上咒。是無等等咒。能除一切苦。真實不虛。\n\n故說般若波羅蜜多咒。即說咒曰。\n\n唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶\n\n舍利子。菩薩摩訶薩。應如是修行般若波羅蜜多。\n\n爾時世尊。從三摩地安詳而起。讚觀自在菩薩摩訶薩言。善哉善哉。善男子。如是如是。如汝所說。甚深般若波羅蜜多行。應如是行。一切如來。亦皆隨喜。\n\n爾時世尊說是語已。具壽舍利子。觀自在菩薩摩訶薩。并諸眷屬天人阿修羅乾闘婆等。一切世間。皆大歡喜。信受奉行。\n\n佛說聖佛母般若波羅蜜多經",
+  "structural_analysis": {
+    "frame_narrative": true,
+    "nidana": {
+      "setting": "王舍城鷲峯山 (Rājagṛha, Vulture Peak Mountain)",
+      "assembly": "大苾芻眾 (great assembly of monks) and 大菩薩眾 (great assembly of bodhisattvas)",
+      "samadhi": "廣大甚深 (vast and profound) - Buddha enters this samādhi",
+      "prompt": "Śāriputra asks Avalokiteśvara how to practice"
+    },
+    "epilogue": {
+      "buddha_rises": "世尊從三摩地安詳而起 (Buddha arose peacefully from samādhi)",
+      "approval": "善哉善哉 (sādhu sādhu - excellent, excellent)",
+      "rejoicing": "一切如來亦皆隨喜 (all tathāgatas also rejoice)",
+      "audience_response": "皆大歡喜信受奉行 (all greatly rejoiced, faithfully received and practiced)"
+    }
+  },
+  "distinctive_features": {
+    "title": {
+      "reading": "聖佛母般若波羅蜜多經",
+      "significance": "Calls Prajñāpāramitā the 'Buddha-Mother' (佛母), reflecting the Indian tradition where Prajñāpāramitā is the mother of all Buddhas. This title is absent from T250 and T251."
+    },
+    "om_in_mantra": {
+      "reading": "唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶",
+      "significance": "T257 is the ONLY Chinese Heart Sutra that includes oṃ (唵) before gate gate. This confirms the oṃ was present in Indian Sanskrit manuscripts by 1005 CE but was a later Tantric addition not in the original (Attwood 2021).",
+      "note": "The inclusion of oṃ supports the view that T257 was translated from a late Tantric Sanskrit recension similar to the Nepalese manuscripts"
+    },
+    "skandhas_observation": {
+      "reading": "照見五蘊自性皆空",
+      "comparison": "Uses 自性皆空 (svabhāva-śūnya, 'inherently empty') like T251, unlike T250's 度一切苦厄",
+      "note": "The 自性 (svabhāva) reflects Sanskrit philosophical vocabulary"
+    },
+    "negation_formula": {
+      "reading": "無智無所得亦無無得",
+      "comparison": "Includes 亦無無得 ('also no non-attainment'), rendering Sanskrit na-aprāptiḥ",
+      "note": "T251 lacks this phrase; its presence in T257 reflects the elaborated Sanskrit tradition (Huifeng 2014)"
+    },
+    "epithets": {
+      "reading": "是大神咒是大明咒是無上咒是無等等咒",
+      "count": 4,
+      "note": "Four epithets matching Sanskrit: mahāmantro mahāvidyāmantro 'nuttaramantro 'samasama-mantraḥ"
+    }
+  },
+  "segments": [
+    {
+      "id": "T257:1",
+      "section": "title",
+      "text": "佛說聖佛母般若波羅蜜多經",
+      "notes": "Title emphasizes Prajñāpāramitā as Buddha-Mother (佛母), a concept from Indian Prajñāpāramitā tradition"
+    },
+    {
+      "id": "T257:2",
+      "section": "nidana",
+      "text": "如是我聞。一時世尊。在王舍城鷲峯山中。與大苾芻眾。及大菩薩眾俱。爾時世尊。入三摩地名廣大甚深。爾時眾中有一菩薩摩訶薩。名觀自在。行甚深般若波羅蜜多行時。照見五蘊自性皆空。",
+      "notes": "Standard sūtra opening (evaṃ mayā śrutam) plus Buddha entering samādhi"
+    },
+    {
+      "id": "T257:3",
+      "section": "shariputra_question",
+      "text": "爾時具壽舍利子。承佛威神。白觀自在菩薩摩訶薩言。若善男子善女人。欲行甚深般若波羅蜜多行者。作何修行。",
+      "notes": "Śāriputra asks by Buddha's power (承佛威神), matching long recension frame"
+    },
+    {
+      "id": "T257:4",
+      "section": "avalokiteshvara_response",
+      "text": "觀自在菩薩摩訶薩。告具壽舍利子言。舍利子。若善男子善女人。欲行甚深般若波羅蜜多行者。應如是觀。照見五蘊自性皆空。",
+      "notes": "Avalokiteśvara's response frames the teaching"
+    },
+    {
+      "id": "T257:5",
+      "section": "form_emptiness",
+      "text": "舍利子。色即是空。空即是色。色不異空。空不異色。受想行識亦復如是。",
+      "notes": "Order differs from T251: 色即是空 comes before 色不異空"
+    },
+    {
+      "id": "T257:6",
+      "section": "characteristics",
+      "text": "舍利子。是諸法性相空。不生不滅。不垢不淨。不增不減。",
+      "notes": "Uses 性相空 (essence-characteristics empty) for Sanskrit śūnyatā-lakṣaṇā"
+    },
+    {
+      "id": "T257:7",
+      "section": "negations",
+      "text": "舍利子。是故空中。無色。無受想行識。無眼耳鼻舌身意。無色聲香味觸法。無眼界。無眼識界。乃至無意界。無意識界。無無明。無無明盡。乃至無老死。亦無老死盡。無苦集滅道。無智。無所得。亦無無得。",
+      "notes": "Includes 亦無無得 (na-aprāptiḥ) absent from T251; more detailed dhātu enumeration than T251"
+    },
+    {
+      "id": "T257:8",
+      "section": "bodhisattva_result",
+      "text": "舍利子。由是無得故。菩薩摩訶薩。依般若波羅蜜多住。心無障礙。心無障礙故。無有恐怖。遠離顛倒。究竟涅槃。",
+      "notes": "Uses 障礙 for cittāvaraṇa (T251 uses 罣礙); omits 夢想 after 顛倒"
+    },
+    {
+      "id": "T257:9",
+      "section": "buddha_result",
+      "text": "三世諸佛。依般若波羅蜜多故。得阿耨多羅三藐三菩提。",
+      "notes": "Standard formula matching other versions"
+    },
+    {
+      "id": "T257:10",
+      "section": "mantra_praise",
+      "text": "是故應知般若波羅蜜多。是大神咒。是大明咒。是無上咒。是無等等咒。能除一切苦。真實不虛。",
+      "notes": "Four epithets; uses 咒 consistently (not mixing 咒 and 呪)"
+    },
+    {
+      "id": "T257:11",
+      "section": "mantra",
+      "text": "故說般若波羅蜜多咒。即說咒曰。唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶",
+      "notes": "CRITICAL: Only Chinese Heart Sutra with oṃ (唵). Uses 誐帝 (gēdì) for gate. This proves late Tantric Sanskrit source (Attwood 2021)."
+    },
+    {
+      "id": "T257:12",
+      "section": "avalokiteshvara_conclusion",
+      "text": "舍利子。菩薩摩訶薩。應如是修行般若波羅蜜多。",
+      "notes": "Avalokiteśvara's conclusion before Buddha's approval"
+    },
+    {
+      "id": "T257:13",
+      "section": "buddha_approval",
+      "text": "爾時世尊。從三摩地安詳而起。讚觀自在菩薩摩訶薩言。善哉善哉。善男子。如是如是。如汝所說。甚深般若波羅蜜多行。應如是行。一切如來。亦皆隨喜。",
+      "notes": "Buddha awakens and approves (sādhu sādhu = 善哉善哉)"
+    },
+    {
+      "id": "T257:14",
+      "section": "audience_rejoicing",
+      "text": "爾時世尊說是語已。具壽舍利子。觀自在菩薩摩訶薩。并諸眷屬天人阿修羅乾闘婆等。一切世間。皆大歡喜。信受奉行。",
+      "notes": "Standard sūtra conclusion with audience approval"
+    },
+    {
+      "id": "T257:15",
+      "section": "colophon",
+      "text": "佛說聖佛母般若波羅蜜多經",
+      "notes": "Title repeated as colophon"
+    }
+  ],
+  "comparison_with_other_versions": {
+    "vs_T251": [
+      "T257 includes full frame narrative (absent from T251)",
+      "T257 has oṃ in mantra (absent from T251)",
+      "T257 includes na-aprāptiḥ (亦無無得) (absent from T251)",
+      "T257 uses 障礙 for 'obstruction' (T251 uses 罣礙)",
+      "T257 reverses order: 色即是空 before 色不異空",
+      "T257 calls text 佛母 'Buddha-Mother' (absent from T251)"
+    ],
+    "vs_sanskrit_long_recension": [
+      "Matches Sanskrit long recension structure with nidāna and epilogue",
+      "Includes oṃ in mantra like late Nepalese manuscripts",
+      "Includes na-aprāptiḥ matching Conze's received text"
+    ],
+    "vs_tibetan_long": [
+      "Both have frame narrative",
+      "Both have Buddha entering samādhi",
+      "Both have Śāriputra questioning by Buddha's power"
+    ]
+  },
+  "translator_info": {
+    "name_chinese": "施護",
+    "name_pinyin": "Shīhù",
+    "name_sanskrit": "Dānapāla",
+    "origin": "Uḍḍiyāna (modern Swat, Pakistan)",
+    "active_period": "980-1017 CE",
+    "translations": "Prolific translator during Song dynasty; translated numerous tantric texts",
+    "notes": "Dānapāla was an Indian monk from Uḍḍiyāna who arrived in China in 980 CE. He worked at the translation bureau and was known for his accurate translations from Sanskrit. His Heart Sutra translation reflects the Tantric Sanskrit tradition of his homeland."
+  },
+  "stemmatic_position": {
+    "summary": "T257 represents a genuine translation from an elaborated Sanskrit long recension similar to the Nepalese manuscripts. Unlike T251 (Chinese composition) and T250 (early Chinese tradition), T257 provides evidence for what the Sanskrit text looked like in 11th century India.",
+    "significance": [
+      "Only Chinese version with oṃ in mantra - confirms late Tantric Sanskrit source",
+      "Presence of na-aprāptiḥ distinguishes from original Chinese composition",
+      "Frame narrative matches Tibetan and Sanskrit long recension",
+      "Valuable for establishing stemmatic relationships between witnesses"
+    ]
+  },
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.",
+    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
+    "Lancaster, Lewis (1975). 'The Oldest Mahāyāna Sūtra: Its Significance for the Study of Buddhist Development.' The Eastern Buddhist 8(1): 30-41.",
+    "Silk, Jonathan (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions.' Wiener Studien zur Tibetologie und Buddhismuskunde 34."
+  ]
+}
