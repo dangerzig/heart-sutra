@@ -16,36 +16,28 @@ This project creates a scholarly critical edition of the Heart Sūtra that:
 
 ```
 heart-sutra/
-├── src/
-│   └── hrdaya/              # Core Python library
-│       ├── __init__.py      # Package initialization
-│       ├── models.py        # Data models (Witness, Segment, Variant, etc.)
-│       ├── witnesses.py     # Witness catalog with full metadata
-│       └── transliterate.py # Devanagari ↔ IAST conversion
+├── src/hrdaya/              # Core Python library
+│   ├── models.py            # Data models (Witness, Segment, Variant)
+│   ├── witnesses.py         # Witness catalog (40+ witnesses)
+│   └── transliterate.py     # Devanagari ↔ IAST conversion
 ├── data/
 │   ├── chinese/
-│   │   ├── taisho/          # Taishō Canon texts (T250-T257)
+│   │   ├── taisho/          # T250-T257 with full metadata
 │   │   ├── dunhuang/        # Dunhuang manuscripts
-│   │   └── manuscripts/     # Other Chinese manuscripts
+│   │   └── epigraphy/       # Fangshan stele, inscriptions
 │   ├── sanskrit/
 │   │   ├── gretil/          # GRETIL edition
-│   │   ├── dsbc/            # Digital Sanskrit Buddhist Canon
-│   │   └── manuscripts/     # Manuscript transcriptions by provenance
-│   │       ├── nepalese/
-│   │       ├── japanese/
-│   │       ├── chinese-inscriptions/
-│   │       └── central-asian/
-│   ├── tibetan/
-│   │   ├── kangyur/         # Kangyur versions
-│   │   └── dunhuang/        # Dunhuang Tibetan manuscripts
-│   ├── prajnaparamita/      # Source texts (Large PP parallels)
-│   ├── collation/           # Collation output
-│   ├── critical/            # Critical edition output
-│   └── aligned/             # Synoptic alignments
-├── docs/
-│   └── METHODOLOGY.md       # Full methodological framework
-├── refs/                    # Scholarly references
-└── scripts/                 # Utility scripts
+│   │   └── manuscripts/     # Hōryū-ji, Nepalese MSS
+│   ├── tibetan/kangyur/     # Kangyur editions
+│   ├── prajnaparamita/      # Large PP source parallels
+│   ├── collation/           # Variant table
+│   ├── stemma/              # Stemma codicum
+│   └── aligned/             # 12-segment synoptic alignment
+├── output/
+│   ├── latex/               # Critical editions (PDF)
+│   └── translation/         # Annotated English translation
+├── docs/                    # Methodology, architecture
+└── research/                # Original findings documentation
 ```
 
 ## Methodology
@@ -67,11 +59,12 @@ This edition follows the methodological principles outlined in `docs/METHODOLOGY
 
 ### Chinese (Taishō Canon)
 
-| ID | Title | Date | Type |
-|----|-------|------|------|
-| T251 | 般若波羅蜜多心經 | 649 CE | Base text |
-| T250 | 摩訶般若波羅蜜大明咒經 | c. 402-412 | Long |
-| T252-257 | Various | c. 700-1000 | Short/Long |
+| ID | Title | Date | Notes |
+|----|-------|------|-------|
+| T251 | 般若波羅蜜多心經 | 649 CE | Xuanzang; base text |
+| T250 | 摩訶般若波羅蜜大明咒經 | 649 CE | Parallel composition (attr. Kumārajīva) |
+| T256 | 唐梵翻對字音般若波羅蜜多心經 | 788 CE | Bilingual transliteration |
+| T257 | 佛說聖佛母般若波羅蜜多經 | 1005 CE | Long recension, Dānapāla |
 
 ### Sanskrit
 
@@ -155,6 +148,18 @@ for siglum, witness in SANSKRIT_WITNESSES.items():
     print(f"{siglum}: {witness.name}")
 ```
 
+## Original Research Findings
+
+This edition documents several original contributions:
+
+1. **T250/T251 Parallel Composition** — Evidence that T250 and T251 are independent sibling compositions from *Mokṣala's Large Sūtra (T223)*, not successive recensions. T250 preserves material absent from T251 (skandha characteristics, temporal negation) suggesting parallel development rather than linear revision.
+
+2. **Three vs. Four Epithet Pattern** — T250's three-epithet formula (不生不滅, 不垢不淨, 不增不減) matches T223 exactly; T251 innovates with four epithets matching Sanskrit witnesses, suggesting independent back-translation.
+
+3. **Late Interpolations Identified** — The *oṃ* in the Sanskrit mantra, *na-aprāptiḥ*, and elaborate *maṅgala* frames represent post-9th century accretions absent from earliest Chinese witnesses.
+
+See `research/FINDINGS.md` for full documentation.
+
 ## Key Scholarship
 
 - **Nattier, Jan (1992)**. "The Heart Sūtra: a Chinese apocryphal text?" *JIABS* 15(2): 153-223.
@@ -164,20 +169,30 @@ for siglum, witness in SANSKRIT_WITNESSES.items():
 
 ## Status
 
-This project is under active development. Current status:
+**Publication Ready** — Core scholarly work complete.
+
+### Completed
 
 - [x] Project structure and data models
-- [x] Witness catalog with metadata
-- [x] Chinese base text (T251)
-- [x] Sanskrit text (GRETIL) with dual script
+- [x] Witness catalog with full metadata (40+ witnesses)
+- [x] Chinese base texts (T250, T251, T256, T257)
+- [x] Sanskrit texts with dual script (Devanagari/IAST)
 - [x] Tibetan text (Kangyur Toh 21)
-- [x] Transliteration utilities
+- [x] Transliteration utilities (Devanagari ↔ IAST)
 - [x] Methodology documentation
-- [ ] Full collation system
-- [ ] Synoptic alignment tool
-- [ ] Variant classification
-- [ ] Critical apparatus generation
-- [ ] Export formats (LaTeX, TEI-XML)
+- [x] Full collation system with variant table
+- [x] Synoptic alignment (12-segment parallel structure)
+- [x] Variant classification with direction-of-dependence
+- [x] Critical apparatus generation
+- [x] Stemma codicum with analysis
+- [x] LaTeX critical editions (Chinese, Sanskrit, Tibetan, Parallel)
+- [x] Annotated English translation
+
+### In Progress
+
+- [ ] TEI-XML export
+- [ ] Formal consolidated bibliography
+- [ ] Publication front matter (introduction, indices)
 
 ## License
 
