@@ -1,0 +1,151 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[landscape,margin=1.5cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes,arrows.meta,calc}
+\usepackage{fontspec}
+\usepackage{xcolor}
+
+% Set fonts with Greek support
+\setmainfont{Noto Serif}
+\newfontfamily\greekfont{Noto Serif}[Script=Greek]
+
+% Define colors
+\definecolor{sourcecolor}{RGB}{139,69,19}      % Brown for sources
+\definecolor{chinesecolor}{RGB}{178,34,34}     % Dark red for Chinese
+\definecolor{sanskritcolor}{RGB}{0,100,0}      % Dark green for Sanskrit
+\definecolor{tibetancolor}{RGB}{70,130,180}    % Steel blue for Tibetan
+\definecolor{hypothetical}{RGB}{128,128,128}   % Gray for hypothetical nodes
+
+\begin{document}
+
+\pagestyle{empty}
+
+\begin{center}
+{\LARGE\bfseries Stemma Codicum of the Prajñāpāramitāhṛdaya}\\[0.5em]
+{\large Following Chinese Compositional Priority (Nattier 1992)}
+\end{center}
+
+\vspace{1em}
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=1.2cm and 2cm,
+    >={Stealth[length=3mm]},
+    source/.style={rectangle, draw=sourcecolor, fill=sourcecolor!20, thick, minimum width=3cm, minimum height=0.8cm, font=\small},
+    hypothetical/.style={rectangle, draw=hypothetical, fill=hypothetical!10, thick, dashed, minimum width=2.5cm, minimum height=0.8cm, font=\small},
+    chinese/.style={rectangle, draw=chinesecolor, fill=chinesecolor!15, thick, rounded corners, minimum width=2.2cm, minimum height=0.8cm, font=\small},
+    sanskrit/.style={rectangle, draw=sanskritcolor, fill=sanskritcolor!15, thick, rounded corners, minimum width=2.2cm, minimum height=0.8cm, font=\small},
+    tibetan/.style={rectangle, draw=tibetancolor, fill=tibetancolor!15, thick, rounded corners, minimum width=2.2cm, minimum height=0.8cm, font=\small},
+    arrow/.style={->, thick},
+    translation/.style={->, thick, dashed},
+    scale=0.9
+]
+
+% Row 1: Sources
+\node[source] (alpha) at (0,0) {α: Large Sūtra (T223)\\{\scriptsize ca. 404 CE}};
+
+% Row 2: Proto and Archetype
+\node[hypothetical] (beta) at (-6,-2) {β: Proto-Heart Sūtra\\{\scriptsize 5th-6th c.?}};
+\node[hypothetical] (omega) at (0,-2) {Ω: Xuanzang's Xīnjīng\\{\scriptsize ca. 649-656 CE}};
+
+% Row 3: First witnesses and Sanskrit back-translation
+\node[chinese] (T250) at (-8,-4) {T250\\{\scriptsize Dàmíngzhòujīng}};
+\node[chinese] (T251) at (-3,-4) {T251\\{\scriptsize Xuanzang}};
+\node[hypothetical] (sigma) at (3,-4) {σ: Sanskrit\\Back-translation\\{\scriptsize mid-7th c.}};
+
+% Row 4: Early copies
+\node[chinese] (Fangshan) at (-5,-6) {Fangshan\\{\scriptsize 661 CE}};
+\node[chinese] (T256) at (0,-6) {T256\\{\scriptsize Tang translit.}};
+\node[sanskrit] (Ja) at (4,-6) {Ja: Hōryūji\\{\scriptsize 7th-8th c.}};
+\node[sanskrit] (Na) at (7,-6) {Na\\{\scriptsize 11th c.}};
+
+% Row 4.5: Long recension development
+\node[hypothetical] (sigmaL) at (10,-6) {σ-L: Long\\Recension\\{\scriptsize 8th c.?}};
+
+% Row 5: Tibetan and Tantric
+\node[tibetan] (TibS) at (4,-8) {Tib-S\\{\scriptsize Short}};
+\node[tibetan] (TibL) at (10,-8) {Tib-L\\{\scriptsize Long}};
+\node[hypothetical] (tau) at (14,-6) {τ: Tantric\\Elaboration\\{\scriptsize 9th-10th c.}};
+
+% Row 6: Late witnesses
+\node[sanskrit] (Nb) at (12,-9) {Nb\\{\scriptsize 17th-18th c.}};
+\node[sanskrit] (Ne) at (15,-9) {Ne\\{\scriptsize 15th-17th c.}};
+\node[sanskrit] (Nc) at (12,-10.5) {Nc\\{\scriptsize 19th c.}};
+\node[sanskrit] (Nd) at (15,-10.5) {Nd\\{\scriptsize 18th-19th c.}};
+\node[chinese] (T257) at (18,-9) {T257\\{\scriptsize 1005 CE}};
+
+% Arrows from alpha
+\draw[arrow] (alpha) -- (beta);
+\draw[arrow] (alpha) -- (omega);
+
+% Arrows from beta
+\draw[arrow] (beta) -- (T250);
+
+% Arrows from omega
+\draw[arrow] (omega) -- (T251);
+\draw[translation, chinesecolor] (omega) -- node[above, sloped, font=\scriptsize] {back-transl.} (sigma);
+
+% Arrows from T251
+\draw[arrow] (T251) -- (Fangshan);
+
+% Arrows from sigma
+\draw[arrow] (sigma) -- (T256);
+\draw[arrow] (sigma) -- (Ja);
+\draw[arrow] (sigma) -- (Na);
+\draw[arrow] (sigma) -- (sigmaL);
+\draw[translation, tibetancolor] (sigma) -- (TibS);
+
+% Arrows from sigma-L
+\draw[translation, tibetancolor] (sigmaL) -- (TibL);
+\draw[arrow] (sigmaL) -- (tau);
+
+% Arrows from tau
+\draw[arrow] (tau) -- (Nb);
+\draw[arrow] (tau) -- (Ne);
+\draw[arrow] (tau) -- (Nc);
+\draw[arrow] (tau) -- (Nd);
+\draw[translation, chinesecolor] (tau) -- node[above, sloped, font=\scriptsize] {re-transl.} (T257);
+
+% Legend
+\node[anchor=north west] at (-9,-11) {
+\begin{tikzpicture}[node distance=0.4cm]
+    \node[source, minimum width=1.5cm, minimum height=0.5cm] (leg1) at (0,0) {\scriptsize Source};
+    \node[hypothetical, minimum width=1.5cm, minimum height=0.5cm, right=of leg1] (leg2) {\scriptsize Hypothetical};
+    \node[chinese, minimum width=1.5cm, minimum height=0.5cm, right=of leg2] (leg3) {\scriptsize Chinese};
+    \node[sanskrit, minimum width=1.5cm, minimum height=0.5cm, right=of leg3] (leg4) {\scriptsize Sanskrit};
+    \node[tibetan, minimum width=1.5cm, minimum height=0.5cm, right=of leg4] (leg5) {\scriptsize Tibetan};
+    \node[right=0.5cm of leg5, font=\scriptsize] {— copy/descent};
+    \node[right=4cm of leg5, font=\scriptsize] {- - translation};
+\end{tikzpicture}
+};
+
+\end{tikzpicture}
+\end{center}
+
+\vspace{1em}
+
+\noindent\textbf{Key Stemmatic Conclusions:}
+\begin{itemize}
+    \item \textbf{Chinese Priority:} The Heart Sūtra was composed in Chinese (Ω) ca.\ 649--656 CE, drawing on Kumārajīva's Large Sūtra translation (α).
+    \item \textbf{Sanskrit as Back-Translation:} The Sanskrit text (σ) is a translation \emph{from} Chinese, not the source of it.
+    \item \textbf{Two Recensions:} A short recension (σ) was later expanded with a frame narrative (σ-L).
+    \item \textbf{Tantric Elaboration:} The tradition τ added oṃ to the mantra and elaborate maṅgala formulas.
+    \item \textbf{T257 as Re-Translation:} Dānapāla's 1005 CE translation represents Sanskrit-to-Chinese transmission of the elaborated Tantric version.
+\end{itemize}
+
+\vspace{0.5em}
+\noindent\textbf{Innovations by Stage:}
+\begin{tabular}{llp{10cm}}
+\textbf{Stage} & \textbf{Date} & \textbf{Innovations} \\
+\hline
+Ω → σ & 7th c. & Sanskrit rendering; \emph{yad rūpaṃ sā śūnyatā} line added \\
+σ → σ-L & 8th c. & Frame narrative (nidāna/epilogue); Śāriputra's question \\
+σ-L → τ & 9th--10th c. & Oṃ in mantra; elaborate Bhagavatī maṅgala; na-aprāptiḥ \\
+\end{tabular}
+
+\vfill
+\begin{center}
+\small Based on Nattier (1992), Attwood (2015--2021), Silk (1994), and Huifeng (2014).
+\end{center}
+
+\end{document}

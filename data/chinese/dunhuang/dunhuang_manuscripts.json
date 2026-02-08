@@ -1,0 +1,269 @@
+{
+  "id": "dunhuang",
+  "title": "Dunhuang Manuscripts of the Heart Sūtra",
+  "title_chinese": "敦煌心經寫本",
+  "description": "Manuscripts of the Heart Sūtra discovered in the Dunhuang cave library (Cave 17, Mogao Caves). Sealed ca. 1000 CE and discovered in 1900, these manuscripts preserve early medieval copies of the text, some predating the Fangshan Stele (661 CE).",
+  "discovery": {
+    "location": "Cave 17 (Library Cave), Mogao Caves, Dunhuang, Gansu Province, China",
+    "discovery_date": "1900 CE",
+    "discoverer": "Wang Yuanlu (王圓籙), Taoist priest",
+    "sealed_date": "ca. 1000-1002 CE",
+    "significance": "The Dunhuang library contained approximately 50,000 manuscripts, paintings, and textiles, sealed for nearly a millennium. The Heart Sūtra manuscripts provide crucial early witnesses."
+  },
+  "collections": {
+    "stein": {
+      "name": "Stein Collection",
+      "location": "British Library, London",
+      "collector": "Sir Marc Aurel Stein",
+      "acquisition_date": "1907",
+      "size": "ca. 7,000 manuscripts",
+      "catalog_prefix": "S."
+    },
+    "pelliot": {
+      "name": "Pelliot Collection",
+      "location": "Bibliothèque nationale de France, Paris",
+      "collector": "Paul Pelliot",
+      "acquisition_date": "1908",
+      "size": "ca. 6,000 manuscripts",
+      "catalog_prefix": "P."
+    },
+    "beijing": {
+      "name": "Beijing Collection",
+      "location": "National Library of China, Beijing",
+      "notes": "Manuscripts remaining in China after Stein and Pelliot acquisitions",
+      "catalog_prefix": "BD"
+    },
+    "other": {
+      "note": "Smaller collections in St. Petersburg (Russia), Kyoto (Japan), and other locations"
+    }
+  },
+  "heart_sutra_manuscripts": [
+    {
+      "siglum": "S.2464",
+      "collection": "Stein",
+      "location": "British Library",
+      "title": "般若波羅蜜多心經",
+      "recension": "short",
+      "date_range": "7th-8th century",
+      "physical": {
+        "format": "scroll",
+        "material": "paper",
+        "script": "regular script (楷書)",
+        "condition": "good"
+      },
+      "text_comparison": {
+        "matches_t251": true,
+        "variants": [
+          "Minor orthographic variants typical of manuscript transmission"
+        ]
+      },
+      "notes": "One of the earlier Heart Sūtra manuscripts from Dunhuang. Text closely follows T251 tradition.",
+      "digitized": true,
+      "url": "https://idp.bl.uk/database/oo_scroll_h.a4d?uid=8285"
+    },
+    {
+      "siglum": "S.5648",
+      "collection": "Stein",
+      "location": "British Library",
+      "title": "般若波羅蜜多心經",
+      "recension": "short",
+      "date_range": "8th-9th century",
+      "physical": {
+        "format": "scroll fragment",
+        "material": "paper",
+        "script": "regular script (楷書)",
+        "condition": "fragmentary"
+      },
+      "notes": "Fragmentary manuscript of Heart Sūtra.",
+      "digitized": true
+    },
+    {
+      "siglum": "P.2168",
+      "collection": "Pelliot",
+      "location": "Bibliothèque nationale de France",
+      "title": "般若波羅蜜多心經",
+      "recension": "short",
+      "date_range": "8th-9th century",
+      "physical": {
+        "format": "scroll",
+        "material": "paper",
+        "script": "regular script (楷書)",
+        "condition": "good"
+      },
+      "colophon": {
+        "text": null,
+        "dated": false
+      },
+      "notes": "Complete copy of the Heart Sūtra from the Pelliot collection.",
+      "digitized": true,
+      "url": "https://gallica.bnf.fr/ark:/12148/btv1b8302862s"
+    },
+    {
+      "siglum": "P.2192",
+      "collection": "Pelliot",
+      "location": "Bibliothèque nationale de France",
+      "title": "般若波羅蜜多心經",
+      "recension": "short",
+      "date_range": "9th-10th century",
+      "physical": {
+        "format": "booklet (册子本)",
+        "material": "paper",
+        "script": "regular script (楷書)",
+        "condition": "good"
+      },
+      "notes": "Heart Sūtra in booklet format, showing transition from scroll to codex.",
+      "digitized": true
+    },
+    {
+      "siglum": "P.3917",
+      "collection": "Pelliot",
+      "location": "Bibliothèque nationale de France",
+      "title": "唐梵翻對字音般若波羅蜜多心經",
+      "recension": "bilingual",
+      "date_range": "8th-9th century",
+      "physical": {
+        "format": "scroll",
+        "material": "paper",
+        "script": "Chinese and transliterated Sanskrit",
+        "condition": "good"
+      },
+      "description": "Bilingual version similar to T256, with Sanskrit transliterated in Chinese characters alongside Chinese translation.",
+      "notes": "Important witness for Tang-era Sanskrit pronunciation. Confirms existence of Sanskrit text in Dunhuang.",
+      "digitized": true
+    },
+    {
+      "siglum": "S.700",
+      "collection": "Stein",
+      "location": "British Library",
+      "title": "摩訶般若波羅蜜大明呪經",
+      "recension": "T250-type",
+      "date_range": "7th-8th century",
+      "physical": {
+        "format": "scroll",
+        "material": "paper",
+        "script": "regular script (楷書)",
+        "condition": "good"
+      },
+      "description": "Version corresponding to T250 (Dàmíngzhòujīng) rather than T251.",
+      "text_features": [
+        "Uses 觀世音 (Guānshìyīn) rather than 觀自在 (Guānzìzài)",
+        "Uses 五陰 (wǔyīn) rather than 五蘊 (wǔyùn)",
+        "Three mantra epithets with 明呪"
+      ],
+      "notes": "This manuscript preserves the pre-Xuanzang tradition (T250-type), confirming the early existence of this version.",
+      "digitized": true
+    },
+    {
+      "siglum": "P.2323",
+      "collection": "Pelliot",
+      "location": "Bibliothèque nationale de France",
+      "title": "般若波羅蜜多心經",
+      "recension": "short",
+      "date_range": "dated 851 CE",
+      "dated_colophon": {
+        "year": "851 CE (大中五年)",
+        "text": "大中五年七月廿日寫",
+        "translation": "Copied on the 20th day of the 7th month of the 5th year of Dazhong [851 CE]"
+      },
+      "physical": {
+        "format": "scroll",
+        "material": "paper",
+        "script": "regular script (楷書)",
+        "condition": "good"
+      },
+      "notes": "One of the few securely dated Dunhuang Heart Sūtra manuscripts. The date 851 CE provides a terminus ante quem for the T251 tradition at Dunhuang.",
+      "digitized": true
+    },
+    {
+      "siglum": "S.4289",
+      "collection": "Stein",
+      "location": "British Library",
+      "title": "般若波羅蜜多心經",
+      "recension": "short",
+      "date_range": "9th century",
+      "physical": {
+        "format": "scroll",
+        "material": "paper",
+        "script": "regular script with interlinear notes",
+        "condition": "good"
+      },
+      "description": "Heart Sūtra with interlinear commentary or glosses.",
+      "notes": "Evidence of study and exegesis of the text at Dunhuang.",
+      "digitized": true
+    },
+    {
+      "siglum": "BD14651",
+      "collection": "Beijing",
+      "location": "National Library of China",
+      "title": "般若波羅蜜多心經",
+      "recension": "short",
+      "date_range": "8th-9th century",
+      "physical": {
+        "format": "scroll",
+        "material": "paper",
+        "script": "regular script (楷書)",
+        "condition": "fair"
+      },
+      "notes": "Heart Sūtra from the Beijing collection of Dunhuang manuscripts.",
+      "digitized": false
+    }
+  ],
+  "textual_significance": {
+    "for_dating": [
+      "P.2323 (dated 851 CE) confirms T251 tradition at Dunhuang by mid-9th century",
+      "S.700 (T250-type) confirms pre-Xuanzang tradition persisted alongside T251",
+      "Bilingual manuscripts (P.3917) confirm Sanskrit text existed by Tang period"
+    ],
+    "for_textual_criticism": [
+      "Dunhuang manuscripts generally follow T251 with minor orthographic variants",
+      "Presence of T250-type manuscripts confirms two distinct Chinese traditions",
+      "No manuscripts of Chinese long recension (T257-type) found, suggesting it was not known at Dunhuang",
+      "Bilingual texts confirm Sanskrit transliteration conventions"
+    ],
+    "for_transmission": [
+      "Dunhuang was a major Buddhist center on the Silk Road",
+      "Manuscripts show Heart Sūtra was widely copied for devotional and liturgical use",
+      "Both scroll and booklet formats attest to varied uses",
+      "Interlinear glosses show text was studied, not just recited"
+    ]
+  },
+  "sample_text_s2464": {
+    "note": "Sample text from S.2464, showing typical Dunhuang manuscript orthography",
+    "opening": "般若波羅蜜多心經。觀自在菩薩行深般若波羅蜜多時照見五蘊皆空度一切苦厄。舍利子色不異空空不異色色即是空空即是色受想行識亦復如是。",
+    "comparison_t251": "Essentially identical to T251 with minor orthographic variants"
+  },
+  "sample_text_s700_t250_type": {
+    "note": "Sample from S.700 showing T250-type readings",
+    "opening": "摩訶般若波羅蜜大明呪經。觀世音菩薩行深般若波羅蜜時照見五陰皆空度一切苦厄。",
+    "distinctive_features": [
+      "Title uses 大明呪經 (Great Illumination Mantra Sūtra)",
+      "觀世音 (Guānshìyīn) rather than 觀自在 (Guānzìzài)",
+      "五陰 (wǔyīn) rather than 五蘊 (wǔyùn)"
+    ]
+  },
+  "digital_resources": {
+    "idp": {
+      "name": "International Dunhuang Project",
+      "url": "http://idp.bl.uk/",
+      "description": "Database of Dunhuang manuscripts with digital images"
+    },
+    "gallica": {
+      "name": "Gallica (BnF)",
+      "url": "https://gallica.bnf.fr/",
+      "description": "Digital images of Pelliot collection manuscripts"
+    },
+    "nlc": {
+      "name": "National Library of China Digital Resources",
+      "url": "http://www.nlc.cn/",
+      "description": "Some Beijing collection manuscripts available"
+    }
+  },
+  "scholarly_refs": [
+    "Giles, Lionel (1957). Descriptive Catalogue of the Chinese Manuscripts from Tunhuang in the British Museum. London: British Museum.",
+    "Catalogue des manuscrits chinois de Touen-houang (Fonds Pelliot chinois). Paris: Bibliothèque nationale.",
+    "Rong, Xinjiang (2013). Eighteen Lectures on Dunhuang. Leiden: Brill.",
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Takata, Tokio (1988). 'Multilingualism in Tun-huang.' Acta Asiatica 78: 49-70.",
+    "International Dunhuang Project (IDP). http://idp.bl.uk/"
+  ]
+}

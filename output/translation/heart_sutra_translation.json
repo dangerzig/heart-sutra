@@ -1,0 +1,293 @@
+{
+  "id": "english_translation",
+  "title": "The Heart of the Perfection of Wisdom",
+  "title_sanskrit": "Prajñāpāramitāhṛdaya",
+  "title_chinese": "般若波羅蜜多心經",
+  "translator": "Critical Edition Project",
+  "methodology": "Translation from Chinese T251 as primary, with reference to Sanskrit back-translation and Tibetan. Following Nattier (1992) Chinese compositional priority.",
+  "base_text": "T251",
+  "sections": [
+    {
+      "id": "1",
+      "section_name": "Opening: Avalokiteśvara's Observation",
+      "chinese": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+      "translation": "When Avalokiteśvara Bodhisattva was practicing the profound perfection of wisdom, he illuminated and saw that the five aggregates are all empty, and crossed beyond all suffering and distress.",
+      "notes": [
+        {
+          "term": "觀自在 (Guānzìzài)",
+          "note": "Xuanzang's new translation of Avalokiteśvara, meaning 'Lord who perceives freely' or 'Lord of self-perception.' Earlier translations used 觀世音 (Guānshìyīn, 'Perceiver of the world's sounds'). The change reflects Xuanzang's new translation conventions introduced ca. 649 CE."
+        },
+        {
+          "term": "深般若波羅蜜多 (shēn bōrě bōluómìduō)",
+          "note": "'Profound prajñāpāramitā.' Sanskrit gambhīrā prajñāpāramitā. The depth or profundity refers to the teaching's subtlety, not merely its difficulty."
+        },
+        {
+          "term": "照見 (zhàojiàn)",
+          "note": "'Illuminated and saw' — a compound verb emphasizing both the light of wisdom and the resulting insight. Sanskrit vyavalokayati sma uses the imperfect tense, unusual for sūtra style but matching Chinese narrative past."
+        },
+        {
+          "term": "五蘊 (wǔyùn)",
+          "note": "The five aggregates (skandha): form (rūpa), feeling (vedanā), perception (saṃjñā), mental formations (saṃskāra), and consciousness (vijñāna). Xuanzang's translation 蘊 replaces the older 陰 (yīn) found in T250."
+        },
+        {
+          "term": "度一切苦厄 (dù yīqiè kǔ'è)",
+          "note": "'Crossed beyond all suffering and distress.' This phrase has no direct Sanskrit parallel in the back-translation, suggesting it may be an original Chinese addition or a summarizing gloss. The verb 度 (dù, 'to cross over') evokes the pāramitā imagery of crossing to the other shore."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "section_name": "Form and Emptiness",
+      "chinese": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+      "translation": "Śāriputra, form is not different from emptiness, emptiness is not different from form. Form is precisely emptiness, emptiness is precisely form. Feeling, perception, mental formations, and consciousness are also just like this.",
+      "notes": [
+        {
+          "term": "舍利子 (Shèlìzǐ)",
+          "note": "Śāriputra, one of the Buddha's chief disciples, known for his wisdom. His name means 'son of Śāri' (his mother). In Prajñāpāramitā literature, he often serves as the interlocutor."
+        },
+        {
+          "term": "色不異空 (sè bù yì kōng)",
+          "note": "'Form is not different from emptiness.' The Sanskrit rūpān na pṛthak śūnyatā is grammatically awkward (ablative rūpān instead of expected rūpāt), suggesting back-translation from Chinese rather than original composition in Sanskrit (Nattier 1992)."
+        },
+        {
+          "term": "色即是空 (sè jí shì kōng)",
+          "note": "'Form is precisely emptiness.' The character 即 (jí) means 'precisely,' 'exactly,' or 'is identical with.' This is not mere equation but identity — form and emptiness are not two different things that happen to be equal."
+        },
+        {
+          "term": "Sanskrit interpolation",
+          "note": "The Sanskrit adds 'yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam' (that which is form is emptiness, that which is emptiness is form). This line has no Chinese counterpart and is likely a later Sanskrit expansion (Nattier 1992, Attwood 2017a)."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "section_name": "Characteristics of Dharmas",
+      "chinese": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+      "translation": "Śāriputra, the emptiness characteristic of all dharmas is: not arising, not ceasing; not defiled, not pure; not increasing, not decreasing.",
+      "notes": [
+        {
+          "term": "諸法空相 (zhūfǎ kōng xiāng)",
+          "note": "'The emptiness characteristic of all dharmas.' Sanskrit śūnyatā-lakṣaṇā. The eight negations that follow describe the nature of emptiness itself."
+        },
+        {
+          "term": "不生不滅 (bù shēng bù miè)",
+          "note": "'Not arising, not ceasing' — the first pair of negations. Sanskrit anutpanna aniruddha. These terms negate the arising and passing away that characterize conditioned phenomena."
+        },
+        {
+          "term": "不垢不淨 (bù gòu bù jìng)",
+          "note": "'Not defiled, not pure.' Sanskrit amala avimala. Emptiness is beyond the duality of purity and defilement."
+        },
+        {
+          "term": "不增不減 (bù zēng bù jiǎn)",
+          "note": "'Not increasing, not decreasing.' Sanskrit anūna aparipūrṇa. Emptiness neither grows nor diminishes."
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "section_name": "Negation of Skandhas",
+      "chinese": "是故空中，無色，無受想行識，",
+      "translation": "Therefore, in emptiness there is no form, no feeling, perception, mental formations, or consciousness;",
+      "notes": [
+        {
+          "term": "是故空中 (shìgù kōng zhōng)",
+          "note": "'Therefore, in emptiness' — the transition from describing emptiness to enumerating what is absent within it. The negations that follow systematically deny the categories of Buddhist Abhidharma."
+        },
+        {
+          "term": "無 (wú)",
+          "note": "The negating particle, here meaning 'there is no' or 'without.' The repeated 無 through the following sections creates a powerful rhetorical effect of progressive negation."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "section_name": "Negation of Āyatanas",
+      "chinese": "無眼耳鼻舌身意，無色聲香味觸法，",
+      "translation": "no eye, ear, nose, tongue, body, or mind; no form, sound, smell, taste, touch, or mental objects;",
+      "notes": [
+        {
+          "term": "眼耳鼻舌身意 (yǎn ěr bí shé shēn yì)",
+          "note": "The six sense faculties (indriya): eye, ear, nose, tongue, body, and mind. Together with their objects, they form the twelve āyatanas (sense bases)."
+        },
+        {
+          "term": "色聲香味觸法 (sè shēng xiāng wèi chù fǎ)",
+          "note": "The six sense objects: visible form, sound, smell, taste, tangible, and mental objects (dharma). Note that 色 (sè) here means 'visible form' specifically, not 'form' in the general skandha sense."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "section_name": "Negation of Dhātus",
+      "chinese": "無眼界，乃至無意識界。",
+      "translation": "no eye-element, and so on up to no mind-consciousness element.",
+      "notes": [
+        {
+          "term": "眼界 (yǎn jiè)",
+          "note": "The eye-element (cakṣur-dhātu), first of the eighteen dhātus (elements)."
+        },
+        {
+          "term": "乃至 (nǎizhì)",
+          "note": "'Up to and including' — a common abbreviation formula. The full list would include all eighteen dhātus: six sense faculties, six sense objects, and six consciousnesses."
+        },
+        {
+          "term": "意識界 (yìshí jiè)",
+          "note": "The mind-consciousness element (manovijñāna-dhātu), the eighteenth and last of the dhātus."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "section_name": "Negation of Dependent Origination",
+      "chinese": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+      "translation": "No ignorance and no ending of ignorance, and so on up to no old age and death, and no ending of old age and death.",
+      "notes": [
+        {
+          "term": "無明 (wúmíng)",
+          "note": "Ignorance (avidyā), the first of the twelve links of dependent origination (pratītyasamutpāda)."
+        },
+        {
+          "term": "盡 (jìn)",
+          "note": "'Ending' or 'exhaustion.' The Chinese 盡 is ambiguous between Sanskrit kṣaya (destruction/exhaustion) and nirodha (cessation). The Sanskrit back-translation uses kṣaya, which is non-standard Buddhist terminology — standard Prajñāpāramitā texts use nirodha. This suggests the translator calqued from Chinese rather than quoting familiar Sanskrit (Nattier 1992)."
+        },
+        {
+          "term": "老死 (lǎosǐ)",
+          "note": "Old age and death (jarāmaraṇa), the twelfth and final link of dependent origination."
+        },
+        {
+          "term": "Structural note",
+          "note": "The negation of both the links AND their cessation means that emptiness transcends both saṃsāra and nirvāṇa as conventionally understood."
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "section_name": "Negation of Four Noble Truths and Attainment",
+      "chinese": "無苦集滅道，無智亦無得，以無所得故。",
+      "translation": "No suffering, origination, cessation, or path; no wisdom and no attainment. Because there is nothing to attain,",
+      "notes": [
+        {
+          "term": "苦集滅道 (kǔ jí miè dào)",
+          "note": "The Four Noble Truths: suffering (duḥkha), its origination (samudaya), its cessation (nirodha), and the path (mārga). Even these foundational Buddhist teachings are negated from the standpoint of emptiness."
+        },
+        {
+          "term": "無智亦無得 (wú zhì yì wú dé)",
+          "note": "'No wisdom and no attainment.' This phrase comes from Kumārajīva's Large Sūtra translation (T223), where it reads 無智無得 without the 亦. The Heart Sutra author copied this, but it may contain Kumārajīva's translation error (Attwood 2020a)."
+        },
+        {
+          "term": "以無所得故 (yǐ wú suǒ dé gù)",
+          "note": "'Because there is nothing to attain.' This crucial phrase links the negations to the positive result that follows."
+        },
+        {
+          "term": "Sanskrit na-aprāptiḥ",
+          "note": "The Sanskrit tradition adds 'na-aprāptiḥ' (no non-attainment) after 'no attainment,' but this is absent from T251, the Fangshan Stele, and the Hōryūji manuscript. It appears to be a late interpolation (Huifeng 2014)."
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "section_name": "Result for Bodhisattvas",
+      "chinese": "菩提薩埵，依般若波羅蜜多故，心無罣礙。無罣礙故，無有恐怖，遠離顛倒夢想，究竟涅槃。",
+      "translation": "bodhisattvas, relying on the perfection of wisdom, have minds without obstruction. Because there is no obstruction, they have no fear, and having completely transcended inverted views and delusive thinking, they reach ultimate nirvāṇa.",
+      "notes": [
+        {
+          "term": "菩提薩埵 (pútísàduǒ)",
+          "note": "Bodhisattva, transliterated from Sanskrit. Literally 'enlightenment-being,' one who seeks buddhahood for the benefit of all beings."
+        },
+        {
+          "term": "心無罣礙 (xīn wú guà'ài)",
+          "note": "'Mind without obstruction.' Sanskrit acittāvaraṇa (without mind-obstruction). The Chinese 罣礙 combines 罣 (to hang up, entangle) and 礙 (to obstruct)."
+        },
+        {
+          "term": "顛倒夢想 (diāndǎo mèngxiǎng)",
+          "note": "'Inverted views and delusive thinking.' The viparyāsa are the four inversions: seeing permanence in the impermanent, pleasure in suffering, self in non-self, and purity in the impure."
+        },
+        {
+          "term": "究竟涅槃 (jiūjìng nièpán)",
+          "note": "'Ultimate nirvāṇa.' Sanskrit niṣṭhānirvāṇa — Attwood (2018a) argues this is a bahuvrīhi compound meaning 'one whose nirvāṇa is complete,' describing the bodhisattva. Conze's edition wrongly adds prāptaḥ ('attained') from late manuscripts."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "section_name": "Result for Buddhas",
+      "chinese": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+      "translation": "All buddhas of the three times, relying on the perfection of wisdom, have attained anuttarā-samyak-saṃbodhi.",
+      "notes": [
+        {
+          "term": "三世諸佛 (sānshì zhūfó)",
+          "note": "'All buddhas of the three times' — past, present, and future. This universalizes the statement beyond any single buddha."
+        },
+        {
+          "term": "阿耨多羅三藐三菩提 (ānòuduōluó sānmiǎo sānpútí)",
+          "note": "Transliteration of Sanskrit anuttarā-samyak-saṃbodhi, 'unsurpassed complete perfect enlightenment.' This technical term is left untranslated in Chinese Buddhist texts as a mark of respect."
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "section_name": "Praise of the Mantra",
+      "chinese": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，真實不虛。",
+      "translation": "Therefore know that the perfection of wisdom is the great mantra, the mantra of great illumination, the supreme mantra, the unequalled mantra, which can remove all suffering — it is true, not false.",
+      "notes": [
+        {
+          "term": "Four epithets",
+          "note": "The four epithets praise prajñāpāramitā as: (1) 大神咒 mahāmantra, 'great mantra'; (2) 大明咒 mahāvidyāmantra, 'mantra of great illumination/knowledge'; (3) 無上咒 anuttaramantra, 'supreme mantra'; (4) 無等等咒 asamasamamantra, 'unequalled mantra.' T250 has only three epithets, all using 明咒."
+        },
+        {
+          "term": "咒 (zhòu)",
+          "note": "Mantra, spell, or dhāraṇī. The Chinese term carries connotations of magical power."
+        },
+        {
+          "term": "真實不虛 (zhēnshí bù xū)",
+          "note": "'True, not false' — Sanskrit satyam amithyatvāt. This authenticates the teaching and the mantra that follows."
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "section_name": "The Mantra",
+      "chinese": "故說般若波羅蜜多咒，即說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提薩婆訶。",
+      "translation": "Therefore proclaim the prajñāpāramitā mantra. Proclaim the mantra that says: Gate gate pāragate pārasaṃgate bodhi svāhā.",
+      "literal_mantra": "Gone, gone, gone beyond, gone completely beyond — awakening! Svāhā!",
+      "notes": [
+        {
+          "term": "gate",
+          "note": "Past passive participle of √gam 'to go,' meaning 'gone.' The feminine vocative form addresses prajñāpāramitā directly."
+        },
+        {
+          "term": "pāragate",
+          "note": "'Gone to the other shore' or 'gone beyond.' The pāra (other shore) evokes the pāramitā imagery of crossing from the shore of saṃsāra to the shore of nirvāṇa."
+        },
+        {
+          "term": "pārasaṃgate",
+          "note": "'Gone completely beyond' or 'gone together to the other shore.' The saṃ- prefix intensifies the meaning."
+        },
+        {
+          "term": "bodhi",
+          "note": "Awakening, enlightenment. The goal of the journey described in the preceding words."
+        },
+        {
+          "term": "svāhā",
+          "note": "A Vedic exclamation used at the end of mantras, meaning something like 'hail!' or 'so be it!' The Chinese 薩婆訶 (Fangshan) is a better transliteration than 僧莎訶 (T251), which appears corrupt."
+        },
+        {
+          "term": "Absence of oṃ",
+          "note": "The mantra in T251, Fangshan, Hōryūji, and T256 does NOT begin with oṃ. The oṃ appears only in T257 (translated from late Tantric Sanskrit) and in some late Nepalese manuscripts. Its addition reflects the Tantric convention that all mantras begin with oṃ (Attwood 2021)."
+        }
+      ]
+    }
+  ],
+  "full_translation": "When Avalokiteśvara Bodhisattva was practicing the profound perfection of wisdom, he illuminated and saw that the five aggregates are all empty, and crossed beyond all suffering and distress.\n\nŚāriputra, form is not different from emptiness, emptiness is not different from form. Form is precisely emptiness, emptiness is precisely form. Feeling, perception, mental formations, and consciousness are also just like this.\n\nŚāriputra, the emptiness characteristic of all dharmas is: not arising, not ceasing; not defiled, not pure; not increasing, not decreasing.\n\nTherefore, in emptiness there is no form, no feeling, perception, mental formations, or consciousness; no eye, ear, nose, tongue, body, or mind; no form, sound, smell, taste, touch, or mental objects; no eye-element, and so on up to no mind-consciousness element. No ignorance and no ending of ignorance, and so on up to no old age and death, and no ending of old age and death. No suffering, origination, cessation, or path; no wisdom and no attainment.\n\nBecause there is nothing to attain, bodhisattvas, relying on the perfection of wisdom, have minds without obstruction. Because there is no obstruction, they have no fear, and having completely transcended inverted views and delusive thinking, they reach ultimate nirvāṇa.\n\nAll buddhas of the three times, relying on the perfection of wisdom, have attained anuttarā-samyak-saṃbodhi.\n\nTherefore know that the perfection of wisdom is the great mantra, the mantra of great illumination, the supreme mantra, the unequalled mantra, which can remove all suffering — it is true, not false. Therefore proclaim the prajñāpāramitā mantra. Proclaim the mantra that says:\n\nGate gate pāragate pārasaṃgate bodhi svāhā.",
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
+    "Attwood, Jayarava (2017a). 'Form is (Not) Emptiness: The Enigma at the Heart of the Heart Sutra.' JOCBS 13: 52-80.",
+    "Attwood, Jayarava (2018a). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' JOCBS 14: 10-17.",
+    "Attwood, Jayarava (2020a). 'Ungarbling Section VI of the Heart Sutra.' JOCBS 18: 11-41.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.",
+    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
+    "Conze, Edward (1958). Buddhist Wisdom Books. London: Allen & Unwin.",
+    "Red Pine (2004). The Heart Sutra. Shoemaker & Hoard.",
+    "Tanahashi, Kazuaki (2014). The Heart Sutra: A Comprehensive Guide. Shambhala."
+  ]
+}
