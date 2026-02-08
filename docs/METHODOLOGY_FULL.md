@@ -25,14 +25,15 @@ This method works well for texts with straightforward transmission (e.g., classi
 2. **Multiple recensions exist by design.** Short and long versions are not corruptions but deliberate elaborations.
 3. **Cross-linguistic transmission occurred.** Chinese → Sanskrit → Tibetan, with feedback loops.
 
-### 2.2 Conze's Flawed Edition
+### 2.2 Limitations of Previous Editions
 
-Edward Conze's critical editions (1948, 1967, 1975) applied traditional stemmatic method:
-- Treated Sanskrit as the original language
-- Privileged late Nepalese manuscripts (11th-19th c.)
-- Attempted to reconstruct a Sanskrit "archetype"
+Edward Conze's critical editions (1948, 1967, 1975) represented pioneering scholarship that established the Heart Sūtra as a subject of rigorous textual analysis. His editions remained standard for decades and continue to provide valuable apparatus. However, subsequent scholarship has identified methodological limitations:
 
-This produced a text that never existed: a conflation of readings from different centuries, containing late Tantric interpolations presented as original.
+- Conze assumed Sanskrit was the original language, an assumption now questioned
+- His edition privileged late Nepalese manuscripts (11th–19th c.) over earlier witnesses
+- The resulting text conflates readings from different centuries, presenting some late features as original
+
+These observations do not diminish Conze's contribution but indicate the need for revised methodology in light of more recent scholarship.
 
 ---
 
@@ -57,7 +58,24 @@ Jan Nattier's landmark 1992 article "The Heart Sūtra: A Chinese Apocryphal Text
 | **T223 parallels** | The Heart Sūtra's wording matches Kumārajīva's T223 specifically, not other translations or Sanskrit originals. |
 | **Dating** | Earliest dated witness is Chinese (Fangshan Stele, 661 CE); earliest Sanskrit MS is later (Hōryūji, 7th-8th c.). |
 
-### 3.3 Implications for Editorial Method
+### 3.3 Scholarly Debate
+
+While the Chinese priority thesis has gained substantial acceptance, it is not universally endorsed. Important counterarguments and qualifications include:
+
+| Scholar | Position |
+|---------|----------|
+| **Fukui Fumimasa** (1987) | Questions aspects of the philological argument; argues some evidence is ambiguous |
+| **Harada Waso** (1932) | Early defense of Sanskrit origin; noted internal consistency of Sanskrit text |
+| **John McRae** (1988) | Raises methodological concerns about comparison methodology |
+
+Critics have noted that:
+- The *kṣaya/nirodha* argument, while suggestive, involves a single term
+- Chinese Buddhist terminology was heavily influenced by Sanskrit originals, complicating direction-of-dependence arguments
+- Absence of pre-7th century Sanskrit manuscripts does not prove non-existence
+
+This edition adopts Chinese priority as the working hypothesis based on the weight of evidence, while acknowledging the debate remains open in some scholarly circles. Readers should evaluate the evidence presented here alongside contrary positions.
+
+### 3.4 Implications for Editorial Method
 
 If the Sanskrit is derivative, we cannot use it to "correct" the Chinese. Instead:
 

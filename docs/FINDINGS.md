@@ -58,9 +58,23 @@ These passages represent substantive doctrinal content. A reviser creating T251 
       (parallel)             (parallel)
 ```
 
-**Significance:** This changes our understanding of Heart Sūtra origins. Rather than a single Chinese text revised over time, we have evidence for two distinct Chinese Heart Sūtra compositions, possibly from different Buddhist circles.
+**Significance:** If correct, this changes our understanding of Heart Sūtra origins. Rather than a single Chinese text revised over time, we may have evidence for two distinct Chinese Heart Sūtra compositions, possibly from different Buddhist circles.
 
-**Status:** Appears to be a new contribution. Nattier (1992) discusses T250 primarily for dating evidence; the parallel-composition hypothesis is not developed.
+**Alternative Interpretations:**
+
+We acknowledge that this hypothesis has not been definitively established. Alternative interpretations include:
+
+1. **T250 as later abridgment:** T250 could be a later text that archaizes terminology to appear older. The three-epithet pattern could be deliberate simplification, not preservation.
+
+2. **T251 as revision with deletion:** Revisers do sometimes abridge. The unique T250 passages could have been deliberately omitted in T251 for concision.
+
+3. **Common proto-text:** Both T250 and T251 could derive from a common ancestor (β) that we cannot reconstruct.
+
+4. **Different recension traditions:** The differences could reflect regional variations rather than independent composition.
+
+Further research is needed, particularly systematic comparison with other Buddhist excerpt/digest texts (抄經) to establish what revisers typically did and did not do.
+
+**Status:** This hypothesis requires further development. Nattier (1992) discusses T250 primarily for dating evidence. We have not conducted exhaustive searches of Japanese and Chinese scholarship to confirm whether this specific analysis has been previously proposed.
 
 ---
 
@@ -90,7 +104,7 @@ Observations:
 
 **Significance:** T250 is closer to the source material in this respect. The commonly used T251 represents a revision of the epithet tradition, not the original form.
 
-**Status:** Attwood (2017b) discusses the epithets but focuses on T251 and Sanskrit. The exact T250-T223 correspondence and its implications for priority appear underemphasized in the literature.
+**Status:** Attwood (2017b) discusses the epithets extensively. Our contribution is the systematic tabular comparison showing exact T250-T223 correspondence. Whether this specific observation has been made elsewhere in Japanese or Chinese scholarship requires further investigation.
 
 ---
 
@@ -113,7 +127,7 @@ The Large Prajñāpāramitā sūtras use **māyā** (illusion) in this formula, 
 
 **Significance:** This affects how we understand the Heart Sūtra's composition. The author was not merely copying but actively composing, transforming source material to create new doctrinal expressions.
 
-**Status:** Nattier (1992) discusses excerption but does not emphasize this specific māyā→śūnyatā transformation.
+**Status:** Nattier (1992) discusses excerption methodology. The māyā→śūnyatā observation may be implicit in existing scholarship; we highlight it explicitly here but do not claim it as entirely original.
 
 ---
 
@@ -328,19 +342,19 @@ The Heart Sūtra preserves Kumārajīva's T223 reading 無智亦無得 (no wisdo
 
 ## Conclusion
 
-This critical edition makes three genuinely new contributions:
+This critical edition proposes three areas for further investigation:
 
-1. **T250/T251 as parallel compositions** — challenging the revision model
-2. **T250 epithet priority** — T250 preserves Large Sūtra pattern; T251 innovates
-3. **māyā→śūnyatā transformation** — Heart Sūtra as creative synthesis
+1. **T250/T251 as parallel compositions** — a hypothesis challenging the revision model, requiring further research into Buddhist excerpt/digest practices
+2. **T250 epithet priority** — systematic documentation of T250-T223 correspondence
+3. **māyā→śūnyatā transformation** — explicit highlighting of the Heart Sūtra's creative synthesis
 
 It confirms and consolidates:
-- Chinese compositional priority (Nattier)
-- Conze's edition errors (Attwood, Huifeng)
+- Chinese compositional priority (Nattier), while acknowledging ongoing scholarly debate
+- Corrections to Conze's edition (Attwood, Huifeng)
 - Late interpolation of oṃ, na-aprāptiḥ, elaborate maṅgala
 - Sanskrit kṣaya/nirodha error as back-translation evidence
 
-The Heart Sūtra emerges not as a translated scripture but as a Chinese Buddhist composition that was back-translated to Sanskrit, elaborated with Tantric elements, and transmitted across Asia in multiple recensions.
+On the balance of evidence, the Heart Sūtra appears to be a Chinese Buddhist composition that was back-translated to Sanskrit, elaborated with Tantric elements, and transmitted across Asia in multiple recensions. This interpretation, while well-supported, remains subject to scholarly debate.
 
 ---
 

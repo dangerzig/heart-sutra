@@ -191,8 +191,24 @@ See `research/FINDINGS.md` for full documentation.
 ### In Progress
 
 - [ ] TEI-XML export
-- [ ] Formal consolidated bibliography
-- [ ] Publication front matter (introduction, indices)
+- [x] Formal consolidated bibliography
+- [x] Publication front matter (introduction, indices)
+
+## Limitations
+
+This edition has significant limitations that users should understand:
+
+1. **Not a traditional critical edition.** We have worked primarily from published editions and digital texts rather than conducting fresh manuscript collation. A full critical edition would require examination of physical manuscripts and rubbings.
+
+2. **Dunhuang manuscripts are cataloged but not fully collated.** Character-by-character comparison of all Dunhuang witnesses has not been performed.
+
+3. **Witness coverage is incomplete.** Korean Tripiṭaka, Japanese manuscript traditions (beyond Hōryū-ji), Xixia, Khotanese, and Uyghur traditions are not included.
+
+4. **Chinese priority remains debated.** While we adopt this as our working hypothesis based on the weight of evidence, scholars including Fukui Fumimasa have questioned aspects of the argument.
+
+5. **The T250/T251 parallel composition hypothesis is tentative.** Alternative interpretations exist and have not been definitively ruled out.
+
+We describe this work as a **critical apparatus with edition** rather than a definitive critical edition. It is intended as a foundation for further research.
 
 ## License
 
