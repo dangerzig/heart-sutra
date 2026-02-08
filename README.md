@@ -164,7 +164,8 @@ See `research/FINDINGS.md` for full documentation.
 
 - **Nattier, Jan (1992)**. "The Heart Sūtra: a Chinese apocryphal text?" *JIABS* 15(2): 153-223.
 - **Conze, Edward (1967)**. "The Prajñāpāramitā-Hṛdaya Sūtra." In *Thirty Years of Buddhist Studies*.
-- **Attwood, Jayarava (2015-2020)**. Series of articles in *JOCBS* on Heart Sūtra textual problems.
+- **Attwood, Jayarava (2015)**. "Heart Murmurs." *JOCBS* 8: 28-48.
+- **Attwood, Jayarava (2017)**. "Epithets of the Mantra." *JOCBS* 12: 26-57.
 - **Silk, Jonathan (1994)**. *The Heart Sūtra in Tibetan*. Vienna.
 
 ## Status
@@ -208,7 +209,7 @@ This edition has significant limitations that users should understand:
 
 5. **The T250/T251 parallel composition hypothesis is tentative.** Alternative interpretations exist and have not been definitively ruled out.
 
-We describe this work as a **critical apparatus with edition** rather than a definitive critical edition. It is intended as a foundation for further research.
+We describe this work as a **preliminary critical apparatus** rather than a definitive critical edition. It is intended as a foundation for further research.
 
 ## License
 

@@ -262,7 +262,7 @@ The `variant_table.json` records:
 | Scholar | Contribution |
 |---------|--------------|
 | Nattier (1992) | Chinese compositional priority thesis |
-| Attwood (2015-2021) | Corrections to Conze; Section I/VI errors |
+| Attwood (2015–2018) | Corrections to Conze; Section I/VI errors |
 | Huifeng (2014) | na-aprāptiḥ interpolation; Large Sūtra parallels |
 | Silk (1994) | Tibetan recension analysis |
 | Conze (1948-1975) | Original critical edition (now superseded) |

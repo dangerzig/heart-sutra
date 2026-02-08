@@ -338,6 +338,12 @@ The Heart Sūtra preserves Kumārajīva's T223 reading 無智亦無得 (no wisdo
    - All known Sanskrit matches T251
    - If T250 was also back-translated, evidence is lost
 
+6. **What does Japanese and Chinese scholarship say about T250/T251?**
+   - This edition has not conducted exhaustive searches of Japanese-language scholarship beyond JIABS
+   - Chinese-language scholarship on Heart Sūtra origins requires review
+   - Reference works such as *Bukkyō Daijiten* should be consulted
+   - This literature review is planned for future work
+
 ---
 
 ## Conclusion
