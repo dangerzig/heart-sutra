@@ -3,12 +3,13 @@
   "title_chinese": "般若波羅蜜多心經",
   "title_pinyin": "Bōrě bōluómìduō xīn jīng",
   "title_english": "Heart Sūtra of the Perfection of Wisdom",
-  "translator": "Xuanzang (玄奘)",
-  "date": "649 CE",
+  "attributed_translator": "Xuanzang (玄奘)",
+  "probable_author": "Xuanzang (玄奘)",
+  "date": "ca. 649-656 CE",
   "source": "Taishō Tripiṭaka Vol. 8, No. 251",
   "recension": "short",
   "character_count": 260,
-  "notes": "Most widely used Chinese recension. First to use 'Heart' (心) in title. Analytical base text for critical edition following Chinese compositional priority methodology.",
+  "notes": "Most widely used Chinese recension. First to use 'Heart' (心) in title. Analytical base text for critical edition following Chinese compositional priority methodology. Now established as a Chinese composition (digest text, chāo jīng 抄經), not a translation from Sanskrit (Nattier 1992, Attwood 2021). The earliest reliably dated reference is a 656 CE letter in which Xuanzang gives Emperor Gāozōng a gold-lettered Heart Sutra (Kotyk 2019). The Fangshan Stele dated 13 March 661 CE is the oldest physical witness (Attwood 2019).",
   "text": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。是故空中，無色，無受想行識，無眼耳鼻舌身意，無色聲香味觸法，無眼界，乃至無意識界。無無明，亦無無明盡，乃至無老死，亦無老死盡。無苦集滅道，無智亦無得，以無所得故。菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
   "segments": [
     {
@@ -98,6 +99,32 @@
   ],
   "scholarly_refs": [
     "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
-    "Attwood, Jayarava (2017). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 12: 28-62."
-  ]
+    "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
+    "Attwood, Jayarava (2017b). 'Epithets of the Mantra in the Heart Sutra.' JOCBS 12: 26-57.",
+    "Attwood, Jayarava (2019). 'Xuánzàng's Relationship to the Heart Sutra in light of the Fangshan Stele.' Journal of Chinese Buddhist Studies 32: 1-30.",
+    "Attwood, Jayarava (2020a). 'Ungarbling Section VI of the Heart Sutra.' JOCBS 18: 11-41.",
+    "Attwood, Jayarava (2020c). 'The History of the Heart Sutra as a Palimpsest.' Pacific World Series 4, no.1: 155-182.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft, July 2021.",
+    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems: Non-attainment, Apprehension, and Mental Hanging in the Prajñāpāramitā Hṛdaya.' JOCBS 6: 72-105.",
+    "Kotyk, Jeffrey (2019). 'Chinese State and Buddhist Historical Sources on Xuanzang.' T'oung Pao 105(5-6): 513-544.",
+    "Ji, Yun (2017). 'Is the Heart Sūtra an Apocryphal Text? – A Re-examination.' Singapore Journal of Buddhist Studies 4: 9-113."
+  ],
+  "textual_notes": {
+    "wu_zhi_yi_wu_de": {
+      "text": "無智亦無得",
+      "issue": "Should be 'wú dé wú xiàn guān 無得無現觀' (no attainment, no realization) as in Xuánzàng's T220",
+      "source_error": "Kumārajīva's T223 misread the Large Sutra passage",
+      "reference": "Huifeng 2014, Attwood 2020a"
+    },
+    "yi_wu_suo_de_gu": {
+      "text": "以無所得故",
+      "issue": "Should close the previous sentence (negations), not open a new one. Represents anupalambhayogena ('through the practice of non-apprehension')",
+      "reference": "Huifeng 2014, Attwood 2020a"
+    },
+    "epithets": {
+      "text": "是大神咒，是大明咒，是無上咒，是無等等咒",
+      "issue": "Standard Prajñāpāramitā has three epithets (mahā-, anuttara-, asamasama-) representing vidyā. T251 adds fourth epithet 神咒 and shortens 明咒 to 咒 in two places. Kumārajīva's T223 has 是大明呪、無上明呪、無等等明呪",
+      "reference": "Attwood 2017b"
+    }
+  }
 }

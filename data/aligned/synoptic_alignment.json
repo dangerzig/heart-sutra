@@ -25,7 +25,8 @@
       "english": "When Avalokiteśvara Bodhisattva was practicing the profound prajñāpāramitā, he illuminated the five aggregates and saw that they are all empty, thus transcending all suffering.",
       "divergence_notes": [
         "Sanskrit: vyavalokayati sma - imperfect tense unusual for sūtra style",
-        "Tibetan preserves 'at that time' (yang de'i tshe) temporal marker absent in T251"
+        "Tibetan preserves 'at that time' (yang de'i tshe) temporal marker absent in T251",
+        "Section I error (Attwood 2015): Conze's pañca-skandhās (nominative) should be pañcaskandhāṃs (accusative) - skandhas are objects of vyavalokayati ('examined')"
       ]
     },
     {
@@ -44,7 +45,10 @@
         "wylie": "gzugs stong pa'o/ stong pa nyid gzugs so/ gzugs las stong pa nyid gzhan ma yin/ stong pa nyid las kyang gzugs gzhan ma yin no/ de bzhin du tshor ba dang / 'du shes dang / 'du byed dang / rnam par shes pa rnams stong pa'o/"
       },
       "english": "Śāriputra, form is not different from emptiness, emptiness is not different from form; form is emptiness, emptiness is form. Feeling, perception, formation, and consciousness are also like this.",
-      "divergence_notes": []
+      "divergence_notes": [
+        "Sanskrit 'yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam' has no Chinese counterpart - late interpolation (Nattier 1992, Attwood 2017a)",
+        "Original Aṣṭa reading was 'rūpam eva māyā māyaiva rūpam' (appearance is only illusion)"
+      ]
     },
     {
       "id": "T251:3",
@@ -156,7 +160,12 @@
         "wylie": "sdug bsngal ba dang / kun 'byung ba dang / 'gog pa dang / lam med/ ye shes med/ thob pa med/ ma thob pa yang med do/"
       },
       "english": "No suffering, origination, cessation, or path; no wisdom and no attainment, because there is nothing to attain.",
-      "divergence_notes": []
+      "divergence_notes": [
+        "Sanskrit na-aprāptiḥ is late interpolation not in Large Sutra (Huifeng 2014, Attwood 2020a)",
+        "Should be 'na prāptir nābhisamayaḥ' (no attainment, no realization) - refers to mārga/phala (path/fruition)",
+        "Chinese 無智亦無得 reflects Kumārajīva's T223 error copied into Heart Sutra",
+        "Tibetan ma thob pa yang med do ('no non-attainment') follows Sanskrit interpolation"
+      ]
     },
     {
       "id": "T251:9",
@@ -175,8 +184,10 @@
       },
       "english": "Because bodhisattvas rely on prajñāpāramitā, their minds are without obstruction. Without obstruction, they have no fear, are far removed from inverted views and dreams, and attain ultimate nirvāṇa.",
       "divergence_notes": [
-        "Sanskrit: niṣṭhā-nirvāṇa controversial reading (Attwood 2018)",
-        "Tibetan mya ngan las 'das pa'i mthar phyin (attain the final nirvāṇa) matches Sanskrit niṣṭhā-nirvāṇa-prāptaḥ"
+        "Section VI error (Attwood 2018a, 2020a): Conze's wrongly placed full stop creates sentence fragment",
+        "niṣṭhānirvāṇaḥ is bahuvrīhi compound (masc. adj.) meaning 'one whose nirvāṇa is complete' - describes the bodhisattva",
+        "Corrected reading: 'viharaty acittāvaraṇaś cittāvaraṇanāstitvād atrasto viparyāsātikrānto niṣṭhānirvāṇaḥ'",
+        "Tibetan mya ngan las 'das pa'i mthar phyin (attain the final nirvāṇa) matches Sanskrit structure"
       ]
     },
     {
@@ -237,6 +248,20 @@
   "notes": [
     "Synoptic alignment follows Chinese compositional priority methodology (Nattier 1992)",
     "T251 (short version) serves as base text; Tibetan Toh21 (long version) includes frame narrative not shown in main alignment",
-    "Tibetan segments extracted from Toh21 correspond to doctrinal core matching T251 structure"
+    "Tibetan segments extracted from Toh21 correspond to doctrinal core matching T251 structure",
+    "Sanskrit textual corrections based on Attwood (2015, 2017a, 2017b, 2018a, 2020a, 2021) and Huifeng (2014)",
+    "Gilgit Pañcaviṃśatisāhasrikā (Karashima et al. 2016) provides key Large Sutra parallels for textual analysis"
+  ],
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
+    "Attwood, Jayarava (2017a). 'Form is (Not) Emptiness: The Enigma at the Heart of the Heart Sutra.' JOCBS 13: 52-80.",
+    "Attwood, Jayarava (2017b). 'Epithets of the Mantra in the Heart Sutra.' JOCBS 12: 26-57.",
+    "Attwood, Jayarava (2018a). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' JOCBS 14: 10-17.",
+    "Attwood, Jayarava (2020a). 'Ungarbling Section VI of the Heart Sutra.' JOCBS 18: 11-41.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft, July 2021.",
+    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
+    "Kotyk, Jeffrey (2019). 'Chinese State and Buddhist Historical Sources on Xuanzang.' T'oung Pao 105(5-6): 513-544.",
+    "Karashima, Seishi et al. (2016). Mahāyāna Texts: Prajñāpāramitā Texts (1). Gilgit Manuscripts in the National Archives of India."
   ]
 }
