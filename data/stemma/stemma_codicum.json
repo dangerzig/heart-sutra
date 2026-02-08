@@ -1,0 +1,219 @@
+{
+  "id": "stemma_codicum",
+  "title": "Stemma Codicum of the Prajñāpāramitāhṛdaya",
+  "methodology": {
+    "approach": "Chinese compositional priority",
+    "principle": "Following Nattier (1992), the Heart Sutra was composed in Chinese ca. 649-656 CE, likely by or in the circle of Xuanzang. The Sanskrit text is a back-translation, not the original. This stemma reflects textual relationships, not chronological manuscript dates.",
+    "limitations": [
+      "Many intermediate exemplars are lost",
+      "Contamination between traditions occurred",
+      "Some relationships are hypothetical based on textual analysis"
+    ]
+  },
+  "nodes": {
+    "hypothetical": [
+      {
+        "id": "α",
+        "name": "Large Sutra Excerpts",
+        "description": "Passages extracted from Kumārajīva's T223 Mahāprajñāpāramitā-sūtra (ca. 404 CE)",
+        "date": "ca. 404 CE",
+        "type": "source"
+      },
+      {
+        "id": "β",
+        "name": "Proto-Heart Sutra (Chinese)",
+        "description": "Hypothetical early compilation, possibly related to T250 tradition",
+        "date": "5th-6th century?",
+        "type": "hypothetical"
+      },
+      {
+        "id": "Ω",
+        "name": "Xuanzang's Xīnjīng",
+        "description": "The Chinese Heart Sutra as composed/compiled, likely by Xuanzang ca. 649-656 CE",
+        "date": "ca. 649-656 CE",
+        "type": "archetype"
+      },
+      {
+        "id": "σ",
+        "name": "Sanskrit Back-Translation",
+        "description": "First Sanskrit rendering from Chinese, created in China or Central Asia",
+        "date": "mid-7th century",
+        "type": "hypothetical"
+      },
+      {
+        "id": "σ-L",
+        "name": "Sanskrit Long Recension",
+        "description": "Elaborated Sanskrit version with frame narrative added",
+        "date": "8th century?",
+        "type": "hypothetical"
+      },
+      {
+        "id": "τ",
+        "name": "Tantric Elaboration",
+        "description": "Sanskrit tradition with Tantric additions (oṃ, Bhagavatī maṅgala)",
+        "date": "9th-10th century",
+        "type": "hypothetical"
+      }
+    ],
+    "chinese_witnesses": [
+      {
+        "id": "T250",
+        "name": "Dàmíngzhòujīng",
+        "description": "Possibly reflects pre-Xuanzang tradition or parallel development",
+        "date": "attributed 402-412 CE, actual date uncertain",
+        "parent": "β",
+        "siglum": "T250"
+      },
+      {
+        "id": "T251",
+        "name": "Xuanzang's Xīnjīng",
+        "description": "Canonical short recension",
+        "date": "ca. 649-656 CE",
+        "parent": "Ω",
+        "siglum": "T251"
+      },
+      {
+        "id": "Fangshan",
+        "name": "Fangshan Stele",
+        "description": "Oldest dated physical witness, derived from T251 tradition",
+        "date": "661 CE",
+        "parent": "T251",
+        "siglum": "Fangshan"
+      },
+      {
+        "id": "T256",
+        "name": "Tang Transliteration",
+        "description": "Bilingual text documenting Sanskrit as known in Tang China",
+        "date": "8th-9th century",
+        "parent": "σ",
+        "siglum": "T256"
+      },
+      {
+        "id": "T257",
+        "name": "Dānapāla Translation",
+        "description": "Translation from elaborated Sanskrit long recension",
+        "date": "1005 CE",
+        "parent": "τ",
+        "siglum": "T257"
+      }
+    ],
+    "sanskrit_witnesses": [
+      {
+        "id": "Ja",
+        "name": "Hōryūji Manuscript",
+        "description": "Earliest Sanskrit manuscript witness, close to initial back-translation",
+        "date": "7th-8th century",
+        "parent": "σ",
+        "siglum": "Ja"
+      },
+      {
+        "id": "Na",
+        "name": "Nepalese MS Cambridge 1164",
+        "description": "Earlier Nepalese witness, short recension",
+        "date": "ca. 11th century",
+        "parent": "σ",
+        "siglum": "Na"
+      },
+      {
+        "id": "Nb",
+        "name": "Nepalese MS Cambridge 1165",
+        "description": "Long recension with oṃ in mantra",
+        "date": "17th-18th century",
+        "parent": "τ",
+        "siglum": "Nb"
+      },
+      {
+        "id": "Nc",
+        "name": "Nepalese MS RAS",
+        "description": "Late manuscript with Tantric elaborations",
+        "date": "19th century",
+        "parent": "τ",
+        "siglum": "Nc"
+      },
+      {
+        "id": "Nd",
+        "name": "Nepalese MS India Office",
+        "description": "Extended version",
+        "date": "18th-19th century",
+        "parent": "τ",
+        "siglum": "Nd"
+      },
+      {
+        "id": "Ne",
+        "name": "Nepalese MS NGMPP",
+        "description": "Long recension with oṃ",
+        "date": "15th-17th century",
+        "parent": "τ",
+        "siglum": "Ne"
+      }
+    ],
+    "tibetan_witnesses": [
+      {
+        "id": "Tib-S",
+        "name": "Tibetan Short Recension",
+        "description": "Translated from Sanskrit short recension",
+        "date": "8th-9th century",
+        "parent": "σ",
+        "siglum": "Tib-S"
+      },
+      {
+        "id": "Tib-L",
+        "name": "Tibetan Long Recension",
+        "description": "Translated from Sanskrit long recension with frame narrative",
+        "date": "8th-9th century",
+        "parent": "σ-L",
+        "siglum": "Tib-L"
+      }
+    ]
+  },
+  "edges": [
+    {"from": "α", "to": "β", "type": "extraction", "note": "Passages from Large Sutra compiled"},
+    {"from": "α", "to": "Ω", "type": "extraction", "note": "Direct quotation from T223"},
+    {"from": "β", "to": "T250", "type": "descent", "note": "Possibly independent early tradition"},
+    {"from": "Ω", "to": "T251", "type": "identity", "note": "T251 represents Ω"},
+    {"from": "T251", "to": "Fangshan", "type": "copy", "note": "Direct copy with orthographic variants"},
+    {"from": "Ω", "to": "σ", "type": "translation", "note": "Back-translation to Sanskrit", "direction": "chinese_to_sanskrit"},
+    {"from": "σ", "to": "Ja", "type": "copy", "note": "Early Sanskrit copy"},
+    {"from": "σ", "to": "Na", "type": "descent", "note": "Short recension tradition"},
+    {"from": "σ", "to": "T256", "type": "transliteration", "note": "Sanskrit recorded in Chinese characters"},
+    {"from": "σ", "to": "σ-L", "type": "elaboration", "note": "Frame narrative added"},
+    {"from": "σ-L", "to": "Tib-L", "type": "translation", "note": "Tibetan translation of long version"},
+    {"from": "σ", "to": "Tib-S", "type": "translation", "note": "Tibetan translation of short version"},
+    {"from": "σ-L", "to": "τ", "type": "elaboration", "note": "Tantric elements added (oṃ, maṅgala)"},
+    {"from": "τ", "to": "Nb", "type": "descent", "note": "Tantric long recension"},
+    {"from": "τ", "to": "Nc", "type": "descent", "note": "Late Tantric tradition"},
+    {"from": "τ", "to": "Nd", "type": "descent", "note": "Late Tantric tradition"},
+    {"from": "τ", "to": "Ne", "type": "descent", "note": "Tantric tradition"},
+    {"from": "τ", "to": "T257", "type": "translation", "note": "Re-translation to Chinese from Tantric Sanskrit", "direction": "sanskrit_to_chinese"}
+  ],
+  "key_innovations": {
+    "frame_narrative": {
+      "absent_from": ["T250", "T251", "Fangshan", "T256", "Ja", "Na", "Tib-S"],
+      "present_in": ["T257", "Nb", "Nc", "Nd", "Ne", "Tib-L"],
+      "origin": "Added to Sanskrit tradition (σ-L), probably 8th century"
+    },
+    "om_in_mantra": {
+      "absent_from": ["T250", "T251", "Fangshan", "T256", "Ja", "Na", "Tib-S"],
+      "present_in": ["T257", "Nb", "Ne"],
+      "origin": "Tantric interpolation (τ), probably 9th-10th century"
+    },
+    "tantric_mangala": {
+      "absent_from": ["T250", "T251", "Fangshan", "T256", "Ja"],
+      "simple_form": ["Ja: namas sarvajñāya"],
+      "elaborate_form": ["Nb", "Nc", "Nd", "Ne: Oṃ namo Bhagavatyai..."],
+      "origin": "Developed in Tantric tradition (τ)"
+    },
+    "na_aprapti": {
+      "absent_from": ["T251", "Fangshan", "Ja"],
+      "present_in": ["T256", "T257", "Conze edition", "late Nepalese MSS"],
+      "origin": "Interpolation in Sanskrit tradition, absent from earliest witnesses"
+    }
+  },
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2017). 'Xuánzàng's Relationship to the Heart Sutra in Light of the Fangshan Stele.' JOCBS 12: 58-90.",
+    "Attwood, Jayarava (2019). 'The Buddhas of the Three Times and the Chinese Origins of the Heart Sutra.' JOCBS 16: 9-41.",
+    "Silk, Jonathan (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions.' WSTB 34.",
+    "Tanahashi, Kazuaki (2014). The Heart Sutra: A Comprehensive Guide. Shambhala."
+  ]
+}

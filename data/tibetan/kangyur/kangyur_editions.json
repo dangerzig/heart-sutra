@@ -1,0 +1,170 @@
+{
+  "id": "kangyur_editions",
+  "title": "Tibetan Kangyur Editions of the Heart Sūtra",
+  "description": "Comparison of the Heart Sūtra across major Kangyur editions. The Tibetan translation was made in the 8th-9th century from Sanskrit. Both short and long recensions exist in the Kangyur.",
+  "editions": [
+    {
+      "id": "Degé",
+      "siglum": "D",
+      "name_tibetan": "སྡེ་དགེ",
+      "name_wylie": "sde dge",
+      "name_english": "Degé (Derge) Kangyur",
+      "catalog": "Toh 21 (Prajñāpāramitā section); also Toh 531 (Tantra section)",
+      "location": "Degé Parkhang, Kham (eastern Tibet)",
+      "date": "1733 CE (woodblock printing)",
+      "volumes": "Vol. 34 (ka), folios 144b-146a",
+      "authority": "Standard reference edition used by Western scholars",
+      "recension": "long",
+      "notes": "The Degé is considered the most reliable edition due to careful editorial work. It serves as the base text for this critical edition."
+    },
+    {
+      "id": "Peking",
+      "siglum": "Q",
+      "name_tibetan": "པེ་ཅིན",
+      "name_wylie": "pe cin",
+      "name_english": "Peking (Beijing) Kangyur",
+      "catalog": "Q20 (Prajñāpāramitā); Q542 (Tantra)",
+      "location": "Beijing, commissioned by Qing Emperor Kangxi",
+      "date": "1684-1692 CE (first printing); 1737 revision",
+      "volumes": "Vol. 6, pp. 162-164",
+      "authority": "Important alternate edition; differs from Degé in orthography and some readings",
+      "recension": "long",
+      "notes": "The Peking Kangyur was printed in Beijing for the Qing court. It preserves some readings different from Degé, occasionally reflecting older transmission."
+    },
+    {
+      "id": "Narthang",
+      "siglum": "N",
+      "name_tibetan": "སྣར་ཐང",
+      "name_wylie": "snar thang",
+      "name_english": "Narthang Kangyur",
+      "catalog": "Vol. 6 (ka)",
+      "location": "Narthang Monastery, near Shigatse, central Tibet",
+      "date": "1730-1732 CE",
+      "volumes": "Vol. 6",
+      "authority": "Important Gelug-affiliated edition",
+      "recension": "long",
+      "notes": "Closely related to the Lhasa edition; together they represent the central Tibetan textual tradition."
+    },
+    {
+      "id": "Lhasa",
+      "siglum": "H",
+      "name_tibetan": "ལྷ་ས",
+      "name_wylie": "lha sa",
+      "name_english": "Lhasa (Zhol) Kangyur",
+      "catalog": "Vol. 34 (ka)",
+      "location": "Zhol Parkhang, Lhasa",
+      "date": "1934 CE",
+      "volumes": "Vol. 34",
+      "authority": "Latest major Kangyur edition; corrected from earlier editions",
+      "recension": "long",
+      "notes": "The Lhasa Kangyur was printed in the 20th century with corrections from earlier editions. It often agrees with Narthang against Degé."
+    },
+    {
+      "id": "Lithang",
+      "siglum": "J",
+      "name_tibetan": "ལི་ཐང",
+      "name_wylie": "li thang",
+      "name_english": "Lithang (Jang Satham) Kangyur",
+      "catalog": "Vol. 31",
+      "location": "Lithang, Kham",
+      "date": "1609-1621 CE",
+      "volumes": "Vol. 31",
+      "authority": "Earliest printed Kangyur; important for establishing early readings",
+      "recension": "long",
+      "notes": "The Lithang was the first complete printed Kangyur. It sometimes preserves readings older than the more commonly used Degé."
+    },
+    {
+      "id": "Stog",
+      "siglum": "S",
+      "name_tibetan": "སྟོག",
+      "name_wylie": "stog",
+      "name_english": "Stog Palace Kangyur",
+      "catalog": "Manuscript",
+      "location": "Stog Palace, Ladakh",
+      "date": "14th-15th century (manuscript)",
+      "volumes": "Manuscript",
+      "authority": "One of the oldest surviving Kangyur manuscripts",
+      "recension": "long",
+      "notes": "The Stog Palace manuscript predates the printed editions and may preserve older readings. However, access is limited."
+    }
+  ],
+  "short_recension": {
+    "note": "The Tibetan tradition preserves both long and short recensions. The short recension lacks the frame narrative.",
+    "location_in_kangyur": "Sometimes included as a separate text or variant within the long recension entries",
+    "relationship_to_long": "The short recension corresponds more closely to T251 (Chinese) and the Hōryūji manuscript (Sanskrit). The long recension adds the frame narrative found in Sanskrit long recension and T257."
+  },
+  "variant_readings": {
+    "methodology": "Key orthographic and substantive variants between Kangyur editions. Base text: Degé (D).",
+    "variants": [
+      {
+        "location": "title",
+        "degé": "བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།",
+        "peking": "བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།",
+        "note": "Titles are identical across editions; 'Bhagavatī' (feminine) is notable"
+      },
+      {
+        "location": "opening homage",
+        "degé": "སངས་རྒྱས་དང་བྱང་ཆུབ་སེམས་དཔའ་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ།",
+        "peking": "སངས་རྒྱས་དང་བྱང་ཆུབ་སེམས་དཔའ་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ།",
+        "narthang": "སངས་རྒྱས་དང་བྱང་ཆུབ་སེམས་དཔའ་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ།",
+        "note": "Opening homage consistent across editions"
+      },
+      {
+        "location": "skandha terminology",
+        "issue": "Orthographic variants in ཕུང་པོ་ལྔ (phung po lnga)",
+        "degé": "ཕུང་པོ་ལྔ་པོ་དེ་དག",
+        "peking": "ཕུང་པོ་ལྔ་པོ་དེ་དག",
+        "note": "Consistent use of ལྔ་པོ (lnga po, 'the five') across editions"
+      },
+      {
+        "location": "exhaustion terminology",
+        "degé": "མ་རིག་པ་ཟད་པ (ma rig pa zad pa)",
+        "peking": "མ་རིག་པ་ཟད་པ (ma rig pa zad pa)",
+        "note": "All editions use zad pa (exhaustion/kṣaya) rather than a term for nirodha. This matches Sanskrit kṣaya and supports Nattier's back-translation thesis."
+      },
+      {
+        "location": "mantra",
+        "degé": "ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།",
+        "peking": "ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།",
+        "note": "The Tibetan tradition includes oṃ in the mantra, unlike the earliest Chinese and Sanskrit witnesses. This reflects the long recension Sanskrit source."
+      },
+      {
+        "location": "samādhi name",
+        "degé": "ཟབ་མོ་སྣང་བ (zab mo snang ba, 'Illumination of the Profound')",
+        "peking": "ཟབ་མོ་སྣང་བ",
+        "sanskrit": "gambhīrāvabhāsa",
+        "note": "The samādhi name is consistent across Tibetan editions"
+      },
+      {
+        "location": "epithets",
+        "count": 5,
+        "tibetan": "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས། རིག་པ་ཆེན་པོའི་སྔགས། བླ་ན་མེད་པའི་སྔགས། མི་མཉམ་པ་དང་མཉམ་པའི་སྔགས། སྡུག་བསྔལ་ཐམས་ཅད་རབ་ཏུ་ཞི་བར་བྱེད་པའི་སྔགས།",
+        "note": "Tibetan has 5 epithets (prajñāpāramitā mantra, great knowledge mantra, unsurpassed mantra, unequalled mantra, all-suffering-pacifying mantra), while Chinese T251 has 4 and T250 has 3."
+      }
+    ]
+  },
+  "translation_colophon": {
+    "translators": "Vimalamitra (བི་མ་ལ་མི་ཏྲ) and Rinchen Dé (རིན་ཆེན་སྡེ)",
+    "revisers": "Gewé Lodrö (དགེ་བའི་བློ་གྲོས) and Namkha (ནམ་མཁའ)",
+    "period": "Imperial period (8th-9th century CE)",
+    "note": "The colophon in most editions credits these translators and revisers. The translation was made during the Tibetan Empire period when major translation projects were sponsored by the court."
+  },
+  "stemmatic_position": {
+    "summary": "The Tibetan translation was made from Sanskrit, not Chinese. It therefore represents a witness to the Sanskrit tradition, not an independent transmission line.",
+    "relationship_to_sanskrit": "The Tibetan long recension corresponds to the Sanskrit long recension (with frame narrative). The Tibetan short recension corresponds to the Sanskrit short recension.",
+    "relationship_to_chinese": "The Tibetan is a secondary witness for establishing the original Chinese text, mediated through Sanskrit.",
+    "value_for_text_criticism": [
+      "Tibetan zad pa matches Sanskrit kṣaya, confirming back-translation from Chinese",
+      "Tibetan includes oṃ in mantra, reflecting Sanskrit long recension source",
+      "Tibetan preserves frame narrative matching Sanskrit long recension",
+      "Tibetan ma thob pa (no non-attainment) reflects Sanskrit na-aprāptiḥ interpolation"
+    ]
+  },
+  "scholarly_refs": [
+    "Silk, Jonathan A. (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions Contained in the Kanjur.' Wiener Studien zur Tibetologie und Buddhismuskunde 34.",
+    "84000: Translating the Words of the Buddha (2022). The Heart of the Perfection of Wisdom. https://read.84000.co/translation/toh21.html",
+    "Skilling, Peter (1994). Mahāsūtras: Great Discourses of the Buddha. Pali Text Society.",
+    "Eimer, Helmut (1992). Der Tantra-Teil des Kanjur. Arbeitskreis für Tibetische und Buddhistische Studien.",
+    "Harrison, Paul (1996). 'A Brief History of the Tibetan bKa' 'gyur.' In Tibetan Literature: Studies in Genre, pp. 70-94."
+  ]
+}
