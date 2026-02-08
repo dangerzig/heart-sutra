@@ -3,18 +3,24 @@
   "methodology": "chinese-priority",
   "witnesses": {
     "chinese_primary": "T251",
-    "chinese_secondary": ["T250", "Fangshan", "T256"],
+    "chinese_secondary": ["T250", "Fangshan", "T256", "T257"],
     "sanskrit_primary": "GRETIL",
-    "sanskrit_manuscripts": ["Horyuji"],
+    "sanskrit_manuscripts": ["Horyuji", "Na", "Nb", "Nc", "Nd", "Ne"],
     "tibetan": "Toh21"
   },
   "witness_descriptions": {
-    "T251": "Xuanzang's Xīnjīng (649 CE), canonical short version",
+    "T251": "Xuanzang's Xīnjīng (ca. 649-656 CE), canonical short version",
     "T250": "Dàmíngzhòujīng, attributed to Kumārajīva, possibly earlier tradition",
     "Fangshan": "Fangshan Stele (661 CE), oldest dated physical witness",
     "T256": "Bilingual text with Sanskrit transliterated in Chinese characters, Tang dynasty",
+    "T257": "Dānapāla's translation (1005 CE) from Sanskrit long recension, only Chinese version with oṃ in mantra",
     "GRETIL": "Sanskrit text based on Conze (1967) with corrections",
     "Horyuji": "Hōryūji palm-leaf manuscript (7th-8th c.), Conze's 'Ja', one of oldest Sanskrit witnesses",
+    "Na": "Nepalese manuscript, Cambridge Add. 1164, ca. 11th c., short recension",
+    "Nb": "Nepalese manuscript, Cambridge Add. 1165, ca. 17th-18th c., long recension with oṃ",
+    "Nc": "Nepalese manuscript, Royal Asiatic Society, ca. 19th c., long recension",
+    "Nd": "Nepalese manuscript, India Office Library, ca. 18th-19th c., long recension",
+    "Ne": "Nepalese manuscript, Nepal-German Project, ca. 15th-17th c., long recension with oṃ",
     "Toh21": "Tibetan Kangyur, long version with frame narrative"
   },
   "rows": [
@@ -265,7 +271,10 @@
     "T250 (Dàmíngzhòujīng) preserves possibly earlier Chinese tradition with additional passages and three-epithet pattern",
     "Fangshan Stele (661 CE) is oldest dated witness; virtually identical to T251 with minor orthographic variants",
     "T256 provides Sanskrit text in Chinese character transliteration, crucial for Tang-era pronunciation and confirming Sanskrit tradition",
-    "Hōryūji manuscript (7th-8th c.) is one of oldest Sanskrit witnesses; lacks oṃ in mantra and na-aprāptiḥ, supporting late interpolation thesis"
+    "T257 (Dānapāla 1005 CE) is the only Chinese version with oṃ in mantra; translated from elaborated Sanskrit long recension with frame narrative",
+    "Hōryūji manuscript (7th-8th c.) is one of oldest Sanskrit witnesses; lacks oṃ in mantra and na-aprāptiḥ, supporting late interpolation thesis",
+    "Nepalese manuscripts (Na-Ne, 11th-19th c.) represent late Tantric elaboration with maṅgala, oṃ in mantra, and frame narrative; should not be privileged over early witnesses",
+    "See data/collation/variant_table.json for detailed collation of key textual variants across all witnesses"
   ],
   "scholarly_refs": [
     "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",

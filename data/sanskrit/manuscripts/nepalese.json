@@ -1,0 +1,122 @@
+{
+  "id": "Nepalese",
+  "title_english": "Nepalese Manuscript Tradition",
+  "description": "Collection of late Nepalese manuscripts used by Conze in his critical edition. These manuscripts (11th-19th century) represent the elaborated Tantric recension with features absent from earlier witnesses.",
+  "manuscripts": [
+    {
+      "siglum": "Na",
+      "conze_description": "Nepalese manuscript, Cambridge University Library Add. 1164",
+      "date": "ca. 11th century",
+      "script": "Newari",
+      "recension": "short",
+      "notes": "One of the earlier Nepalese witnesses"
+    },
+    {
+      "siglum": "Nb",
+      "conze_description": "Nepalese manuscript, Cambridge University Library Add. 1165",
+      "date": "ca. 17th-18th century",
+      "script": "Newari/Devanagari",
+      "recension": "long",
+      "notes": "Extended version with frame narrative. Includes oṃ in mantra."
+    },
+    {
+      "siglum": "Nc",
+      "conze_description": "Nepalese manuscript, Royal Asiatic Society, Hodgson Collection",
+      "date": "ca. 19th century",
+      "script": "Devanagari",
+      "recension": "long",
+      "notes": "Late manuscript with full Tantric elaborations"
+    },
+    {
+      "siglum": "Nd",
+      "conze_description": "Nepalese manuscript, India Office Library",
+      "date": "ca. 18th-19th century",
+      "script": "Devanagari",
+      "recension": "long",
+      "notes": "Extended version"
+    },
+    {
+      "siglum": "Ne",
+      "conze_description": "Nepalese manuscript, Nepal-German Manuscript Preservation Project",
+      "date": "ca. 15th-17th century",
+      "script": "Newari",
+      "recension": "long",
+      "notes": "Includes oṃ in mantra"
+    }
+  ],
+  "general_characteristics": {
+    "date_range": "11th-19th century CE",
+    "script": "Newari (earlier) and Devanagari (later)",
+    "recension": "Mostly long (extended) version with frame narrative",
+    "religious_context": "Vajrayāna/Tantric Buddhism",
+    "significance": "Represent late elaboration of text with Tantric additions; contrast with earlier witnesses like Hōryūji"
+  },
+  "distinctive_features": {
+    "mangala": {
+      "nepalese_reading": "Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai!",
+      "comparison": "Elaborate Tantric salutation absent from Chinese texts, T256, and Hōryūji (which has simple 'namas sarvajñāya')",
+      "note": "The address to Prajñāpāramitā as a feminine deity (Bhagavatyai) and inclusion of Oṃ reflects Tantric influence"
+    },
+    "om_in_mantra": {
+      "nepalese_reading": "Oṃ gate gate pāragate pārasaṃgate bodhi svāhā",
+      "comparison": "Hōryūji and most other witnesses lack oṃ; only Nb and Ne among Conze's witnesses include it",
+      "note": "Addition of oṃ reflects Tantric convention that all mantras begin with oṃ (Attwood 2021)"
+    },
+    "title_variants": {
+      "readings": [
+        "Pañcaviṃśatikā Prajñāpāramitā-hṛdaya-dhāraṇī",
+        "Pañcaviṃśatikā Prajñāpāramitā nāma dhāraṇī",
+        "Pañcaviṃśatikā Prajñāpāramitā-hṛdaya-sūtra",
+        "Ārya-Prajñāpāramitā-hṛdaya"
+      ],
+      "note": "Nepalese manuscripts show considerable variation in titles; the 'Pañcaviṃśatikā' prefix references a syllable count (25 × 32 = 800 syllables)"
+    },
+    "frame_narrative": {
+      "description": "Long recension manuscripts include prologue (nidāna) and epilogue with Buddha on Vulture Peak, Śāriputra's question prompted by Avalokiteśvara, and audience approval",
+      "note": "Frame narrative matches Tibetan long version but absent from Chinese T251 and Sanskrit short recension"
+    }
+  },
+  "text_sample_long_recension": {
+    "prologue": {
+      "iast": "evaṃ mayā śrutam ekasmin samaye bhagavān rājagṛhe viharati sma gṛdhrakūṭe parvate mahatā bhikṣusaṃghena sārdhaṃ mahatā ca bodhisattvasaṃghena | tena khalu samayena bhagavān gambhīrāvabhāsaṃ nāma samādhiṃ samāpanno 'bhūt | tena ca samayena āryāvalokiteśvaro bodhisattvo mahāsattvo gambhīrāyāṃ prajñāpāramitāyāṃ caryāṃ caramāṇo vyavalokayati sma...",
+      "english": "Thus have I heard. At one time the Blessed One was dwelling at Rājagṛha on Vulture Peak Mountain together with a great assembly of monks and a great assembly of bodhisattvas. At that time the Blessed One had entered a samādhi called 'Profound Illumination.' And at that time Noble Avalokiteśvara, the bodhisattva mahāsattva, while practicing the profound prajñāpāramitā, was examining..."
+    },
+    "epilogue": {
+      "iast": "...iti āryāvalokiteśvaro bodhisattvo mahāsattvo 'bhāṣata | atha khalu bhagavān tasmāt samādher vyutthāya āryāvalokiteśvarasya bodhisattvasya mahāsattvasya sādhu-kāram adāt | sādhu sādhu kulaputra evam etat kulaputra evam etat gambhīrāyāṃ prajñāpāramitāyāṃ caryāṃ cartavyam...",
+      "english": "...Thus spoke Noble Avalokiteśvara, the bodhisattva mahāsattva. Then the Blessed One arose from that samādhi and gave his approval to Noble Avalokiteśvara the bodhisattva mahāsattva: 'Excellent, excellent, son of good family! It is so, son of good family, it is so. The practice of the profound prajñāpāramitā should be practiced...'"
+    }
+  },
+  "variant_readings": {
+    "section_I": {
+      "issue": "pañcaskandhāḥ (nominative) vs pañcaskandhāṃs (accusative)",
+      "nepalese": "Manuscripts vary; most have nominative following received tradition",
+      "note": "Attwood (2015) argues accusative is correct"
+    },
+    "section_VI": {
+      "issue": "Full stop placement and niṣṭhānirvāṇaḥ vs niṣṭhānirvāṇaprāptaḥ",
+      "nepalese": "Late manuscripts often have niṣṭhānirvāṇaprāptaḥ with wrongly placed full stop",
+      "note": "Conze's 1975 edition follows this late reading"
+    },
+    "na_aprapti": {
+      "issue": "Presence of na-aprāptiḥ",
+      "nepalese": "Late manuscripts include na-aprāptiḥ",
+      "note": "Absent from Hōryūji and Large Sutra parallels (Huifeng 2014)"
+    }
+  },
+  "stemmatic_position": {
+    "summary": "The Nepalese manuscripts represent a late, elaborated tradition that diverged significantly from the earlier transmission. They show influence of Tantric Buddhism and should not be privileged over earlier witnesses like the Hōryūji manuscript.",
+    "relationship_to_other_witnesses": [
+      "Descended from Sanskrit tradition that was itself back-translated from Chinese",
+      "Elaborated with Tantric elements (oṃ, Bhagavatī maṅgala, frame narrative)",
+      "Titles referencing Pañcaviṃśatikā suggest awareness of Large Sutra origins",
+      "Late readings (na-aprāptiḥ, niṣṭhānirvāṇaprāptaḥ) should not be preferred over earlier witnesses"
+    ]
+  },
+  "scholarly_refs": [
+    "Conze, Edward (1948). 'Text, Sources, and Bibliography of the Prajñāpāramitā-hṛdaya.' JRAS 80(1-2): 33-51.",
+    "Conze, Edward (1967). 'The Prajñāpāramitā-Hṛdaya Sūtra.' In Thirty Years of Buddhist Studies, pp. 147-167.",
+    "Watanabe, Shōgo (2016). 'A Comparative Study of the Pañcaviṃśatisāhasrikā Prajñāpāramitā.' Tokyo.",
+    "Silk, Jonathan (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions.' Wiener Studien zur Tibetologie und Buddhismuskunde 34.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft."
+  ]
+}
