@@ -1,0 +1,276 @@
+% Prajñāpāramitāhṛdaya - Heart Sūtra
+% Sanskrit Critical Edition
+% Recognizing Chinese Compositional Priority (Nattier 1992)
+
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+
+\usepackage[margin=2.5cm,bottom=3cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+
+% Per-page footnotes
+\usepackage[perpage]{footmisc}
+
+% Page style
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small Prajñāpāramitāhṛdaya -- Sanskrit Critical Edition}
+\fancyhead[R]{\small प्रज्ञापारमिताहृदय}
+\fancyfoot[C]{\thepage}
+
+% ============================================================================
+% FONTS
+% ============================================================================
+
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+
+\newfontfamily\devanagarifont{Noto Serif Devanagari}
+\newcommand{\deva}[1]{{\devanagarifont #1}}
+
+% ============================================================================
+% CUSTOM COMMANDS
+% ============================================================================
+
+\newcommand{\linenum}[1]{\textbf{\small #1.}}
+\newcommand{\var}[1]{\textsuperscript{\color{red}\textbf{#1}}}
+\newcommand{\lemma}[1]{\textbf{#1}}
+\newcommand{\reading}[1]{#1}
+\newcommand{\wit}[1]{\textsc{#1}}
+\newcommand{\depmark}[2]{{\small\color{blue}[#1\,$\rightarrow$\,#2]}}
+
+% ============================================================================
+% DOCUMENT
+% ============================================================================
+
+\begin{document}
+
+% ----------------------------------------------------------------------------
+% TITLE PAGE
+% ----------------------------------------------------------------------------
+
+\begin{center}
+{\Huge\bfseries\deva{प्रज्ञापारमिताहृदय}}\\[0.5em]
+{\LARGE Prajñāpāramitāhṛdayam}\\[0.3em]
+{\Large Heart Sūtra}\\[1.5em]
+{\large Sanskrit Critical Edition}\\[0.5em]
+{\normalsize Short Recension (after Attwood 2015--2021)}\\[2em]
+\end{center}
+
+\hrule
+\vspace{1em}
+
+\section*{Editorial Note}
+
+This edition recognizes \textbf{Chinese compositional priority} following Nattier (1992). The Sanskrit text is a back-translation from Chinese, not the original. Accordingly:
+
+\begin{enumerate}
+\item The base text follows the earliest Sanskrit witnesses (Hōryūji, 7th--8th c.)
+\item Late Tantric additions (oṃ, elaborate maṅgala, na-aprāptiḥ) are relegated to the apparatus
+\item Errors from back-translation (e.g., kṣaya for nirodha) are preserved and documented
+\item This represents what the Sanskrit translator produced, not a hypothetical ``original''
+\end{enumerate}
+
+\section*{Witnesses}
+
+\begin{description}[leftmargin=2cm, labelwidth=1.8cm]
+\item[\wit{Ja}] Hōryūji Manuscript (Japan, 7th--8th c.). Earliest Sanskrit witness. Short recension.
+\item[\wit{Na}] Nepalese MS Cambridge 1164 (ca. 11th c.). Short recension.
+\item[\wit{Nb}] Nepalese MS Cambridge 1165 (17th--18th c.). Long recension with oṃ.
+\item[\wit{Nc}] Nepalese MS RAS (19th c.). Late Tantric.
+\item[\wit{Nd}] Nepalese MS India Office (18th--19th c.). Extended version.
+\item[\wit{Ne}] Nepalese MS NGMPP (15th--17th c.). Long recension with oṃ.
+\item[\wit{T256}] Tang Transliteration (8th--9th c.). Sanskrit preserved in Chinese characters.
+\end{description}
+
+\newpage
+
+% ----------------------------------------------------------------------------
+% TEXT
+% ----------------------------------------------------------------------------
+
+\section*{Text}
+
+\begin{center}
+{\Large\bfseries Prajñāpāramitāhṛdayam}\\[0.3em]
+{\large\deva{प्रज्ञापारमिताहृदयम्}}
+\end{center}
+
+\vspace{1em}
+
+\linenum{1} namas sarvajñāya\var{1} ||
+
+\vspace{0.5em}
+
+\subsection*{Section I: Opening}
+
+\linenum{2} ārya-avalokiteśvaro\var{2} bodhisattvo\\
+gambhīrāṃ prajñāpāramitā-caryāṃ caramāṇo\\
+vyavalokayati sma\var{3}:
+
+\vspace{0.3em}
+\linenum{3} pañca-skandhāṃs\var{4} tāṃś ca svabhāva-śūnyān paśyati sma ||
+
+\vspace{1em}
+\subsection*{Section II: Form and Emptiness}
+
+\linenum{4} iha Śāriputra\\
+rūpaṃ śūnyatā śūnyataiva rūpam |\\
+rūpān na pṛthak śūnyatā\var{5} śūnyatāyā na pṛthag rūpam |
+
+\vspace{0.3em}
+\linenum{5} yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam\var{6} |
+
+\vspace{0.3em}
+\linenum{6} evam eva vedanā-saṃjñā-saṃskāra-vijñānāni ||
+
+\vspace{1em}
+\subsection*{Section III: Characteristics of Emptiness}
+
+\linenum{7} iha Śāriputra sarva-dharmāḥ śūnyatā-lakṣaṇā |\\
+anutpannā aniruddhā |\\
+amalā avimalā |\\
+anūnā aparipūrṇāḥ ||
+
+\vspace{1em}
+\subsection*{Section IV: Negation Series}
+
+\linenum{8} tasmāc Chāriputra śūnyatāyāṃ\\
+na rūpaṃ na vedanā na saṃjñā na saṃskārāḥ na vijñānam |
+
+\vspace{0.3em}
+\linenum{9} na cakṣuḥ-śrotra-ghrāṇa-jihvā-kāya-manāṃsi |\\
+na rūpa-śabda-gandha-rasa-spraṣṭavya-dharmāḥ |
+
+\vspace{0.3em}
+\linenum{10} na cakṣur-dhātur yāvan na manovijñāna-dhātuḥ |
+
+\vspace{0.3em}
+\linenum{11} na-avidyā na-avidyā-kṣayo\var{7}\\
+yāvan na jarā-maraṇaṃ na jarā-maraṇa-kṣayaḥ |
+
+\vspace{0.3em}
+\linenum{12} na duḥkha-samudaya-nirodha-mārgāḥ |\\
+na jñānaṃ na prāptiḥ\var{8} ||
+
+\vspace{1em}
+\subsection*{Section V: Bodhisattva's Result}
+
+\linenum{13} tasmāc Chāriputra aprāptitvād\\
+bodhisattvasya prajñāpāramitām āśritya\\
+viharaty acittāvaraṇaḥ |
+
+\vspace{0.3em}
+\linenum{14} cittāvaraṇa-nāstitvād atrastro\\
+viparyāsa-atikrānto\\
+niṣṭhā-nirvāṇaḥ\var{9} ||
+
+\vspace{1em}
+\subsection*{Section VI: Buddha's Result}
+
+\linenum{15} tryadhva-vyavasthitāḥ sarva-buddhāḥ\\
+prajñāpāramitām āśritya\\
+anuttarāṃ samyak-saṃbodhim abhisaṃbuddhāḥ ||
+
+\vspace{1em}
+\subsection*{Section VII: Mantra Praise}
+
+\linenum{16} tasmāj jñātavyam:\\
+prajñāpāramitā mahā-mantro\\
+mahā-vidyā-mantro\\
+'nuttara-mantro\\
+'samasama-mantraḥ |
+
+\vspace{0.3em}
+\linenum{17} sarva-duḥkha-praśamanaḥ |\\
+satyam amithyatvāt ||
+
+\vspace{1em}
+\subsection*{Section VIII: Mantra}
+
+\linenum{18} prajñāpāramitāyām ukto mantraḥ | tadyathā:
+
+\vspace{0.5em}
+\begin{center}
+{\Large gate gate pāragate pārasaṃgate bodhi svāhā\var{10} ||}
+
+\vspace{0.3em}
+{\large\deva{गते गते पारगते पारसंगते बोधि स्वाहा}}
+\end{center}
+
+\vspace{0.5em}
+\linenum{19} iti prajñāpāramitā-hṛdayaṃ samāptam ||
+
+\newpage
+
+% ----------------------------------------------------------------------------
+% CRITICAL APPARATUS
+% ----------------------------------------------------------------------------
+
+\section*{Critical Apparatus}
+
+\var{1}~\lemma{namas sarvajñāya}] This simple maṅgala appears in \wit{Ja}. Later witnesses have elaborate Tantric formulas: \reading{Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai!} \wit{Nb Nc Nd Ne}. The elaboration is a Tantric development (9th--10th c.).
+
+\vspace{0.5em}
+\var{2}~\lemma{avalokiteśvaro}] \reading{avalokita-} \wit{Ja}. The \wit{Ja} reading may represent earlier confusion. Chinese 觀自在 supports the \textit{-īśvara} compound. \depmark{zh}{sa} The Chinese reading is primary.
+
+\vspace{0.5em}
+\var{3}~\lemma{vyavalokayati sma}] Unusual periphrastic past tense (\textit{sma} + present). Standard sūtra style uses present or aorist. \depmark{zh}{sa} May reflect Chinese narrative past 時 (\textit{shí}) ``at that time,'' indicating translation from Chinese.
+
+\vspace{0.5em}
+\var{4}~\lemma{pañca-skandhāṃs}] Accusative. Conze (1967) erroneously prints \reading{pañca-skandhāḥ} (nominative). Attwood (2015) corrects: the bodhisattva \emph{sees} the aggregates (accusative required).
+
+\vspace{0.5em}
+\var{5}~\lemma{rūpān na pṛthak śūnyatā}] Ablative construction ``emptiness is not separate \emph{from} form.'' Grammatically unusual; may reflect Chinese 色不異空 translated woodenly. \depmark{zh}{sa}
+
+\vspace{0.5em}
+\var{6}~\lemma{yad rūpaṃ sā śūnyatā...}] This line (``that which is form, that is emptiness...'') has \emph{no Chinese parallel}. It appears to be an addition made during Sanskrit composition to clarify the form-emptiness equation. Absent from T251, Fangshan stele, and all Chinese witnesses.
+
+\vspace{0.5em}
+\var{7}~\lemma{avidyā-kṣayo... jarā-maraṇa-kṣayaḥ}] \textbf{Key evidence for back-translation.} The Sanskrit uses \textit{kṣaya} (``destruction, wearing away'') where the Large Prajñāpāramitā (Sanskrit Pañcaviṃśatisāhasrikā) uses \textit{nirodha} (``cessation''). Chinese 盡 (\textit{jìn}) can translate either term. A translator working \emph{from} Sanskrit would have used \textit{nirodha} (standard Prajñāpāramitā terminology). The use of \textit{kṣaya} indicates someone working \emph{from} Chinese chose an approximate synonym. This is Nattier's ``smoking gun'' (1992:175--178). \depmark{zh}{sa}
+
+\vspace{0.5em}
+\var{8}~\lemma{na prāptiḥ}] Late witnesses add \reading{na-aprāptiḥ} (``no non-attainment'') \wit{T256 Nb Nc Nd Ne}. This is absent from \wit{T251}, \wit{Fangshan} (661 CE), and \wit{Ja} (7th--8th c.). It is an interpolation in the Sanskrit tradition, subsequently translated into T257 as 亦無無得.
+
+\vspace{0.5em}
+\var{9}~\lemma{niṣṭhā-nirvāṇaḥ}] Conze prints \reading{niṣṭhā-nirvāṇa-prāptaḥ}. Attwood (2018) argues this compound is problematic. The Chinese 究竟涅槃 (\textit{jiūjìng nièpán}) ``ultimate nirvāṇa'' is clear; the Sanskrit may be a calque. The \textit{-prāptaḥ} (``attained'') appears to be a later addition for grammatical clarity.
+
+\vspace{0.5em}
+\var{10}~\lemma{gate gate...}] Late witnesses prefix \reading{oṃ} \wit{Nb Ne T257}. This is a Tantric addition (9th--10th c.), absent from \wit{T251}, \wit{Fangshan} (661 CE), \wit{Ja}, \wit{Na}, and \wit{T256}. All early witnesses begin directly with \textit{gate}.
+
+\vspace{2em}
+
+% ----------------------------------------------------------------------------
+% NOTE ON CONZE
+% ----------------------------------------------------------------------------
+
+\section*{Note on Conze's Edition}
+
+Edward Conze's critical editions (1948, 1967, 1975) applied classical stemmatic method, treating Sanskrit as the original language and privileging late Nepalese manuscripts. This produced a conflated text containing:
+
+\begin{itemize}
+\item Late Tantric additions (oṃ, elaborate maṅgala) presented as original
+\item Interpolations (na-aprāptiḥ) included in the main text
+\item Grammatical ``corrections'' (nominative for accusative in Section I)
+\item The compound \textit{niṣṭhā-nirvāṇa-prāptaḥ} (questioned by Attwood)
+\end{itemize}
+
+This edition follows Attwood (2015--2021) in correcting these errors and recognizing that the Sanskrit represents a translation tradition, not the source.
+
+\vspace{2em}
+\hrule
+\vspace{0.5em}
+\begin{center}
+\textit{Sanskrit Critical Edition} $\cdot$ Prajñāpāramitāhṛdayam $\cdot$ Recognizing Chinese Priority
+\end{center}
+
+\end{document}

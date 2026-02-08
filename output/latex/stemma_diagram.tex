@@ -44,17 +44,16 @@
 % Row 1: Sources
 \node[source] (alpha) at (0,0) {α: Large Sūtra (T223)\\{\scriptsize ca. 404 CE}};
 
-% Row 2: Proto and Archetype
-\node[hypothetical] (beta) at (-6,-2) {β: Proto-Heart Sūtra\\{\scriptsize 5th-6th c.?}};
-\node[hypothetical] (omega) at (0,-2) {Ω: Xuanzang's Xīnjīng\\{\scriptsize ca. 649-656 CE}};
+% Row 2: PARALLEL Chinese compositions
+\node[chinese] (T250) at (-5,-2.5) {T250\\{\scriptsize Dàmíngzhòujīng}\\{\scriptsize (3 epithets)}};
+\node[chinese] (T251) at (0,-2.5) {T251\\{\scriptsize Xuanzang}\\{\scriptsize (4 epithets)}};
 
-% Row 3: First witnesses and Sanskrit back-translation
-\node[chinese] (T250) at (-8,-4) {T250\\{\scriptsize Dàmíngzhòujīng}};
-\node[chinese] (T251) at (-3,-4) {T251\\{\scriptsize Xuanzang}};
-\node[hypothetical] (sigma) at (3,-4) {σ: Sanskrit\\Back-translation\\{\scriptsize mid-7th c.}};
+% Parallel marker
+\draw[dashed, gray] (-2.5,-2) -- (-2.5,-3) node[midway, right, font=\scriptsize\itshape] {parallel};
+\node[hypothetical] (sigma) at (5,-4) {σ: Sanskrit\\Back-translation\\{\scriptsize mid-7th c.}};
 
 % Row 4: Early copies
-\node[chinese] (Fangshan) at (-5,-6) {Fangshan\\{\scriptsize 661 CE}};
+\node[chinese] (Fangshan) at (-2,-5) {Fangshan\\{\scriptsize 661 CE}};
 \node[chinese] (T256) at (0,-6) {T256\\{\scriptsize Tang translit.}};
 \node[sanskrit] (Ja) at (4,-6) {Ja: Hōryūji\\{\scriptsize 7th-8th c.}};
 \node[sanskrit] (Na) at (7,-6) {Na\\{\scriptsize 11th c.}};
@@ -74,16 +73,12 @@
 \node[sanskrit] (Nd) at (15,-10.5) {Nd\\{\scriptsize 18th-19th c.}};
 \node[chinese] (T257) at (18,-9) {T257\\{\scriptsize 1005 CE}};
 
-% Arrows from alpha
-\draw[arrow] (alpha) -- (beta);
-\draw[arrow] (alpha) -- (omega);
+% Arrows from alpha - PARALLEL compositions
+\draw[arrow] (alpha) -- node[left, font=\scriptsize] {extract} (T250);
+\draw[arrow] (alpha) -- node[right, font=\scriptsize] {extract} (T251);
 
-% Arrows from beta
-\draw[arrow] (beta) -- (T250);
-
-% Arrows from omega
-\draw[arrow] (omega) -- (T251);
-\draw[translation, chinesecolor] (omega) -- node[above, sloped, font=\scriptsize] {back-transl.} (sigma);
+% Arrow from T251 to Sanskrit (back-translation)
+\draw[translation, chinesecolor] (T251) -- node[above, sloped, font=\scriptsize] {back-transl.} (sigma);
 
 % Arrows from T251
 \draw[arrow] (T251) -- (Fangshan);
@@ -126,8 +121,9 @@
 
 \noindent\textbf{Key Stemmatic Conclusions:}
 \begin{itemize}
-    \item \textbf{Chinese Priority:} The Heart Sūtra was composed in Chinese (Ω) ca.\ 649--656 CE, drawing on Kumārajīva's Large Sūtra translation (α).
-    \item \textbf{Sanskrit as Back-Translation:} The Sanskrit text (σ) is a translation \emph{from} Chinese, not the source of it.
+    \item \textbf{Chinese Priority:} The Heart Sūtra was composed in Chinese ca.\ 649--656 CE, drawing on Kumārajīva's Large Sūtra translation (α).
+    \item \textbf{Parallel Compositions:} T250 and T251 are independent compositions from α, not revision stages. T250 preserves material absent from T251 (skandha characteristics, temporal negation).
+    \item \textbf{Sanskrit as Back-Translation:} The Sanskrit text (σ) is a translation \emph{from} Chinese (T251), not the source of it.
     \item \textbf{Two Recensions:} A short recension (σ) was later expanded with a frame narrative (σ-L).
     \item \textbf{Tantric Elaboration:} The tradition τ added oṃ to the mantra and elaborate maṅgala formulas.
     \item \textbf{T257 as Re-Translation:} Dānapāla's 1005 CE translation represents Sanskrit-to-Chinese transmission of the elaborated Tantric version.

@@ -3,11 +3,13 @@
   "title": "Stemma Codicum of the Prajñāpāramitāhṛdaya",
   "methodology": {
     "approach": "Chinese compositional priority",
-    "principle": "Following Nattier (1992), the Heart Sutra was composed in Chinese ca. 649-656 CE, likely by or in the circle of Xuanzang. The Sanskrit text is a back-translation, not the original. This stemma reflects textual relationships, not chronological manuscript dates.",
+    "principle": "Following Nattier (1992), the Heart Sutra was composed in Chinese ca. 649-656 CE. The Sanskrit text is a back-translation. This edition's research indicates T250 and T251 are PARALLEL compositions from Large Sutra material, not revision stages of a single text.",
+    "key_finding": "T250 and T251 are siblings, not parent-child. Both independently extract from T223 (Large Sutra). T250 preserves three-epithet pattern matching T223; T251 innovates with four epithets.",
     "limitations": [
       "Many intermediate exemplars are lost",
       "Contamination between traditions occurred",
-      "Some relationships are hypothetical based on textual analysis"
+      "Some relationships are hypothetical based on textual analysis",
+      "Whether a proto-text (β) existed before both T250 and T251 remains uncertain"
     ]
   },
   "nodes": {
@@ -59,10 +61,12 @@
       {
         "id": "T250",
         "name": "Dàmíngzhòujīng",
-        "description": "Possibly reflects pre-Xuanzang tradition or parallel development",
-        "date": "attributed 402-412 CE, actual date uncertain",
-        "parent": "β",
-        "siglum": "T250"
+        "description": "PARALLEL composition to T251, not a revision stage. Independently extracts from T223 (Large Sutra). Preserves three-epithet pattern matching T223 exactly. Uses pre-Xuanzang terminology (觀世音, 五陰).",
+        "date": "attributed 402-412 CE, actual date uncertain but pre-Xuanzang terminology",
+        "parent": "α",
+        "siglum": "T250",
+        "parallel_to": "T251",
+        "unique_content": ["skandha-characteristic passage", "temporal negation passage"]
       },
       {
         "id": "T251",
@@ -167,9 +171,9 @@
     ]
   },
   "edges": [
-    {"from": "α", "to": "β", "type": "extraction", "note": "Passages from Large Sutra compiled"},
-    {"from": "α", "to": "Ω", "type": "extraction", "note": "Direct quotation from T223"},
-    {"from": "β", "to": "T250", "type": "descent", "note": "Possibly independent early tradition"},
+    {"from": "α", "to": "T250", "type": "extraction", "note": "PARALLEL composition from T223. T250 extracts directly from Large Sutra with three-epithet pattern preserved exactly."},
+    {"from": "α", "to": "Ω", "type": "extraction", "note": "PARALLEL composition from T223. Ω/T251 innovates four-epithet pattern."},
+    {"from": "T250", "to": "T251", "type": "parallel", "note": "NOT revision. T250 and T251 are sibling compositions, both from α. Evidence: T250 has passages ABSENT from T251 (deletion unlikely); different epithet structure."},
     {"from": "Ω", "to": "T251", "type": "identity", "note": "T251 represents Ω"},
     {"from": "T251", "to": "Fangshan", "type": "copy", "note": "Direct copy with orthographic variants"},
     {"from": "Ω", "to": "σ", "type": "translation", "note": "Back-translation to Sanskrit", "direction": "chinese_to_sanskrit"},
