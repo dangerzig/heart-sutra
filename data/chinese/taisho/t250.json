@@ -1,0 +1,189 @@
+{
+  "id": "T250",
+  "title_chinese": "摩訶般若波羅蜜大明呪經",
+  "title_pinyin": "Móhē bōrě bōluómì dà míng zhòu jīng",
+  "title_english": "Great Illumination Mantra Sūtra of the Mahāprajñāpāramitā",
+  "attributed_translator": "Kumārajīva (鳩摩羅什)",
+  "attributed_date": "402-412 CE",
+  "actual_date": "uncertain, possibly pre-Xuanzang",
+  "source": "Taishō Tripiṭaka Vol. 8, No. 250",
+  "recension": "short",
+  "notes": "Attribution to Kumārajīva is disputed. This may represent an earlier Chinese Heart Sutra tradition predating T251. Key differences from T251: (1) uses 觀世音 not 觀自在; (2) uses 五陰 not 五蘊; (3) expands the skandha-emptiness passage with individual characteristics; (4) adds temporal negation 非過去非未來非現在; (5) uses 明呪 throughout where T251 shortened to 呪; (6) has three epithets (大明呪、無上明呪、無等等明呪) matching Large Sutra; (7) adds 苦惱 after 顛倒夢想.",
+  "text": "觀世音菩薩，行深般若波羅蜜時，照見五陰空，度一切苦厄。舍利弗，色空故無惱壞相，受空故無受相，想空故無知相，行空故無作相，識空故無覺相。何以故？舍利弗，非色異空，非空異色，色即是空，空即是色。受想行識亦如是。舍利弗，是諸法空相，不生不滅，不垢不淨，不增不減。是空法，非過去，非未來，非現在。是故空中，無色，無受想行識，無眼耳鼻舌身意，無色聲香味觸法，無眼界，乃至無意識界。無無明，亦無無明盡，乃至無老死，亦無老死盡。無苦集滅道，無智亦無得，以無所得故。菩薩依般若波羅蜜故，心無罣礙，無罣礙故，無有恐怖，離一切顛倒夢想苦惱，究竟涅槃。三世諸佛，依般若波羅蜜故，得阿耨多羅三藐三菩提。故知般若波羅蜜，是大明呪，是無上明呪，是無等等明呪，能除一切苦，真實不虛。故說般若波羅蜜呪，即說呪曰：竭帝竭帝，波羅竭帝，波羅僧竭帝，菩提僧莎呵。",
+  "segments": [
+    {
+      "id": "T250:1",
+      "section": "opening",
+      "text": "觀世音菩薩，行深般若波羅蜜時，照見五陰空，度一切苦厄。",
+      "pinyin": "Guānshìyīn púsà, xíng shēn bōrě bōluómì shí, zhàojiàn wǔyīn kōng, dù yīqiè kǔ è.",
+      "english_gloss": "When Avalokiteśvara Bodhisattva was practicing the profound prajñāpāramitā, he illuminated the five skandhas as empty, thus transcending all suffering.",
+      "variants_from_T251": [
+        "觀世音 (Guānshìyīn) vs T251 觀自在 (Guānzìzài) - different transliteration of Avalokiteśvara",
+        "五陰 (wǔyīn) vs T251 五蘊 (wǔyùn) - older vs newer translation of skandha",
+        "五陰空 (wǔyīn kōng) vs T251 五蘊皆空 (wǔyùn jiē kōng) - 'skandhas empty' vs 'skandhas all empty'"
+      ]
+    },
+    {
+      "id": "T250:2a",
+      "section": "skandha_characteristics",
+      "text": "舍利弗，色空故無惱壞相，受空故無受相，想空故無知相，行空故無作相，識空故無覺相。何以故？",
+      "pinyin": "Shèlìfú, sè kōng gù wú nǎo huài xiāng, shòu kōng gù wú shòu xiāng, xiǎng kōng gù wú zhī xiāng, xíng kōng gù wú zuò xiāng, shí kōng gù wú jué xiāng. Héyǐgù?",
+      "english_gloss": "Śāriputra, because form is empty there is no characteristic of affliction and decay; because feeling is empty there is no characteristic of feeling; because perception is empty there is no characteristic of cognizing; because volition is empty there is no characteristic of acting; because consciousness is empty there is no characteristic of awareness. Why is this?",
+      "variants_from_T251": [
+        "This entire passage is ABSENT from T251",
+        "舍利弗 (Shèlìfú) vs T251 舍利子 (Shèlìzǐ) - different form of Śāriputra's name",
+        "Expands on emptiness of each skandha with specific characteristics"
+      ]
+    },
+    {
+      "id": "T250:2b",
+      "section": "form_emptiness",
+      "text": "舍利弗，非色異空，非空異色，色即是空，空即是色。受想行識亦如是。",
+      "pinyin": "Shèlìfú, fēi sè yì kōng, fēi kōng yì sè, sè jí shì kōng, kōng jí shì sè. Shòu xiǎng xíng shí yì rúshì.",
+      "english_gloss": "Śāriputra, it is not that form is different from emptiness, it is not that emptiness is different from form; form is emptiness, emptiness is form. Feeling, perception, volition, and consciousness are also like this.",
+      "variants_from_T251": [
+        "非色異空 (fēi sè yì kōng) vs T251 色不異空 (sè bù yì kōng) - 'it is not that form differs from emptiness' vs 'form does not differ from emptiness'",
+        "亦如是 (yì rúshì) vs T251 亦復如是 (yì fù rúshì) - minor stylistic difference"
+      ]
+    },
+    {
+      "id": "T250:3",
+      "section": "characteristics",
+      "text": "舍利弗，是諸法空相，不生不滅，不垢不淨，不增不減。",
+      "pinyin": "Shèlìfú, shì zhūfǎ kōng xiāng, bù shēng bù miè, bù gòu bù jìng, bù zēng bù jiǎn.",
+      "english_gloss": "Śāriputra, the emptiness characteristic of all dharmas is: not arising, not ceasing; not defiled, not pure; not increasing, not decreasing.",
+      "variants_from_T251": [
+        "Essentially identical to T251:3"
+      ]
+    },
+    {
+      "id": "T250:3a",
+      "section": "temporal_negation",
+      "text": "是空法，非過去，非未來，非現在。",
+      "pinyin": "Shì kōng fǎ, fēi guòqù, fēi wèilái, fēi xiànzài.",
+      "english_gloss": "This emptiness-dharma is not past, not future, not present.",
+      "variants_from_T251": [
+        "This entire passage is ABSENT from T251",
+        "Temporal negation found in some Prajñāpāramitā sources"
+      ]
+    },
+    {
+      "id": "T250:4",
+      "section": "negations_skandhas",
+      "text": "是故空中，無色，無受想行識，",
+      "pinyin": "Shìgù kōng zhōng, wú sè, wú shòu xiǎng xíng shí,",
+      "english_gloss": "Therefore, in emptiness there is no form, no feeling, perception, volition, or consciousness;",
+      "variants_from_T251": [
+        "Essentially identical to T251:4"
+      ]
+    },
+    {
+      "id": "T250:5",
+      "section": "negations_ayatanas",
+      "text": "無眼耳鼻舌身意，無色聲香味觸法，",
+      "pinyin": "wú yǎn ěr bí shé shēn yì, wú sè shēng xiāng wèi chù fǎ,",
+      "english_gloss": "no eyes, ears, nose, tongue, body, or mind; no forms, sounds, smells, tastes, tangibles, or mental objects;",
+      "variants_from_T251": [
+        "Essentially identical to T251:5"
+      ]
+    },
+    {
+      "id": "T250:6",
+      "section": "negations_dhatus",
+      "text": "無眼界，乃至無意識界。",
+      "pinyin": "wú yǎn jiè, nǎizhì wú yìshí jiè.",
+      "english_gloss": "no eye-element, up to and including no mind-consciousness element.",
+      "variants_from_T251": [
+        "Identical to T251:6"
+      ]
+    },
+    {
+      "id": "T250:7",
+      "section": "negations_pratityasamutpada",
+      "text": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+      "pinyin": "Wú wúmíng, yì wú wúmíng jìn, nǎizhì wú lǎosǐ, yì wú lǎosǐ jìn.",
+      "english_gloss": "No ignorance and no ending of ignorance, up to and including no old age and death, and no ending of old age and death.",
+      "variants_from_T251": [
+        "Identical to T251:7"
+      ]
+    },
+    {
+      "id": "T250:8",
+      "section": "negations_truths",
+      "text": "無苦集滅道，無智亦無得，以無所得故。",
+      "pinyin": "Wú kǔ jí miè dào, wú zhì yì wú dé, yǐ wú suǒ dé gù.",
+      "english_gloss": "No suffering, origination, cessation, or path; no wisdom and no attainment, because there is nothing to attain.",
+      "variants_from_T251": [
+        "Identical to T251:8"
+      ]
+    },
+    {
+      "id": "T250:9",
+      "section": "bodhisattva_result",
+      "text": "菩薩依般若波羅蜜故，心無罣礙，無罣礙故，無有恐怖，離一切顛倒夢想苦惱，究竟涅槃。",
+      "pinyin": "Púsà yī bōrě bōluómì gù, xīn wú guà'ài, wú guà'ài gù, wú yǒu kǒngbù, lí yīqiè diāndǎo mèngxiǎng kǔnǎo, jiūjìng nièpán.",
+      "english_gloss": "Because bodhisattvas rely on prajñāpāramitā, their minds are without obstruction. Without obstruction, they have no fear, are separated from all inverted dream-thoughts and afflictions, and attain ultimate nirvāṇa.",
+      "variants_from_T251": [
+        "菩薩 (púsà) vs T251 菩提薩埵 (pútísàduǒ) - abbreviated vs full transliteration of bodhisattva",
+        "離一切顛倒夢想苦惱 vs T251 遠離顛倒夢想 - T250 adds 一切 (all) and 苦惱 (afflictions)",
+        "Woncheuk's commentary notes this 'two versions' variant (T1711)"
+      ]
+    },
+    {
+      "id": "T250:10",
+      "section": "buddha_result",
+      "text": "三世諸佛，依般若波羅蜜故，得阿耨多羅三藐三菩提。",
+      "pinyin": "Sānshì zhū fó, yī bōrě bōluómì gù, dé ānòuduōluó sānmiǎo sānpútí.",
+      "english_gloss": "All buddhas of the three times, relying on prajñāpāramitā, attain anuttarā-samyak-saṃbodhi.",
+      "variants_from_T251": [
+        "般若波羅蜜 vs T251 般若波羅蜜多 - T250 lacks 多 (duō)"
+      ]
+    },
+    {
+      "id": "T250:11",
+      "section": "mantra_praise",
+      "text": "故知般若波羅蜜，是大明呪，是無上明呪，是無等等明呪，能除一切苦，真實不虛。",
+      "pinyin": "Gùzhī bōrě bōluómì, shì dà míng zhòu, shì wúshàng míng zhòu, shì wú děngděng míng zhòu, néng chú yīqiè kǔ, zhēnshí bù xū.",
+      "english_gloss": "Therefore know that prajñāpāramitā is the great illumination-mantra, the supreme illumination-mantra, the unequalled illumination-mantra, which can remove all suffering; it is true and not false.",
+      "variants_from_T251": [
+        "THREE epithets (大明呪、無上明呪、無等等明呪) vs T251 FOUR epithets (大神咒、大明咒、無上咒、無等等咒)",
+        "All use 明呪 (míngzhòu, 'illumination-mantra' = vidyā) vs T251 which shortens to 呪 (zhòu)",
+        "T250 matches Large Sutra (T223) three-epithet pattern more closely (Attwood 2017b)",
+        "Missing 故 (gù) after 不虛 that T251 has"
+      ]
+    },
+    {
+      "id": "T250:12",
+      "section": "mantra",
+      "text": "故說般若波羅蜜呪，即說呪曰：竭帝竭帝，波羅竭帝，波羅僧竭帝，菩提僧莎呵。",
+      "pinyin": "Gù shuō bōrě bōluómì zhòu, jí shuō zhòu yuē: Jiédì jiédì, bōluó jiédì, bōluó sēng jiédì, pútí sēng suōhē.",
+      "english_gloss": "Therefore proclaim the prajñāpāramitā mantra, proclaim the mantra that says: Gate gate pāragate pārasaṃgate bodhi svāhā.",
+      "variants_from_T251": [
+        "竭帝 (jiédì) vs T251 揭帝 (jiēdì) - different character for 'gate'",
+        "莎呵 (suōhē) vs T251 莎訶 (suōhē) - different character for final syllable of svāhā",
+        "No 僧 before 莎呵 in T250 vs T251 has 菩提僧莎訶"
+      ]
+    }
+  ],
+  "relationship_to_T251": {
+    "summary": "T250 and T251 are both short-form Heart Sutras, but T250 appears to preserve an earlier textual tradition. T250 has several passages absent from T251 (skandha characteristics, temporal negation) and uses terminology (觀世音, 五陰, 明呪) that is characteristic of earlier Chinese Buddhist translations.",
+    "key_differences": [
+      "Avalokiteśvara: 觀世音 (T250) vs 觀自在 (T251)",
+      "Skandhas: 五陰 (T250) vs 五蘊 (T251)",
+      "Śāriputra: 舍利弗 (T250) vs 舍利子 (T251)",
+      "Bodhisattva: 菩薩 (T250) vs 菩提薩埵 (T251)",
+      "Additional skandha-characteristic passage in T250",
+      "Temporal negation passage in T250",
+      "Three epithets with 明呪 (T250) vs four epithets with mixed 神咒/咒 (T251)",
+      "Adds 一切 and 苦惱 to the delusion passage"
+    ],
+    "scholarly_significance": "T250's preservation of earlier terminology and closer alignment with Large Sutra patterns suggests it may represent an earlier stage of Heart Sutra composition, or a parallel tradition. The three-epithet pattern with consistent 明呪 usage matches Kumārajīva's T223 more closely than T251 does."
+  },
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2017b). 'Epithets of the Mantra in the Heart Sutra.' JOCBS 12: 26-57.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.",
+    "Fukui, Fumimasa (1987). 'Hannya shingyō no seiritsu ni kansuru ichi mondai.'",
+    "Tanahashi, Kazuaki (2014). The Heart Sutra: A Comprehensive Guide. Shambhala."
+  ]
+}

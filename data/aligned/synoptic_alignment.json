@@ -2,9 +2,17 @@
   "title": "Prajñāpāramitāhṛdaya Synoptic Alignment",
   "methodology": "chinese-priority",
   "witnesses": {
-    "chinese": "T251",
+    "chinese_primary": "T251",
+    "chinese_secondary": ["T250", "Fangshan"],
     "sanskrit": "GRETIL",
     "tibetan": "Toh21"
+  },
+  "witness_descriptions": {
+    "T251": "Xuanzang's Xīnjīng (649 CE), canonical short version",
+    "T250": "Dàmíngzhòujīng, attributed to Kumārajīva, possibly earlier tradition",
+    "Fangshan": "Fangshan Stele (661 CE), oldest dated physical witness",
+    "GRETIL": "Sanskrit text based on Conze (1967) with corrections",
+    "Toh21": "Tibetan Kangyur, long version with frame narrative"
   },
   "rows": [
     {
@@ -250,7 +258,9 @@
     "T251 (short version) serves as base text; Tibetan Toh21 (long version) includes frame narrative not shown in main alignment",
     "Tibetan segments extracted from Toh21 correspond to doctrinal core matching T251 structure",
     "Sanskrit textual corrections based on Attwood (2015, 2017a, 2017b, 2018a, 2020a, 2021) and Huifeng (2014)",
-    "Gilgit Pañcaviṃśatisāhasrikā (Karashima et al. 2016) provides key Large Sutra parallels for textual analysis"
+    "Gilgit Pañcaviṃśatisāhasrikā (Karashima et al. 2016) provides key Large Sutra parallels for textual analysis",
+    "T250 (Dàmíngzhòujīng) preserves possibly earlier Chinese tradition with additional passages and three-epithet pattern",
+    "Fangshan Stele (661 CE) is oldest dated witness; virtually identical to T251 with minor orthographic variants"
   ],
   "scholarly_refs": [
     "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
