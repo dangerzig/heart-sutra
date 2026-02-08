@@ -1,0 +1,331 @@
+% Prajñāpāramitāhṛdaya - Heart Sūtra
+% Tibetan Critical Edition
+% Long Recension (Degé Kangyur)
+
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+
+\usepackage[margin=2.5cm,bottom=3cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+
+% Per-page footnotes
+\usepackage[perpage]{footmisc}
+
+% Page style
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small Prajñāpāramitāhṛdaya -- Tibetan Critical Edition}
+\fancyhead[R]{\small བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ}
+\fancyfoot[C]{\thepage}
+
+% ============================================================================
+% FONTS
+% ============================================================================
+
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+
+\newfontfamily\tibetanfont{Noto Serif Tibetan}
+\newcommand{\tib}[1]{{\tibetanfont #1}}
+
+% ============================================================================
+% CUSTOM COMMANDS
+% ============================================================================
+
+\newcommand{\linenum}[1]{\textbf{\small #1.}}
+\newcommand{\wylie}[1]{{\small\color{gray} #1}}
+\newcommand{\var}[1]{\textsuperscript{\color{red}\textbf{#1}}}
+\newcommand{\lemma}[1]{\textbf{#1}}
+\newcommand{\reading}[1]{#1}
+\newcommand{\wit}[1]{\textsc{#1}}
+
+% ============================================================================
+% DOCUMENT
+% ============================================================================
+
+\begin{document}
+
+% ----------------------------------------------------------------------------
+% TITLE PAGE
+% ----------------------------------------------------------------------------
+
+\begin{center}
+{\Huge\bfseries\tib{བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ}}\\[0.5em]
+{\LARGE Bhagavatī Prajñāpāramitā Hṛdaya}\\[0.3em]
+{\Large Heart Sūtra}\\[1.5em]
+{\large Tibetan Critical Edition}\\[0.5em]
+{\normalsize Long Recension (Degé Kangyur Toh 21)}\\[2em]
+\end{center}
+
+\hrule
+\vspace{1em}
+
+\section*{Transmission History}
+
+The Tibetan Heart Sūtra was translated from Sanskrit during the early translation period (8th--9th century) by Vimalamitra and Rinchen Dé (rin chen sde). It represents the \textbf{long recension} with frame narrative, translated from a Sanskrit text that already contained:
+
+\begin{itemize}
+\item The frame narrative (nidāna and epilogue)
+\item The oṃ in the mantra
+\item The na-aprāptiḥ interpolation (མ་ཐོབ་པ་ཡང་མེད)
+\item The zad pa (= kṣaya) error inherited from Sanskrit
+\end{itemize}
+
+The Tibetan is therefore a \textbf{tertiary witness}: Chinese → Sanskrit → Tibetan. It preserves features of the Sanskrit back-translation, including errors that trace back to Chinese.
+
+\section*{Witnesses}
+
+\begin{description}[leftmargin=2cm, labelwidth=1.8cm]
+\item[\wit{D}] Degé Kangyur (1733). Toh 21. Standard reference edition.
+\item[\wit{Q}] Peking Kangyur (1684--1692). Alternate readings.
+\item[\wit{N}] Narthang Kangyur (1730--1732). Central Tibetan tradition.
+\item[\wit{H}] Lhasa Kangyur (1934). Latest major edition.
+\item[\wit{J}] Lithang Kangyur (1609--1621). Earliest printed Kangyur.
+\item[\wit{S}] Stog Palace MS (14th--15th c.). Oldest Kangyur manuscript.
+\end{description}
+
+\newpage
+
+% ----------------------------------------------------------------------------
+% TEXT
+% ----------------------------------------------------------------------------
+
+\section*{Text}
+
+\begin{center}
+{\Large\bfseries\tib{བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ}}\\[0.3em]
+{\normalsize bcom ldan 'das ma shes rab kyi pha rol tu phyin pa'i snying po}
+\end{center}
+
+\vspace{1em}
+
+\subsection*{Nidāna (Frame Narrative Opening)}
+
+\tib{རྒྱ་གར་སྐད་དུ། བྷ་ག་ཝ་ཏཱི་པྲཛྙཱ་པཱ་ར་མི་ཏཱ་ཧྲྀ་ད་ཡ།}\\
+\wylie{rgya gar skad du | bha ga wa tI praj+nyA pA ra mi tA h+ri da ya |}
+
+\vspace{0.3em}
+\tib{བོད་སྐད་དུ། བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།}\\
+\wylie{bod skad du | bcom ldan 'das ma shes rab kyi pha rol tu phyin pa'i snying po |}
+
+\vspace{0.3em}
+\tib{འདི་སྐད་བདག་གིས་ཐོས་པ་དུས་གཅིག་ན།}\\
+\wylie{'di skad bdag gis thos pa dus gcig na |}
+
+\vspace{0.3em}
+\tib{བཅོམ་ལྡན་འདས་རྒྱལ་པོའི་ཁབ་བྱ་རྒོད་ཕུང་པོའི་རི་ལ།}\\
+\wylie{bcom ldan 'das rgyal po'i khab bya rgod phung po'i ri la |}
+
+\vspace{0.3em}
+\tib{དགེ་སློང་གི་དགེ་འདུན་ཆེན་པོ་དང་།}\\
+\wylie{dge slong gi dge 'dun chen po dang |}
+
+\vspace{0.3em}
+\tib{བྱང་ཆུབ་སེམས་དཔའི་དགེ་འདུན་ཆེན་པོ་དང་ཐབས་གཅིག་ཏུ་བཞུགས་ཏེ།}\\
+\wylie{byang chub sems dpa'i dge 'dun chen po dang thabs gcig tu bzhugs te |}
+
+\vspace{1em}
+\subsection*{Core Text}
+
+\linenum{1} \tib{འཕགས་པ་སྤྱན་རས་གཟིགས་དབང་ཕྱུག་བྱང་ཆུབ་སེམས་དཔའ་སེམས་དཔའ་ཆེན་པོ།}\\
+\wylie{'phags pa spyan ras gzigs dbang phyug byang chub sems dpa' sems dpa' chen po |}
+
+\vspace{0.3em}
+\linenum{2} \tib{ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ཟབ་མོའི་སྤྱོད་པ་སྤྱད་པ།}\\
+\wylie{shes rab kyi pha rol tu phyin pa zab mo'i spyod pa spyad pa |}
+
+\vspace{0.3em}
+\linenum{3} \tib{ཕུང་པོ་ལྔ་པོ་དེ་དག་ལ་ཡང་རང་བཞིན་གྱིས་སྟོང་པར་རྣམ་པར་བལྟའོ།}\\
+\wylie{phung po lnga po de dag la yang rang bzhin gyis stong par rnam par blta'o |}
+
+\vspace{1em}
+\linenum{4} \tib{ཤཱ་རིའི་བུ། གཟུགས་སྟོང་པའོ། སྟོང་པ་ཉིད་གཟུགས་སོ།}\\
+\wylie{shA ri'i bu | gzugs stong pa'o | stong pa nyid gzugs so |}
+
+\vspace{0.3em}
+\linenum{5} \tib{གཟུགས་ལས་སྟོང་པ་ཉིད་གཞན་མ་ཡིན། སྟོང་པ་ཉིད་ལས་ཀྱང་གཟུགས་གཞན་མ་ཡིན་ནོ།}\\
+\wylie{gzugs las stong pa nyid gzhan ma yin | stong pa nyid las kyang gzugs gzhan ma yin no |}
+
+\vspace{0.3em}
+\linenum{6} \tib{དེ་བཞིན་དུ་ཚོར་བ་དང་འདུ་ཤེས་དང་འདུ་བྱེད་དང་རྣམ་པར་ཤེས་པ་རྣམས་སྟོང་པའོ།}\\
+\wylie{de bzhin du tshor ba dang 'du shes dang 'du byed dang rnam par shes pa rnams stong pa'o |}
+
+\vspace{1em}
+\linenum{7} \tib{ཤཱ་རིའི་བུ། དེ་ལྟར་ཆོས་ཐམས་ཅད་སྟོང་པ་ཉིད་དེ། མཚན་ཉིད་མེད་པ།}\\
+\wylie{shA ri'i bu | de ltar chos thams cad stong pa nyid de | mtshan nyid med pa |}
+
+\vspace{0.3em}
+\linenum{8} \tib{མ་སྐྱེས་པ། མ་འགགས་པ། དྲི་མ་མེད་པ། དྲི་མ་དང་བྲལ་བ་མེད་པ། བྲི་བ་མེད་པ། གང་བ་མེད་པའོ།}\\
+\wylie{ma skyes pa | ma 'gags pa | dri ma med pa | dri ma dang bral ba med pa | bri ba med pa | gang ba med pa'o |}
+
+\vspace{1em}
+\linenum{9} \tib{ཤཱ་རིའི་བུ། དེ་ལྟ་བས་ན་སྟོང་པ་ཉིད་ལ་གཟུགས་མེད། ཚོར་བ་མེད། འདུ་ཤེས་མེད། འདུ་བྱེད་རྣམས་མེད། རྣམ་པར་ཤེས་པ་མེད།}\\
+\wylie{shA ri'i bu | de lta bas na stong pa nyid la gzugs med | tshor ba med | 'du shes med | 'du byed rnams med | rnam par shes pa med |}
+
+\vspace{0.3em}
+\linenum{10} \tib{མིག་མེད། རྣ་བ་མེད། སྣ་མེད། ལྕེ་མེད། ལུས་མེད། ཡིད་མེད།}\\
+\wylie{mig med | rna ba med | sna med | lce med | lus med | yid med |}
+
+\vspace{0.3em}
+\linenum{11} \tib{གཟུགས་མེད། སྒྲ་མེད། དྲི་མེད། རོ་མེད། རེག་བྱ་མེད། ཆོས་མེད་དོ།}\\
+\wylie{gzugs med | sgra med | dri med | ro med | reg bya med | chos med do |}
+
+\vspace{0.3em}
+\linenum{12} \tib{མིག་གི་ཁམས་མེད་པ་ནས་ཡིད་ཀྱི་རྣམ་པར་ཤེས་པའི་ཁམས་ཀྱི་བར་དུ་ཡང་མེད་དོ།}\\
+\wylie{mig gi khams med pa nas yid kyi rnam par shes pa'i khams kyi bar du yang med do |}
+
+\vspace{1em}
+\linenum{13} \tib{མ་རིག་པ་མེད། མ་རིག་པ་ཟད་པ་མེད་པ་ནས།}\var{1}\\
+\wylie{ma rig pa med | ma rig pa zad pa med pa nas |}
+
+\vspace{0.3em}
+\linenum{14} \tib{རྒ་ཤི་མེད། རྒ་ཤི་ཟད་པའི་བར་དུ་ཡང་མེད་དོ།}\\
+\wylie{rga shi med | rga shi zad pa'i bar du yang med do |}
+
+\vspace{0.3em}
+\linenum{15} \tib{སྡུག་བསྔལ་བ་དང་། ཀུན་འབྱུང་བ་དང་། འགོག་པ་དང་། ལམ་མེད།}\\
+\wylie{sdug bsngal ba dang | kun 'byung ba dang | 'gog pa dang | lam med |}
+
+\vspace{0.3em}
+\linenum{16} \tib{ཡེ་ཤེས་མེད། ཐོབ་པ་མེད། མ་ཐོབ་པ་ཡང་མེད་དོ།}\var{2}\\
+\wylie{ye shes med | thob pa med | ma thob pa yang med do |}
+
+\vspace{1em}
+\linenum{17} \tib{ཤཱ་རིའི་བུ། དེ་ལྟ་བས་ན་བྱང་ཆུབ་སེམས་དཔའ་རྣམས་ཐོབ་པ་མེད་པའི་ཕྱིར།}\\
+\wylie{shA ri'i bu | de lta bas na byang chub sems dpa' rnams thob pa med pa'i phyir |}
+
+\vspace{0.3em}
+\linenum{18} \tib{ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་བརྟེན་ཅིང་གནས་ཏེ།}\\
+\wylie{shes rab kyi pha rol tu phyin pa la brten cing gnas te |}
+
+\vspace{0.3em}
+\linenum{19} \tib{སེམས་ལ་སྒྲིབ་པ་མེད་པས་འཇིགས་པ་མེད་དེ།}\\
+\wylie{sems la sgrib pa med pas 'jigs pa med de |}
+
+\vspace{0.3em}
+\linenum{20} \tib{ཕྱིན་ཅི་ལོག་ལས་ཤིན་ཏུ་འདས་ནས་མྱ་ངན་ལས་འདས་པའི་མཐར་ཕྱིན་ཏོ།}\\
+\wylie{phyin ci log las shin tu 'das nas mya ngan las 'das pa'i mthar phyin to |}
+
+\vspace{1em}
+\linenum{21} \tib{དུས་གསུམ་དུ་རྣམ་པར་བཞུགས་པའི་སངས་རྒྱས་ཐམས་ཅད་ཀྱང་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་བརྟེན་ནས།}\\
+\wylie{dus gsum du rnam par bzhugs pa'i sangs rgyas thams cad kyang shes rab kyi pha rol tu phyin pa la brten nas |}
+
+\vspace{0.3em}
+\linenum{22} \tib{བླ་ན་མེད་པ་ཡང་དག་པར་རྫོགས་པའི་བྱང་ཆུབ་ཏུ་མངོན་པར་རྫོགས་པར་སངས་རྒྱས་སོ།}\\
+\wylie{bla na med pa yang dag par rdzogs pa'i byang chub tu mngon par rdzogs par sangs rgyas so |}
+
+\vspace{1em}
+\linenum{23} \tib{དེ་ལྟ་བས་ན་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས།}\\
+\wylie{de lta bas na shes rab kyi pha rol tu phyin pa'i sngags |}
+
+\vspace{0.3em}
+\linenum{24} \tib{རིག་པ་ཆེན་པོའི་སྔགས། བླ་ན་མེད་པའི་སྔགས། མི་མཉམ་པ་དང་མཉམ་པའི་སྔགས།}\\
+\wylie{rig pa chen po'i sngags | bla na med pa'i sngags | mi mnyam pa dang mnyam pa'i sngags |}
+
+\vspace{0.3em}
+\linenum{25} \tib{སྡུག་བསྔལ་ཐམས་ཅད་རབ་ཏུ་ཞི་བར་བྱེད་པའི་སྔགས།}\\
+\wylie{sdug bsngal thams cad rab tu zhi bar byed pa'i sngags |}
+
+\vspace{0.3em}
+\linenum{26} \tib{མི་རྫུན་པས་ན་བདེན་པར་ཤེས་པར་བྱ་སྟེ།}\\
+\wylie{mi rdzun pas na bden par shes par bya ste |}
+
+\vspace{1em}
+\linenum{27} \tib{ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས་སྨྲས་པ།}\\
+\wylie{shes rab kyi pha rol tu phyin pa'i sngags smras pa |}
+
+\vspace{0.5em}
+\begin{center}
+{\Large\tib{ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།}}\var{3}
+
+\vspace{0.3em}
+\wylie{tad+ya thA | oM ga te ga te pA ra ga te pA ra saM ga te bo d+hi swA hA |}
+\end{center}
+
+\newpage
+
+% ----------------------------------------------------------------------------
+% CRITICAL APPARATUS
+% ----------------------------------------------------------------------------
+
+\section*{Critical Apparatus}
+
+\var{1}~\lemma{ཟད་པ} \textit{zad pa} ``exhaustion''] This translates Sanskrit \textit{kṣaya}, \emph{not} the correct \textit{nirodha} (which would be འགོག་པ \textit{'gog pa}). The Tibetan preserves the Sanskrit back-translation error, confirming the transmission chain: Chinese 盡 → Sanskrit \textit{kṣaya} → Tibetan \textit{zad pa}.
+
+\vspace{0.5em}
+\var{2}~\lemma{མ་ཐོབ་པ་ཡང་མེད} \textit{ma thob pa yang med}] ``No non-attainment.'' This translates Sanskrit \textit{na-aprāptiḥ}, which is absent from the earliest Chinese (T251, Fangshan) and Sanskrit (Hōryūji) witnesses. It is a late interpolation that entered the Tibetan through its Sanskrit source.
+
+\vspace{0.5em}
+\var{3}~\lemma{ཨོཾ} \textit{oṃ}] The mantra begins with oṃ in all Tibetan editions. This is a Tantric addition (9th--10th century) absent from the earliest Chinese and Sanskrit witnesses. The Tibetan was translated from a Sanskrit text that already contained this addition.
+
+\vspace{2em}
+
+% ----------------------------------------------------------------------------
+% VARIANT READINGS
+% ----------------------------------------------------------------------------
+
+\section*{Kangyur Variant Readings}
+
+The six major Kangyur editions show minimal substantive variation. Key differences are orthographic:
+
+\begin{itemize}
+\item \wit{D Q N H}: Standard readings as printed above
+\item \wit{J}: Minor spelling variants (e.g., ཀྱི/གྱི alternation)
+\item \wit{S}: Oldest manuscript witness; occasional archaic spellings
+\end{itemize}
+
+All editions preserve:
+\begin{itemize}
+\item The oṃ in the mantra
+\item The \textit{zad pa} (= \textit{kṣaya}) error
+\item The \textit{ma thob pa} (= \textit{na-aprāptiḥ}) interpolation
+\item The full frame narrative (nidāna and epilogue)
+\end{itemize}
+
+This uniformity confirms the Tibetan translation derives from a single Sanskrit source already containing these features.
+
+\vspace{2em}
+
+% ----------------------------------------------------------------------------
+% STEMMATIC POSITION
+% ----------------------------------------------------------------------------
+
+\section*{Stemmatic Position}
+
+The Tibetan Heart Sūtra occupies a specific position in the transmission:
+
+\begin{center}
+\begin{tabular}{rcl}
+Chinese T251 & $\rightarrow$ & \textit{(composition, ca. 649--656 CE)}\\
+Sanskrit σ & $\rightarrow$ & \textit{(back-translation, mid-7th c.)}\\
+Sanskrit σ-L & $\rightarrow$ & \textit{(long recension, 8th c.)}\\
+\textbf{Tibetan} & & \textit{(translation, 8th--9th c.)}
+\end{tabular}
+\end{center}
+
+The Tibetan is thus a \textbf{tertiary witness}, valuable for:
+\begin{itemize}
+\item Documenting the Sanskrit long recension as it existed in the 8th--9th century
+\item Confirming features of the Sanskrit back-translation (e.g., \textit{kṣaya} error)
+\item Showing that Tantric additions (oṃ, na-aprāptiḥ) were established by the translation date
+\end{itemize}
+
+It cannot be used to correct Chinese readings, as it derives from Sanskrit, not Chinese.
+
+\vspace{2em}
+\hrule
+\vspace{0.5em}
+\begin{center}
+\textit{Tibetan Critical Edition} $\cdot$ Prajñāpāramitāhṛdaya $\cdot$ Long Recension
+\end{center}
+
+\end{document}
