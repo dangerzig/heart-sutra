@@ -1,0 +1,156 @@
+{
+  "id": "T256",
+  "title_chinese": "唐梵飜對字音般若波羅蜜多心經",
+  "title_pinyin": "Táng fàn fān duì zì yīn bōrě bōluómìduō xīnjīng",
+  "title_english": "Heart Sutra with Tang-Sanskrit Transliteration and Character-by-Character Pronunciation",
+  "type": "bilingual_transliteration",
+  "attributed_translator": "Unknown",
+  "date": "Tang dynasty (uncertain, possibly 8th-9th century)",
+  "source": "Taishō Tripiṭaka Vol. 8, No. 256",
+  "recension": "short",
+  "notes": "This unique text presents the Heart Sutra in two parallel formats: (1) a Chinese translation and (2) the Sanskrit text transliterated using Chinese characters to represent Sanskrit sounds. This provides invaluable evidence for Tang-era Sanskrit pronunciation and the relationship between the Chinese and Sanskrit versions. The transliteration follows the Sanskrit text closely, confirming that by this period a Sanskrit version existed and was studied in China.",
+  "format_description": {
+    "structure": "The text alternates between Chinese translation (譯) and Sanskrit transliteration (梵/唐音). The Sanskrit is given in Chinese character transliteration representing the Sanskrit phonemes.",
+    "significance": [
+      "Provides evidence for Tang-era pronunciation of Sanskrit",
+      "Shows character-by-character correspondence between Sanskrit and Chinese",
+      "Confirms existence of Sanskrit text tradition in Tang China",
+      "Useful for understanding how Sanskrit was taught and transmitted"
+    ]
+  },
+  "sanskrit_transliteration": {
+    "description": "The following represents the Sanskrit text as transliterated in Chinese characters. This is the earliest Chinese record of the complete Sanskrit Heart Sutra pronunciation.",
+    "sections": [
+      {
+        "id": "T256:skt:1",
+        "section": "title",
+        "transliteration_chinese": "鉢囉枳孃波囉弭多紇哩娜野",
+        "transliteration_pinyin": "bō là zhī niáng bō là mí duō hé lǐ nà yě",
+        "reconstructed_sanskrit": "prajñāpāramitā hṛdaya",
+        "standard_iast": "prajñāpāramitāhṛdaya"
+      },
+      {
+        "id": "T256:skt:2",
+        "section": "opening",
+        "transliteration_chinese": "阿哩也嚩嚕枳帝濕嚩囉冒地薩怛嚩 儗𭊶鉢囉枳孃波囉弭多左哩演 左囉麼努 尾喻嚕迦野底莎麼 本左塞建陀 担 左 莎婆嚩戌你演 鉢失野底莎麼",
+        "reconstructed_sanskrit": "ārya-avalokiteśvaro bodhisattvo gambhīrāṃ prajñāpāramitā-caryāṃ caramāṇo vyavalokayati sma pañca-skandhāṃs tāṃś ca svabhāva-śūnyān paśyati sma",
+        "notes": "Note pañca-skandhāṃs in accusative, supporting Attwood's (2015) correction"
+      },
+      {
+        "id": "T256:skt:3",
+        "section": "form_emptiness",
+        "transliteration_chinese": "伊賀 舍哩子 嚧畔 戌你也 戌你也帝嚩 嚧畔 嚧鉢拏 鉢哩他 戌你也 戌你也也 鉢哩他 嚧畔 曳嚩銘嚩 吠娜那 僧枳孃 僧塞迦囉 尾枳孃喃",
+        "reconstructed_sanskrit": "iha śāriputra rūpaṃ śūnyatā śūnyataiva rūpaṃ rūpān na pṛthak śūnyatā śūnyatāyā na pṛthag rūpaṃ evam eva vedanā saṃjñā saṃskāra vijñānaṃ",
+        "notes": "Note absence of 'yad rūpaṃ sā śūnyatā' line that Nattier identified as interpolation"
+      },
+      {
+        "id": "T256:skt:4",
+        "section": "characteristics",
+        "transliteration_chinese": "伊賀 舍哩子 薩嚩達磨 戌你也 落乞叉拏 阿弩鉢𨚗 阿你嚕駄 阿麼羅 阿尾麼羅 阿弩那 阿鉢哩布囉拏",
+        "reconstructed_sanskrit": "iha śāriputra sarva-dharmāḥ śūnyatā-lakṣaṇā anutpannā aniruddhā amalā avimalā anūnā aparipūrṇāḥ"
+      },
+      {
+        "id": "T256:skt:5",
+        "section": "negations",
+        "transliteration_chinese": "怛莎麼 舍哩子 戌你也也 喃 嚧畔 曩 吠娜曩 曩 僧枳孃 曩 僧塞迦囉 曩 尾枳孃喃 曩 作乞秫 戌嚕怛囉 伽囉拏 爾賀嚩 迦也 麼曩悉 曩 嚧畔 攝鉢娜 健陀 囉娑 鉢囉瑟姹尾也 達磨 曩 作乞秫 馱睹 也嚩 曩 麼弩尾枳孃曩 馱都 曩 阿尾你也 曩 阿尾你也 乞灑喻 也嚩 曩 惹囉 麼囉拏 曩 惹囉 麼囉拏 乞灑喻 曩 努訶 娑母娜野 你嚕陀 麼哩伽 曩 枳孃喃 曩 鉢囉底 曩 阿鉢囉底",
+        "reconstructed_sanskrit": "tasmāc chāriputra śūnyatāyāṃ na rūpaṃ na vedanā na saṃjñā na saṃskārā na vijñānaṃ na cakṣuḥ-śrotra-ghrāṇa-jihvā-kāya-manāṃsi na rūpa-śabda-gandha-rasa-spraṣṭavya-dharmāḥ na cakṣur-dhātur yāvan na manovijñāna-dhātuḥ nāvidyā nāvidyā-kṣayo yāvan na jarā-maraṇaṃ na jarā-maraṇa-kṣayo na duḥkha-samudaya-nirodha-mārgā na jñānaṃ na prāptir nāprāptiḥ",
+        "notes": "Includes na-aprāptiḥ, indicating this text follows the received Sanskrit tradition"
+      },
+      {
+        "id": "T256:skt:6",
+        "section": "bodhisattva_result",
+        "transliteration_chinese": "怛莎麼 舍哩子 阿鉢囉底怛嚩 冒地薩怛嚩喃 鉢囉枳孃波囉弭多 阿濕哩底也 尾賀囉底 阿止多嚩囉拏 止多嚩囉拏 曩悉底怛嚩 阿怛囉娑多 尾鉢哩也娑 阿底訖囉多 你瑟吒 你嚩拏",
+        "reconstructed_sanskrit": "tasmāc chāriputra aprāptitvād bodhisattvānāṃ prajñāpāramitām āśritya viharati acittāvaraṇaḥ cittāvaraṇa-nāstitvād atrastro viparyāsa-atikrānto niṣṭhā-nirvāṇaḥ",
+        "notes": "Note niṣṭhā-nirvāṇaḥ without prāptaḥ"
+      },
+      {
+        "id": "T256:skt:7",
+        "section": "buddha_result",
+        "transliteration_chinese": "底哩也馱嚩 尾也嚩悉底多 薩嚩沒馱 鉢囉枳孃波囉弭多 阿濕哩底也 阿弩多囉 三藐三沒地 阿尾三沒馱",
+        "reconstructed_sanskrit": "tryadhva-vyavasthitāḥ sarva-buddhāḥ prajñāpāramitām āśritya anuttarāṃ samyak-saṃbodhim abhisaṃbuddhāḥ"
+      },
+      {
+        "id": "T256:skt:8",
+        "section": "mantra_praise",
+        "transliteration_chinese": "怛莎麼 枳孃多尾演 鉢囉枳孃波囉弭多 麼賀曼怛囉 麼賀尾你也 曼怛囉 阿弩多囉 曼怛囉 阿娑麼娑麼 曼怛囉 薩嚩努訶 鉢囉舍麼曩 薩底演 阿弭底也怛嚩",
+        "reconstructed_sanskrit": "tasmāj jñātavyam prajñāpāramitā mahā-mantro mahā-vidyā-mantro 'nuttara-mantro 'samasama-mantraḥ sarva-duḥkha-praśamanaḥ satyam amithyatvāt"
+      },
+      {
+        "id": "T256:skt:9",
+        "section": "mantra",
+        "transliteration_chinese": "鉢囉枳孃波囉弭多也 塢訖多 曼怛囉 怛你也他 誐帝 誐帝 波囉誐帝 波囉僧誐帝 冒地 莎賀",
+        "reconstructed_sanskrit": "prajñāpāramitāyām ukto mantraḥ tadyathā gate gate pāragate pārasaṃgate bodhi svāhā",
+        "notes": "Note absence of oṃ before gate gate, supporting Attwood's observation that oṃ is a late interpolation"
+      }
+    ]
+  },
+  "chinese_translation": {
+    "description": "The Chinese translation portion of T256",
+    "text": "般若波羅蜜多心經。觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。舍利子，色不異空，空不異色，色即是空，空即是色，受想行識亦復如是。舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。是故空中，無色，無受想行識，無眼耳鼻舌身意，無色聲香味觸法，無眼界，乃至無意識界，無無明，亦無無明盡，乃至無老死，亦無老死盡，無苦集滅道，無智亦無得。以無所得故，菩提薩埵依般若波羅蜜多故，心無罣礙，無罣礙故，無有恐怖，遠離顛倒夢想，究竟涅槃。三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，真實不虛。故說般若波羅蜜多咒，即說咒曰：誐帝誐帝，波羅誐帝，波羅僧誐帝，菩提莎訶。",
+    "variants_from_T251": [
+      "Mantra uses 誐帝 (gēdì) instead of T251's 揭帝 (jiēdì) - different character for 'gate'",
+      "Ends with 莎訶 (suōhē) without 僧 before it, unlike T251's 僧莎訶"
+    ]
+  },
+  "phonological_analysis": {
+    "description": "The transliteration provides evidence for Middle Chinese pronunciation of Sanskrit",
+    "examples": [
+      {
+        "sanskrit": "prajñā",
+        "chinese_chars": "鉢囉枳孃",
+        "pinyin": "bō là zhī niáng",
+        "note": "Shows palatalization of jñ rendered as zh-n sequence"
+      },
+      {
+        "sanskrit": "śūnyatā",
+        "chinese_chars": "戌你也",
+        "pinyin": "xū nǐ yě",
+        "note": "ś rendered as x (Middle Chinese palatal fricative)"
+      },
+      {
+        "sanskrit": "hṛdaya",
+        "chinese_chars": "紇哩娜野",
+        "pinyin": "hé lǐ nà yě",
+        "note": "Syllabic ṛ rendered as 哩 (lǐ)"
+      },
+      {
+        "sanskrit": "gate",
+        "chinese_chars": "誐帝",
+        "pinyin": "gē dì",
+        "note": "Initial g preserved; -te as dì"
+      },
+      {
+        "sanskrit": "svāhā",
+        "chinese_chars": "莎賀",
+        "pinyin": "suō hè",
+        "note": "sv- cluster simplified to s-"
+      }
+    ]
+  },
+  "textual_significance": {
+    "for_sanskrit_text": [
+      "Confirms Sanskrit text existed and was studied in Tang China",
+      "Absence of oṃ in mantra supports its identification as late interpolation",
+      "Absence of 'yad rūpaṃ sā śūnyatā' line in some sections",
+      "Provides evidence for reading variants"
+    ],
+    "for_chinese_text": [
+      "Shows how Chinese Buddhists understood the relationship between Sanskrit and Chinese",
+      "Provides pronunciation guide for Sanskrit study",
+      "Demonstrates sophisticated understanding of Sanskrit phonology"
+    ],
+    "for_historical_linguistics": [
+      "Evidence for Middle Chinese pronunciation",
+      "Evidence for Tang-era Sanskrit pronunciation traditions",
+      "Shows transcription conventions used in Buddhist translation"
+    ]
+  },
+  "scholarly_refs": [
+    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
+    "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
+    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.",
+    "Matsumoto, Bunzaburō (1932). 'Die Prajñāpāramitā-hṛdaya-sūtra.' Zeitschrift für Indologie und Iranistik 8: 1-76.",
+    "Chen, Frederick (2004). 'The Heart Sutra: A Study of the Earliest Chinese Transliterations.' Unpublished.",
+    "Coblin, W. South (1983). A Handbook of Eastern Han Sound Glosses. Chinese University Press."
+  ]
+}
