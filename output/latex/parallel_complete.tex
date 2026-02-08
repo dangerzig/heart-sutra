@@ -1,0 +1,361 @@
+% Prajñāpāramitāhṛdaya - Heart Sūtra
+% Complete Multilingual Parallel Critical Edition
+% Chinese · Sanskrit · Tibetan
+
+\documentclass[10pt,a4paper,landscape]{article}
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+
+\usepackage[landscape,margin=1.2cm,bottom=2cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{multicol}
+
+% Per-page footnotes
+\usepackage[perpage,symbol*]{footmisc}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+% Page style
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small Prajñāpāramitāhṛdaya -- Complete Parallel Edition}
+\fancyhead[R]{\small 般若波羅蜜多心經}
+\fancyfoot[C]{\thepage}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue}
+
+% ============================================================================
+% FONTS
+% ============================================================================
+
+\setmainfont{Noto Serif}
+\setsansfont{Noto Sans}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+
+\newfontfamily\devanagarifont{Noto Serif Devanagari}
+\newcommand{\deva}[1]{{\devanagarifont #1}}
+
+\newfontfamily\tibetanfont{Noto Serif Tibetan}
+\newcommand{\tib}[1]{{\tibetanfont\small #1}}
+
+% ============================================================================
+% CUSTOM COMMANDS
+% ============================================================================
+
+\newcommand{\segnum}[1]{\textbf{[#1]}}
+\newcommand{\rom}[1]{{\scriptsize\color{gray} #1}}
+\newcommand{\eng}[1]{\multicolumn{3}{@{}p{0.96\textwidth}@{}}{\small\itshape #1} \\[0.3em]}
+\newcommand{\var}[1]{\textsuperscript{\color{red}\textbf{#1}}}
+\newcommand{\lemma}[1]{\textbf{#1}}
+\newcommand{\reading}[1]{#1}
+\newcommand{\wit}[1]{\textsc{#1}}
+\newcommand{\depmark}[2]{{\scriptsize\color{blue}[#1$\to$#2]}}
+
+% ============================================================================
+% DOCUMENT
+% ============================================================================
+
+\begin{document}
+
+% ----------------------------------------------------------------------------
+% TITLE PAGE
+% ----------------------------------------------------------------------------
+
+\begin{center}
+{\Huge\bfseries Prajñāpāramitāhṛdaya}\\[0.3em]
+{\Huge 般若波羅蜜多心經}\\[0.3em]
+{\huge\deva{प्रज्ञापारमिताहृदय}}\\[0.5em]
+{\LARGE Heart Sūtra}\\[1em]
+{\Large Complete Multilingual Parallel Critical Edition}\\[0.5em]
+{\large Following Chinese Compositional Priority (Nattier 1992)}\\[2em]
+\end{center}
+
+\hrule
+\vspace{1em}
+
+\begin{multicols}{2}
+
+\subsection*{Editorial Principles}
+
+This edition recognizes that the Heart Sūtra was \textbf{composed in Chinese} (ca. 649--656 CE), with the Sanskrit being a back-translation and the Tibetan translated from Sanskrit.
+
+\begin{itemize}
+\item \textbf{Chinese T251} = Analytical base text (original composition)
+\item \textbf{Sanskrit} = Back-translation, following Attwood's corrections
+\item \textbf{Tibetan Toh 21} = Long recension, from Sanskrit
+\end{itemize}
+
+Key original finding: \textbf{T250 and T251 are parallel compositions} from Large Sūtra material, not revision stages of a single text.
+
+\columnbreak
+
+\subsection*{Witness Sigla}
+
+\textit{Chinese:} \wit{T250} Dàmíngzhòujīng; \wit{T251} Xuanzang; \wit{Fangshan} 661 CE stele; \wit{T256} Tang transliteration; \wit{T257} Dānapāla 1005.
+
+\textit{Sanskrit:} \wit{Ja} Hōryūji 7th-8th c.; \wit{Na} Nepal 11th c.; \wit{Nb Nc Nd Ne} Nepal 15th-19th c.
+
+\textit{Tibetan:} \wit{D} Degé; \wit{Q} Peking; \wit{N} Narthang; \wit{H} Lhasa; \wit{J} Lithang; \wit{S} Stog.
+
+\end{multicols}
+
+\vspace{0.5em}
+\hrule
+\vspace{0.5em}
+
+% ----------------------------------------------------------------------------
+% SYNOPTIC TEXT
+% ----------------------------------------------------------------------------
+
+\footnotesize
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.28\textwidth}|>{\raggedright\arraybackslash}p{0.34\textwidth}|>{\raggedright\arraybackslash}p{0.32\textwidth}|}
+\hline
+\textbf{Chinese (T251)} & \textbf{Sanskrit} & \textbf{Tibetan (D)} \\
+\hline
+\hline
+\endfirsthead
+
+\hline
+\textbf{Chinese (T251)} & \textbf{Sanskrit} & \textbf{Tibetan (D)} \\
+\hline
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\small\itshape continued...}
+\endfoot
+
+\hline
+\endlastfoot
+
+% ============================================================================
+% SEGMENT 1
+% ============================================================================
+\segnum{1} 觀自在\var{1}菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄\var{2}。
+\newline\rom{Guānzìzài púsà, xíng shēn bōrě bōluómìduō shí, zhàojiàn wǔyùn jiē kōng, dù yīqiè kǔ è.}
+&
+ārya-avalokiteśvaro\var{3} bodhisattvo gambhīrāṃ prajñāpāramitā-caryāṃ caramāṇo vyavalokayati sma\var{4}. pañca-skandhāṃs\var{5} tāṃś ca svabhāva-śūnyān paśyati sma.
+&
+\tib{འཕགས་པ་སྤྱན་རས་གཟིགས་དབང་ཕྱུག་བྱང་ཆུབ་སེམས་དཔའ། ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ཟབ་མོའི་སྤྱོད་པ་སྤྱད་པ།}
+\\
+\hline
+\eng{When Avalokiteśvara Bodhisattva was practicing the profound prajñāpāramitā, he illuminated and saw that the five aggregates are all empty, and crossed beyond all suffering.}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 2
+% ============================================================================
+\segnum{2} 舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。
+\newline\rom{Shèlìzǐ, sè bù yì kōng, kōng bù yì sè; sè jí shì kōng, kōng jí shì sè. Shòu xiǎng xíng shí yì fù rúshì.}
+&
+iha Śāriputra rūpaṃ śūnyatā śūnyataiva rūpam. rūpān na pṛthak śūnyatā śūnyatāyā na pṛthag rūpam. yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam\var{6}. evam eva vedanā-saṃjñā-saṃskāra-vijñānāni.
+&
+\tib{གཟུགས་སྟོང་པའོ། སྟོང་པ་ཉིད་གཟུགས་སོ། གཟུགས་ལས་སྟོང་པ་ཉིད་གཞན་མ་ཡིན། སྟོང་པ་ཉིད་ལས་ཀྱང་གཟུགས་གཞན་མ་ཡིན་ནོ།}
+\\
+\hline
+\eng{Śāriputra, form is not different from emptiness, emptiness is not different from form. Form is emptiness, emptiness is form. Feeling, perception, volition, and consciousness are also like this.}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 3
+% ============================================================================
+\segnum{3} 舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。
+\newline\rom{Shèlìzǐ, shì zhūfǎ kōng xiāng, bù shēng bù miè, bù gòu bù jìng, bù zēng bù jiǎn.}
+&
+iha Śāriputra sarva-dharmāḥ śūnyatā-lakṣaṇā. anutpannā aniruddhā. amalā avimalā. anūnā aparipūrṇāḥ.
+&
+\tib{དེ་ལྟར་ཆོས་ཐམས་ཅད་སྟོང་པ་ཉིད་དེ། མཚན་ཉིད་མེད་པ། མ་སྐྱེས་པ། མ་འགགས་པ། དྲི་མ་མེད་པ། དྲི་མ་དང་བྲལ་བ་མེད་པ། བྲི་བ་མེད་པ། གང་བ་མེད་པའོ།}
+\\
+\hline
+\eng{Śāriputra, the emptiness-characteristic of all dharmas is: not arising, not ceasing; not defiled, not pure; not increasing, not decreasing.}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 4
+% ============================================================================
+\segnum{4} 是故空中，無色，無受想行識，無眼耳鼻舌身意，無色聲香味觸法，
+\newline\rom{Shìgù kōng zhōng, wú sè, wú shòu xiǎng xíng shí, wú yǎn ěr bí shé shēn yì, wú sè shēng xiāng wèi chù fǎ,}
+&
+tasmāc Chāriputra śūnyatāyāṃ na rūpaṃ na vedanā na saṃjñā na saṃskārāḥ na vijñānam. na cakṣuḥ-śrotra-ghrāṇa-jihvā-kāya-manāṃsi. na rūpa-śabda-gandha-rasa-spraṣṭavya-dharmāḥ.
+&
+\tib{དེ་ལྟ་བས་ན་སྟོང་པ་ཉིད་ལ་གཟུགས་མེད། ཚོར་བ་མེད། འདུ་ཤེས་མེད། འདུ་བྱེད་རྣམས་མེད། རྣམ་པར་ཤེས་པ་མེད། མིག་མེད། རྣ་བ་མེད། སྣ་མེད། ལྕེ་མེད། ལུས་མེད། ཡིད་མེད།}
+\\
+\hline
+\eng{Therefore, in emptiness there is no form, no feeling, perception, volition, or consciousness; no eye, ear, nose, tongue, body, or mind; no form, sound, smell, taste, touch, or mental objects;}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 5
+% ============================================================================
+\segnum{5} 無眼界，乃至無意識界。無無明，亦無無明盡\var{7}，乃至無老死，亦無老死盡。
+\newline\rom{wú yǎn jiè, nǎizhì wú yìshí jiè. Wú wúmíng, yì wú wúmíng jìn, nǎizhì wú lǎosǐ, yì wú lǎosǐ jìn.}
+&
+na cakṣur-dhātur yāvan na manovijñāna-dhātuḥ. na-avidyā na-avidyā-kṣayo\var{8} yāvan na jarā-maraṇaṃ na jarā-maraṇa-kṣayaḥ.
+&
+\tib{མིག་གི་ཁམས་མེད་པ་ནས་ཡིད་ཀྱི་རྣམ་པར་ཤེས་པའི་ཁམས་ཀྱི་བར་དུ་ཡང་མེད་དོ། མ་རིག་པ་མེད། མ་རིག་པ་ཟད་པ་མེད་པ་ནས། རྒ་ཤི་མེད། རྒ་ཤི་ཟད་པའི་བར་དུ་ཡང་མེད་དོ།}
+\\
+\hline
+\eng{no eye-element, up to and including no mind-consciousness element. No ignorance and no ending of ignorance, up to and including no old age and death, and no ending of old age and death.}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 6
+% ============================================================================
+\segnum{6} 無苦集滅道，無智亦無得\var{9}，以無所得故。
+\newline\rom{Wú kǔ jí miè dào, wú zhì yì wú dé, yǐ wú suǒ dé gù.}
+&
+na duḥkha-samudaya-nirodha-mārgāḥ. na jñānaṃ na prāptiḥ\var{10}.
+&
+\tib{སྡུག་བསྔལ་བ་དང་། ཀུན་འབྱུང་བ་དང་། འགོག་པ་དང་། ལམ་མེད། ཡེ་ཤེས་མེད། ཐོབ་པ་མེད། མ་ཐོབ་པ་ཡང་མེད་དོ།}
+\\
+\hline
+\eng{No suffering, origination, cessation, or path. No wisdom and no attainment---because there is nothing to attain.}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 7
+% ============================================================================
+\segnum{7} 菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。
+\newline\rom{Pútísàduǒ, yī bōrě bōluómìduō gù. Xīn wú guà'ài, wú guà'ài gù. Wú yǒu kǒngbù, yuǎnlí diāndǎo mèngxiǎng, jiūjìng nièpán.}
+&
+tasmāc Chāriputra aprāptitvād bodhisattvasya prajñāpāramitām āśritya viharaty acittāvaraṇaḥ. cittāvaraṇa-nāstitvād atrastro viparyāsa-atikrānto niṣṭhā-nirvāṇaḥ\var{11}.
+&
+\tib{བྱང་ཆུབ་སེམས་དཔའ་རྣམས་ཐོབ་པ་མེད་པའི་ཕྱིར། ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་བརྟེན་ཅིང་གནས་ཏེ། སེམས་ལ་སྒྲིབ་པ་མེད་པས་འཇིགས་པ་མེད་དེ། ཕྱིན་ཅི་ལོག་ལས་ཤིན་ཏུ་འདས་ནས་མྱ་ངན་ལས་འདས་པའི་མཐར་ཕྱིན་ཏོ།}
+\\
+\hline
+\eng{Because bodhisattvas rely on prajñāpāramitā, their minds are without obstruction. Because they are without obstruction, they have no fear. Far removed from inverted views and dreams, they attain ultimate nirvāṇa.}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 8
+% ============================================================================
+\segnum{8} 三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。
+\newline\rom{Sānshì zhū fó, yī bōrě bōluómìduō gù, dé ānòuduōluó sānmiǎo sānpútí.}
+&
+tryadhva-vyavasthitāḥ sarva-buddhāḥ prajñāpāramitām āśritya anuttarāṃ samyak-saṃbodhim abhisaṃbuddhāḥ.
+&
+\tib{དུས་གསུམ་དུ་རྣམ་པར་བཞུགས་པའི་སངས་རྒྱས་ཐམས་ཅད་ཀྱང་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་བརྟེན་ནས་བླ་ན་མེད་པ་ཡང་དག་པར་རྫོགས་པའི་བྱང་ཆུབ་ཏུ་མངོན་པར་རྫོགས་པར་སངས་རྒྱས་སོ།}
+\\
+\hline
+\eng{All buddhas of the three times, relying on prajñāpāramitā, attain anuttarā-samyak-saṃbodhi (unsurpassed complete perfect awakening).}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 9
+% ============================================================================
+\segnum{9} 故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒\var{12}，能除一切苦，眞實不虛故。
+\newline\rom{Gùzhī bōrě bōluómìduō, shì dà shén zhòu, shì dà míng zhòu, shì wúshàng zhòu, shì wú děngděng zhòu, néng chú yīqiè kǔ, zhēnshí bù xū gù.}
+&
+tasmāj jñātavyam: prajñāpāramitā mahā-mantro mahā-vidyā-mantro 'nuttara-mantro 'samasama-mantraḥ. sarva-duḥkha-praśamanaḥ. satyam amithyatvāt.
+&
+\tib{དེ་ལྟ་བས་ན་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས། རིག་པ་ཆེན་པོའི་སྔགས། བླ་ན་མེད་པའི་སྔགས། མི་མཉམ་པ་དང་མཉམ་པའི་སྔགས། སྡུག་བསྔལ་ཐམས་ཅད་རབ་ཏུ་ཞི་བར་བྱེད་པའི་སྔགས། མི་རྫུན་པས་ན་བདེན་པར་ཤེས་པར་བྱ་སྟེ།}
+\\
+\hline
+\eng{Therefore know that prajñāpāramitā is the great mantra, the mantra of great illumination, the unsurpassed mantra, the unequalled mantra, which removes all suffering. It is true, not false.}
+\hline
+\hline
+
+% ============================================================================
+% SEGMENT 10: MANTRA
+% ============================================================================
+\segnum{10} 說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶\var{13}。
+\newline\rom{Shuō bōrě bōluómìduō zhòu, jí shuō zhòu yuē: Jiēdì jiēdì, bōluó jiēdì, bōluó sēng jiēdì, pútí sēng suōhē.}
+&
+prajñāpāramitāyām ukto mantraḥ. tadyathā: [oṃ]\var{14} gate gate pāragate pārasaṃgate bodhi svāhā.
+&
+\tib{ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས་སྨྲས་པ། ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།}
+\\
+\hline
+\eng{The prajñāpāramitā mantra is proclaimed: Gate gate pāragate pārasaṃgate bodhi svāhā. (Gone, gone, gone beyond, gone completely beyond---awakening! Svāhā!)}
+\hline
+
+\end{longtable}
+
+\newpage
+
+% ============================================================================
+% CRITICAL APPARATUS
+% ============================================================================
+
+\section*{Critical Apparatus}
+
+\footnotesize
+
+\begin{multicols}{2}
+
+\var{1}~\lemma{觀自在}] \reading{觀世音} \wit{T250 T252}. 觀自在 reflects Xuanzang's translation of \textit{avalokita-īśvara}; 觀世音 reflects older \textit{avalokita-svara}. T250's pre-Xuanzang terminology confirms independent composition.
+
+\var{2}~\lemma{度一切苦厄}] No Sanskrit or Tibetan parallel. Unique Chinese addition.
+
+\var{3}~\lemma{avalokiteśvaro}] \reading{avalokita-} \wit{Ja}. Chinese 觀自在 supports \textit{-īśvara}. \depmark{zh}{sa}
+
+\var{4}~\lemma{vyavalokayati sma}] Unusual imperfect. May reflect Chinese 時. \depmark{zh}{sa}
+
+\var{5}~\lemma{pañca-skandhāṃs}] Accusative (correct). Conze erroneously prints nominative \reading{pañca-skandhāḥ}. Attwood (2015) corrects.
+
+\var{6}~\lemma{yad rūpaṃ sā śūnyatā...}] This line has \textbf{no Chinese parallel}. Added in Sanskrit to clarify form-emptiness equation.
+
+\var{7}~\lemma{盡} \textit{jìn}] = Sanskrit \textit{kṣaya}. Key back-translation evidence. See note 8.
+
+\var{8}~\lemma{avidyā-kṣayo}] Uses \textit{kṣaya} where Large PP has \textit{nirodha}. ``Smoking gun'' (Nattier 1992:175--8). Chinese 盡 can mean either; back-translator chose \textit{kṣaya}. \depmark{zh}{sa} Tibetan ཟད་པ \textit{zad pa} preserves error.
+
+\var{9}~\lemma{無智亦無得}] T251, Fangshan, Ja lack \textit{na-aprāptiḥ}. Interpolation in later witnesses.
+
+\var{10}~\lemma{na prāptiḥ}] Late witnesses add \reading{na-aprāptiḥ} \wit{T256 Nb-e}. Tibetan མ་ཐོབ་པ preserves this interpolation.
+
+\var{11}~\lemma{niṣṭhā-nirvāṇaḥ}] Conze prints \reading{-prāptaḥ}. Attwood (2018) questions compound.
+
+\var{12}~\lemma{四咒 (four epithets)}] T251 has 4 epithets; T250 has 3 \textbf{exactly matching} T223 (Large Sūtra). Sanskrit follows T251's 4-epithet pattern. T250 preserves original.
+
+\var{13}~\lemma{Mantra w/o oṃ}] T251, Fangshan, Ja begin directly with \textit{gate}. No oṃ.
+
+\var{14}~\lemma{[oṃ]}] Bracketed: absent from early witnesses. Present in \wit{Nb Ne T257} and all Tibetan. Tantric addition (9th--10th c.).
+
+\end{multicols}
+
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+
+\section*{Stemmatic Summary}
+
+\begin{center}
+\begin{tabular}{lll}
+\textbf{Stage} & \textbf{Date} & \textbf{Key Features} \\
+\hline
+α (T223 Large Sūtra) & 404 CE & Source passages (Kumārajīva) \\
+T250/T251 (Chinese) & 5th--7th c. & \textbf{Parallel} compositions from α; T250 = 3 epithets, T251 = 4 epithets \\
+σ (Sanskrit) & mid-7th c. & Back-translation from T251; \textit{kṣaya} error; \textit{yad rūpaṃ} addition \\
+σ-L (Long) & 8th c. & Frame narrative added \\
+Tibetan & 8th--9th c. & Translated from σ-L; preserves oṃ, \textit{na-aprāptiḥ}, \textit{zad pa} \\
+τ (Tantric) & 9th--10th c. & oṃ in mantra; elaborate maṅgala \\
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+\begin{center}
+{\small\itshape Complete Parallel Critical Edition} $\cdot$ Prajñāpāramitāhṛdaya $\cdot$ Following Nattier (1992) and Attwood (2015--2021)
+\end{center}
+
+\end{document}
