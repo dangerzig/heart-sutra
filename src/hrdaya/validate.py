@@ -2,7 +2,8 @@
 Data validation for Heart Sūtra witness files.
 
 Validates that JSON data files conform to expected schemas
-for Chinese, Sanskrit, and Tibetan witnesses.
+for Chinese, Sanskrit, and Tibetan witnesses. Includes
+cross-file consistency checks for chinese_parallel references.
 """
 
 import json
@@ -47,8 +48,8 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
 
     segments = data.get("segments")
     if segments is None:
-        # Some files (e.g., T256) have alternate structures
-        if "id" in data or "title_chinese" in data:
+        # Some files (e.g., T256, kangyur_editions) have alternate structures
+        if "id" in data or "title_chinese" in data or "editions" in data:
             return []  # Valid alternate structure
         errors.append(f"{path.name}: missing 'segments' key")
         return errors
@@ -81,14 +82,86 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
                 errors.append(f"{path.name}: duplicate segment id '{seg_id}'")
             seen_ids.add(seg_id)
 
-        # Check that text fields are non-empty strings
-        for field in required:
-            val = seg.get(field)
+        # Check that required fields are non-empty strings
+        for fld in required:
+            val = seg.get(fld)
             if val is not None and not isinstance(val, str):
                 errors.append(
-                    f"{path.name}: segment {seg.get('id', i)} field '{field}' "
+                    f"{path.name}: segment {seg.get('id', i)} field '{fld}' "
                     f"should be str, got {type(val).__name__}"
                 )
+
+        # Check chinese_parallel format when present (should be "WitnessID:N" or null)
+        cp = seg.get("chinese_parallel")
+        if cp is not None and not isinstance(cp, str):
+            errors.append(
+                f"{path.name}: segment {seg.get('id', i)} chinese_parallel "
+                f"should be str or null, got {type(cp).__name__}"
+            )
+
+    return errors
+
+
+def _collect_segment_ids(data_dir: Path) -> set[str]:
+    """Collect all segment IDs from Chinese Taishō witness files."""
+    ids: set[str] = set()
+    taisho_dir = data_dir / "chinese" / "taisho"
+    if not taisho_dir.exists():
+        return ids
+    for f in taisho_dir.glob("*.json"):
+        try:
+            with open(f, 'r', encoding='utf-8') as fh:
+                data = json.load(fh)
+            for seg in data.get("segments", []):
+                seg_id = seg.get("id")
+                if seg_id:
+                    ids.add(seg_id)
+        except (json.JSONDecodeError, KeyError):
+            pass
+    return ids
+
+
+def validate_cross_references(data_dir: Path) -> list[str]:
+    """
+    Validate that chinese_parallel references point to real segment IDs.
+
+    Checks all witnesses (Chinese alternates, Sanskrit, Tibetan) that have
+    chinese_parallel fields and verifies the target IDs exist in the base
+    Chinese witness files.
+
+    Returns:
+        List of error messages (empty if all references are valid)
+    """
+    errors = []
+    chinese_ids = _collect_segment_ids(data_dir)
+    if not chinese_ids:
+        return errors
+
+    # Check all witness directories
+    dirs_to_check = [
+        (data_dir / "chinese" / "taisho", "chinese"),
+        (data_dir / "sanskrit" / "gretil", "sanskrit"),
+        (data_dir / "tibetan" / "kangyur", "tibetan"),
+        (data_dir / "tibetan" / "dunhuang", "tibetan"),
+    ]
+
+    for d, _wtype in dirs_to_check:
+        if not d.exists():
+            continue
+        for f in d.glob("*.json"):
+            try:
+                with open(f, 'r', encoding='utf-8') as fh:
+                    data = json.load(fh)
+            except (json.JSONDecodeError, KeyError):
+                continue
+            for seg in data.get("segments", []):
+                cp = seg.get("chinese_parallel")
+                if cp and cp not in chinese_ids:
+                    errors.append(
+                        f"{f.name}: segment {seg.get('id', '?')} has "
+                        f"chinese_parallel='{cp}' which does not match any "
+                        f"Chinese segment ID"
+                    )
 
     return errors
 
@@ -97,7 +170,8 @@ def validate_data_dir(data_dir: Path) -> dict[str, list[str]]:
     """
     Validate all witness files in a data directory.
 
-    Scans all known subdirectories for JSON witness files.
+    Scans all known subdirectories for JSON witness files and
+    checks cross-file reference consistency.
 
     Returns:
         Dict mapping file paths to lists of errors
@@ -133,6 +207,7 @@ def validate_data_dir(data_dir: Path) -> dict[str, list[str]]:
     # Tibetan witness directories
     tibetan_dirs = [
         data_dir / "tibetan" / "kangyur",
+        data_dir / "tibetan" / "dunhuang",
     ]
     for d in tibetan_dirs:
         if d.exists():
@@ -146,10 +221,14 @@ def validate_data_dir(data_dir: Path) -> dict[str, list[str]]:
     if collation_dir.exists():
         for f in collation_dir.glob("*.json"):
             try:
-                import json
                 with open(f, 'r', encoding='utf-8') as fh:
                     json.load(fh)
             except json.JSONDecodeError as e:
                 results[str(f)] = [f"Invalid JSON in {f.name}: {e}"]
+
+    # Cross-file reference checks
+    xref_errors = validate_cross_references(data_dir)
+    if xref_errors:
+        results["cross_references"] = xref_errors
 
     return results
