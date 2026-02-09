@@ -1,0 +1,5 @@
+# Optional dependencies for scripts
+# Core library (src/hrdaya/) uses standard library only
+
+# scripts/md_to_pdf.py - Markdown to HTML conversion
+markdown>=3.4

@@ -4,6 +4,16 @@ Transliteration utilities for Sanskrit between Devanagari and IAST.
 Provides bidirectional conversion between:
 - Devanagari (देवनागरी)
 - IAST (International Alphabet of Sanskrit Transliteration)
+
+Limitations:
+- Consonant clusters (conjuncts) are handled via virāma but may not
+  produce correct visual conjunct forms in all cases.
+- Sandhi (word junction) is not handled; input should be pre-segmented.
+- The IAST→Devanagari direction uses greedy longest-match, which may
+  misparse ambiguous sequences (e.g., aspirated consonants at word
+  boundaries).
+- For scholarly publication, output should be verified against source
+  manuscripts.
 """
 
 # Devanagari to IAST mapping
@@ -226,36 +236,8 @@ def normalize_iast(text: str) -> str:
     # Normalize anusvāra
     text = text.replace('ṁ', 'ṃ')
 
-    # Normalize quotes
-    text = text.replace('"', '"').replace('"', '"')
-    text = text.replace(''', "'").replace(''', "'")
+    # Normalize curly/smart quotes to straight quotes
+    text = text.replace('\u201c', '"').replace('\u201d', '"')
+    text = text.replace('\u2018', "'").replace('\u2019', "'")
 
     return text
-
-
-# Test function
-def test_transliteration():
-    """Test transliteration functions."""
-    test_cases = [
-        ("प्रज्ञापारमिता", "prajñāpāramitā"),
-        ("ॐ", "oṃ"),
-        ("गते गते पारगते", "gate gate pāragate"),
-        ("बोधि स्वाहा", "bodhi svāhā"),
-        ("शून्यता", "śūnyatā"),
-    ]
-
-    print("Testing Devanagari → IAST:")
-    for deva, expected in test_cases:
-        result = devanagari_to_iast(deva)
-        status = "✓" if result == expected else "✗"
-        print(f"  {status} {deva} → {result} (expected: {expected})")
-
-    print("\nTesting IAST → Devanagari:")
-    for expected_deva, iast in test_cases:
-        result = iast_to_devanagari(iast)
-        # Note: This is a simplified check
-        print(f"  {iast} → {result}")
-
-
-if __name__ == "__main__":
-    test_transliteration()

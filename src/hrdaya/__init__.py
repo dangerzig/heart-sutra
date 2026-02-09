@@ -11,7 +11,7 @@ this edition:
 - Uses Tibetan as mediating witness for triangulating transmission
 - Explicitly annotates direction-of-dependence in variants
 
-Requires: Python 3.9+
+Requires: Python 3.10+
 """
 
 from .models import (

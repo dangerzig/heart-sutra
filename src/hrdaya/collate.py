@@ -8,7 +8,9 @@ Implements multilingual collation with:
 """
 
 import json
+import unicodedata
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 from difflib import SequenceMatcher
@@ -51,6 +53,11 @@ class HeartSutraCollator:
     - Sanskrit as derived tradition
     - Tibetan as mediating witness
     """
+
+    # Default witness IDs
+    DEFAULT_CHINESE = "T251"
+    DEFAULT_SANSKRIT = "GRETIL"
+    DEFAULT_TIBETAN = "Toh21"
 
     def __init__(self, data_dir: Path):
         """
@@ -216,11 +223,17 @@ class HeartSutraCollator:
         # Default to distinctive reading with uncertain direction
         return VariantType.DISTINCTIVE_READING, DependenceDirection.UNCERTAIN
 
+    @staticmethod
+    def _strip_diacritics(text: str) -> str:
+        """Strip diacritical marks for orthographic comparison."""
+        nfkd = unicodedata.normalize('NFD', text)
+        return ''.join(c for c in nfkd if unicodedata.category(c) != 'Mn')
+
     def _is_orthographic_variant(self, text1: str, text2: str) -> bool:
         """Check if two readings are orthographic variants."""
-        # Normalize and compare
-        t1 = text1.lower().strip()
-        t2 = text2.lower().strip()
+        # Normalize: lowercase, strip whitespace and diacritics
+        t1 = self._strip_diacritics(text1.lower().strip())
+        t2 = self._strip_diacritics(text2.lower().strip())
 
         # Check similarity ratio
         ratio = SequenceMatcher(None, t1, t2).ratio()
@@ -262,9 +275,9 @@ class HeartSutraCollator:
     def collate_section(
         self,
         section_name: str,
-        chinese_witness: str = "T251",
-        sanskrit_witness: str = "GRETIL",
-        tibetan_witness: str = "Toh21"
+        chinese_witness: str = DEFAULT_CHINESE,
+        sanskrit_witness: str = DEFAULT_SANSKRIT,
+        tibetan_witness: str = DEFAULT_TIBETAN,
     ) -> list[CollationResult]:
         """
         Collate a section across all traditions.
@@ -336,8 +349,53 @@ class HeartSutraCollator:
             if s_seg:
                 result.sanskrit_texts[sanskrit_witness] = s_seg.get("iast", "")
 
+                # Classify Sanskrit variants against Chinese base
+                s_text = s_seg.get("iast", "")
+                if s_text:
+                    vtype, direction = self.classify_variant(
+                        c_seg.get("text", ""), s_text,
+                        context={"tradition": "sanskrit"}
+                    )
+                    if vtype != VariantType.ORTHOGRAPHIC:
+                        result.variants.append(Variant(
+                            segment_id=seg_id,
+                            position=0,
+                            base_reading=c_seg.get("text", ""),
+                            variant_reading=s_text,
+                            variant_type=vtype,
+                            dependence=direction,
+                            base_witnesses=[chinese_witness],
+                            variant_witnesses=[sanskrit_witness],
+                            note=s_seg.get("note", ""),
+                        ))
+
             if t_seg:
                 result.tibetan_texts[tibetan_witness] = t_seg.get("tibetan", "")
+
+            # Load alternate Chinese witnesses and detect inter-Chinese variants
+            for alt_id in ["T250", "T257"]:
+                if alt_id == chinese_witness:
+                    continue
+                try:
+                    alt = self.load_chinese_witness(alt_id)
+                except FileNotFoundError:
+                    continue
+                for alt_seg in alt.get("segments", []):
+                    if alt_seg.get("section") == section_name:
+                        alt_text = alt_seg.get("text", "")
+                        result.chinese_texts[alt_id] = alt_text
+                        if alt_text != c_seg.get("text", ""):
+                            result.variants.append(Variant(
+                                segment_id=seg_id,
+                                position=0,
+                                base_reading=c_seg.get("text", ""),
+                                variant_reading=alt_text,
+                                variant_type=VariantType.DISTINCTIVE_READING,
+                                dependence=DependenceDirection.UNCERTAIN,
+                                base_witnesses=[chinese_witness],
+                                variant_witnesses=[alt_id],
+                            ))
+                        break
 
             results.append(result)
 
@@ -423,10 +481,19 @@ def collate_full_text(data_dir: Path) -> dict:
         except Exception as e:
             all_results[section] = {"error": str(e)}
 
-    return all_results
+    return {
+        "provenance": {
+            "generated": datetime.now(timezone.utc).isoformat(),
+            "tool": "hrdaya.collate",
+            "version": "1.0.0",
+            "base_witness": HeartSutraCollator.DEFAULT_CHINESE,
+        },
+        "sections": all_results,
+    }
 
 
-if __name__ == "__main__":
+def main():
+    """CLI entry point for collation."""
     import sys
 
     if len(sys.argv) > 1:
@@ -438,3 +505,7 @@ if __name__ == "__main__":
 
     # Output as JSON
     print(json.dumps(results, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hrdaya"
+version = "1.0.0"
+description = "Multilingual critical edition of the Prajñāpāramitāhṛdaya (Heart Sūtra)"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+scripts = ["markdown>=3.4"]
+
+[project.scripts]
+hrdaya-synoptic = "hrdaya.synoptic:main"
+hrdaya-collate = "hrdaya.collate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

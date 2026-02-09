@@ -6,9 +6,10 @@ Generate synoptic alignment outputs for the Heart Sūtra critical edition.
 import sys
 from pathlib import Path
 
-# Add src to path
+# Add src to path for direct script execution
 src_dir = Path(__file__).parent.parent / "src"
-sys.path.insert(0, str(src_dir))
+if str(src_dir) not in sys.path:
+    sys.path.insert(0, str(src_dir))
 
 from hrdaya.synoptic import SynopticBuilder
 

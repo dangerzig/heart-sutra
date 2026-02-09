@@ -16,10 +16,12 @@ This project creates a scholarly critical edition of the Heart Sūtra that:
 
 ```
 heart-sutra/
-├── src/hrdaya/              # Core Python library
+├── src/hrdaya/              # Core Python library (3.10+)
 │   ├── models.py            # Data models (Witness, Segment, Variant)
 │   ├── witnesses.py         # Witness catalog (40+ witnesses)
-│   └── transliterate.py     # Devanagari ↔ IAST conversion
+│   ├── transliterate.py     # Devanagari ↔ IAST conversion
+│   ├── collate.py           # Collation engine
+│   └── synoptic.py          # Parallel presentation builder
 ├── data/
 │   ├── chinese/
 │   │   ├── taisho/          # T250-T257 with full metadata
@@ -36,6 +38,8 @@ heart-sutra/
 ├── output/
 │   ├── latex/               # Critical editions (PDF)
 │   └── translation/         # Annotated English translation
+├── scripts/                 # Utility scripts
+├── tests/                   # Test suite
 ├── docs/                    # Methodology, architecture
 └── research/                # Original findings documentation
 ```
@@ -129,7 +133,9 @@ cd heart-sutra
 python -m venv venv
 source venv/bin/activate
 
-# No external dependencies required (standard library only)
+# Requires Python 3.10+
+# Core library uses standard library only
+# Optional: pip install -r requirements.txt  (for scripts)
 ```
 
 ## Usage
