@@ -475,24 +475,8 @@ def build_synoptic(data_dir: Path, output_format: str = "markdown") -> str:
 
 def _resolve_data_dir(argv_dir: str | None = None) -> Path:
     """Resolve data directory from argument or default locations."""
-    if argv_dir:
-        p = Path(argv_dir)
-        if p.is_dir():
-            return p
-        raise SystemExit(f"Error: data directory not found: {p}")
-
-    dev_path = Path(__file__).parent.parent.parent / "data"
-    if dev_path.is_dir():
-        return dev_path
-
-    cwd_path = Path.cwd() / "data"
-    if cwd_path.is_dir():
-        return cwd_path
-
-    raise SystemExit(
-        "Error: cannot find data directory. "
-        "Usage: hrdaya-synoptic [format] [data_dir]"
-    )
+    from .data import resolve_data_dir
+    return resolve_data_dir(argv_dir)
 
 
 def main():

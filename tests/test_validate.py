@@ -5,7 +5,7 @@ import tempfile
 from pathlib import Path
 
 import pytest
-from hrdaya.validate import validate_witness_file, validate_data_dir
+from hrdaya.validate import validate_witness_file, validate_data_dir, validate_cross_references
 
 
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -29,6 +29,11 @@ class TestValidateWitnessFile:
         errors = validate_witness_file(path, "tibetan")
         assert errors == []
 
+    def test_valid_tibetan_dunhuang_file(self):
+        path = DATA_DIR / "tibetan" / "dunhuang" / "iol_tib_j_751.json"
+        errors = validate_witness_file(path, "tibetan")
+        assert errors == []
+
     def test_missing_file(self):
         errors = validate_witness_file(Path("/nonexistent.json"), "chinese")
         assert len(errors) == 1
@@ -49,6 +54,21 @@ class TestValidateWitnessFile:
         if path.exists():
             errors = validate_witness_file(path, "chinese")
             assert errors == []
+
+    def test_kangyur_editions_accepted(self):
+        """kangyur_editions.json has editions key instead of segments."""
+        path = DATA_DIR / "tibetan" / "kangyur" / "kangyur_editions.json"
+        if path.exists():
+            errors = validate_witness_file(path, "tibetan")
+            assert errors == []
+
+
+class TestValidateCrossReferences:
+    """Test cross-file reference validation."""
+
+    def test_cross_references_valid(self):
+        errors = validate_cross_references(DATA_DIR)
+        assert errors == [], f"Cross-reference errors: {errors}"
 
 
 class TestValidateDataDir:

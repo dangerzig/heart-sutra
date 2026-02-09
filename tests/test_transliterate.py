@@ -14,6 +14,10 @@ class TestDevanagariToIAST:
         ("शून्यता", "śūnyatā"),
         ("गते गते पारगते", "gate gate pāragate"),
         ("बोधि स्वाहा", "bodhi svāhā"),
+        ("प्रज्ञापारमिता", "prajñāpāramitā"),
+        ("निरोध", "nirodha"),
+        ("क्षय", "kṣaya"),
+        ("अविद्या", "avidyā"),
     ])
     def test_complex_words(self, devanagari, expected):
         assert devanagari_to_iast(devanagari) == expected
@@ -28,6 +32,25 @@ class TestDevanagariToIAST:
     def test_punctuation_preserved(self):
         result = devanagari_to_iast("गते।")
         assert result.endswith(".")
+
+    def test_independent_vowels(self):
+        """Independent vowels at word start."""
+        assert devanagari_to_iast("अ") == "a"
+        assert devanagari_to_iast("आ") == "ā"
+        assert devanagari_to_iast("इ") == "i"
+        assert devanagari_to_iast("उ") == "u"
+        assert devanagari_to_iast("ए") == "e"
+
+    def test_anusvara_visarga(self):
+        """Anusvāra and visarga."""
+        assert devanagari_to_iast("ं") == "ṃ"
+        assert devanagari_to_iast("ः") == "ḥ"
+
+    def test_retroflexes(self):
+        """Retroflex consonants."""
+        assert devanagari_to_iast("ट") == "ṭa"
+        assert devanagari_to_iast("ण") == "ṇa"
+        assert devanagari_to_iast("ष") == "ṣa"
 
 
 class TestIASTToDevanagari:
@@ -49,9 +72,35 @@ class TestIASTToDevanagari:
         ("svāhā", "स्वाहा"),
         ("prajñā", "प्रज्ञा"),
         ("śūnyatā", "शून्यता"),
+        ("prajñāpāramitā", "प्रज्ञापारमिता"),
+        ("nirodha", "निरोध"),
+        ("kṣaya", "क्षय"),
+        ("avidyā", "अविद्या"),
     ])
     def test_complex_words(self, iast, expected):
         assert iast_to_devanagari(iast) == expected
+
+    def test_independent_vowel_start(self):
+        """Independent vowels at start of word."""
+        assert iast_to_devanagari("a") == "अ"
+        assert iast_to_devanagari("ā") == "आ"
+        assert iast_to_devanagari("i") == "इ"
+        assert iast_to_devanagari("u") == "उ"
+
+    def test_consonant_cluster_triple(self):
+        """Triple consonant cluster."""
+        result = iast_to_devanagari("stra")
+        assert "स्त्र" in result
+
+    def test_anusvara_after_vowel(self):
+        """Anusvāra following a vowel."""
+        result = iast_to_devanagari("saṃ")
+        assert "सं" in result
+
+    def test_visarga(self):
+        """Visarga after vowel."""
+        result = iast_to_devanagari("duḥkha")
+        assert "दुःख" in result
 
     def test_roundtrip_gate(self):
         """Test Devanagari→IAST→Devanagari roundtrip."""
@@ -60,6 +109,21 @@ class TestIASTToDevanagari:
         assert iast == "gate"
         back = iast_to_devanagari(iast)
         assert back == original
+
+    @pytest.mark.parametrize("iast", [
+        "prajñāpāramitāhṛdaya",
+        "gate gate pāragate pārasaṃgate bodhi svāhā",
+        "śūnyatā",
+        "avalokiteśvara",
+        "rūpa",
+        "vedanā",
+        "saṃjñā",
+    ])
+    def test_roundtrip_key_terms(self, iast):
+        """Roundtrip IAST→Devanagari→IAST for key Heart Sutra terms."""
+        deva = iast_to_devanagari(iast)
+        back = devanagari_to_iast(deva)
+        assert back == iast, f"{iast} → {deva} → {back}"
 
 
 class TestNormalizeIAST:

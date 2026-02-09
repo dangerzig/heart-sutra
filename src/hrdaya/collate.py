@@ -8,12 +8,15 @@ Implements multilingual collation with:
 """
 
 import json
+import logging
 import unicodedata
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 from difflib import SequenceMatcher
+
+logger = logging.getLogger(__name__)
 
 from .models import (
     Variant,
@@ -358,23 +361,27 @@ class HeartSutraCollator:
             if wid != chinese_witness
         ]
 
-        # Pre-build alternate witness indices (by chinese_parallel, then section+index fallback)
+        # Pre-build alternate witness indices keyed by chinese_parallel
         alt_indices: dict[str, dict[str, dict]] = {}  # alt_id -> {base_seg_id -> alt_seg}
-        alt_section_indices: dict[str, dict[str, list[dict]]] = {}  # alt_id -> {section -> [segs]}
         for alt_id in alt_ids:
             try:
                 alt = self.load_chinese_witness(alt_id)
             except FileNotFoundError:
                 continue
             by_parallel: dict[str, dict] = {}
-            by_section: dict[str, list[dict]] = {}
+            unmapped = 0
             for alt_seg in alt.get("segments", []):
                 cp = alt_seg.get("chinese_parallel")
                 if cp:
                     by_parallel[cp] = alt_seg
-                by_section.setdefault(alt_seg.get("section"), []).append(alt_seg)
+                else:
+                    unmapped += 1
+            if unmapped:
+                logger.debug(
+                    "%s: %d segment(s) lack chinese_parallel and will not be aligned",
+                    alt_id, unmapped,
+                )
             alt_indices[alt_id] = by_parallel
-            alt_section_indices[alt_id] = by_section
 
         # Get segments for the section
         chinese_segs = [
@@ -426,14 +433,9 @@ class HeartSutraCollator:
             if t_seg:
                 result.tibetan_texts[tibetan_witness] = t_seg.get("tibetan", "")
 
-            # Match alternate Chinese witnesses using chinese_parallel, then section+index fallback
+            # Match alternate Chinese witnesses using chinese_parallel only
             for alt_id in alt_indices:
                 alt_seg = alt_indices[alt_id].get(seg_id)
-                if alt_seg is None and alt_id in alt_section_indices:
-                    # Fallback: match by section + index
-                    fallback = alt_section_indices[alt_id].get(section_name, [])
-                    if seg_index < len(fallback):
-                        alt_seg = fallback[seg_index]
                 if alt_seg is None:
                     continue
 
@@ -550,26 +552,8 @@ def collate_full_text(data_dir: Path) -> dict:
 
 def _resolve_data_dir(argv_dir: str | None = None) -> Path:
     """Resolve data directory from argument or default locations."""
-    if argv_dir:
-        p = Path(argv_dir)
-        if p.is_dir():
-            return p
-        raise SystemExit(f"Error: data directory not found: {p}")
-
-    # Try relative to source tree (development)
-    dev_path = Path(__file__).parent.parent.parent / "data"
-    if dev_path.is_dir():
-        return dev_path
-
-    # Try current working directory
-    cwd_path = Path.cwd() / "data"
-    if cwd_path.is_dir():
-        return cwd_path
-
-    raise SystemExit(
-        "Error: cannot find data directory. "
-        "Pass the path as an argument: hrdaya-collate /path/to/data"
-    )
+    from .data import resolve_data_dir
+    return resolve_data_dir(argv_dir)
 
 
 def main():

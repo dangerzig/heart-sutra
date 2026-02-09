@@ -5,13 +5,18 @@ Provides bidirectional conversion between:
 - Devanagari (देवनागरी)
 - IAST (International Alphabet of Sanskrit Transliteration)
 
-Limitations:
-- Consonant clusters (conjuncts) are handled via virāma but may not
-  produce correct visual conjunct forms in all cases.
-- Sandhi (word junction) is not handled; input should be pre-segmented.
-- The IAST→Devanagari direction uses greedy longest-match, which may
-  misparse ambiguous sequences (e.g., aspirated consonants at word
-  boundaries).
+Implementation:
+- Devanagari→IAST: Character-by-character mapping with virāma and
+  mātrā (vowel mark) handling to strip/replace inherent 'a'.
+- IAST→Devanagari: Token-based parser using sorted longest-first
+  matching for consonants and vowels. Handles consonant clusters
+  (virāma insertion), independent vs. combining vowels, and special
+  tokens (oṃ, anusvāra, visarga).
+
+Scope:
+- Covers all standard Sanskrit consonants, vowels, and diacritics.
+- Consonant clusters produce virāma-separated forms (e.g., प्र for 'pr').
+- Sandhi is not handled; input should be pre-segmented at word boundaries.
 - For scholarly publication, output should be verified against source
   manuscripts.
 """
@@ -107,7 +112,11 @@ CONSONANT_CHARS = set('kgṅcjñṭḍṇtdnpbmyrlvśṣsh')
 IAST_VOWELS = {'a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'ṝ', 'ḷ', 'ḹ', 'e', 'ai', 'o', 'au'}
 
 # Ordered list of IAST consonant tokens (longest first for greedy match)
-IAST_CONSONANT_TOKENS = sorted(IAST_TO_DEVANAGARI.keys(), key=len, reverse=True)
+# Excludes vowels and special tokens — only actual consonants
+IAST_CONSONANT_TOKENS = sorted(
+    [k for k in IAST_TO_DEVANAGARI if k not in IAST_VOWELS and k not in ('ṃ', 'ḥ', 'ṁ', 'oṃ')],
+    key=len, reverse=True,
+)
 
 # Ordered list of IAST vowel tokens (longest first for greedy match)
 IAST_VOWEL_TOKENS = sorted(IAST_VOWELS, key=len, reverse=True)

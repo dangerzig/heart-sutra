@@ -192,7 +192,8 @@ data/
 ├── sanskrit/
 │   └── gretil/          # prajnaparamitahrdaya.json (IAST + Devanagari)
 ├── tibetan/
-│   └── kangyur/         # toh21.json (Degé Kangyur)
+│   ├── kangyur/         # toh21.json (Degé Kangyur)
+│   └── dunhuang/        # iol_tib_j_751.json (c. 823 CE)
 └── collation/
     └── variant_table.json  # Pre-identified critical variants
 ```
@@ -203,7 +204,7 @@ Each witness file contains `segments` — discrete text units aligned by section
 
 The collation engine takes T251 as the analytical base and aligns witnesses in three dimensions:
 
-1. **Inter-Chinese collation**: T251 vs T250 (and other Taishō witnesses) — matched by section name and segment position within section
+1. **Inter-Chinese collation**: T251 vs T250 (and other Taishō witnesses) — matched via explicit `chinese_parallel` references in each witness's data file
 2. **Cross-linguistic alignment**: Chinese segments matched to Sanskrit and Tibetan via `chinese_parallel` references
 3. **Variant detection**: Automated classification of differences using the criteria in `research/VARIANT_CLASSIFICATION_CRITERIA.md`
 
@@ -246,8 +247,13 @@ To reproduce from source:
 # Install
 pip install -e .
 
+# Set data directory (optional if running from repo root)
+export HRDAYA_DATA_DIR=/path/to/heart-sutra/data
+
 # Run collation
 hrdaya-collate > collation_output.json
+# Or with explicit data path:
+hrdaya-collate /path/to/data
 
 # Generate synoptic alignment
 hrdaya-synoptic markdown > synoptic.md
@@ -257,15 +263,17 @@ hrdaya-synoptic json > synoptic.json
 # Validate data files
 python -c "from hrdaya.validate import validate_data_dir; from pathlib import Path; print(validate_data_dir(Path('data')))"
 
-# Run tests (61 tests)
+# Run tests
 PYTHONPATH=src pytest tests/ -v
 ```
+
+Data directory resolution order: (1) explicit CLI argument, (2) `HRDAYA_DATA_DIR` environment variable, (3) relative to source tree, (4) `./data` in current working directory.
 
 ### Limitations
 
 - The pipeline operates on **published editions**, not primary manuscripts (see `research/PRIMARY_MANUSCRIPT_LIMITATIONS.md`)
 - Variant classification uses heuristic rules, not a trained model; results should be reviewed by a scholar
-- Cross-linguistic alignment relies on pre-annotated `chinese_parallel` references, not automatic alignment
+- Cross-linguistic alignment relies on pre-annotated `chinese_parallel` references, not automatic alignment. Segments lacking `chinese_parallel` are excluded from collation rather than guessed.
 
 ## Summary
 
