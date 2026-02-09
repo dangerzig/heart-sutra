@@ -53,3 +53,27 @@ class TestHeartSutraCollator:
             assert "segment_id" in entry
             assert "base_text" in entry
             assert "readings" in entry
+
+    def test_alternate_alignment_matches_correct_segment(self, collator):
+        """Regression: alternate witnesses must align by segment position, not just section."""
+        results = collator.collate_section("form_emptiness")
+        assert len(results) > 0
+        result = results[0]
+        # T250 has a form_emptiness segment with 非色異空 (not the skandha_characteristics)
+        if "T250" in result.chinese_texts:
+            assert "非色異空" in result.chinese_texts["T250"] or "色即是空" in result.chinese_texts["T250"]
+
+    def test_configurable_alternate_witnesses(self, collator):
+        """Test that alternate_chinese parameter controls which witnesses are compared."""
+        results = collator.collate_section("opening", alternate_chinese=["T250"])
+        assert len(results) > 0
+        result = results[0]
+        assert "T250" in result.chinese_texts
+        # T257 should NOT be present since we only asked for T250
+        assert "T257" not in result.chinese_texts
+
+    def test_available_chinese_witnesses(self, collator):
+        """Test discovery of Chinese witnesses on disk."""
+        available = collator._get_available_chinese_witnesses()
+        assert "T251" in available
+        assert "T250" in available

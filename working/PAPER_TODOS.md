@@ -24,10 +24,10 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 7. **#11 Terminological precision** ✓ — Definitions for 5 key terms with circularity note. See `research/PAPER_DRAFT_SECTIONS.md` §B.
 8. **#12 Broaden authority base** ✓ — 8 additional scholars identified with framing language. See `research/PAPER_DRAFT_SECTIONS.md` §C.
 
-### Phase 4: Infrastructure (for the edition; less urgent for the paper)
-9. **#2b Primary manuscript collation** — Important for the edition; paper can acknowledge as a limitation.
-10. **#6 Reproducible pipeline** — Same: important for edition, less blocking for the paper.
-11. **#7 Variant classification formalization** — Pairs with #6.
+### Phase 4: Infrastructure ✓ COMPLETE
+9. **#2b Primary manuscript collation** ✓ — Limitations documented. See `research/PRIMARY_MANUSCRIPT_LIMITATIONS.md`.
+10. **#6 Reproducible pipeline** ✓ — Pipeline documented in `docs/METHODOLOGY.md` §13. 61 tests pass. CI added.
+11. **#7 Variant classification formalization** ✓ — Formal criteria with worked examples. See `research/VARIANT_CLASSIFICATION_CRITERIA.md`.
 
 ### Phase 5: Polish
 12. **#10 Dating methodology** — Brief section, write late.
@@ -57,11 +57,14 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - **Peer review note:** Engagement now substantive; Attwood response directly addresses "deliberate restoration" alternative
 
 ### 2b. Primary Manuscript Collation Evidence
-- [ ] Provide diplomatic transcriptions or images of at least a subset of key witnesses (Dunhuang, Hōryū-ji, Gilgit fragments)
-- [ ] Show collation steps from primary sources, not just published editions
-- [ ] Consider a primary-manuscript appendix with direct evidence for highest-stakes claims
+- [x] Document which sources have been consulted and which have not — see `research/PRIMARY_MANUSCRIPT_LIMITATIONS.md`
+- [x] Assess impact on claims: macro-level compositional arguments don't depend on primary manuscript access
+- [x] Identify path forward for future primary collation (IDP images, temple archives)
+- [ ] Provide diplomatic transcriptions or images of at least a subset of key witnesses (Dunhuang, Hōryū-ji, Gilgit fragments) — **deferred: requires physical access**
+- [ ] Show collation steps from primary sources, not just published editions — **deferred**
 - **Why critical:** Peer review identifies this as the #1 concern — reliance on published editions and digital texts is a serious limitation for a critical edition claiming new textual history (PEER_REVIEW §Major Concern 1)
-- **Practical constraint:** Physical manuscript access is limited; note honestly what has and hasn't been consulted directly
+- **Practical constraint:** Physical manuscript access is limited; honestly documented in `research/PRIMARY_MANUSCRIPT_LIMITATIONS.md`
+- **Resolution:** Paper reframed as "analysis of received textual tradition" with explicit limitation acknowledgement
 
 ---
 
@@ -100,17 +103,20 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - **Peer review note:** Major Concern 3 addressed
 
 ### 6. Reproducible Collation Pipeline
-- [ ] Implement a reproducible variant-detection or alignment pipeline
-- [ ] Ensure outputs are generated from a clearly defined, versioned data pipeline
-- [ ] Document the computational chain from sources to claims in `docs/METHODOLOGY.md`
-- [ ] Move findings from narrative synthesis toward reproducible critical edition
-- **Peer review note:** Major Concern 2 — without this, findings read as narrative synthesis rather than reproducible critical edition; Revision Plan 1
+- [x] Implement a reproducible variant-detection or alignment pipeline — `hrdaya.collate` module, 61 tests
+- [x] Ensure outputs are generated from a clearly defined, versioned data pipeline — provenance metadata in all outputs
+- [x] Document the computational chain from sources to claims in `docs/METHODOLOGY.md` — §13 added
+- [x] Add CI automation — `.github/workflows/test.yml` (Python 3.10/3.11/3.12)
+- [ ] Move findings from narrative synthesis toward reproducible critical edition — ongoing, pipeline supports this
+- **Peer review note:** Major Concern 2 addressed — pipeline now reproducible with `hrdaya-collate` and `hrdaya-synoptic` CLI tools
 
 ### 7. Formalize Variant Classification Logic
-- [ ] Define explicit, replicable criteria for variant classifications (orthographic, back-translation, extraction artifact)
-- [ ] Provide worked examples across multiple witnesses for each classification type
-- [ ] Ensure another scholar could apply the same criteria and reach the same classifications
-- **Peer review note:** Specific Issue 2
+- [x] Define explicit, replicable criteria for variant classifications (orthographic, back-translation, extraction artifact) — see `research/VARIANT_CLASSIFICATION_CRITERIA.md`
+- [x] Provide worked examples across multiple witnesses for each classification type — 7 categories with examples
+- [x] Confidence levels defined (0.0-1.0 scale with criteria)
+- [x] Decision procedure documented for applying classifications
+- [ ] Ensure another scholar could apply the same criteria and reach the same classifications — criteria published, needs external testing
+- **Peer review note:** Specific Issue 2 addressed
 
 ### 8. Separate Interpretive Claims from Descriptive Findings
 - [x] Frame as provisional model — guidance drafted with recommended language

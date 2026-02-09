@@ -10,14 +10,12 @@ class TestDevanagariToIAST:
     def test_om(self):
         assert devanagari_to_iast("ॐ") == "oṃ"
 
-    @pytest.mark.xfail(reason="Transliteration has known limitations with vowel mark handling")
     @pytest.mark.parametrize("devanagari,expected", [
         ("शून्यता", "śūnyatā"),
         ("गते गते पारगते", "gate gate pāragate"),
         ("बोधि स्वाहा", "bodhi svāhā"),
     ])
     def test_complex_words(self, devanagari, expected):
-        """These test known limitation areas of the transliteration."""
         assert devanagari_to_iast(devanagari) == expected
 
     def test_empty_string(self):
