@@ -120,7 +120,7 @@ CHINESE_WITNESSES = {
         edition_used="Taishō Shinshū Daizōkyō",
         description="Dānapāla (施護) translation from Sanskrit long recension. "
                     "Includes oṃ in mantra and full frame narrative.",
-        scholarly_refs=["Nattier 1992", "Attwood 2021"],
+        scholarly_refs=["Nattier 1992", "Attwood 2021a", "Attwood 2024"],
     ),
     # Dunhuang manuscripts
     "S2464": Witness(

@@ -303,7 +303,9 @@ Attwood, Jayarava (2017). 'Epithets of the Mantra in the Heart Sutra.' *JOCBS* 1
 
 Attwood, Jayarava (2018). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' *JOCBS* 14: 10-17.
 
-Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.
+Attwood, Jayarava (2023). 'Heart to Heart: A Comparative Study of and Commentary on the Chinese and Sanskrit Heart Sutra Texts.' *Buddhist Studies Review* 40(2): 159-188.
+
+Attwood, Jayarava (2024). 'Revised Editions of the Prajñāpāramitāhṛdaya and Bānrěbōluómìduō xīn jīng.' *Asian Literature and Translation* 11(1): 1-42.
 
 Conze, Edward (1967). 'The Prajñāpāramitā-Hṛdaya Sūtra.' In *Thirty Years of Buddhist Studies*, 147-167.
 

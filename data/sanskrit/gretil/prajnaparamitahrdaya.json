@@ -16,7 +16,7 @@
       "iast": "Oṃ Namo Bhagavatyai Ārya-prajñāpāramitāyai!",
       "devanagari": "ॐ नमो भगवत्यै आर्य-प्रज्ञापारमितायै!",
       "chinese_parallel": "T251:title",
-      "note": "Maṅgala absent from Chinese T251 and most Sanskrit short-text witnesses. Late Tantric interpolation from Nepalese manuscripts (Attwood 2021). If salutation needed, namas sarvajñāya is more historically appropriate."
+      "note": "Maṅgala absent from Chinese T251 and most Sanskrit short-text witnesses. Late Tantric interpolation from Nepalese manuscripts (Attwood 2024). If salutation needed, namas sarvajñāya is more historically appropriate."
     },
     {
       "id": "GRETIL:2",
@@ -107,7 +107,7 @@
       "iast": "Prajñāpāramitāyām ukto mantraḥ. Tadyathā: Oṃ gate gate pāragate pārasaṃgate bodhi svāhā.",
       "devanagari": "प्रज्ञापारमितायामुक्तो मन्त्रः। तद्यथा: ॐ गते गते पारगते पारसंगते बोधि स्वाहा।",
       "chinese_parallel": "T251:12",
-      "note": "Oṃ before 'gate gate' is absent from most Sanskrit manuscripts including the Hōryūji manuscript, and from all Chinese versions except T.257 (11th century Dānapāla translation). Late Tantric interpolation (Attwood 2021). Conze (1975) omits oṃ from his translation."
+      "note": "Oṃ before 'gate gate' is absent from most Sanskrit manuscripts including the Hōryūji manuscript, and from all Chinese versions except T.257 (11th century Dānapāla translation). Late Tantric interpolation (Attwood 2024). Conze (1975) omits oṃ from his translation."
     },
     {
       "id": "GRETIL:14",
@@ -127,7 +127,8 @@
     "Attwood, Jayarava (2018a). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' JOCBS 14: 10-17.",
     "Attwood, Jayarava (2020a). 'Ungarbling Section VI of the Heart Sutra.' JOCBS 18: 11-41.",
     "Attwood, Jayarava (2020c). 'The History of the Heart Sutra as a Palimpsest.' Pacific World Series 4, no.1: 155-182.",
-    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft, July 2021.",
+    "Attwood, Jayarava (2023). 'Heart to Heart: A Comparative Study of and Commentary on the Chinese and Sanskrit Heart Sutra Texts.' Buddhist Studies Review 40(2): 159-188.",
+    "Attwood, Jayarava (2024). 'Revised Editions of the Prajñāpāramitāhṛdaya and Bānrěbōluómìduō xīn jīng.' Asian Literature and Translation 11(1): 1-42.",
     "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems: Non-attainment, Apprehension, and Mental Hanging in the Prajñāpāramitā Hṛdaya.' JOCBS 6: 72-105.",
     "Kotyk, Jeffrey (2019). 'Chinese State and Buddhist Historical Sources on Xuanzang.' T'oung Pao 105(5-6): 513-544.",
     "Karashima, Seishi et al. (2016). Mahāyāna Texts: Prajñāpāramitā Texts (1). Gilgit Manuscripts in the National Archives of India."
@@ -149,7 +150,7 @@
     },
     "mangala_interpolation": {
       "description": "The maṅgala (Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai) is absent from Chinese versions and most Sanskrit sources of the short text. It reflects late Tantric influence from Nepalese manuscripts.",
-      "reference": "Attwood 2021"
+      "reference": "Attwood 2024"
     },
     "yad_rupam_interpolation": {
       "description": "yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpaṃ has no counterpart in Chinese texts and is absent from most of Conze's witnesses. Late interpolation not found in Large Sutra parallels.",
@@ -157,7 +158,7 @@
     },
     "om_in_mantra": {
       "description": "Oṃ before gate gate is absent from most Sanskrit manuscripts including the Hōryūji manuscript, and from all Chinese versions except T.257 (11th century). Late Tantric interpolation.",
-      "reference": "Attwood 2021"
+      "reference": "Attwood 2024"
     }
   }
 }

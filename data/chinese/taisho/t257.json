@@ -10,7 +10,7 @@
   "date_chinese": "宋景德二年",
   "source": "Taishō Tripiṭaka Vol. 8, No. 257",
   "recension": "long",
-  "notes": "T257 is Dānapāla's translation from a Sanskrit manuscript, completed in 1005 CE during the Song dynasty. Unlike T251 (which is likely a Chinese composition) and T250 (early Chinese tradition), T257 represents a genuine translation from the elaborated Sanskrit long recension. It includes the full frame narrative (nidāna), addresses Prajñāpāramitā as 'Buddha-Mother' (佛母), and notably includes oṃ (唵) in the mantra—the only Chinese Heart Sutra to do so. This confirms that the oṃ was present in Indian Sanskrit manuscripts by the 11th century (Attwood 2021).",
+  "notes": "T257 is Dānapāla's translation from a Sanskrit manuscript, completed in 1005 CE during the Song dynasty. Unlike T251 (which is likely a Chinese composition) and T250 (early Chinese tradition), T257 represents a genuine translation from the elaborated Sanskrit long recension. It includes the full frame narrative (nidāna), addresses Prajñāpāramitā as 'Buddha-Mother' (佛母), and notably includes oṃ (唵) in the mantra—the only Chinese Heart Sutra to do so. This confirms that the oṃ was present in Indian Sanskrit manuscripts by the 11th century (Attwood 2024).",
   "text": "佛說聖佛母般若波羅蜜多經\n\n如是我聞。一時世尊。在王舍城鷲峯山中。與大苾芻眾。及大菩薩眾俱。爾時世尊。入三摩地名廣大甚深。爾時眾中有一菩薩摩訶薩。名觀自在。行甚深般若波羅蜜多行時。照見五蘊自性皆空。\n\n爾時具壽舍利子。承佛威神。白觀自在菩薩摩訶薩言。若善男子善女人。欲行甚深般若波羅蜜多行者。作何修行。\n\n觀自在菩薩摩訶薩。告具壽舍利子言。舍利子。若善男子善女人。欲行甚深般若波羅蜜多行者。應如是觀。照見五蘊自性皆空。\n\n舍利子。色即是空。空即是色。色不異空。空不異色。受想行識亦復如是。\n\n舍利子。是諸法性相空。不生不滅。不垢不淨。不增不減。\n\n舍利子。是故空中。無色。無受想行識。無眼耳鼻舌身意。無色聲香味觸法。無眼界。無眼識界。乃至無意界。無意識界。無無明。無無明盡。乃至無老死。亦無老死盡。無苦集滅道。無智。無所得。亦無無得。\n\n舍利子。由是無得故。菩薩摩訶薩。依般若波羅蜜多住。心無障礙。心無障礙故。無有恐怖。遠離顛倒。究竟涅槃。三世諸佛。依般若波羅蜜多故。得阿耨多羅三藐三菩提。\n\n是故應知般若波羅蜜多。是大神咒。是大明咒。是無上咒。是無等等咒。能除一切苦。真實不虛。\n\n故說般若波羅蜜多咒。即說咒曰。\n\n唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶\n\n舍利子。菩薩摩訶薩。應如是修行般若波羅蜜多。\n\n爾時世尊。從三摩地安詳而起。讚觀自在菩薩摩訶薩言。善哉善哉。善男子。如是如是。如汝所說。甚深般若波羅蜜多行。應如是行。一切如來。亦皆隨喜。\n\n爾時世尊說是語已。具壽舍利子。觀自在菩薩摩訶薩。并諸眷屬天人阿修羅乾闘婆等。一切世間。皆大歡喜。信受奉行。\n\n佛說聖佛母般若波羅蜜多經",
   "structural_analysis": {
     "frame_narrative": true,
@@ -34,7 +34,7 @@
     },
     "om_in_mantra": {
       "reading": "唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶",
-      "significance": "T257 is the ONLY Chinese Heart Sutra that includes oṃ (唵) before gate gate. This confirms the oṃ was present in Indian Sanskrit manuscripts by 1005 CE but was a later Tantric addition not in the original (Attwood 2021).",
+      "significance": "T257 is the ONLY Chinese Heart Sutra that includes oṃ (唵) before gate gate. This confirms the oṃ was present in Indian Sanskrit manuscripts by 1005 CE but was a later Tantric addition not in the original (Attwood 2024).",
       "note": "The inclusion of oṃ supports the view that T257 was translated from a late Tantric Sanskrit recension similar to the Nepalese manuscripts"
     },
     "skandhas_observation": {
@@ -118,7 +118,7 @@
       "id": "T257:11",
       "section": "mantra",
       "text": "故說般若波羅蜜多咒。即說咒曰。唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶",
-      "notes": "CRITICAL: Only Chinese Heart Sutra with oṃ (唵). Uses 誐帝 (gēdì) for gate. This proves late Tantric Sanskrit source (Attwood 2021)."
+      "notes": "CRITICAL: Only Chinese Heart Sutra with oṃ (唵). Uses 誐帝 (gēdì) for gate. This proves late Tantric Sanskrit source (Attwood 2024)."
     },
     {
       "id": "T257:12",
@@ -185,7 +185,8 @@
   },
   "scholarly_refs": [
     "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
-    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.",
+    "Attwood, Jayarava (2023). 'Heart to Heart: A Comparative Study of and Commentary on the Chinese and Sanskrit Heart Sutra Texts.' Buddhist Studies Review 40(2): 159-188.",
+    "Attwood, Jayarava (2024). 'Revised Editions of the Prajñāpāramitāhṛdaya and Bānrěbōluómìduō xīn jīng.' Asian Literature and Translation 11(1): 1-42.",
     "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
     "Lancaster, Lewis (1975). 'The Oldest Mahāyāna Sūtra: Its Significance for the Study of Buddhist Development.' The Eastern Buddhist 8(1): 30-41.",
     "Silk, Jonathan (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions.' Wiener Studien zur Tibetologie und Buddhismuskunde 34."

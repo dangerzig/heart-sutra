@@ -166,6 +166,8 @@ See `research/FINDINGS.md` for full documentation.
 - **Conze, Edward (1967)**. "The Prajñāpāramitā-Hṛdaya Sūtra." In *Thirty Years of Buddhist Studies*.
 - **Attwood, Jayarava (2015)**. "Heart Murmurs." *JOCBS* 8: 28-48.
 - **Attwood, Jayarava (2017)**. "Epithets of the Mantra." *JOCBS* 12: 26-57.
+- **Attwood, Jayarava (2023)**. "Heart to Heart: A Comparative Study." *Buddhist Studies Review* 40(2): 159-188.
+- **Attwood, Jayarava (2024)**. "Revised Editions of the Prajñāpāramitāhṛdaya." *Asian Literature and Translation* 11(1): 1-42.
 - **Silk, Jonathan (1994)**. *The Heart Sūtra in Tibetan*. Vienna.
 
 ## Status
