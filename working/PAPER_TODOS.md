@@ -8,6 +8,34 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 
 ---
 
+## Recommended Execution Order
+
+### Phase 1: Foundation (do first — everything else builds on these)
+1. **#4 Japanese/Chinese literature review** — Highest-risk item. If parallel composition was already proposed in Japanese, it reshapes the paper. Pure research, no writing dependency.
+2. **#1 Strengthen the deletion case** — The 抄經 comparative study. Key research before writing.
+
+### Phase 2: Core argument strengthening
+3. **#3 Passage-by-passage comparison** — Extends strongest evidence from one example to a systematic pattern.
+4. **#5 Falsifiability/counterevidence** — Forces identification of where the argument is weakest.
+5. **#8 Separate interpretive from descriptive** — Restructuring that makes the paper more defensible.
+
+### Phase 3: Scholarly framing
+6. **#2 Engagement with critics** — Drafts exist; condense and integrate once core argument is solid.
+7. **#11 Terminological precision** — Quick definitional work.
+8. **#12 Broaden authority base** — Can happen during revision.
+
+### Phase 4: Infrastructure (for the edition; less urgent for the paper)
+9. **#2b Primary manuscript collation** — Important for the edition; paper can acknowledge as a limitation.
+10. **#6 Reproducible pipeline** — Same: important for edition, less blocking for the paper.
+11. **#7 Variant classification formalization** — Pairs with #6.
+
+### Phase 5: Polish
+12. **#10 Dating methodology** — Brief section, write late.
+13. **#9 Māyā→Śūnyatā** — Decide in/out.
+14. **#13 Prose tightening** — Always last.
+
+---
+
 ## Critical Priority
 
 ### 1. Strengthen the Negative Case for Deletion
