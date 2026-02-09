@@ -2,7 +2,7 @@
 
 import pytest
 from pathlib import Path
-from hrdaya.synoptic import SynopticBuilder, SynopticAlignment, SynopticRow
+from hrdaya.synoptic import SynopticBuilder, SynopticAlignment, SynopticRow, build_synoptic
 
 
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -44,6 +44,32 @@ class TestSynopticBuilder:
         html = builder.to_html(alignment)
         assert "<html" in html
         assert "<table" in html
+
+
+class TestBuildSynoptic:
+    """Test the high-level build_synoptic entry point."""
+
+    def test_markdown_output(self):
+        result = build_synoptic(DATA_DIR, "markdown")
+        assert isinstance(result, str)
+        assert "Chinese" in result
+        assert "Sanskrit" in result
+
+    def test_html_output(self):
+        result = build_synoptic(DATA_DIR, "html")
+        assert "<html" in result
+        assert "<table" in result
+
+    def test_json_output(self):
+        import json
+        result = build_synoptic(DATA_DIR, "json")
+        data = json.loads(result)
+        assert "rows" in data
+        assert "provenance" in data
+
+    def test_unknown_format_raises(self):
+        with pytest.raises(ValueError, match="Unknown format"):
+            build_synoptic(DATA_DIR, "xml")
 
 
 class TestSynopticRow:

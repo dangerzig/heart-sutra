@@ -105,9 +105,6 @@ IAST_VOWEL_MARKS = {
     'e': 'े', 'ai': 'ै', 'o': 'ो', 'au': 'ौ',
 }
 
-# Set of single-char IAST consonant letters (used for lookahead)
-CONSONANT_CHARS = set('kgṅcjñṭḍṇtdnpbmyrlvśṣsh')
-
 # Set of IAST vowel strings (for post-consonant detection)
 IAST_VOWELS = {'a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'ṝ', 'ḷ', 'ḹ', 'e', 'ai', 'o', 'au'}
 
@@ -197,31 +194,26 @@ def iast_to_devanagari(text: str) -> str:
     src = text.lower()
     result = []
     i = 0
-    prev_was_consonant = False
 
     while i < len(src):
         # Special: oṃ
         if src[i:i + 2] == 'oṃ':
             result.append('ॐ')
             i += 2
-            prev_was_consonant = False
             continue
 
         # Special: ṃ and ḥ (anusvāra / visarga)
         if src[i] == 'ṃ':
             result.append('ं')
             i += 1
-            prev_was_consonant = False
             continue
         if src[i] == 'ḥ':
             result.append('ः')
             i += 1
-            prev_was_consonant = False
             continue
         if src[i] == 'ṁ':
             result.append('ँ')
             i += 1
-            prev_was_consonant = False
             continue
 
         # Try consonant match
@@ -242,7 +234,6 @@ def iast_to_devanagari(text: str) -> str:
                 # No vowel follows — add virāma (unless at end followed by space/punct)
                 result.append(deva_cons)
                 result.append('्')
-            prev_was_consonant = True
             continue
 
         # Try vowel match (independent vowel — not after consonant)
@@ -250,13 +241,11 @@ def iast_to_devanagari(text: str) -> str:
         if vowel:
             result.append(IAST_TO_DEVANAGARI.get(vowel, vowel))
             i += len(vowel)
-            prev_was_consonant = False
             continue
 
         # Non-IAST character: pass through
         result.append(text[i])
         i += 1
-        prev_was_consonant = False
 
     return ''.join(result)
 

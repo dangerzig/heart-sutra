@@ -11,7 +11,6 @@ Design Principles:
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Optional
 
 
 class WitnessType(Enum):
@@ -96,19 +95,19 @@ class Token:
     text: str
 
     # Alternative script representations
-    devanagari: Optional[str] = None  # For Sanskrit
-    iast: Optional[str] = None  # For Sanskrit
+    devanagari: str | None = None  # For Sanskrit
+    iast: str | None = None  # For Sanskrit
 
     # Linguistic analysis
-    lemma: Optional[str] = None
-    pos: Optional[str] = None  # Part of speech
-    morphology: Optional[dict] = None  # Case, number, gender, etc.
+    lemma: str | None = None
+    pos: str | None = None  # Part of speech
+    morphology: dict | None = None  # Case, number, gender, etc.
 
     # For Chinese
-    pinyin: Optional[str] = None
+    pinyin: str | None = None
 
     # Notes
-    note: Optional[str] = None
+    note: str | None = None
 
 
 @dataclass
@@ -126,10 +125,10 @@ class Segment:
     alt_scripts: dict[Script, str] = field(default_factory=dict)
 
     # Tokenization
-    tokens: Optional[list[Token]] = None
+    tokens: list[Token] | None = None
 
     # Source reference (folio, page, etc.)
-    source_ref: Optional[str] = None
+    source_ref: str | None = None
 
     # Notes
     notes: list[str] = field(default_factory=list)
@@ -155,13 +154,13 @@ class Variant:
     dependence: DependenceDirection = DependenceDirection.UNCERTAIN
 
     # Cross-linguistic evidence
-    chinese_parallel: Optional[str] = None
-    sanskrit_parallel: Optional[str] = None
-    tibetan_parallel: Optional[str] = None
-    prajnaparamita_parallel: Optional[str] = None
+    chinese_parallel: str | None = None
+    sanskrit_parallel: str | None = None
+    tibetan_parallel: str | None = None
+    prajnaparamita_parallel: str | None = None
 
     # Commentary
-    note: Optional[str] = None
+    note: str | None = None
     scholarly_refs: list[str] = field(default_factory=list)
 
     # Confidence
@@ -176,26 +175,26 @@ class Witness:
     witness_type: WitnessType
 
     # Dating
-    date: Optional[str] = None  # Date or date range
+    date: str | None = None  # Date or date range
     date_circa: bool = True  # Is date approximate?
 
     # Location/provenance
-    location: Optional[str] = None  # Current repository
-    provenance: Optional[str] = None  # Origin
+    location: str | None = None  # Current repository
+    provenance: str | None = None  # Origin
 
     # Physical description
-    material: Optional[str] = None  # Palm leaf, paper, stone, etc.
+    material: str | None = None  # Palm leaf, paper, stone, etc.
     script: Script = Script.IAST
 
     # Scholarly information
-    first_published: Optional[str] = None  # When first published/described
-    edition_used: Optional[str] = None  # Which edition transcription follows
+    first_published: str | None = None  # When first published/described
+    edition_used: str | None = None  # Which edition transcription follows
 
     # Relationship to other witnesses
-    derived_from: Optional[str] = None  # Parent witness if known
+    derived_from: str | None = None  # Parent witness if known
 
     # Notes
-    description: Optional[str] = None
+    description: str | None = None
     scholarly_refs: list[str] = field(default_factory=list)
 
 
@@ -205,36 +204,36 @@ class MultilingualSegment:
     id: str  # Segment identifier (e.g., "hs:1.1")
 
     # Chinese (compositionally prior)
-    chinese: Optional[Segment] = None
+    chinese: Segment | None = None
     chinese_variants: list[Variant] = field(default_factory=list)
 
     # Sanskrit (derived tradition)
-    sanskrit: Optional[Segment] = None
-    sanskrit_devanagari: Optional[str] = None  # Devanagari rendering
+    sanskrit: Segment | None = None
+    sanskrit_devanagari: str | None = None  # Devanagari rendering
     sanskrit_variants: list[Variant] = field(default_factory=list)
 
     # Tibetan (mediating witness)
-    tibetan: Optional[Segment] = None
-    tibetan_wylie: Optional[str] = None  # Wylie transliteration
+    tibetan: Segment | None = None
+    tibetan_wylie: str | None = None  # Wylie transliteration
     tibetan_variants: list[Variant] = field(default_factory=list)
 
     # Source Prajñāpāramitā parallel (if applicable)
-    prajnaparamita_ref: Optional[str] = None
-    prajnaparamita_text: Optional[str] = None
+    prajnaparamita_ref: str | None = None
+    prajnaparamita_text: str | None = None
 
     # Cross-linguistic analysis
     dependence_notes: list[str] = field(default_factory=list)
     translation_notes: list[str] = field(default_factory=list)
 
     # Commentary
-    philological_note: Optional[str] = None
+    philological_note: str | None = None
 
 
 @dataclass
 class CriticalApparatus:
     """Complete critical apparatus for the Heart Sūtra."""
     # Metadata
-    version: str = "0.1.0"
+    version: str = "1.0.0"
     methodology: str = "chinese-priority-multilingual"
 
     # Base text

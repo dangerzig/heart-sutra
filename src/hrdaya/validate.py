@@ -15,11 +15,6 @@ CHINESE_SEGMENT_FIELDS = {"id", "section", "text"}
 SANSKRIT_SEGMENT_FIELDS = {"id", "section", "iast"}
 TIBETAN_SEGMENT_FIELDS = {"id", "section", "tibetan"}
 
-# Optional but recognized fields per witness type
-CHINESE_OPTIONAL_FIELDS = {"pinyin", "english_gloss", "variants_from_T251", "chinese_parallel", "notes"}
-SANSKRIT_OPTIONAL_FIELDS = {"devanagari", "chinese_parallel", "note", "english_gloss"}
-TIBETAN_OPTIONAL_FIELDS = {"wylie", "chinese_parallel", "note", "english_gloss"}
-
 
 def validate_witness_file(path: Path, witness_type: str) -> list[str]:
     """

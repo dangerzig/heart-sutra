@@ -9,11 +9,13 @@ Generates side-by-side views of:
 """
 
 import json
+import logging
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from html import escape as html_escape
 from pathlib import Path
-from typing import Optional
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -90,9 +92,6 @@ class SynopticBuilder:
         Raises:
             ValueError: If tradition is unknown
         """
-        import logging
-        logger = logging.getLogger(__name__)
-
         if tradition == "chinese":
             path = self.data_dir / "chinese" / "taisho" / f"{witness_id}.json"
         elif tradition == "sanskrit":
@@ -331,7 +330,7 @@ class SynopticBuilder:
             "  </style>",
             "</head>",
             "<body>",
-            f"  <h1>{alignment.title}</h1>",
+            f"  <h1>{html_escape(alignment.title)}</h1>",
             "  <table class='synoptic-table'>",
             "    <thead>",
             "      <tr>",
@@ -473,15 +472,10 @@ def build_synoptic(data_dir: Path, output_format: str = "markdown") -> str:
         raise ValueError(f"Unknown format: {output_format}")
 
 
-def _resolve_data_dir(argv_dir: str | None = None) -> Path:
-    """Resolve data directory from argument or default locations."""
-    from .data import resolve_data_dir
-    return resolve_data_dir(argv_dir)
-
-
 def main():
     """CLI entry point for synoptic alignment."""
     import sys
+    from .data import resolve_data_dir
 
     args = sys.argv[1:]
     output_format = "markdown"
@@ -493,7 +487,7 @@ def main():
         else:
             data_arg = arg
 
-    data_dir = _resolve_data_dir(data_arg)
+    data_dir = resolve_data_dir(data_arg)
     print(build_synoptic(data_dir, output_format))
 
 
