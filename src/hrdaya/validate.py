@@ -2,11 +2,12 @@
 Data validation for Heart Sūtra witness files.
 
 Validates that JSON data files conform to expected schemas
-for Chinese, Sanskrit, and Tibetan witnesses. Includes
+for Chinese, Sanskrit, and Tibetan witnesses.  Includes
 cross-file consistency checks for chinese_parallel references.
 """
 
 import json
+import re
 from pathlib import Path
 
 
@@ -15,10 +16,56 @@ CHINESE_SEGMENT_FIELDS = {"id", "section", "text"}
 SANSKRIT_SEGMENT_FIELDS = {"id", "section", "iast"}
 TIBETAN_SEGMENT_FIELDS = {"id", "section", "tibetan"}
 
+# Known section names used in the Heart Sūtra data files.
+# Segments with section values not in this set will be flagged.
+KNOWN_SECTIONS = {
+    # Short recension (T251) sections
+    "title",
+    "opening",
+    "form_emptiness",
+    "characteristics",
+    "skandha_characteristics",
+    "negations_skandhas",
+    "negations_ayatanas",
+    "negations_dhatus",
+    "negations_pratityasamutpada",
+    "negations_truths",
+    "bodhisattva_result",
+    "buddha_result",
+    "mantra_praise",
+    "mantra",
+    "closing",
+    # Long recension (T257) additional sections
+    "nidana",
+    "shariputra_question",
+    "avalokiteshvara_response",
+    "avalokiteshvara_conclusion",
+    "buddha_approval",
+    "audience_rejoicing",
+    "colophon",
+    # Variant section names used across witnesses
+    "negations",              # collapsed negation section (Hōryū-ji, T257)
+    "temporal_negation",      # T250-specific
+    "invocation",             # Sanskrit namo opening
+    "mangala",                # Sanskrit/Hōryū-ji maṅgala verse
+}
+
+# Pattern for chinese_parallel values: WitnessID:Number  (e.g. "T251:1")
+_CHINESE_PARALLEL_RE = re.compile(r"^[A-Za-z0-9_]+:\d+$")
+
 
 def validate_witness_file(path: Path, witness_type: str) -> list[str]:
     """
-    Validate a witness JSON file.
+    Validate a witness JSON file against the expected schema.
+
+    Checks:
+    - File exists and is valid JSON
+    - Top-level is a dict with 'segments' (or recognized alternate structure)
+    - Each segment has required fields of the correct type
+    - Required string fields are non-empty
+    - No duplicate segment IDs
+    - chinese_parallel format is valid when present
+    - Section values are from the known set
 
     Args:
         path: Path to the JSON file
@@ -61,38 +108,58 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
 
     seen_ids = set()
     for i, seg in enumerate(segments):
+        seg_label = seg.get("id", i) if isinstance(seg, dict) else i
+
         if not isinstance(seg, dict):
             errors.append(f"{path.name}: segment {i} is not a dict")
             continue
+
+        # --- Required fields ---
         missing = required - set(seg.keys())
         if missing:
             errors.append(
-                f"{path.name}: segment {seg.get('id', i)} missing fields: {missing}"
+                f"{path.name}: segment {seg_label} missing fields: {missing}"
             )
 
-        # Check for duplicate segment IDs
+        for fld in required:
+            val = seg.get(fld)
+            if val is not None and not isinstance(val, str):
+                errors.append(
+                    f"{path.name}: segment {seg_label} field '{fld}' "
+                    f"should be str, got {type(val).__name__}"
+                )
+            elif isinstance(val, str) and val == "":
+                errors.append(
+                    f"{path.name}: segment {seg_label} field '{fld}' is empty"
+                )
+
+        # --- Duplicate IDs ---
         seg_id = seg.get("id")
         if seg_id is not None:
             if seg_id in seen_ids:
                 errors.append(f"{path.name}: duplicate segment id '{seg_id}'")
             seen_ids.add(seg_id)
 
-        # Check that required fields are non-empty strings
-        for fld in required:
-            val = seg.get(fld)
-            if val is not None and not isinstance(val, str):
-                errors.append(
-                    f"{path.name}: segment {seg.get('id', i)} field '{fld}' "
-                    f"should be str, got {type(val).__name__}"
-                )
-
-        # Check chinese_parallel format when present (should be "WitnessID:N" or null)
-        cp = seg.get("chinese_parallel")
-        if cp is not None and not isinstance(cp, str):
+        # --- Section value ---
+        section = seg.get("section")
+        if isinstance(section, str) and section not in KNOWN_SECTIONS:
             errors.append(
-                f"{path.name}: segment {seg.get('id', i)} chinese_parallel "
-                f"should be str or null, got {type(cp).__name__}"
+                f"{path.name}: segment {seg_label} has unknown section '{section}'"
             )
+
+        # --- chinese_parallel format ---
+        cp = seg.get("chinese_parallel")
+        if cp is not None:
+            if not isinstance(cp, str):
+                errors.append(
+                    f"{path.name}: segment {seg_label} chinese_parallel "
+                    f"should be str or null, got {type(cp).__name__}"
+                )
+            elif not _CHINESE_PARALLEL_RE.match(cp):
+                errors.append(
+                    f"{path.name}: segment {seg_label} chinese_parallel='{cp}' "
+                    f"does not match expected pattern WitnessID:N"
+                )
 
     return errors
 
@@ -227,3 +294,24 @@ def validate_data_dir(data_dir: Path) -> dict[str, list[str]]:
         results["cross_references"] = xref_errors
 
     return results
+
+
+def main():
+    """CLI entry point for data validation."""
+    import sys
+    from .data import resolve_data_dir, DATA_VERSION, compute_data_hash
+
+    data_dir = resolve_data_dir(sys.argv[1] if len(sys.argv) > 1 else None)
+    print(f"Data directory: {data_dir}")
+    print(f"Data version:   {DATA_VERSION}")
+    print(f"Data hash:      {compute_data_hash(data_dir)}")
+    print()
+
+    errors = validate_data_dir(data_dir)
+    if errors:
+        for path, errs in errors.items():
+            for e in errs:
+                print(f"ERROR: {e}")
+        raise SystemExit(f"\n{len(errors)} file(s) with validation errors")
+    else:
+        print("All data files valid.")

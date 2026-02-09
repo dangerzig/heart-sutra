@@ -198,14 +198,18 @@ data/
     └── variant_table.json  # Pre-identified critical variants
 ```
 
-Each witness file contains `segments` — discrete text units aligned by section and position. Segments carry parallel references (`chinese_parallel`) enabling cross-linguistic alignment.
+Each witness file contains `segments` — discrete text units aligned by section and carrying explicit `chinese_parallel` references (e.g. `"chinese_parallel": "T251:3"`). Segments without `chinese_parallel` are excluded from collation — the pipeline never guesses at correspondences.
+
+**Data packaging strategy.** The witness data files are scholarly primary-source material and are NOT shipped inside the Python wheel. They are versioned alongside the code in git. This is intentional: the data requires scholarly curation and review, not automated packaging. Users must either (a) clone the repository and install in editable mode (`pip install -e .`), or (b) download the data directory separately and set `HRDAYA_DATA_DIR`.
+
+**Data versioning.** Every pipeline output includes a `data_version` (semver string, incremented when witness files change) and a `data_hash` (12-character SHA-256 fingerprint of all JSON files under `data/`). This ensures that any output can be traced back to the exact data state that produced it.
 
 ### Collation Engine (`hrdaya.collate`)
 
 The collation engine takes T251 as the analytical base and aligns witnesses in three dimensions:
 
-1. **Inter-Chinese collation**: T251 vs T250 (and other Taishō witnesses) — matched via explicit `chinese_parallel` references in each witness's data file
-2. **Cross-linguistic alignment**: Chinese segments matched to Sanskrit and Tibetan via `chinese_parallel` references
+1. **Inter-Chinese collation**: T251 vs T250 (and other Taishō witnesses) — matched via explicit `chinese_parallel` references in each witness's data file. Only segment-bearing witness files participate; catalog files and non-segment structures (e.g. `dunhuang_manuscripts.json`, `t256.json`) are automatically excluded.
+2. **Cross-linguistic alignment**: Chinese segments matched to Sanskrit and Tibetan via `chinese_parallel` references. There is no section+index fallback — segments lacking `chinese_parallel` are excluded from alignment rather than guessed at.
 3. **Variant detection**: Automated classification of differences using the criteria in `research/VARIANT_CLASSIFICATION_CRITERIA.md`
 
 **Variant detection steps:**
@@ -228,6 +232,13 @@ All JSON witness files are validated against expected schemas:
 - Sanskrit segments require: `id`, `section`, `iast`
 - Tibetan segments require: `id`, `section`, `tibetan`
 
+Additional schema-level checks:
+- **Section values** are validated against a known set covering short recension, long recension, and variant section names
+- **`chinese_parallel`** references must match the format `WitnessID:N` (e.g. `T251:3`)
+- **Cross-reference validation** confirms that `chinese_parallel` targets actually exist in the Chinese witness files
+- **Required string fields** must be non-empty
+- **Alternate structures** (e.g. `t256.json`, `kangyur_editions.json`) are recognized and accepted
+
 ### Reproducibility
 
 All outputs include provenance metadata:
@@ -237,10 +248,14 @@ All outputs include provenance metadata:
     "generated": "2026-02-08T...",
     "tool": "hrdaya.collate",
     "version": "1.0.0",
+    "data_version": "1.0.0",
+    "data_hash": "a1b2c3d4e5f6",
     "base_witness": "T251"
   }
 }
 ```
+
+The `data_version` and `data_hash` fields enable precise reproducibility: any two runs with the same `data_hash` used identical input files.
 
 To reproduce from source:
 ```bash
@@ -261,7 +276,9 @@ hrdaya-synoptic html > synoptic.html
 hrdaya-synoptic json > synoptic.json
 
 # Validate data files
-python -c "from hrdaya.validate import validate_data_dir; from pathlib import Path; print(validate_data_dir(Path('data')))"
+hrdaya-validate
+# Or with explicit path:
+hrdaya-validate /path/to/data
 
 # Run tests
 PYTHONPATH=src pytest tests/ -v
@@ -273,7 +290,9 @@ Data directory resolution order: (1) explicit CLI argument, (2) `HRDAYA_DATA_DIR
 
 - The pipeline operates on **published editions**, not primary manuscripts (see `research/PRIMARY_MANUSCRIPT_LIMITATIONS.md`)
 - Variant classification uses heuristic rules, not a trained model; results should be reviewed by a scholar
-- Cross-linguistic alignment relies on pre-annotated `chinese_parallel` references, not automatic alignment. Segments lacking `chinese_parallel` are excluded from collation rather than guessed.
+- Cross-linguistic alignment relies exclusively on pre-annotated `chinese_parallel` references. There is no automatic alignment or section+index fallback. Segments lacking `chinese_parallel` are excluded from collation.
+- **Transliteration** (Devanagari ↔ IAST) supports the full set of standard IAST phonemes used in Heart Sūtra witnesses but does not handle sandhi resolution, positional anusvāra normalization, or manuscript-specific orthographic conventions. Input is validated against a known character set; non-IAST characters are rejected. These limitations are intentional — sandhi and manuscript orthography require scholarly judgement, not automation.
+- **Witness discovery** scans `data/chinese/taisho/` for segment-based witnesses. Dunhuang and epigraphic witnesses that lack segment-level encoding are not included in automated collation but are available for manual consultation.
 
 ## Summary
 

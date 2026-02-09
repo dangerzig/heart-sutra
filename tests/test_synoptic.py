@@ -65,7 +65,10 @@ class TestBuildSynoptic:
         result = build_synoptic(DATA_DIR, "json")
         data = json.loads(result)
         assert "rows" in data
-        assert "provenance" in data
+        prov = data["provenance"]
+        assert "data_version" in prov
+        assert "data_hash" in prov
+        assert len(prov["data_hash"]) == 12
 
     def test_unknown_format_raises(self):
         with pytest.raises(ValueError, match="Unknown format"):

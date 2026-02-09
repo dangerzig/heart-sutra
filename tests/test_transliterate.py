@@ -1,7 +1,12 @@
 """Tests for Devanagari ↔ IAST transliteration."""
 
 import pytest
-from hrdaya.transliterate import devanagari_to_iast, iast_to_devanagari, normalize_iast
+from hrdaya.transliterate import (
+    devanagari_to_iast,
+    iast_to_devanagari,
+    normalize_iast,
+    validate_iast,
+)
 
 
 class TestDevanagariToIAST:
@@ -124,6 +129,39 @@ class TestIASTToDevanagari:
         deva = iast_to_devanagari(iast)
         back = devanagari_to_iast(deva)
         assert back == iast, f"{iast} → {deva} → {back}"
+
+
+class TestValidateIAST:
+    """Test IAST input validation."""
+
+    def test_valid_iast_no_errors(self):
+        assert validate_iast("prajñāpāramitāhṛdaya") == []
+
+    def test_valid_iast_with_spaces(self):
+        assert validate_iast("gate gate pāragate") == []
+
+    def test_chinese_character_flagged(self):
+        errors = validate_iast("般若")
+        assert len(errors) == 2
+        assert "U+" in errors[0]
+
+    def test_tibetan_character_flagged(self):
+        errors = validate_iast("ཤེས")
+        assert len(errors) > 0
+
+    def test_empty_string_valid(self):
+        assert validate_iast("") == []
+
+    def test_punctuation_accepted(self):
+        assert validate_iast("gate, gate.") == []
+
+    def test_all_consonants_valid(self):
+        consonants = "k kh g gh ṅ c ch j jh ñ ṭ ṭh ḍ ḍh ṇ t th d dh n p ph b bh m y r l v ś ṣ s h"
+        assert validate_iast(consonants) == []
+
+    def test_all_vowels_valid(self):
+        vowels = "a ā i ī u ū ṛ ṝ ḷ ḹ e ai o au"
+        assert validate_iast(vowels) == []
 
 
 class TestNormalizeIAST:

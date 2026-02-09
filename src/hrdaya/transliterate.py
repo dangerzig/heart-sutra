@@ -5,20 +5,31 @@ Provides bidirectional conversion between:
 - Devanagari (देवनागरी)
 - IAST (International Alphabet of Sanskrit Transliteration)
 
+Supported scope (all standard Sanskrit phonemes):
+- 14 vowels: a ā i ī u ū ṛ ṝ ḷ ḹ e ai o au
+- 33 consonants: k kh g gh ṅ / c ch j jh ñ / ṭ ṭh ḍ ḍh ṇ /
+  t th d dh n / p ph b bh m / y r l v / ś ṣ s h
+- Anusvāra (ṃ), visarga (ḥ), candrabindu (ṁ)
+- Special: oṃ (→ ॐ)
+- Numerals, punctuation (। ॥), avagraha (ऽ)
+
+Limitations (by design):
+- Sandhi is NOT handled.  Input must be pre-segmented words.
+- Vedic accents (udātta/svarita) are not supported.
+- Non-standard conjuncts beyond virāma-stacking are not generated.
+- For scholarly publication, output should be verified against source
+  manuscripts.
+
+Use ``validate_iast()`` to check whether a string contains only valid
+IAST characters before conversion.
+
 Implementation:
 - Devanagari→IAST: Character-by-character mapping with virāma and
   mātrā (vowel mark) handling to strip/replace inherent 'a'.
 - IAST→Devanagari: Token-based parser using sorted longest-first
-  matching for consonants and vowels. Handles consonant clusters
+  matching for consonants and vowels.  Handles consonant clusters
   (virāma insertion), independent vs. combining vowels, and special
   tokens (oṃ, anusvāra, visarga).
-
-Scope:
-- Covers all standard Sanskrit consonants, vowels, and diacritics.
-- Consonant clusters produce virāma-separated forms (e.g., प्र for 'pr').
-- Sandhi is not handled; input should be pre-segmented at word boundaries.
-- For scholarly publication, output should be verified against source
-  manuscripts.
 """
 
 # Devanagari to IAST mapping
@@ -248,6 +259,41 @@ def iast_to_devanagari(text: str) -> str:
         i += 1
 
     return ''.join(result)
+
+
+# Characters that are valid in IAST text (lowercase).  Includes all
+# consonant and vowel letters, diacritics, and common punctuation.
+_VALID_IAST_CHARS = frozenset(
+    "abcdeghijklmnoprstuvyāīūṛṝḷḹṃḥṁñṅṭḍṇśṣ"
+    " .,;:!?-–—'\"()[]{}"
+    "0123456789"
+)
+
+
+def validate_iast(text: str) -> list[str]:
+    """
+    Check whether *text* contains only valid IAST characters.
+
+    Returns a list of error strings (empty if input is valid IAST).
+    Non-IAST characters (Chinese, Tibetan, Cyrillic, etc.) will be
+    flagged with their position and Unicode codepoint.
+
+    This is useful as a pre-flight check before calling
+    ``iast_to_devanagari()``.
+
+    Args:
+        text: Text to validate.
+
+    Returns:
+        List of error messages (empty means valid).
+    """
+    errors = []
+    for i, ch in enumerate(text.lower()):
+        if ch not in _VALID_IAST_CHARS:
+            errors.append(
+                f"position {i}: unexpected character '{ch}' (U+{ord(ch):04X})"
+            )
+    return errors
 
 
 def normalize_iast(text: str) -> str:
