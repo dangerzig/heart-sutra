@@ -8,6 +8,9 @@ version = "1.0.0"
 description = "Multilingual critical edition of the Prajñāpāramitāhṛdaya (Heart Sūtra)"
 requires-python = ">=3.10"
 license = {text = "MIT"}
+dependencies = [
+    "indic-transliteration>=2.3",
+]
 
 [project.optional-dependencies]
 scripts = ["markdown>=3.4"]
