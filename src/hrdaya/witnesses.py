@@ -472,8 +472,8 @@ TIBETAN_WITNESSES = {
                     "mantra rendering, and various phrasings.",
         scholarly_refs=["Silk 1994"],
     ),
-    "IOL_J751": Witness(
-        id="IOL_J751",
+    "IOL_Tib_J_751": Witness(
+        id="IOL_Tib_J_751",
         name="IOL Tib J 751 (Dunhuang)",
         witness_type=WitnessType.TIBETAN,
         date="c. 823 CE",

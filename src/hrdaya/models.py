@@ -139,7 +139,7 @@ class Variant:
     """A textual variant with full critical apparatus annotation."""
     # Position in base text
     segment_id: str
-    position: int  # Character offset within segment (-1 = whole segment differs)
+    position: int  # Character offset (-1 = whole-segment or cross-linguistic variant)
 
     # Readings
     base_reading: str  # Reading in base text

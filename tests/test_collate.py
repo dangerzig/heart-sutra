@@ -73,10 +73,12 @@ class TestHeartSutraCollator:
         assert "T257" not in result.chinese_texts
 
     def test_available_chinese_witnesses(self, collator):
-        """Test discovery of Chinese witnesses on disk."""
+        """Test discovery of Chinese witnesses on disk across all subdirectories."""
         available = collator._get_available_chinese_witnesses()
         assert "T251" in available
         assert "T250" in available
+        # Fangshan stele (epigraphy) has segments and should be discovered
+        assert "Fangshan" in available
 
     def test_alignment_uses_chinese_parallel(self, collator):
         """Alignment is strictly by chinese_parallel (no fallback)."""
@@ -96,6 +98,30 @@ class TestHeartSutraCollator:
         for v in result.variants:
             if "T250" in v.variant_witnesses:
                 assert v.position >= 0  # real offset, not -1
+
+    def test_cross_linguistic_variants_use_minus_one(self, collator):
+        """Cross-linguistic variants (Sanskrit/Tibetan vs Chinese) use position=-1."""
+        results = collator.collate_section("form_emptiness")
+        assert len(results) > 0
+        for result in results:
+            for v in result.variants:
+                # Variants where witnesses span different scripts should be -1
+                is_sanskrit = any(w.startswith("GRETIL") for w in v.variant_witnesses)
+                is_tibetan = any(w.startswith("Toh") or w.startswith("IOL") for w in v.variant_witnesses)
+                if is_sanskrit or is_tibetan:
+                    assert v.position == -1, (
+                        f"Cross-linguistic variant should use position=-1, got {v.position}"
+                    )
+
+    def test_tibetan_variants_created(self, collator):
+        """Tibetan witnesses should produce variants against Chinese base."""
+        results = collator.collate_section("form_emptiness")
+        assert len(results) > 0
+        tibetan_variants = [
+            v for result in results for v in result.variants
+            if any(w.startswith("Toh") or w.startswith("IOL") for w in v.variant_witnesses)
+        ]
+        assert len(tibetan_variants) > 0, "Expected at least one Tibetan variant"
 
     def test_no_match_for_unparalleled_section(self, collator):
         """Sections unique to alternate witnesses should not produce false matches."""

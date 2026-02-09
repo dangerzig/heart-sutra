@@ -76,7 +76,7 @@ Comprehensive catalog of all witnesses with scholarly metadata:
 ```python
 CHINESE_WITNESSES = {...}      # 10 witnesses (T250-T257, S2464, + T223 as SOURCE)
 SANSKRIT_WITNESSES = {...}     # 21 witnesses (Ja-Jb, Na-Nl, Ca-Cg, Gilgit, + Pañcaviṃśatisāhasrikā as PARALLEL)
-TIBETAN_WITNESSES = {...}      # 4 witnesses (Toh21, Toh531, Stok, IOL_J751)
+TIBETAN_WITNESSES = {...}      # 4 witnesses (Toh21, Toh531, Stok, IOL_Tib_J_751)
 ```
 
 #### `transliterate.py` - Script Conversion
@@ -179,9 +179,9 @@ Tibetan witnesses serve as **mediating evidence** that may reflect earlier Sansk
 | **Toh21** | Degé Kangyur (Prajñāpāramitā section) | c. 9th c. (trans.) | **Primary Tibetan witness**. Long version. Translated by Vimalamitra and Rinchen Dé. Standard canonical version. |
 | Toh531 | Degé Kangyur (Tantra section) | c. 9th c. | Alternative canonical location. |
 | Stok | Stok Palace Kangyur | — | Alternative recension (Recension B). Differs in title, mantra, phrasings. Critical for understanding Tibetan textual variation. |
-| **IOL_J751** | Dunhuang | c. 823 CE | **Earliest dated Tibetan witness**. Late Old Tibetan version. Differs from both Kangyur versions and Sanskrit/Chinese texts. Critical for early transmission. |
+| **IOL_Tib_J_751** | Dunhuang | c. 823 CE | **Earliest dated Tibetan witness**. Late Old Tibetan version. Differs from both Kangyur versions and Sanskrit/Chinese texts. Critical for early transmission. |
 
-**Selection Rationale**: Tibetan is included because (1) it may preserve earlier Sanskrit readings than surviving Indic manuscripts, (2) it provides independent evidence for triangulating transmission stages, and (3) the Dunhuang manuscript (IOL_J751) is one of the earliest precisely dated witnesses in any tradition.
+**Selection Rationale**: Tibetan is included because (1) it may preserve earlier Sanskrit readings than surviving Indic manuscripts, (2) it provides independent evidence for triangulating transmission stages, and (3) the Dunhuang manuscript (IOL_Tib_J_751) is one of the earliest precisely dated witnesses in any tradition.
 
 ### 2.4 Source and Parallel Texts
 

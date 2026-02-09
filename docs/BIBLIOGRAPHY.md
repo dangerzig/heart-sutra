@@ -70,6 +70,10 @@
 
 **S (Stog)** — སྟོག Stog Palace Manuscript. 14th–15th century. [Oldest Kangyur manuscript]
 
+### Dunhuang Tibetan
+
+**IOL Tib J 751** — India Office Library (now British Library), Stein Tibetan Collection. c. 823 CE. Short recension without frame narrative. Earliest securely datable Tibetan Heart Sūtra witness. Imperial-period orthography (dbu can script).
+
 ### Digital Editions
 
 **GRETIL** — Göttingen Register of Electronic Texts in Indian Languages. "Prajñāpāramitāhṛdaya." http://gretil.sub.uni-goettingen.de/

@@ -1,333 +1,713 @@
 {
-  "id": "variant_collation",
-  "title": "Collation of Key Textual Variants",
-  "description": "This table collates significant textual variants across all witnesses of the Heart Sutra. Following Nattier (1992) and Attwood (2015, 2024), these variants help establish the stemmatic relationships between witnesses and identify later interpolations.",
-  "methodology": {
-    "base_text": "T251 (Xuanzang attribution, ca. 649-656 CE) as earliest datable witness",
-    "principle": "Chinese compositional priority (Nattier 1992) - Sanskrit is back-translation from Chinese",
-    "critical_apparatus": "Variants that distinguish original composition from later elaborations"
+  "provenance": {
+    "generated": "2026-02-09T17:38:33.231339+00:00",
+    "tool": "hrdaya.collate",
+    "version": "1.0.0",
+    "data_version": "1.1.0",
+    "data_hash": "11a206971e17",
+    "base_witness": "T251"
   },
-  "witnesses": {
-    "chinese": [
-      {"siglum": "T250", "name": "Dàmíngzhòujīng", "date": "4th-5th c.?", "recension": "short"},
-      {"siglum": "T251", "name": "Xuanzang Heart Sutra", "date": "ca. 649-656 CE", "recension": "short"},
-      {"siglum": "Fangshan", "name": "Fangshan Stele", "date": "661 CE", "recension": "short"},
-      {"siglum": "T256", "name": "Tang-Sanskrit Transliteration", "date": "8th-9th c.", "recension": "short"},
-      {"siglum": "T257", "name": "Dānapāla Translation", "date": "1005 CE", "recension": "long"}
+  "sections": {
+    "opening": [
+      {
+        "segment_id": "T251:1",
+        "base_text": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+            "T250": "觀世音菩薩，行深般若波羅蜜時，照見五陰空，度一切苦厄。",
+            "T257": "觀自在菩薩摩訶薩。告具壽舍利子言。舍利子。若善男子善女人。欲行甚深般若波羅蜜多行者。應如是觀。照見五蘊自性皆空。"
+          },
+          "sanskrit": {
+            "GRETIL": "Ārya-avalokiteśvaro bodhisattvo gambhīrāṃ prajñāpāramitācaryāṃ caramāṇo vyavalokayati sma: pañca-skandhās, tāṃś ca svabhāva-śūnyān paśyati sma."
+          },
+          "tibetan": {
+            "Toh21": "ཡང་དེའི་ཚེ་བྱང་ཆུབ་སེམས་དཔའ་སེམས་དཔའ་ཆེན་པོ་འཕགས་པ་སྤྱན་རས་གཟིགས་དབང་ཕྱུག་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ཟབ་མོའི་སྤྱོད་པ་ཉིད་ལ་རྣམ་པར་བལྟ་ཞིང་། ཕུང་པོ་ལྔ་པོ་དེ་དག་ལ་ཡང་རང་བཞིན་གྱིས་སྟོང་པར་རྣམ་པར་བལྟའོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+            "variant_reading": "Ārya-avalokiteśvaro bodhisattvo gambhīrāṃ prajñāpāramitācaryāṃ caramāṇo vyavalokayati sma: pañca-skandhās, tāṃś ca svabhāva-śūnyān paśyati sma.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": "Section I error (Attwood 2015): pañca-skandhās should be pañcaskandhāṃs (accusative). The skandhas are objects of vyavalokayati sma ('examined'), not nominative subjects. Also: vyavalokayati sma uses imperfect tense unusual for sūtra style."
+          },
+          {
+            "position": -1,
+            "base_reading": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+            "variant_reading": "ཡང་དེའི་ཚེ་བྱང་ཆུབ་སེམས་དཔའ་སེམས་དཔའ་ཆེན་པོ་འཕགས་པ་སྤྱན་རས་གཟིགས་དབང་ཕྱུག་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ཟབ་མོའི་སྤྱོད་པ་ཉིད་ལ་རྣམ་པར་བལྟ་ཞིང་། ཕུང་པོ་ལྔ་པོ་དེ་དག་ལ་ཡང་རང་བཞིན་གྱིས་སྟོང་པར་རྣམ་པར་བལྟའོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          },
+          {
+            "position": 1,
+            "base_reading": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+            "variant_reading": "觀世音菩薩，行深般若波羅蜜時，照見五陰空，度一切苦厄。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T250"
+            ],
+            "note": null
+          },
+          {
+            "position": 5,
+            "base_reading": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+            "variant_reading": "觀自在菩薩摩訶薩。告具壽舍利子言。舍利子。若善男子善女人。欲行甚深般若波羅蜜多行者。應如是觀。照見五蘊自性皆空。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T257"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
     ],
-    "sanskrit": [
-      {"siglum": "Ja", "name": "Hōryūji Manuscript", "date": "7th-8th c.", "recension": "short"},
-      {"siglum": "Na-Ne", "name": "Nepalese Manuscripts", "date": "11th-19th c.", "recension": "mostly long"}
+    "form_emptiness": [
+      {
+        "segment_id": "T251:2",
+        "base_text": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+            "T250": "舍利弗，非色異空，非空異色，色即是空，空即是色。受想行識亦如是。",
+            "T257": "舍利子。色即是空。空即是色。色不異空。空不異色。受想行識亦復如是。"
+          },
+          "sanskrit": {
+            "GRETIL": "Iha Śāriputra rūpaṃ śūnyatā śūnyataiva rūpam, rūpān na pṛthak śūnyatā śūnyatāyā na pṛthag rūpam, yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam; evam eva vedanā-saṃjñā-saṃskāra-vijñānāni."
+          },
+          "tibetan": {
+            "Toh21": "གཟུགས་སྟོང་པའོ། སྟོང་པ་ཉིད་གཟུགས་སོ། གཟུགས་ལས་སྟོང་པ་ཉིད་གཞན་མ་ཡིན། སྟོང་པ་ཉིད་ལས་ཀྱང་གཟུགས་གཞན་མ་ཡིན་ནོ། དེ་བཞིན་དུ་ཚོར་བ་དང་། འདུ་ཤེས་དང་། འདུ་བྱེད་དང་། རྣམ་པར་ཤེས་པ་རྣམས་སྟོང་པའོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+            "variant_reading": "Iha Śāriputra rūpaṃ śūnyatā śūnyataiva rūpam, rūpān na pṛthak śūnyatā śūnyatāyā na pṛthag rūpam, yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam; evam eva vedanā-saṃjñā-saṃskāra-vijñānāni.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": "The phrase 'yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam' has no Chinese counterpart and is absent from most Conze witnesses. Late interpolation not in Large Sutra parallels (Nattier 1992, Attwood 2017a). Original Aṣṭa reading was 'rūpam eva māyā māyaiva rūpam' (appearance is only illusion)."
+          },
+          {
+            "position": -1,
+            "base_reading": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+            "variant_reading": "གཟུགས་སྟོང་པའོ། སྟོང་པ་ཉིད་གཟུགས་སོ། གཟུགས་ལས་སྟོང་པ་ཉིད་གཞན་མ་ཡིན། སྟོང་པ་ཉིད་ལས་ཀྱང་གཟུགས་གཞན་མ་ཡིན་ནོ། དེ་བཞིན་དུ་ཚོར་བ་དང་། འདུ་ཤེས་དང་། འདུ་བྱེད་དང་། རྣམ་པར་ཤེས་པ་རྣམས་སྟོང་པའོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          },
+          {
+            "position": 2,
+            "base_reading": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+            "variant_reading": "舍利弗，非色異空，非空異色，色即是空，空即是色。受想行識亦如是。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T250"
+            ],
+            "note": null
+          },
+          {
+            "position": 3,
+            "base_reading": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+            "variant_reading": "舍利子。色即是空。空即是色。色不異空。空不異色。受想行識亦復如是。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T257"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
     ],
-    "tibetan": [
-      {"siglum": "Tib-S", "name": "Tibetan Short Recension", "date": "8th-9th c.", "recension": "short"},
-      {"siglum": "Tib-L", "name": "Tibetan Long Recension", "date": "8th-9th c.", "recension": "long"}
+    "characteristics": [
+      {
+        "segment_id": "T251:3",
+        "base_text": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+            "T250": "舍利弗，是諸法空相，不生不滅，不垢不淨，不增不減。",
+            "T257": "舍利子。是諸法性相空。不生不滅。不垢不淨。不增不減。"
+          },
+          "sanskrit": {
+            "GRETIL": "Iha Śāriputra sarva-dharmāḥ śūnyatā-lakṣaṇā, anutpannā aniruddhā, amalā avimalā, anūnā aparipūrṇāḥ."
+          },
+          "tibetan": {
+            "Toh21": "ཤཱ་རིའི་བུ། དེ་ལྟར་ཆོས་ཐམས་ཅད་སྟོང་པ་ཉིད་དེ། མཚན་ཉིད་མེད་པ། མ་སྐྱེས་པ། མ་འགགས་པ། དྲི་མ་མེད་པ། དྲི་མ་དང་བྲལ་བ་མེད་པ། བྲི་བ་མེད་པ། གང་བ་མེད་པའོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+            "variant_reading": "Iha Śāriputra sarva-dharmāḥ śūnyatā-lakṣaṇā, anutpannā aniruddhā, amalā avimalā, anūnā aparipūrṇāḥ.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": ""
+          },
+          {
+            "position": -1,
+            "base_reading": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+            "variant_reading": "ཤཱ་རིའི་བུ། དེ་ལྟར་ཆོས་ཐམས་ཅད་སྟོང་པ་ཉིད་དེ། མཚན་ཉིད་མེད་པ། མ་སྐྱེས་པ། མ་འགགས་པ། དྲི་མ་མེད་པ། དྲི་མ་དང་བྲལ་བ་མེད་པ། བྲི་བ་མེད་པ། གང་བ་མེད་པའོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          },
+          {
+            "position": 2,
+            "base_reading": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+            "variant_reading": "舍利弗，是諸法空相，不生不滅，不垢不淨，不增不減。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T250"
+            ],
+            "note": null
+          },
+          {
+            "position": 3,
+            "base_reading": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+            "variant_reading": "舍利子。是諸法性相空。不生不滅。不垢不淨。不增不減。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T257"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "negations_skandhas": [
+      {
+        "segment_id": "T251:4",
+        "base_text": "是故空中，無色，無受想行識，",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "是故空中，無色，無受想行識，",
+            "T250": "是故空中，無色，無受想行識，",
+            "T257": "舍利子。是故空中。無色。無受想行識。無眼耳鼻舌身意。無色聲香味觸法。無眼界。無眼識界。乃至無意界。無意識界。無無明。無無明盡。乃至無老死。亦無老死盡。無苦集滅道。無智。無所得。亦無無得。"
+          },
+          "sanskrit": {
+            "GRETIL": "Tasmāc Chāriputra śūnyatāyāṃ na rūpaṃ na vedanā na saṃjñā na saṃskārāḥ na vijñānam."
+          },
+          "tibetan": {
+            "Toh21": "ཤཱ་རིའི་བུ། དེ་ལྟ་བས་ན་སྟོང་པ་ཉིད་ལ་གཟུགས་མེད། ཚོར་བ་མེད། འདུ་ཤེས་མེད། འདུ་བྱེད་རྣམས་མེད། རྣམ་པར་ཤེས་པ་མེད།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "是故空中，無色，無受想行識，",
+            "variant_reading": "Tasmāc Chāriputra śūnyatāyāṃ na rūpaṃ na vedanā na saṃjñā na saṃskārāḥ na vijñānam.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": ""
+          },
+          {
+            "position": -1,
+            "base_reading": "是故空中，無色，無受想行識，",
+            "variant_reading": "ཤཱ་རིའི་བུ། དེ་ལྟ་བས་ན་སྟོང་པ་ཉིད་ལ་གཟུགས་མེད། ཚོར་བ་མེད། འདུ་ཤེས་མེད། འདུ་བྱེད་རྣམས་མེད། རྣམ་པར་ཤེས་པ་མེད།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          },
+          {
+            "position": 0,
+            "base_reading": "是故空中，無色，無受想行識，",
+            "variant_reading": "舍利子。是故空中。無色。無受想行識。無眼耳鼻舌身意。無色聲香味觸法。無眼界。無眼識界。乃至無意界。無意識界。無無明。無無明盡。乃至無老死。亦無老死盡。無苦集滅道。無智。無所得。亦無無得。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T257"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "negations_ayatanas": [
+      {
+        "segment_id": "T251:5",
+        "base_text": "無眼耳鼻舌身意，無色聲香味觸法，",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "無眼耳鼻舌身意，無色聲香味觸法，",
+            "T250": "無眼耳鼻舌身意，無色聲香味觸法，"
+          },
+          "sanskrit": {
+            "GRETIL": "Na cakṣuḥ-śrotra-ghrāṇa-jihvā-kāya-manāṃsi. Na rūpa-śabda-gandha-rasa-spraṣṭavya-dharmāḥ."
+          },
+          "tibetan": {
+            "Toh21": "མིག་མེད། རྣ་བ་མེད། སྣ་མེད། ལྕེ་མེད། ལུས་མེད། ཡིད་མེད། གཟུགས་མེད། སྒྲ་མེད། དྲི་མེད། རོ་མེད། རེག་བྱ་མེད། ཆོས་མེད་དོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "無眼耳鼻舌身意，無色聲香味觸法，",
+            "variant_reading": "Na cakṣuḥ-śrotra-ghrāṇa-jihvā-kāya-manāṃsi. Na rūpa-śabda-gandha-rasa-spraṣṭavya-dharmāḥ.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": ""
+          },
+          {
+            "position": -1,
+            "base_reading": "無眼耳鼻舌身意，無色聲香味觸法，",
+            "variant_reading": "མིག་མེད། རྣ་བ་མེད། སྣ་མེད། ལྕེ་མེད། ལུས་མེད། ཡིད་མེད། གཟུགས་མེད། སྒྲ་མེད། དྲི་མེད། རོ་མེད། རེག་བྱ་མེད། ཆོས་མེད་དོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "negations_dhatus": [
+      {
+        "segment_id": "T251:6",
+        "base_text": "無眼界，乃至無意識界。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "無眼界，乃至無意識界。",
+            "T250": "無眼界，乃至無意識界。"
+          },
+          "sanskrit": {
+            "GRETIL": "Na cakṣur-dhātur yāvan na manovijñāna-dhātuḥ."
+          },
+          "tibetan": {
+            "Toh21": "མིག་གི་ཁམས་མེད་པ་ནས་ཡིད་ཀྱི་ཁམས་མེད། ཡིད་ཀྱི་རྣམ་པར་ཤེས་པའི་ཁམས་ཀྱི་བར་དུ་ཡང་མེད་དོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "無眼界，乃至無意識界。",
+            "variant_reading": "Na cakṣur-dhātur yāvan na manovijñāna-dhātuḥ.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": ""
+          },
+          {
+            "position": -1,
+            "base_reading": "無眼界，乃至無意識界。",
+            "variant_reading": "མིག་གི་ཁམས་མེད་པ་ནས་ཡིད་ཀྱི་ཁམས་མེད། ཡིད་ཀྱི་རྣམ་པར་ཤེས་པའི་ཁམས་ཀྱི་བར་དུ་ཡང་མེད་དོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "negations_pratityasamutpada": [
+      {
+        "segment_id": "T251:7",
+        "base_text": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+            "T250": "無無明，亦無無明盡，乃至無老死，亦無老死盡。"
+          },
+          "sanskrit": {
+            "GRETIL": "Na-avidyā na-avidyā-kṣayo yāvan na jarā-maraṇaṃ na jarā-maraṇa-kṣayo."
+          },
+          "tibetan": {
+            "Toh21": "མ་རིག་པ་མེད། མ་རིག་པ་ཟད་པ་མེད་པ་ནས། རྒ་ཤི་མེད། རྒ་ཤི་ཟད་པའི་བར་དུ་ཡང་མེད་དོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+            "variant_reading": "Na-avidyā na-avidyā-kṣayo yāvan na jarā-maraṇaṃ na jarā-maraṇa-kṣayo.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": "Uses kṣaya (destruction) instead of standard nirodha (cessation) - evidence of back-translation (Nattier 1992)"
+          },
+          {
+            "position": -1,
+            "base_reading": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+            "variant_reading": "མ་རིག་པ་མེད། མ་རིག་པ་ཟད་པ་མེད་པ་ནས། རྒ་ཤི་མེད། རྒ་ཤི་ཟད་པའི་བར་དུ་ཡང་མེད་དོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "negations_truths": [
+      {
+        "segment_id": "T251:8",
+        "base_text": "無苦集滅道，無智亦無得，以無所得故。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "無苦集滅道，無智亦無得，以無所得故。",
+            "T250": "無苦集滅道，無智亦無得，以無所得故。"
+          },
+          "sanskrit": {
+            "GRETIL": "Na duḥkha-samudaya-nirodha-mārgā. Na jñānaṃ, na prāptir na-aprāptiḥ."
+          },
+          "tibetan": {
+            "Toh21": "སྡུག་བསྔལ་བ་དང་། ཀུན་འབྱུང་བ་དང་། འགོག་པ་དང་། ལམ་མེད། ཡེ་ཤེས་མེད། ཐོབ་པ་མེད། མ་ཐོབ་པ་ཡང་མེད་དོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "無苦集滅道，無智亦無得，以無所得故。",
+            "variant_reading": "Na duḥkha-samudaya-nirodha-mārgā. Na jñānaṃ, na prāptir na-aprāptiḥ.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": "na-aprāptiḥ is a late interpolation not found in any Large Sutra version (Huifeng 2014). Should be 'na prāptir nābhisamayaḥ' (no attainment, no realization). The pair prāpti/abhisamaya refers to mārga/phala (path and fruition). Kumārajīva's T223 error was copied into the Heart Sutra (Attwood 2020a)."
+          },
+          {
+            "position": -1,
+            "base_reading": "無苦集滅道，無智亦無得，以無所得故。",
+            "variant_reading": "སྡུག་བསྔལ་བ་དང་། ཀུན་འབྱུང་བ་དང་། འགོག་པ་དང་། ལམ་མེད། ཡེ་ཤེས་མེད། ཐོབ་པ་མེད། མ་ཐོབ་པ་ཡང་མེད་དོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "bodhisattva_result": [
+      {
+        "segment_id": "T251:9",
+        "base_text": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+            "T250": "菩薩依般若波羅蜜故，心無罣礙，無罣礙故，無有恐怖，離一切顛倒夢想苦惱，究竟涅槃。",
+            "T257": "舍利子。由是無得故。菩薩摩訶薩。依般若波羅蜜多住。心無障礙。心無障礙故。無有恐怖。遠離顛倒。究竟涅槃。"
+          },
+          "sanskrit": {
+            "GRETIL": "Tasmāc Chāriputra aprāptitvād bodhisattvasya prajñāpāramitām āśritya viharaty acittāvaraṇaḥ. Cittāvaraṇa-nāstitvād atrastro viparyāsa-atikrānto niṣṭhā-nirvāṇa-prāptaḥ."
+          },
+          "tibetan": {
+            "Toh21": "ཤཱ་རིའི་བུ། དེ་ལྟ་བས་ན་བྱང་ཆུབ་སེམས་དཔའ་རྣམས་ཐོབ་པ་མེད་པའི་ཕྱིར། ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་བརྟེན་ཅིང་གནས་ཏེ། སེམས་ལ་སྒྲིབ་པ་མེད་པས་འཇིགས་པ་མེད་དེ། ཕྱིན་ཅི་ལོག་ལས་ཤིན་ཏུ་འདས་ནས་མྱ་ངན་ལས་འདས་པའི་མཐར་ཕྱིན་ཏོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+            "variant_reading": "Tasmāc Chāriputra aprāptitvād bodhisattvasya prajñāpāramitām āśritya viharaty acittāvaraṇaḥ. Cittāvaraṇa-nāstitvād atrastro viparyāsa-atikrānto niṣṭhā-nirvāṇa-prāptaḥ.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": "Section VI error (Attwood 2018a, 2020a): Conze's wrongly placed full stop creates a sentence fragment. niṣṭhānirvāṇaḥ is a bahuvrīhi compound (masculine adjective) meaning 'one whose nirvāṇa is complete' - it describes the bodhisattva, not a separate neuter noun. Corrected reading removes the period: 'viharaty acittāvaraṇaś cittāvaraṇanāstitvād atrasto viparyāsātikrānto niṣṭhānirvāṇaḥ'."
+          },
+          {
+            "position": -1,
+            "base_reading": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+            "variant_reading": "ཤཱ་རིའི་བུ། དེ་ལྟ་བས་ན་བྱང་ཆུབ་སེམས་དཔའ་རྣམས་ཐོབ་པ་མེད་པའི་ཕྱིར། ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་བརྟེན་ཅིང་གནས་ཏེ། སེམས་ལ་སྒྲིབ་པ་མེད་པས་འཇིགས་པ་མེད་དེ། ཕྱིན་ཅི་ལོག་ལས་ཤིན་ཏུ་འདས་ནས་མྱ་ངན་ལས་འདས་པའི་མཐར་ཕྱིན་ཏོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          },
+          {
+            "position": 1,
+            "base_reading": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+            "variant_reading": "菩薩依般若波羅蜜故，心無罣礙，無罣礙故，無有恐怖，離一切顛倒夢想苦惱，究竟涅槃。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T250"
+            ],
+            "note": null
+          },
+          {
+            "position": 0,
+            "base_reading": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+            "variant_reading": "舍利子。由是無得故。菩薩摩訶薩。依般若波羅蜜多住。心無障礙。心無障礙故。無有恐怖。遠離顛倒。究竟涅槃。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T257"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "buddha_result": [
+      {
+        "segment_id": "T251:10",
+        "base_text": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+            "T250": "三世諸佛，依般若波羅蜜故，得阿耨多羅三藐三菩提。",
+            "T257": "三世諸佛。依般若波羅蜜多故。得阿耨多羅三藐三菩提。"
+          },
+          "sanskrit": {
+            "GRETIL": "Tryadhva-vyavasthitāḥ sarva-buddhāḥ prajñāpāramitām āśrityānuttarāṃ samyak-saṃbodhim abhisaṃbuddhāḥ."
+          },
+          "tibetan": {
+            "Toh21": "དུས་གསུམ་དུ་རྣམ་པར་བཞུགས་པའི་སངས་རྒྱས་ཐམས་ཅད་ཀྱང་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་བརྟེན་ནས་བླ་ན་མེད་པ་ཡང་དག་པར་རྫོགས་པའི་བྱང་ཆུབ་ཏུ་མངོན་པར་རྫོགས་པར་སངས་རྒྱས་སོ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+            "variant_reading": "Tryadhva-vyavasthitāḥ sarva-buddhāḥ prajñāpāramitām āśrityānuttarāṃ samyak-saṃbodhim abhisaṃbuddhāḥ.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": ""
+          },
+          {
+            "position": -1,
+            "base_reading": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+            "variant_reading": "དུས་གསུམ་དུ་རྣམ་པར་བཞུགས་པའི་སངས་རྒྱས་ཐམས་ཅད་ཀྱང་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་བརྟེན་ནས་བླ་ན་མེད་པ་ཡང་དག་པར་རྫོགས་པའི་བྱང་ཆུབ་ཏུ་མངོན་པར་རྫོགས་པར་སངས་རྒྱས་སོ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          },
+          {
+            "position": 11,
+            "base_reading": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+            "variant_reading": "三世諸佛，依般若波羅蜜故，得阿耨多羅三藐三菩提。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T250"
+            ],
+            "note": null
+          },
+          {
+            "position": 4,
+            "base_reading": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+            "variant_reading": "三世諸佛。依般若波羅蜜多故。得阿耨多羅三藐三菩提。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T257"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "mantra_praise": [
+      {
+        "segment_id": "T251:11",
+        "base_text": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+            "T250": "故知般若波羅蜜，是大明呪，是無上明呪，是無等等明呪，能除一切苦，真實不虛。",
+            "T257": "是故應知般若波羅蜜多。是大神咒。是大明咒。是無上咒。是無等等咒。能除一切苦。真實不虛。"
+          },
+          "sanskrit": {
+            "GRETIL": "Tasmāj jñātavyam: prajñāpāramitā mahā-mantro mahā-vidyā-mantro 'nuttara-mantro 'samasama-mantraḥ, sarva-duḥkha-praśamanaḥ, satyam amithyatvāt."
+          },
+          "tibetan": {
+            "Toh21": "དེ་ལྟ་བས་ན་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས། རིག་པ་ཆེན་པོའི་སྔགས། བླ་ན་མེད་པའི་སྔགས། མི་མཉམ་པ་དང་མཉམ་པའི་སྔགས། སྡུག་བསྔལ་ཐམས་ཅད་རབ་ཏུ་ཞི་བར་བྱེད་པའི་སྔགས། མི་རྫུན་པས་ན་བདེན་པར་ཤེས་པར་བྱ་སྟེ། ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས་སྨྲས་པ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+            "variant_reading": "Tasmāj jñātavyam: prajñāpāramitā mahā-mantro mahā-vidyā-mantro 'nuttara-mantro 'samasama-mantraḥ, sarva-duḥkha-praśamanaḥ, satyam amithyatvāt.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": "Epithets section (Attwood 2017b): Standard Prajñāpāramitā has three epithets (mahā-, anuttara-, asamasama-) representing vidyā, not mantra. Gilgit Pañc has 'mahāvidyeyaṃ...anuttareyaṃ vidyā...asamasameyaṃ vidyā'. Chinese míngzhòu 明咒 represents vidyā. The fourth epithet shénzhòu 神咒 may be a synonym for míngzhòu."
+          },
+          {
+            "position": -1,
+            "base_reading": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+            "variant_reading": "དེ་ལྟ་བས་ན་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས། རིག་པ་ཆེན་པོའི་སྔགས། བླ་ན་མེད་པའི་སྔགས། མི་མཉམ་པ་དང་མཉམ་པའི་སྔགས། སྡུག་བསྔལ་ཐམས་ཅད་རབ་ཏུ་ཞི་བར་བྱེད་པའི་སྔགས། མི་རྫུན་པས་ན་བདེན་པར་ཤེས་པར་བྱ་སྟེ། ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས་སྨྲས་པ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          },
+          {
+            "position": 7,
+            "base_reading": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+            "variant_reading": "故知般若波羅蜜，是大明呪，是無上明呪，是無等等明呪，能除一切苦，真實不虛。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T250"
+            ],
+            "note": null
+          },
+          {
+            "position": 0,
+            "base_reading": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+            "variant_reading": "是故應知般若波羅蜜多。是大神咒。是大明咒。是無上咒。是無等等咒。能除一切苦。真實不虛。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T257"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
+    ],
+    "mantra": [
+      {
+        "segment_id": "T251:12",
+        "base_text": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+        "base_witness": "T251",
+        "readings": {
+          "chinese": {
+            "T251": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+            "T250": "故說般若波羅蜜呪，即說呪曰：竭帝竭帝，波羅竭帝，波羅僧竭帝，菩提僧莎呵。",
+            "T257": "故說般若波羅蜜多咒。即說咒曰。唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶"
+          },
+          "sanskrit": {
+            "GRETIL": "Prajñāpāramitāyām ukto mantraḥ. Tadyathā: Oṃ gate gate pāragate pārasaṃgate bodhi svāhā."
+          },
+          "tibetan": {
+            "Toh21": "ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།"
+          }
+        },
+        "variants": [
+          {
+            "position": -1,
+            "base_reading": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+            "variant_reading": "Prajñāpāramitāyām ukto mantraḥ. Tadyathā: Oṃ gate gate pāragate pārasaṃgate bodhi svāhā.",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "GRETIL"
+            ],
+            "note": "Oṃ before 'gate gate' is absent from most Sanskrit manuscripts including the Hōryūji manuscript, and from all Chinese versions except T.257 (11th century Dānapāla translation). Late Tantric interpolation (Attwood 2024). Conze (1975) omits oṃ from his translation."
+          },
+          {
+            "position": -1,
+            "base_reading": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+            "variant_reading": "ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Toh21"
+            ],
+            "note": null
+          },
+          {
+            "position": 0,
+            "base_reading": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+            "variant_reading": "故說般若波羅蜜呪，即說呪曰：竭帝竭帝，波羅竭帝，波羅僧竭帝，菩提僧莎呵。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T250"
+            ],
+            "note": null
+          },
+          {
+            "position": 0,
+            "base_reading": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+            "variant_reading": "故說般若波羅蜜多咒。即說咒曰。唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "T257"
+            ],
+            "note": null
+          }
+        ],
+        "notes": []
+      }
     ]
-  },
-  "variants": [
-    {
-      "id": "VAR-001",
-      "location": "maṅgala (opening salutation)",
-      "issue": "Presence and form of opening salutation",
-      "readings": {
-        "T250": {"text": "—", "note": "No maṅgala"},
-        "T251": {"text": "—", "note": "No maṅgala"},
-        "Fangshan": {"text": "—", "note": "No maṅgala"},
-        "T256": {"text": "—", "note": "No maṅgala in Chinese; Sanskrit has simple form"},
-        "T257": {"text": "—", "note": "No maṅgala (has nidāna instead)"},
-        "Ja": {"text": "namas sarvajñāya", "note": "Simple salutation to Omniscient One"},
-        "Na-Ne": {"text": "Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai!", "note": "Elaborate Tantric salutation to Goddess"}
-      },
-      "analysis": "The simple 'namas sarvajñāya' in Hōryūji is original; the elaborate Tantric maṅgala in Nepalese MSS is a late interpolation reflecting Vajrayāna influence (Attwood 2024).",
-      "stemmatic_significance": "high"
-    },
-    {
-      "id": "VAR-002",
-      "location": "Section I: skandha observation",
-      "issue": "pañcaskandhāḥ (nominative) vs pañcaskandhāṃs (accusative)",
-      "readings": {
-        "T251": {"text": "照見五蘊皆空", "note": "Accusative sense: 'saw the five skandhas'"},
-        "T256": {"text": "pañca-skandhāṃs", "note": "Accusative (reconstructed from transliteration)"},
-        "Ja": {"text": "pañcaskandhās", "note": "Appears nominative (Müller/Nanjio reading)"},
-        "Conze": {"text": "pañcaskandhāḥ", "note": "Nominative (incorrect per Attwood 2015)"}
-      },
-      "analysis": "The Chinese requires accusative (object of 照見 'illuminated and saw'). Conze's nominative is a grammatical error. Attwood (2015) demonstrates accusative is correct.",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "Attwood (2015) 'Heart Murmurs' pp. 32-35"
-    },
-    {
-      "id": "VAR-003",
-      "location": "Section II: 'yad rūpaṃ sā śūnyatā' line",
-      "issue": "Presence of 'that which is form is emptiness' line",
-      "readings": {
-        "T250": {"text": "—", "note": "Absent"},
-        "T251": {"text": "—", "note": "Absent"},
-        "Fangshan": {"text": "—", "note": "Absent"},
-        "T256": {"text": "—", "note": "Absent from Chinese; unclear in Sanskrit portion"},
-        "T257": {"text": "—", "note": "Absent"},
-        "Ja": {"text": "yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam", "note": "Present"},
-        "Na-Ne": {"text": "yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam", "note": "Present"}
-      },
-      "analysis": "This line is absent from all Chinese versions but present in Sanskrit. Nattier (1992) identified this as evidence that Sanskrit added material not in the Chinese original. The line may be a later expansion in Sanskrit tradition.",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "Nattier (1992) pp. 175-177"
-    },
-    {
-      "id": "VAR-004",
-      "location": "Section V: na-aprāptiḥ",
-      "issue": "Presence of 'no non-attainment' after 'no attainment'",
-      "readings": {
-        "T250": {"text": "無智無得", "note": "No non-attainment"},
-        "T251": {"text": "無智亦無得", "note": "No non-attainment"},
-        "Fangshan": {"text": "无智亦无得", "note": "No non-attainment"},
-        "T256": {"text": "na jñānaṃ na prāptir nāprāptiḥ", "note": "Includes na-aprāptiḥ"},
-        "T257": {"text": "無智無所得亦無無得", "note": "Includes 亦無無得 (na-aprāptiḥ)"},
-        "Ja": {"text": "na jñānaṃ na prāptiḥ", "note": "NO na-aprāptiḥ"},
-        "Conze": {"text": "na jñānaṃ na prāptir nāprāptiḥ", "note": "Includes na-aprāptiḥ"},
-        "Na-Ne": {"text": "na jñānaṃ na prāptir nāprāptiḥ", "note": "Late MSS include it"}
-      },
-      "analysis": "The na-aprāptiḥ is absent from T251, Fangshan, and crucially from the Hōryūji MS. Its presence in late Sanskrit MSS and Conze's edition is an interpolation. Huifeng (2014) argues original should be 'na prāptir nābhisamayaḥ' based on Large Sutra parallels.",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "Huifeng (2014) 'Apocryphal Treatment' pp. 85-92"
-    },
-    {
-      "id": "VAR-005",
-      "location": "Section VI: niṣṭhānirvāṇa",
-      "issue": "niṣṭhānirvāṇaḥ vs niṣṭhānirvāṇaprāptaḥ",
-      "readings": {
-        "T251": {"text": "究竟涅槃", "note": "'ultimate nirvāṇa' (no 'attains')"},
-        "Fangshan": {"text": "究竟涅槃", "note": "'ultimate nirvāṇa' (no 'attains')"},
-        "Ja": {"text": "niṣṭhānirvāṇaḥ", "note": "Bahuvrīhi compound, no prāptaḥ"},
-        "Conze": {"text": "niṣṭhānirvāṇaprāptaḥ", "note": "With prāptaḥ (incorrect)"},
-        "Na-Ne": {"text": "niṣṭhānirvāṇaprāptaḥ", "note": "Late MSS add prāptaḥ"}
-      },
-      "analysis": "The Chinese 究竟涅槃 and Hōryūji niṣṭhānirvāṇaḥ support reading as bahuvrīhi compound ('one whose nirvāṇa is complete'). Conze's addition of prāptaḥ follows late MSS and breaks the syntax. Attwood (2018a) provides detailed grammatical analysis.",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "Attwood (2018a) 'A Note on Niṣṭhānirvāṇaḥ'"
-    },
-    {
-      "id": "VAR-006",
-      "location": "Section VII: oṃ in mantra",
-      "issue": "Presence of oṃ before 'gate gate'",
-      "readings": {
-        "T250": {"text": "羯諦羯諦...", "note": "No oṃ"},
-        "T251": {"text": "揭帝揭帝...", "note": "No oṃ"},
-        "Fangshan": {"text": "揭諦揭諦...", "note": "No oṃ"},
-        "T256": {"text": "gate gate...", "note": "No oṃ in transliteration"},
-        "T257": {"text": "唵 誐帝誐帝...", "note": "HAS oṃ (唵)"},
-        "Ja": {"text": "gate gate...", "note": "No oṃ"},
-        "Nb": {"text": "oṃ gate gate...", "note": "Has oṃ"},
-        "Ne": {"text": "oṃ gate gate...", "note": "Has oṃ"},
-        "Na": {"text": "gate gate...", "note": "No oṃ"}
-      },
-      "analysis": "The oṃ is absent from all early witnesses (T251, Fangshan, Hōryūji, T256, most Nepalese MSS). Only T257 (from late Tantric source) and late Nepalese MSS Nb and Ne include it. This is a Tantric interpolation based on the convention that all mantras begin with oṃ (Attwood 2024).",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "Attwood (2024) 'Revised Editions' Section 3.2"
-    },
-    {
-      "id": "VAR-007",
-      "location": "Section VII: svāhā ending",
-      "issue": "Form of svāhā transliteration",
-      "readings": {
-        "T250": {"text": "婆訶", "note": "pó hē (simple)"},
-        "T251": {"text": "僧莎訶", "note": "sēng suō hē (possibly corrupt)"},
-        "Fangshan": {"text": "薩婆訶", "note": "sà pó hē (accurate)"},
-        "T256": {"text": "莎賀", "note": "suō hè"},
-        "T257": {"text": "莎訶", "note": "suō hē"},
-        "Sanskrit": {"text": "svāhā", "note": "Standard mantra ending"}
-      },
-      "analysis": "The Fangshan reading 薩婆訶 is actually more accurate as a transliteration of svāhā than T251's 僧莎訶, which appears corrupt. This suggests possible textual corruption in the received T251 tradition.",
-      "stemmatic_significance": "medium"
-    },
-    {
-      "id": "VAR-008",
-      "location": "Title",
-      "issue": "Naming of the text",
-      "readings": {
-        "T250": {"text": "摩訶般若波羅蜜大明呪經", "note": "'Great Mantra Sūtra of Mahāprajñāpāramitā'"},
-        "T251": {"text": "般若波羅蜜多心經", "note": "'Heart Sūtra of Prajñāpāramitā'"},
-        "T257": {"text": "佛說聖佛母般若波羅蜜多經", "note": "'Holy Buddha-Mother Prajñāpāramitā Sūtra'"},
-        "Ja": {"text": "prajñāpāramitāhṛdayasūtram", "note": "'Heart Sūtra of Prajñāpāramitā'"},
-        "Na-Ne": {"text": "various including Pañcaviṃśatikā...", "note": "Diverse titles referencing syllable count"}
-      },
-      "analysis": "T250's title emphasizes mantra/dhāraṇī character. T251 and Sanskrit use 'heart' (心/hṛdaya). T257 calls Prajñāpāramitā 'Buddha-Mother'. Nepalese MSS show considerable title variation.",
-      "stemmatic_significance": "medium"
-    },
-    {
-      "id": "VAR-009",
-      "location": "Opening: Avalokiteśvara name",
-      "issue": "觀自在 vs 觀世音",
-      "readings": {
-        "T250": {"text": "觀世音菩薩", "note": "Guānshìyīn (earlier translation)"},
-        "T251": {"text": "觀自在菩薩", "note": "Guānzìzài (Xuanzang's translation)"},
-        "Fangshan": {"text": "觀自在菩薩", "note": "Guānzìzài"},
-        "T257": {"text": "觀自在", "note": "Guānzìzài"},
-        "Sanskrit": {"text": "Avalokiteśvara", "note": "Lord who looks down"}
-      },
-      "analysis": "觀世音 (Guānshìyīn, 'Perceiver of Sounds') was the standard pre-Xuanzang translation. 觀自在 (Guānzìzài, 'Lord of Self-Perception') was Xuanzang's new translation introduced ca. 649 CE. This helps date T250 to before Xuanzang's influence.",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "Nattier (1992) pp. 182-184"
-    },
-    {
-      "id": "VAR-009a",
-      "location": "Section II: T250 skandha characteristics",
-      "issue": "Unique passage in T250 elaborating on skandha emptiness",
-      "readings": {
-        "T250": {"text": "色空故無惱壞相，受空故無受相，想空故無知相，行空故無作相，識空故無覺相。何以故？", "note": "UNIQUE to T250"},
-        "T251": {"text": "—", "note": "Absent"},
-        "Sanskrit": {"text": "—", "note": "Absent"},
-        "Tibetan": {"text": "—", "note": "Absent"}
-      },
-      "analysis": "This passage, found only in T250, provides a detailed elaboration of how emptiness affects each skandha's characteristic. Its absence from T251 and all Sanskrit/Tibetan witnesses suggests T250 may preserve earlier material omitted in later traditions, or represents an independent parallel composition.",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "First fully documented in this edition"
-    },
-    {
-      "id": "VAR-009b",
-      "location": "Section III: T250 temporal negation",
-      "issue": "Unique passage in T250 negating past, future, present",
-      "readings": {
-        "T250": {"text": "是空法，非過去，非未來，非現在。", "note": "UNIQUE to T250"},
-        "T251": {"text": "—", "note": "Absent"},
-        "Sanskrit": {"text": "—", "note": "Absent"},
-        "Tibetan": {"text": "—", "note": "Absent"}
-      },
-      "analysis": "Temporal negation found in some Prajñāpāramitā sources. Its presence only in T250 supports the hypothesis that T250 either preserves earlier material or is an independent composition drawing on different Large Sūtra passages.",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "First fully documented in this edition"
-    },
-    {
-      "id": "VAR-009c",
-      "location": "Section IX: bodhisattva passage elaboration",
-      "issue": "T250 adds 一切 and 苦惱 to delusion passage",
-      "readings": {
-        "T250": {"text": "離一切顛倒夢想苦惱", "note": "離 + 一切 + 苦惱"},
-        "T251": {"text": "遠離顚倒夢想", "note": "遠離 without 一切 or 苦惱"},
-        "Sanskrit": {"text": "viparyāsa-atikrānto", "note": "gone beyond perversions"},
-        "Tibetan": {"text": "ཕྱིན་ཅི་ལོག་ལས་ཤིན་ཏུ་འདས་", "note": "completely transcended perversions"}
-      },
-      "analysis": "T250's fuller form 離一切顛倒夢想苦惱 (separated from all perverted dream-thoughts and afflictions) differs from T251's 遠離顚倒夢想 (far removed from perverted dream-thoughts). This variant suggests different compositional choices rather than revision.",
-      "stemmatic_significance": "medium",
-      "scholarly_ref": "Noted in Woncheuk's commentary T1711"
-    },
-    {
-      "id": "VAR-010",
-      "location": "Opening: skandha terminology",
-      "issue": "五蘊 vs 五陰",
-      "readings": {
-        "T250": {"text": "五陰", "note": "wǔyīn (older translation)"},
-        "T251": {"text": "五蘊", "note": "wǔyùn (Xuanzang's translation)"},
-        "Fangshan": {"text": "五蘊", "note": "wǔyùn"},
-        "T257": {"text": "五蘊", "note": "wǔyùn"},
-        "Sanskrit": {"text": "pañcaskandha", "note": "five aggregates"}
-      },
-      "analysis": "陰 (yīn) was the older translation for skandha, while 蘊 (yùn) was standardized by Xuanzang. T250's use of 陰 supports its pre-Xuanzang dating.",
-      "stemmatic_significance": "medium"
-    },
-    {
-      "id": "VAR-011",
-      "location": "Mantra praise: epithet count",
-      "issue": "Number of mantra epithets (3 vs 4)",
-      "readings": {
-        "T250": {"text": "是大明呪、無上明呪、無等等明呪", "note": "3 epithets (all with 明呪)"},
-        "T251": {"text": "是大神咒、是大明咒、是無上咒、是無等等咒", "note": "4 epithets"},
-        "T257": {"text": "是大神咒、是大明咒、是無上咒、是無等等咒", "note": "4 epithets"},
-        "Sanskrit": {"text": "mahāmantro mahāvidyāmantro 'nuttaramantro 'samasama-mantraḥ", "note": "4 epithets"}
-      },
-      "analysis": "T250 has only three epithets, all using 明呪 (vidyāmantra). T251 and Sanskrit have four epithets. T250's divergence suggests an independent early tradition.",
-      "stemmatic_significance": "medium"
-    },
-    {
-      "id": "VAR-012",
-      "location": "Dependent origination: kṣaya vs nirodha",
-      "issue": "Use of 'destruction' vs 'cessation' terminology",
-      "readings": {
-        "T251": {"text": "盡", "note": "jìn = exhaustion/destruction"},
-        "Sanskrit": {"text": "kṣaya", "note": "destruction (not standard Buddhist nirodha)"},
-        "Large_Sutra": {"text": "nirodha", "note": "cessation (standard Prajñāpāramitā term)"}
-      },
-      "analysis": "The Sanskrit uses kṣaya (destruction) matching Chinese 盡, not the standard Prajñāpāramitā term nirodha (cessation). This is key evidence for back-translation: the Sanskrit calqued from Chinese rather than quoting the Large Sutra directly (Nattier 1992).",
-      "stemmatic_significance": "high",
-      "scholarly_ref": "Nattier (1992) pp. 173-175"
-    },
-    {
-      "id": "VAR-013",
-      "location": "Frame narrative",
-      "issue": "Presence of nidāna (prologue) and epilogue",
-      "readings": {
-        "T250": {"text": "—", "note": "No frame narrative"},
-        "T251": {"text": "—", "note": "No frame narrative"},
-        "Fangshan": {"text": "—", "note": "No frame narrative"},
-        "T256": {"text": "—", "note": "No frame narrative"},
-        "T257": {"text": "Full frame", "note": "Complete nidāna and epilogue"},
-        "Ja": {"text": "—", "note": "No frame narrative"},
-        "Tibetan_Long": {"text": "Full frame", "note": "Complete nidāna and epilogue"},
-        "Na-Ne_Long": {"text": "Full frame", "note": "Complete nidāna and epilogue"}
-      },
-      "analysis": "The short recension (no frame) is original. The long recension with frame narrative was added later, probably to make the text conform to sūtra conventions. T257 was translated from the long recension tradition.",
-      "stemmatic_significance": "high"
-    },
-    {
-      "id": "VAR-014",
-      "location": "Throughout: pāramitā rendering",
-      "issue": "T250 consistently uses 波羅蜜 vs T251 波羅蜜多",
-      "readings": {
-        "T250": {"text": "波羅蜜", "note": "bōluómì - lacks final 多"},
-        "T251": {"text": "波羅蜜多", "note": "bōluómìduō - includes 多 (duō)"},
-        "Sanskrit": {"text": "pāramitā", "note": "Full form"}
-      },
-      "analysis": "T250 consistently uses the shorter 波羅蜜 throughout, while T251 uses 波羅蜜多. The 多 (duō) represents the final syllable -tā of pāramitā. Earlier Chinese translations often omitted this; Xuanzang standardized inclusion. This consistent difference supports T250's earlier dating or independent composition.",
-      "stemmatic_significance": "medium"
-    },
-    {
-      "id": "VAR-015",
-      "location": "Section IX: bodhisattva rendering",
-      "issue": "T250 abbreviates bodhisattva; T251 gives full transliteration",
-      "readings": {
-        "T250": {"text": "菩薩", "note": "púsà - abbreviated form"},
-        "T251": {"text": "菩提薩埵", "note": "pútísàduǒ - full transliteration of bodhisattva"},
-        "Sanskrit": {"text": "bodhisattva", "note": "Full form"}
-      },
-      "analysis": "菩薩 is an abbreviation of the full transliteration 菩提薩埵. Both were used in Chinese Buddhism, but 菩薩 became more common. T251's use of the full form in this formal context is characteristic of Xuanzang's translation style.",
-      "stemmatic_significance": "low"
-    },
-    {
-      "id": "VAR-016",
-      "location": "Throughout: Śāriputra rendering",
-      "issue": "T250 uses 舍利弗 vs T251 舍利子",
-      "readings": {
-        "T250": {"text": "舍利弗", "note": "Shèlìfú"},
-        "T251": {"text": "舍利子", "note": "Shèlìzǐ"},
-        "Sanskrit": {"text": "Śāriputra", "note": "Both Chinese renderings are valid"}
-      },
-      "analysis": "Both are acceptable transliterations of Śāriputra. 舍利弗 (Shèlìfú) is phonetically closer; 舍利子 (Shèlìzǐ) uses 子 (zǐ, 'son') for -putra. The consistent difference throughout both texts suggests independent composition rather than revision.",
-      "stemmatic_significance": "low"
-    }
-  ],
-  "stemma_notes": {
-    "summary": "Based on these variants, the witnesses can be organized into a provisional stemma.",
-    "early_chinese_tradition": [
-      "T250 represents an independent early Chinese tradition (pre-Xuanzang)",
-      "T251/Fangshan represent the Xuanzang tradition (ca. 649-661 CE)",
-      "T256 documents Sanskrit as studied in Tang China"
-    ],
-    "sanskrit_tradition": [
-      "Hōryūji (Ja) is the earliest Sanskrit MS witness, close to the back-translation",
-      "Nepalese MSS show progressive Tantric elaboration (oṃ, maṅgala, frame narrative)",
-      "Conze's critical edition unfortunately privileged late Nepalese readings"
-    ],
-    "late_translations": [
-      "T257 was translated from elaborated Sanskrit long recension (1005 CE)",
-      "Its oṃ and na-aprāptiḥ come from its Sanskrit source, not Chinese tradition"
-    ]
-  },
-  "scholarly_refs": [
-    "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
-    "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
-    "Attwood, Jayarava (2018a). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' JOCBS 14: 10-17.",
-    "Attwood, Jayarava (2024). 'Revised Editions of the Prajñāpāramitāhṛdaya and Bānrěbōluómìduō xīn jīng.' Asian Literature and Translation 11(1): 1-42.",
-    "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
-    "Conze, Edward (1967). 'The Prajñāpāramitā-Hṛdaya Sūtra.' In Thirty Years of Buddhist Studies, pp. 147-167.",
-    "Silk, Jonathan (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions.' WSTB 34."
-  ]
+  }
 }

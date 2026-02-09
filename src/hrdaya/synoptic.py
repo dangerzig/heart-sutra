@@ -105,6 +105,8 @@ class SynopticBuilder:
                 path = self.data_dir / "sanskrit" / "manuscripts" / f"{witness_id}.json"
         elif tradition == "tibetan":
             path = self.data_dir / "tibetan" / "kangyur" / f"{witness_id.lower()}.json"
+            if not path.exists():
+                path = self.data_dir / "tibetan" / "dunhuang" / f"{witness_id.lower()}.json"
         else:
             raise ValueError(f"Unknown tradition: {tradition}")
 
