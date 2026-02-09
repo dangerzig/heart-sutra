@@ -10,19 +10,19 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 
 ## Recommended Execution Order
 
-### Phase 1: Foundation (do first — everything else builds on these)
-1. **#4 Japanese/Chinese literature review** — Highest-risk item. If parallel composition was already proposed in Japanese, it reshapes the paper. Pure research, no writing dependency.
-2. **#1 Strengthen the deletion case** — The 抄經 comparative study. Key research before writing.
+### Phase 1: Foundation ✓ COMPLETE
+1. **#4 Japanese/Chinese literature review** ✓ — Hypothesis appears novel. No prior proposal found across 3 existing models (traditional, reversed, Indian origin). See `research/` output.
+2. **#1 Strengthen the deletion case** ✓ — 10 case studies documented in `research/CHAOJING_REVISION_PRACTICES.md`. No attested deletion of doctrinally correct content. Still needs integration into paper text.
 
-### Phase 2: Core argument strengthening
-3. **#3 Passage-by-passage comparison** — Extends strongest evidence from one example to a systematic pattern.
-4. **#5 Falsifiability/counterevidence** — Forces identification of where the argument is weakest.
-5. **#8 Separate interpretive from descriptive** — Restructuring that makes the paper more defensible.
+### Phase 2: Core argument strengthening ✓ COMPLETE
+3. **#3 Passage-by-passage comparison** ✓ — T250 closer to T223 in 8/10 sections, T251 in 0. See `research/PASSAGE_COMPARISON.md`.
+4. **#5 Falsifiability/counterevidence** ✓ — 5 falsifying conditions + 6-item counterevidence checklist. See `research/FALSIFIABILITY.md`.
+5. **#8 Separate interpretive from descriptive** ✓ — 6 descriptive findings, 4 interpretive claims, paper structure guidance. See `research/INTERPRETIVE_DESCRIPTIVE.md`.
 
-### Phase 3: Scholarly framing
-6. **#2 Engagement with critics** — Drafts exist; condense and integrate once core argument is solid.
-7. **#11 Terminological precision** — Quick definitional work.
-8. **#12 Broaden authority base** — Can happen during revision.
+### Phase 3: Scholarly framing ✓ COMPLETE
+6. **#2 Engagement with critics** ✓ — Condensed paper-ready Introduction + Discussion text. See `research/PAPER_DRAFT_SECTIONS.md` §A.
+7. **#11 Terminological precision** ✓ — Definitions for 5 key terms with circularity note. See `research/PAPER_DRAFT_SECTIONS.md` §B.
+8. **#12 Broaden authority base** ✓ — 8 additional scholars identified with framing language. See `research/PAPER_DRAFT_SECTIONS.md` §C.
 
 ### Phase 4: Infrastructure (for the edition; less urgent for the paper)
 9. **#2b Primary manuscript collation** — Important for the edition; paper can acknowledge as a limitation.
@@ -39,19 +39,22 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 ## Critical Priority
 
 ### 1. Strengthen the Negative Case for Deletion
-- [ ] Conduct comparative study of revision practice in 抄經 (digest text) tradition
-- [ ] Identify 5-10 Chinese Buddhist digest texts where both source and digest survive
-- [ ] Document whether revision between versions involved deletion of coherent doctrinal content
-- [ ] Move argument from "deletion seems unlikely" to "deletion contradicts documented revision practice"
+- [x] Conduct comparative study of revision practice in 抄經 (digest text) tradition
+- [x] Identify 5-10 Chinese Buddhist digest texts where both source and digest survive — 10 cases documented
+- [x] Document whether revision between versions involved deletion of coherent doctrinal content — no case found
+- [x] Move argument from "deletion seems unlikely" to "deletion contradicts documented revision practice"
+- **Research complete:** See `research/CHAOJING_REVISION_PRACTICES.md` (466 lines, 10 case studies, counter-arguments addressed)
+- [ ] Integrate findings into paper draft (Section 2.3 / new subsection)
 - **Why critical:** Without this, a reviewer can simply say "revisers sometimes abridge" and the paper lacks a counter
 
 ### 2. Engagement with Nattier's Critics
-- [~] Address Fukui Fumimasa, Harada Waso, Ishii Kōsei, Dan Lusthaus, Hyun Choo
-- **Done so far:** `research/ENGAGEMENT_WITH_CRITICS.md` has detailed responses drafted
-- [ ] Integrate a condensed version into the paper's Introduction or Discussion section
-- [ ] Consult Fukui's *Hannya shingyō no rekishiteki kenkyū* (般若心経の歴史的研究, 1987) — most important single work; may address T250/T251 relationship directly
-- [ ] Ensure the paper explicitly argues the parallel composition hypothesis does NOT depend on resolving the Chinese-vs-Sanskrit origin debate
-- **Peer review note:** Engagement currently "shallow" — need fuller review of dissenting arguments with direct responses (PEER_REVIEW §Major Concern 5)
+- [x] Address Fukui Fumimasa, Harada Waso, Ishii Kōsei, Dan Lusthaus, Hyun Choo
+- [x] Condensed paper-ready text drafted — see `research/PAPER_DRAFT_SECTIONS.md` §A
+- [x] Ensure the paper explicitly argues the parallel composition hypothesis does NOT depend on resolving the Chinese-vs-Sanskrit origin debate
+- [x] Engage directly with Attwood's T250-as-forgery model with specific response
+- [ ] Consult Fukui's *Hannya shingyō no rekishiteki kenkyū* (般若心経の歴史的研究, 1987) — not translated; flagged as limitation
+- [ ] Integrate condensed text into actual paper draft
+- **Peer review note:** Engagement now substantive; Attwood response directly addresses "deliberate restoration" alternative
 
 ### 2b. Primary Manuscript Collation Evidence
 - [ ] Provide diplomatic transcriptions or images of at least a subset of key witnesses (Dunhuang, Hōryū-ji, Gilgit fragments)
@@ -65,18 +68,23 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 ## High Priority
 
 ### 3. Extend the Epithet Argument to Systematic Passage-by-Passage Comparison
-- [ ] Create systematic passage-by-passage comparison table showing extraction fidelity in both T250 and T251 relative to T223
-- [ ] Determine: Does T250 match T223 exactly in other passages too, or only in the epithets?
-- [ ] If T250 consistently reproduces T223 verbatim while T251 transforms its source, that pattern is far more compelling than a single example
-- **Why important:** Transforms the epithet observation from an illustration into a pattern
+- [x] Create systematic passage-by-passage comparison table — see `research/PASSAGE_COMPARISON.md`
+- [x] Determine: Does T250 match T223 exactly in other passages too? — **Yes, in 8 of 10 sections**
+- [x] Pattern confirmed: T250 consistently reproduces T223; T251 consistently transforms. No exceptions.
+- [ ] Integrate comparison table into paper (Section 2 or new Section 3)
+- **Result:** Epithet observation now demonstrated as systematic pattern across entire text
 
 ### 4. Japanese and Chinese Secondary Literature Review
-- [ ] Search INBUDS (Japanese Buddhist studies article database) for T250/T251 articles
-- [ ] Search CiNii for relevant articles
-- [ ] Consult *Bukkyō Daijiten*
-- [ ] Document search results even if negative ("a search of INBUDS yielded N results, none proposing parallel composition")
-- [ ] Consult Fukui Fumimasa (1987) *Hannya shingyō no rekishiteki kenkyū*
-- **Why important:** Risk of rejection if parallel composition hypothesis was already proposed in Japanese literature
+- [x] Search INBUDS (Japanese Buddhist studies article database) for T250/T251 articles — remote search inconclusive, recommend direct access
+- [x] Search CiNii for relevant articles — no parallel composition proposal found
+- [x] Search J-STAGE — Watanabe (1991) closest but concludes T250 is spurious, not parallel
+- [x] Consult *Bukkyō Daijiten* — no online entry on parallel composition
+- [x] Document search results even if negative — comprehensive report with scholar-by-scholar analysis
+- [ ] Consult Fukui Fumimasa (1987) *Hannya shingyō no rekishiteki kenkyū* — not translated; contents re T250/T251 not fully documented in English
+- [ ] Consult Siu Sai Yau's *Catalogue of Academic Research on Prajñāpāramitāhṛdaya (1912-2013)* directly
+- [ ] Integrate literature review findings into paper Introduction
+- **Key finding:** Parallel composition hypothesis appears novel. Three existing models identified (traditional, reversed/forgery, Indian origin); none proposes parallel extraction from T223.
+- **Caveats:** INBUDS, CNKI not fully searchable remotely. Add qualification in paper.
 - **Peer review note:** Both reviews flag this as a gap that could prompt rejection on its own (PEER_REVIEW §Specific Issue 3)
 
 ---
@@ -84,12 +92,12 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 ## Medium Priority
 
 ### 5. Add Falsifiability Statement and Counterevidence Checklist
-- [ ] State explicitly what evidence would disprove the hypothesis
-- [ ] Examples: an intermediate manuscript with T250's skandha passage but T251's four epithets; evidence that doctrinal deletion was common in 抄經 practice
-- [ ] Provide a formal "counterevidence checklist" specifying what findings would challenge the Chinese-priority hypothesis
-- [ ] Address confirmation bias concern: the project starts from Chinese priority and frames evidence accordingly — need systematic falsification strategy
-- **Why useful:** Demonstrates testable claim rather than unfalsifiable assertion
-- **Peer review note:** Major Concern 3 flags potential confirmation bias; Revision Plan 4 requests formal counterevidence checklist
+- [x] State explicitly what evidence would disprove the hypothesis — 5 falsifying conditions identified
+- [x] Provide formal counterevidence checklist — 6-item table for Chinese-priority framework
+- [x] Address confirmation bias — 5-point response documented
+- [ ] Integrate into paper (Section 5 / Limitations)
+- **Research complete:** See `research/FALSIFIABILITY.md`
+- **Peer review note:** Major Concern 3 addressed
 
 ### 6. Reproducible Collation Pipeline
 - [ ] Implement a reproducible variant-detection or alignment pipeline
@@ -105,10 +113,11 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - **Peer review note:** Specific Issue 2
 
 ### 8. Separate Interpretive Claims from Descriptive Findings
-- [ ] Frame "parallel composition" hypothesis more explicitly as a provisional model, not a firm conclusion
-- [ ] Clearly distinguish descriptive findings (T250 matches T223 here, T251 diverges there) from interpretive claims (therefore they are parallel compositions)
-- [ ] Ensure readers can accept the textual data without necessarily accepting the hypothesis
-- **Peer review note:** Specific Issue 4
+- [x] Frame as provisional model — guidance drafted with recommended language
+- [x] Distinguish descriptive (6 findings) from interpretive (4 claims) — see `research/INTERPRETIVE_DESCRIPTIVE.md`
+- [x] Paper structure recommendation: Sections 2 (descriptive) → 3 (analysis) → 4 (argument) → 5 (limitations)
+- [ ] Apply restructuring to actual paper draft
+- **Peer review note:** Specific Issue 4 addressed
 
 ### 9. Māyā→Śūnyatā Observation
 - [ ] Decide: integrate into argument (does T250 handle māyā/śūnyatā differently from T251?) or remove
@@ -125,15 +134,16 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - **Peer review note:** Minor Concern 1
 
 ### 11. Terminological Precision
-- [ ] Define and operationalize "compositionally prior," "derived," and "back-translation" more carefully
-- [ ] Ensure definitions avoid circular reasoning (e.g., "derived because it shows back-translation features" where "back-translation" presupposes derivation)
-- **Peer review note:** Minor Concern 2
+- [x] Define "compositionally prior," "derived," "back-translation," "digest text," "parallel composition"
+- [x] Circularity note included — evidence distinguished from conclusion
+- [ ] Integrate definitions into paper Methodology section
+- **See:** `research/PAPER_DRAFT_SECTIONS.md` §B
 
 ### 12. Broaden Authority Base
-- [ ] Reduce over-reliance on Nattier and Attwood as primary authorities
-- [ ] Cite additional independent scholars who support or engage with the evidence
-- [ ] Frame analysis as building on but independent from Nattier/Attwood
-- **Peer review note:** Minor Concern 3
+- [x] 8 additional scholars identified beyond Nattier/Attwood (Watanabe, Huifeng, Silk, Funayama, Storch, Tokuno, Buswell, Woncheuk)
+- [x] Framing language drafted to distribute authority
+- [ ] Apply framing to paper citations
+- **See:** `research/PAPER_DRAFT_SECTIONS.md` §C
 
 ### 13. Prose Tightening
 - [ ] Compress by ~20%, reduce repetition
