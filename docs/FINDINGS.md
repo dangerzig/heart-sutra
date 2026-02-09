@@ -219,7 +219,7 @@ The Tibetan zad pa means "exhaustion" (= kṣaya), not "cessation" (= nirodha). 
 
 **Conclusion:** Elaborate Tantric maṅgala is late; simple form is earlier.
 
-**Status:** Confirms Attwood (2021), Huifeng (2014).
+**Status:** Confirms Attwood (2024), Huifeng (2014). See also Attwood (2023) for detailed comparative analysis.
 
 ---
 
@@ -230,12 +230,68 @@ The Tibetan zad pa means "exhaustion" (= kṣaya), not "cessation" (= nirodha). 
 | Error | Conze Reading | Correct Reading | Source |
 |-------|---------------|-----------------|--------|
 | Section I case | pañcaskandhāḥ (nom.) | pañcaskandhāṃs (acc.) | Attwood 2015 |
-| Section VI compound | niṣṭhānirvāṇaprāptaḥ | niṣṭhānirvāṇaḥ | Attwood 2018 |
+| Section VI full stop | acittāvaraṇaḥ. Cittāvaraṇa- | acittāvaraṇaś cittāvaraṇa- | Attwood 2018, 2024 |
+| Section VI compound | niṣṭhānirvāṇaprāptaḥ | niṣṭhānirvāṇaḥ (bahuvrīhi) | Attwood 2018, 2024 |
 | Interpolation included | na-aprāptiḥ | [absent] | Huifeng 2014 |
-| Late mantra form | oṃ gate gate... | gate gate... | Attwood 2021 |
-| Late maṅgala | [elaborate form] | namas sarvajñāya | Attwood 2021 |
+| Interpolation included | yad rūpaṃ sā śūnyatā... | [absent] | Nattier 1992, Attwood 2024 |
+| Late mantra form | oṃ gate gate... | gate gate... | Attwood 2024 |
+| Late maṅgala | Oṃ namo Bhagavatyai... | namas sarvajñāya or [omit] | Attwood 2024 |
+| Extra epithet | mahāvidyāmantro | [omit — absent from Pañc] | Attwood 2024 |
 
-**Status:** Confirms Attwood and Huifeng; consolidates corrections.
+**Status:** Confirms and extends Attwood and Huifeng; consolidates corrections. The 2024 revised edition by Attwood provides the first fully parsable Sanskrit text, correcting all of Conze's grammatical errors.
+
+---
+
+### Confirmation 5: Section-by-Section Comparative Analysis (Attwood 2023)
+
+**Finding:** Attwood's "Heart to Heart" (2023) provides the first comprehensive section-by-section comparison of the Chinese (Xīn jīng) and Sanskrit (Hṛdaya) texts, confirming and extending the back-translation hypothesis.
+
+Key findings incorporated into our analysis:
+
+| Observation | Section | Implication |
+|-------------|---------|-------------|
+| *svabhāvaśūnya* present in Hṛd, absent from Xīn jīng | Opening | Madhyamaka interpolation in Sanskrit |
+| *na pṛthak* "not different" not found in Pañc or Aṣṭa | Core | Back-translation from Chinese *bù yì* 不異 |
+| Subject is *sarvadharmāḥ* (Hṛd) vs. implied *śūnyatā* (Pañc) | All dharmas | Different grammatical structure confirms back-translation |
+| *avidyākṣaya* found nowhere else in Sanskrit literature | Nidānas | Unique expression confirming back-translation |
+| *tryadhvavyavasthitāḥ sarvabuddhāḥ* | Buddhas | Calque from Chinese *sānshì zhū fó* 三世諸佛 |
+| Xīn jīng has *dù yīqiè kǔ è* with no Hṛd counterpart | Opening | Hṛd omission of Chinese material |
+| Epithets: Hṛd has *mantra* where Pañc has *vidyā* | Superlatives | Anachronistic back-translation of 呪/咒 |
+
+**Interpretation:** The differences between Xīn jīng and Hṛdaya are systematic and directional: they consistently arise from the process of translating Chinese into Sanskrit by someone unfamiliar with Prajñāpāramitā idiom. Attwood's phenomenological reading approach — interpreting the text as a commentary on the cessation of sensory experience (*nirodha*) — provides a coherent framework for understanding both versions.
+
+**Status:** Published in *Buddhist Studies Review* 40(2): 159–188. Confirms and significantly extends Nattier (1992).
+
+---
+
+### Confirmation 6: Revised Editions and Chinese Text Corrections (Attwood 2024)
+
+**Finding:** Attwood's "Revised Editions" (2024) presents the first fully parsable revised editions of both the Sanskrit Hṛdaya and the Chinese Xīn jīng, accompanied by fresh English translations and a new "idiomatic Sanskrit translation" showing what the text would look like if passages had been extracted directly from Pañc.
+
+Key corrections to the Chinese Xīn jīng:
+
+| Problem | Current Reading | Proposed Correction | Basis |
+|---------|----------------|---------------------|-------|
+| *wú zhì yì wú dé* 無智亦無得 | "no wisdom and no attainment" | *wú dé wú xiàn guān* 無得無現觀 | Follows Pañc *na prāptir nābhisamayaḥ* via Xuanzang's T220 |
+| *yǐwúsuǒdégù* 以無所得故 punctuation | Starts new paragraph | Qualifies end of preceding negated lists | Pañc idiom places *anupalambhayogena* sentence-finally |
+| *míngzhòu* 明咒 shortened to 咒 | 是無上咒、是無等等咒 | Restore 明咒 throughout | Matches T223 epithets passage |
+| *sēng shā hē* 僧莎訶 for *svāhā* | Taishō reading | *sà pó hē* 薩婆訶 | Fangshan stele, medieval Tripiṭaka editions |
+
+Key corrections to the Sanskrit Hṛdaya:
+
+| Problem | Current Reading | Proposed Correction | Basis |
+|---------|----------------|---------------------|-------|
+| Nominative case | *pañcaskandhāḥ* | *pañcaskandhāṃs* (acc.) | Object of *vyavalokayati sma* |
+| Wrongly placed full stop | *acittāvaraṇaḥ.* | Remove full stop; one continuous sentence | *niṣṭhānirvāṇaḥ* is bahuvrīhi adj. |
+| *yad rūpaṃ* interpolation | Included | Omit | Absent from Chinese, most witnesses |
+| *na-aprāptiḥ* interpolation | Included | Omit | Absent from Pañc; creates false paradox |
+| *oṃ* in dhāraṇī | Included | Omit | Late Tantric addition |
+| *maṅgala* | Elaborate Tantric form | Omit or use *namas sarvajñāya* | Absent from Chinese; late Nepalese |
+| *mahāvidyāmantro* | Included as 4th epithet | Omit | Absent from Pañc; three epithets standard |
+
+**Significance:** The revised editions demonstrate that the standard received texts of both the Chinese and Sanskrit Heart Sūtra contain errors and interpolations that have accumulated over centuries. Correcting these produces texts that are, for the first time, fully parsable in both languages.
+
+**Status:** Published in *Asian Literature and Translation* 11(1): 1–42. doi: 10.18573/alt.63.
 
 ---
 
@@ -372,7 +428,9 @@ Attwood, Jayarava (2017). 'Epithets of the Mantra.' *JOCBS* 12: 26-57.
 
 Attwood, Jayarava (2018). 'A Note on Niṣṭhānirvāṇaḥ.' *JOCBS* 14: 10-17.
 
-Attwood, Jayarava (2021). 'Revised Editions.' Draft.
+Attwood, Jayarava (2023). 'Heart to Heart: A Comparative Study of and Commentary on the Chinese and Sanskrit Heart Sutra Texts.' *Buddhist Studies Review* 40(2): 159-188.
+
+Attwood, Jayarava (2024). 'Revised Editions of the Prajñāpāramitāhṛdaya and Bānrěbōluómìduō xīn jīng.' *Asian Literature and Translation* 11(1): 1-42.
 
 Huifeng (2014). 'Apocryphal Treatment.' *JOCBS* 6: 72-105.
 

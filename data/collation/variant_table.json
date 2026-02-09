@@ -1,7 +1,7 @@
 {
   "id": "variant_collation",
   "title": "Collation of Key Textual Variants",
-  "description": "This table collates significant textual variants across all witnesses of the Heart Sutra. Following Nattier (1992) and Attwood (2015, 2021), these variants help establish the stemmatic relationships between witnesses and identify later interpolations.",
+  "description": "This table collates significant textual variants across all witnesses of the Heart Sutra. Following Nattier (1992) and Attwood (2015, 2024), these variants help establish the stemmatic relationships between witnesses and identify later interpolations.",
   "methodology": {
     "base_text": "T251 (Xuanzang attribution, ca. 649-656 CE) as earliest datable witness",
     "principle": "Chinese compositional priority (Nattier 1992) - Sanskrit is back-translation from Chinese",
@@ -38,7 +38,7 @@
         "Ja": {"text": "namas sarvajñāya", "note": "Simple salutation to Omniscient One"},
         "Na-Ne": {"text": "Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai!", "note": "Elaborate Tantric salutation to Goddess"}
       },
-      "analysis": "The simple 'namas sarvajñāya' in Hōryūji is original; the elaborate Tantric maṅgala in Nepalese MSS is a late interpolation reflecting Vajrayāna influence (Attwood 2021).",
+      "analysis": "The simple 'namas sarvajñāya' in Hōryūji is original; the elaborate Tantric maṅgala in Nepalese MSS is a late interpolation reflecting Vajrayāna influence (Attwood 2024).",
       "stemmatic_significance": "high"
     },
     {
@@ -120,9 +120,9 @@
         "Ne": {"text": "oṃ gate gate...", "note": "Has oṃ"},
         "Na": {"text": "gate gate...", "note": "No oṃ"}
       },
-      "analysis": "The oṃ is absent from all early witnesses (T251, Fangshan, Hōryūji, T256, most Nepalese MSS). Only T257 (from late Tantric source) and late Nepalese MSS Nb and Ne include it. This is a Tantric interpolation based on the convention that all mantras begin with oṃ (Attwood 2021).",
+      "analysis": "The oṃ is absent from all early witnesses (T251, Fangshan, Hōryūji, T256, most Nepalese MSS). Only T257 (from late Tantric source) and late Nepalese MSS Nb and Ne include it. This is a Tantric interpolation based on the convention that all mantras begin with oṃ (Attwood 2024).",
       "stemmatic_significance": "high",
-      "scholarly_ref": "Attwood (2021) 'Revised Editions' Section 3.2"
+      "scholarly_ref": "Attwood (2024) 'Revised Editions' Section 3.2"
     },
     {
       "id": "VAR-007",
@@ -325,7 +325,7 @@
     "Nattier, Jan (1992). 'The Heart Sūtra: a Chinese apocryphal text?' JIABS 15(2): 153-223.",
     "Attwood, Jayarava (2015). 'Heart Murmurs: Some Problems with Conze's Prajñāpāramitāhṛdaya.' JOCBS 8: 28-48.",
     "Attwood, Jayarava (2018a). 'A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.' JOCBS 14: 10-17.",
-    "Attwood, Jayarava (2021). 'Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng.' Draft.",
+    "Attwood, Jayarava (2024). 'Revised Editions of the Prajñāpāramitāhṛdaya and Bānrěbōluómìduō xīn jīng.' Asian Literature and Translation 11(1): 1-42.",
     "Huifeng (2014). 'Apocryphal Treatment for Conze's Heart Problems.' JOCBS 6: 72-105.",
     "Conze, Edward (1967). 'The Prajñāpāramitā-Hṛdaya Sūtra.' In Thirty Years of Buddhist Studies, pp. 147-167.",
     "Silk, Jonathan (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions.' WSTB 34."

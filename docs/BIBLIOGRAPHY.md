@@ -96,7 +96,9 @@ Attwood, Jayarava. 2018. "A Note on Niṣṭhānirvāṇaḥ in the Heart Sutra.
 
 Attwood, Jayarava. 2019. "The Buddhas of the Three Times and the Chinese Origins of the Heart Sutra." *Journal of the Oxford Centre for Buddhist Studies* 16: 9–41.
 
-Attwood, Jayarava. 2021. "Revised Editions of the Prajñāpāramitāhṛdaya and the Xīnjīng." Unpublished draft.
+Attwood, Jayarava. 2023. "Heart to Heart: A Comparative Study of and Commentary on the Chinese and Sanskrit Heart Sutra Texts." *Buddhist Studies Review* 40 (2): 159–188.
+
+Attwood, Jayarava. 2024. "Revised Editions of the Prajñāpāramitāhṛdaya and Bānrěbōluómìduō xīn jīng." *Asian Literature and Translation* 11 (1): 1–42.
 
 Conze, Edward. 1948. "Text, Sources and Bibliography of the Prajñāpāramitā-hṛdaya." *Journal of the Royal Asiatic Society* 80 (1–2): 33–51.
 

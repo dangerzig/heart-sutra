@@ -24,7 +24,7 @@ Jan Nattier's landmark article argued that the Heart Sūtra was composed in Chin
 
 4. **Dating**: The earliest dated witness is Chinese (Fangshan, 661 CE); the earliest Sanskrit manuscript (Hōryūji) dates to the 7th-8th century.
 
-This thesis has gained substantial scholarly acceptance over the past three decades, including support from Attwood (2015-2021), Huifeng (2014), and others.
+This thesis has gained substantial scholarly acceptance over the past three decades, including support from Attwood (2015-2024), Huifeng (2014), and others.
 
 ### Critics of the Chinese Composition Thesis
 
@@ -99,7 +99,10 @@ Several scholars have questioned Nattier's conclusions:
 
 The following paragraph can be adapted for the paper's Introduction or Discussion section:
 
-> **Scholarly Context.** This paper builds on Jan Nattier's (1992) analysis of the Heart Sūtra as a Chinese composition, a thesis that has gained substantial scholarly support (Attwood 2015-2021, Huifeng 2014) while remaining debated. Scholars including Fukui Fumimasa, Harada Waso, Ishii Kōsei, and Dan Lusthaus have raised objections based on linguistic interpretation, historical accounts, and 7th-century commentarial evidence. We acknowledge that the Chinese-vs-Sanskrit origin question remains contested.
+> **Scholarly Context.** This paper builds on Jan Nattier's (1992) analysis of the Heart Sūtra as a Chinese composition, a thesis that has gained substantial scholarly support (Attwood 2015-2024, Huifeng 2014) while remaining debated. Scholars including Fukui Fumimasa, Harada Waso, Ishii Kōsei, and Dan Lusthaus have raised objections based on linguistic interpretation, historical accounts, and 7th-century commentarial evidence. We acknowledge that the Chinese-vs-Sanskrit origin question remains contested.
+>
+>
+> The case for Chinese compositional priority has been significantly strengthened by Attwood's comprehensive section-by-section comparison of the Chinese and Sanskrit texts (2023), which identifies numerous systematic differences arising from the back-translation process, and by his revised editions of both texts (2024), which for the first time produce fully parsable versions in both languages.
 >
 > However, the parallel composition hypothesis advanced here does not require definitively resolving this broader debate. Whether the Heart Sūtra was originally composed in Chinese or translated from Sanskrit, the relationship between T250 and T251—two Chinese short-recension texts with documented differences—can be assessed on independent grounds. The evidence we present (systematic terminology differences, T223 extraction patterns, unique T250 passages) bears on the T250/T251 relationship specifically. Our hypothesis is compatible with either position on the ultimate origin question: it proposes that T250 and T251 represent parallel compositional efforts, not successive revisions, regardless of whether either derived from an earlier Sanskrit source.
 
