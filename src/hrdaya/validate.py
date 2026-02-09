@@ -75,33 +75,59 @@ def validate_data_dir(data_dir: Path) -> dict[str, list[str]]:
     """
     Validate all witness files in a data directory.
 
+    Scans all known subdirectories for JSON witness files.
+
     Returns:
         Dict mapping file paths to lists of errors
     """
     results = {}
 
-    # Chinese witnesses
-    chinese_dir = data_dir / "chinese" / "taisho"
-    if chinese_dir.exists():
-        for f in chinese_dir.glob("*.json"):
-            errors = validate_witness_file(f, "chinese")
-            if errors:
-                results[str(f)] = errors
+    # Chinese witness directories
+    chinese_dirs = [
+        data_dir / "chinese" / "taisho",
+        data_dir / "chinese" / "dunhuang",
+        data_dir / "chinese" / "epigraphy",
+        data_dir / "chinese" / "manuscripts",
+    ]
+    for d in chinese_dirs:
+        if d.exists():
+            for f in d.glob("*.json"):
+                errors = validate_witness_file(f, "chinese")
+                if errors:
+                    results[str(f)] = errors
 
-    # Sanskrit witnesses
-    sanskrit_dir = data_dir / "sanskrit" / "gretil"
-    if sanskrit_dir.exists():
-        for f in sanskrit_dir.glob("*.json"):
-            errors = validate_witness_file(f, "sanskrit")
-            if errors:
-                results[str(f)] = errors
+    # Sanskrit witness directories
+    sanskrit_dirs = [
+        data_dir / "sanskrit" / "gretil",
+        data_dir / "sanskrit" / "manuscripts",
+    ]
+    for d in sanskrit_dirs:
+        if d.exists():
+            for f in d.glob("*.json"):
+                errors = validate_witness_file(f, "sanskrit")
+                if errors:
+                    results[str(f)] = errors
 
-    # Tibetan witnesses
-    tibetan_dir = data_dir / "tibetan" / "kangyur"
-    if tibetan_dir.exists():
-        for f in tibetan_dir.glob("*.json"):
-            errors = validate_witness_file(f, "tibetan")
-            if errors:
-                results[str(f)] = errors
+    # Tibetan witness directories
+    tibetan_dirs = [
+        data_dir / "tibetan" / "kangyur",
+    ]
+    for d in tibetan_dirs:
+        if d.exists():
+            for f in d.glob("*.json"):
+                errors = validate_witness_file(f, "tibetan")
+                if errors:
+                    results[str(f)] = errors
+
+    # Collation data (not a witness, but validate JSON structure)
+    collation_dir = data_dir / "collation"
+    if collation_dir.exists():
+        for f in collation_dir.glob("*.json"):
+            try:
+                import json
+                with open(f, 'r', encoding='utf-8') as fh:
+                    json.load(fh)
+            except json.JSONDecodeError as e:
+                results[str(f)] = [f"Invalid JSON in {f.name}: {e}"]
 
     return results

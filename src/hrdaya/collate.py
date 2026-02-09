@@ -261,6 +261,18 @@ class HeartSutraCollator:
 
         return False
 
+    def _get_available_chinese_witnesses(self) -> list[str]:
+        """Return IDs of Chinese witnesses with data files on disk."""
+        available = []
+        taisho_dir = self.chinese_dir / "taisho"
+        if taisho_dir.exists():
+            for f in taisho_dir.glob("*.json"):
+                # Normalize to canonical form (e.g., T251, t250 -> T250)
+                stem = f.stem
+                wid = stem if stem[0] == "T" else stem.upper()
+                available.append(wid)
+        return sorted(available)
+
     def _is_extraction_artifact(self, text: str) -> bool:
         """Check if reading shows extraction from larger PP text."""
         # Phrases that indicate extraction from larger Prajñāpāramitā
@@ -278,6 +290,7 @@ class HeartSutraCollator:
         chinese_witness: str = DEFAULT_CHINESE,
         sanskrit_witness: str = DEFAULT_SANSKRIT,
         tibetan_witness: str = DEFAULT_TIBETAN,
+        alternate_chinese: list[str] | None = None,
     ) -> list[CollationResult]:
         """
         Collate a section across all traditions.
@@ -287,6 +300,8 @@ class HeartSutraCollator:
             chinese_witness: Chinese witness ID (default T251)
             sanskrit_witness: Sanskrit witness ID (default GRETIL)
             tibetan_witness: Tibetan witness ID (default Toh21)
+            alternate_chinese: Additional Chinese witnesses to compare
+                (default: all from CHINESE_WITNESSES except the base)
 
         Returns:
             List of CollationResult objects
@@ -318,7 +333,7 @@ class HeartSutraCollator:
             if s.get("section") == section_name
         ]
 
-        for c_seg in chinese_segs:
+        for seg_index, c_seg in enumerate(chinese_segs):
             seg_id = c_seg.get("id")
 
             # Find corresponding Sanskrit segment
@@ -359,7 +374,7 @@ class HeartSutraCollator:
                     if vtype != VariantType.ORTHOGRAPHIC:
                         result.variants.append(Variant(
                             segment_id=seg_id,
-                            position=0,
+                            position=-1,
                             base_reading=c_seg.get("text", ""),
                             variant_reading=s_text,
                             variant_type=vtype,
@@ -373,29 +388,38 @@ class HeartSutraCollator:
                 result.tibetan_texts[tibetan_witness] = t_seg.get("tibetan", "")
 
             # Load alternate Chinese witnesses and detect inter-Chinese variants
-            for alt_id in ["T250", "T257"]:
-                if alt_id == chinese_witness:
-                    continue
+            alt_ids = alternate_chinese if alternate_chinese is not None else [
+                wid for wid in self._get_available_chinese_witnesses()
+                if wid != chinese_witness
+            ]
+            for alt_id in alt_ids:
                 try:
                     alt = self.load_chinese_witness(alt_id)
                 except FileNotFoundError:
                     continue
+                # Build index: section -> list of segments (preserving order)
+                alt_by_section: dict[str, list[dict]] = {}
                 for alt_seg in alt.get("segments", []):
-                    if alt_seg.get("section") == section_name:
-                        alt_text = alt_seg.get("text", "")
-                        result.chinese_texts[alt_id] = alt_text
-                        if alt_text != c_seg.get("text", ""):
-                            result.variants.append(Variant(
-                                segment_id=seg_id,
-                                position=0,
-                                base_reading=c_seg.get("text", ""),
-                                variant_reading=alt_text,
-                                variant_type=VariantType.DISTINCTIVE_READING,
-                                dependence=DependenceDirection.UNCERTAIN,
-                                base_witnesses=[chinese_witness],
-                                variant_witnesses=[alt_id],
-                            ))
-                        break
+                    alt_by_section.setdefault(
+                        alt_seg.get("section"), []
+                    ).append(alt_seg)
+                # Match by section name and position within section
+                alt_segs_in_section = alt_by_section.get(section_name, [])
+                if seg_index < len(alt_segs_in_section):
+                    alt_seg = alt_segs_in_section[seg_index]
+                    alt_text = alt_seg.get("text", "")
+                    result.chinese_texts[alt_id] = alt_text
+                    if alt_text != c_seg.get("text", ""):
+                        result.variants.append(Variant(
+                            segment_id=seg_id,
+                            position=-1,
+                            base_reading=c_seg.get("text", ""),
+                            variant_reading=alt_text,
+                            variant_type=VariantType.DISTINCTIVE_READING,
+                            dependence=DependenceDirection.UNCERTAIN,
+                            base_witnesses=[chinese_witness],
+                            variant_witnesses=[alt_id],
+                        ))
 
             results.append(result)
 
@@ -492,15 +516,35 @@ def collate_full_text(data_dir: Path) -> dict:
     }
 
 
+def _resolve_data_dir(argv_dir: str | None = None) -> Path:
+    """Resolve data directory from argument or default locations."""
+    if argv_dir:
+        p = Path(argv_dir)
+        if p.is_dir():
+            return p
+        raise SystemExit(f"Error: data directory not found: {p}")
+
+    # Try relative to source tree (development)
+    dev_path = Path(__file__).parent.parent.parent / "data"
+    if dev_path.is_dir():
+        return dev_path
+
+    # Try current working directory
+    cwd_path = Path.cwd() / "data"
+    if cwd_path.is_dir():
+        return cwd_path
+
+    raise SystemExit(
+        "Error: cannot find data directory. "
+        "Pass the path as an argument: hrdaya-collate /path/to/data"
+    )
+
+
 def main():
     """CLI entry point for collation."""
     import sys
 
-    if len(sys.argv) > 1:
-        data_dir = Path(sys.argv[1])
-    else:
-        data_dir = Path(__file__).parent.parent.parent / "data"
-
+    data_dir = _resolve_data_dir(sys.argv[1] if len(sys.argv) > 1 else None)
     results = collate_full_text(data_dir)
 
     # Output as JSON

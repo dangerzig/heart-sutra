@@ -122,8 +122,8 @@ def devanagari_to_iast(text: str) -> str:
         # Check for virāma (halant) - removes inherent 'a'
         if char == '्':
             # Remove the trailing 'a' from previous consonant
-            if result and result[-1] == 'a':
-                result.pop()
+            if result and result[-1].endswith('a'):
+                result[-1] = result[-1][:-1]
             i += 1
             continue
 
@@ -132,8 +132,8 @@ def devanagari_to_iast(text: str) -> str:
             trans = DEVANAGARI_TO_IAST[char]
             # Vowel marks replace the inherent 'a'
             if char in 'ािीुूृॄॢॣेैोौ':
-                if result and result[-1] == 'a':
-                    result.pop()
+                if result and result[-1].endswith('a'):
+                    result[-1] = result[-1][:-1]
             result.append(trans)
         elif char.isspace() or char in '.,!?:;-–—\'\"()[]{}':
             result.append(char)

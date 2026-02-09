@@ -11,6 +11,7 @@ Generates side-by-side views of:
 import json
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from html import escape as html_escape
 from pathlib import Path
 from typing import Optional
 
@@ -139,6 +140,11 @@ class SynopticBuilder:
         """
         # Load witnesses
         chinese = self.load_witness("chinese", chinese_id)
+        if not chinese or not chinese.get("segments"):
+            raise ValueError(
+                f"Base Chinese witness '{chinese_id}' not found or has no segments. "
+                f"Check that data/{chinese_id}.json exists."
+            )
         sanskrit = self.load_witness("sanskrit", sanskrit_id)
         tibetan = self.load_witness("tibetan", tibetan_id)
 
@@ -308,7 +314,7 @@ class SynopticBuilder:
             "<html lang='en'>",
             "<head>",
             "  <meta charset='UTF-8'>",
-            f"  <title>{alignment.title}</title>",
+            f"  <title>{html_escape(alignment.title)}</title>",
             "  <style>",
             "    body { font-family: 'Noto Sans', sans-serif; margin: 2em; }",
             "    .synoptic-table { width: 100%; border-collapse: collapse; }",
@@ -351,28 +357,28 @@ class SynopticBuilder:
                     f"<td colspan='5'>{section_title}</td></tr>"
                 )
 
-            # Data row
-            chinese_cell = f"<span class='chinese'>{row.chinese}</span>"
+            # Data row (all text values HTML-escaped)
+            chinese_cell = f"<span class='chinese'>{html_escape(row.chinese)}</span>"
             if row.chinese_pinyin:
-                chinese_cell += f"<br><span class='pinyin'>{row.chinese_pinyin}</span>"
+                chinese_cell += f"<br><span class='pinyin'>{html_escape(row.chinese_pinyin)}</span>"
 
             sanskrit_cell = ""
             if row.sanskrit_devanagari:
-                sanskrit_cell += f"<span class='sanskrit'>{row.sanskrit_devanagari}</span><br>"
+                sanskrit_cell += f"<span class='sanskrit'>{html_escape(row.sanskrit_devanagari)}</span><br>"
             if row.sanskrit_iast:
-                sanskrit_cell += f"<span class='iast'>{row.sanskrit_iast}</span>"
+                sanskrit_cell += f"<span class='iast'>{html_escape(row.sanskrit_iast)}</span>"
 
             tibetan_cell = ""
             if row.tibetan:
-                tibetan_cell += f"<span class='tibetan'>{row.tibetan}</span>"
+                tibetan_cell += f"<span class='tibetan'>{html_escape(row.tibetan)}</span>"
             if row.tibetan_wylie:
-                tibetan_cell += f"<br><span class='wylie'>{row.tibetan_wylie}</span>"
+                tibetan_cell += f"<br><span class='wylie'>{html_escape(row.tibetan_wylie)}</span>"
 
-            english_cell = row.english
+            english_cell = html_escape(row.english)
             if row.divergence_notes:
                 english_cell += "<div class='notes'>"
                 for note in row.divergence_notes:
-                    english_cell += f"<br>• {note}"
+                    english_cell += f"<br>• {html_escape(note)}"
                 english_cell += "</div>"
 
             html_parts.append(
@@ -467,13 +473,43 @@ def build_synoptic(data_dir: Path, output_format: str = "markdown") -> str:
         raise ValueError(f"Unknown format: {output_format}")
 
 
+def _resolve_data_dir(argv_dir: str | None = None) -> Path:
+    """Resolve data directory from argument or default locations."""
+    if argv_dir:
+        p = Path(argv_dir)
+        if p.is_dir():
+            return p
+        raise SystemExit(f"Error: data directory not found: {p}")
+
+    dev_path = Path(__file__).parent.parent.parent / "data"
+    if dev_path.is_dir():
+        return dev_path
+
+    cwd_path = Path.cwd() / "data"
+    if cwd_path.is_dir():
+        return cwd_path
+
+    raise SystemExit(
+        "Error: cannot find data directory. "
+        "Usage: hrdaya-synoptic [format] [data_dir]"
+    )
+
+
 def main():
     """CLI entry point for synoptic alignment."""
     import sys
 
-    data_dir = Path(__file__).parent.parent.parent / "data"
-    output_format = sys.argv[1] if len(sys.argv) > 1 else "markdown"
+    args = sys.argv[1:]
+    output_format = "markdown"
+    data_arg = None
 
+    for arg in args:
+        if arg in ("markdown", "html", "json"):
+            output_format = arg
+        else:
+            data_arg = arg
+
+    data_dir = _resolve_data_dir(data_arg)
     print(build_synoptic(data_dir, output_format))
 
 

@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """
 Generate synoptic alignment outputs for the Heart Sūtra critical edition.
+
+Requires the hrdaya package to be installed:
+    pip install -e .
+Or run with PYTHONPATH:
+    PYTHONPATH=src python scripts/generate_synoptic.py
 """
 
-import sys
 from pathlib import Path
-
-# Add src to path for direct script execution
-src_dir = Path(__file__).parent.parent / "src"
-if str(src_dir) not in sys.path:
-    sys.path.insert(0, str(src_dir))
 
 from hrdaya.synoptic import SynopticBuilder
 

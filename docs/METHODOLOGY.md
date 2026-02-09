@@ -175,6 +175,98 @@ This edition clearly states:
 
 The goal is not to resolve all questions, but to **stabilize scholarly discussion** with transparent methods and evidence.
 
+## 13. Reproducible Collation Pipeline
+
+The edition is supported by a computational pipeline that makes the chain from source data to scholarly claims explicit and reproducible.
+
+### Data Layer
+
+Witness texts are stored as structured JSON files under `data/`:
+
+```
+data/
+├── chinese/
+│   ├── taisho/          # T250.json, T251.json, T256.json, T257.json
+│   ├── dunhuang/        # dunhuang_manuscripts.json (catalog)
+│   └── epigraphy/       # fangshan_stele.json (661 CE)
+├── sanskrit/
+│   └── gretil/          # prajnaparamitahrdaya.json (IAST + Devanagari)
+├── tibetan/
+│   └── kangyur/         # toh21.json (Degé Kangyur)
+└── collation/
+    └── variant_table.json  # Pre-identified critical variants
+```
+
+Each witness file contains `segments` — discrete text units aligned by section and position. Segments carry parallel references (`chinese_parallel`) enabling cross-linguistic alignment.
+
+### Collation Engine (`hrdaya.collate`)
+
+The collation engine takes T251 as the analytical base and aligns witnesses in three dimensions:
+
+1. **Inter-Chinese collation**: T251 vs T250 (and other Taishō witnesses) — matched by section name and segment position within section
+2. **Cross-linguistic alignment**: Chinese segments matched to Sanskrit and Tibetan via `chinese_parallel` references
+3. **Variant detection**: Automated classification of differences using the criteria in `research/VARIANT_CLASSIFICATION_CRITERIA.md`
+
+**Variant detection steps:**
+- Orthographic check: normalize (strip diacritics, lowercase), compare with SequenceMatcher (threshold > 0.9)
+- Back-translation check: compare Sanskrit against standard Prajnaparamita vocabulary (kṣaya/nirodha indicators)
+- Extraction artifact check: scan for dialogue markers and honorifics from larger PP texts
+- Default: distinctive reading with uncertain direction of dependence
+
+### Synoptic Alignment (`hrdaya.synoptic`)
+
+The synoptic builder generates parallel presentations in three formats:
+- **Markdown**: Human-readable, suitable for paper appendix
+- **HTML**: Parallel-column table for interactive viewing
+- **JSON**: Machine-readable with full provenance metadata
+
+### Validation (`hrdaya.validate`)
+
+All JSON witness files are validated against expected schemas:
+- Chinese segments require: `id`, `section`, `text`
+- Sanskrit segments require: `id`, `section`, `iast`
+- Tibetan segments require: `id`, `section`, `tibetan`
+
+### Reproducibility
+
+All outputs include provenance metadata:
+```json
+{
+  "provenance": {
+    "generated": "2026-02-08T...",
+    "tool": "hrdaya.collate",
+    "version": "1.0.0",
+    "base_witness": "T251"
+  }
+}
+```
+
+To reproduce from source:
+```bash
+# Install
+pip install -e .
+
+# Run collation
+hrdaya-collate > collation_output.json
+
+# Generate synoptic alignment
+hrdaya-synoptic markdown > synoptic.md
+hrdaya-synoptic html > synoptic.html
+hrdaya-synoptic json > synoptic.json
+
+# Validate data files
+python -c "from hrdaya.validate import validate_data_dir; from pathlib import Path; print(validate_data_dir(Path('data')))"
+
+# Run tests (61 tests)
+PYTHONPATH=src pytest tests/ -v
+```
+
+### Limitations
+
+- The pipeline operates on **published editions**, not primary manuscripts (see `research/PRIMARY_MANUSCRIPT_LIMITATIONS.md`)
+- Variant classification uses heuristic rules, not a trained model; results should be reviewed by a scholar
+- Cross-linguistic alignment relies on pre-annotated `chinese_parallel` references, not automatic alignment
+
 ## Summary
 
 A genuinely modern critical edition of the Heart Sūtra is:
