@@ -1,6 +1,8 @@
 # Paper TODOs: Parallel Compositions Paper
 
-## Source: response paper.docx (February 2026)
+## Sources
+- `response paper.docx` (February 2026) — internal review
+- `working/PEER_REVIEW.md` — simulated academic peer review
 
 Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 
@@ -21,6 +23,14 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - [ ] Integrate a condensed version into the paper's Introduction or Discussion section
 - [ ] Consult Fukui's *Hannya shingyō no rekishiteki kenkyū* (般若心経の歴史的研究, 1987) — most important single work; may address T250/T251 relationship directly
 - [ ] Ensure the paper explicitly argues the parallel composition hypothesis does NOT depend on resolving the Chinese-vs-Sanskrit origin debate
+- **Peer review note:** Engagement currently "shallow" — need fuller review of dissenting arguments with direct responses (PEER_REVIEW §Major Concern 5)
+
+### 2b. Primary Manuscript Collation Evidence
+- [ ] Provide diplomatic transcriptions or images of at least a subset of key witnesses (Dunhuang, Hōryū-ji, Gilgit fragments)
+- [ ] Show collation steps from primary sources, not just published editions
+- [ ] Consider a primary-manuscript appendix with direct evidence for highest-stakes claims
+- **Why critical:** Peer review identifies this as the #1 concern — reliance on published editions and digital texts is a serious limitation for a critical edition claiming new textual history (PEER_REVIEW §Major Concern 1)
+- **Practical constraint:** Physical manuscript access is limited; note honestly what has and hasn't been consulted directly
 
 ---
 
@@ -39,17 +49,40 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - [ ] Document search results even if negative ("a search of INBUDS yielded N results, none proposing parallel composition")
 - [ ] Consult Fukui Fumimasa (1987) *Hannya shingyō no rekishiteki kenkyū*
 - **Why important:** Risk of rejection if parallel composition hypothesis was already proposed in Japanese literature
+- **Peer review note:** Both reviews flag this as a gap that could prompt rejection on its own (PEER_REVIEW §Specific Issue 3)
 
 ---
 
 ## Medium Priority
 
-### 5. Add Falsifiability Statement
+### 5. Add Falsifiability Statement and Counterevidence Checklist
 - [ ] State explicitly what evidence would disprove the hypothesis
 - [ ] Examples: an intermediate manuscript with T250's skandha passage but T251's four epithets; evidence that doctrinal deletion was common in 抄經 practice
+- [ ] Provide a formal "counterevidence checklist" specifying what findings would challenge the Chinese-priority hypothesis
+- [ ] Address confirmation bias concern: the project starts from Chinese priority and frames evidence accordingly — need systematic falsification strategy
 - **Why useful:** Demonstrates testable claim rather than unfalsifiable assertion
+- **Peer review note:** Major Concern 3 flags potential confirmation bias; Revision Plan 4 requests formal counterevidence checklist
 
-### 6. Māyā→Śūnyatā Observation
+### 6. Reproducible Collation Pipeline
+- [ ] Implement a reproducible variant-detection or alignment pipeline
+- [ ] Ensure outputs are generated from a clearly defined, versioned data pipeline
+- [ ] Document the computational chain from sources to claims in `docs/METHODOLOGY.md`
+- [ ] Move findings from narrative synthesis toward reproducible critical edition
+- **Peer review note:** Major Concern 2 — without this, findings read as narrative synthesis rather than reproducible critical edition; Revision Plan 1
+
+### 7. Formalize Variant Classification Logic
+- [ ] Define explicit, replicable criteria for variant classifications (orthographic, back-translation, extraction artifact)
+- [ ] Provide worked examples across multiple witnesses for each classification type
+- [ ] Ensure another scholar could apply the same criteria and reach the same classifications
+- **Peer review note:** Specific Issue 2
+
+### 8. Separate Interpretive Claims from Descriptive Findings
+- [ ] Frame "parallel composition" hypothesis more explicitly as a provisional model, not a firm conclusion
+- [ ] Clearly distinguish descriptive findings (T250 matches T223 here, T251 diverges there) from interpretive claims (therefore they are parallel compositions)
+- [ ] Ensure readers can accept the textual data without necessarily accepting the hypothesis
+- **Peer review note:** Specific Issue 4
+
+### 9. Māyā→Śūnyatā Observation
 - [ ] Decide: integrate into argument (does T250 handle māyā/śūnyatā differently from T251?) or remove
 - [ ] If no T250/T251 difference exists, save for separate publication
 - **Current status:** In Discussion section; does not directly support the parallel composition hypothesis
@@ -58,7 +91,23 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 
 ## Lower Priority
 
-### 7. Prose Tightening
+### 10. Dating Methodology Discussion
+- [ ] Add methodological discussion of dating reliability and confidence bounds for key witnesses
+- [ ] Address which claims depend on dating and how sensitive they are to dating uncertainty
+- **Peer review note:** Minor Concern 1
+
+### 11. Terminological Precision
+- [ ] Define and operationalize "compositionally prior," "derived," and "back-translation" more carefully
+- [ ] Ensure definitions avoid circular reasoning (e.g., "derived because it shows back-translation features" where "back-translation" presupposes derivation)
+- **Peer review note:** Minor Concern 2
+
+### 12. Broaden Authority Base
+- [ ] Reduce over-reliance on Nattier and Attwood as primary authorities
+- [ ] Cite additional independent scholars who support or engage with the evidence
+- [ ] Frame analysis as building on but independent from Nattier/Attwood
+- **Peer review note:** Minor Concern 3
+
+### 13. Prose Tightening
 - [ ] Compress by ~20%, reduce repetition
 - [ ] Consolidate "deletion is unlikely" argument (currently in Section 2.3, restated in 4.2, implied in 5.1)
 - [ ] Consolidate terminological consistency observation (Section 4 and Discussion)
@@ -84,4 +133,4 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 
 ---
 
-*Extracted from response paper.docx, February 2026*
+*Extracted from response paper.docx and working/PEER_REVIEW.md, February 2026*
