@@ -77,7 +77,7 @@ The project starts from the Chinese-priority framework and frames evidence accor
 
 3. **We acknowledge the strongest alternative.** Attwood's model (T250 as later deliberate restoration from T223) accounts for the same textual facts. We argue parallel composition is more parsimonious, but we do not claim Attwood's model is impossible.
 
-4. **We note limitations in our evidence base.** INBUDS, CNKI, and Siu Sai Yau's catalogue were not exhaustively searched. Fukui (1987) was not consulted in the original Japanese. We flag these gaps transparently.
+4. **We note limitations in our evidence base.** A targeted search of CJK-language scholarship was conducted (February 2026), covering 9 scholars across Japanese, Chinese, and Korean traditions — see `docs/BIBLIOGRAPHY.md` (CJK-Language Scholarship section) and `research/ENGAGEMENT_WITH_CRITICS.md`. Fukui (1987/1994/2000), Harada (2002/2010), and Watanabe (2009) were consulted through secondary literature and English-language reviews; Ishii (2015) was read in Kotyk's English translation; Ji Yun (2017) was read in Chin Shih-Foong's English translation. Siu Sai Yau's bibliographic catalogue (2019) was cited as the most comprehensive survey. INBUDS and CNKI were not exhaustively searchable remotely. We flag these gaps transparently.
 
 5. **The systematic pattern is the key evidence.** No single observation proves parallel composition. The cumulative weight of T250 matching T223 in 8 of 10 sections, with 0 sections favoring T251, constitutes a pattern that any competing hypothesis must also explain.
 
