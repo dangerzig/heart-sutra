@@ -14,6 +14,11 @@ CHINESE_SEGMENT_FIELDS = {"id", "section", "text"}
 SANSKRIT_SEGMENT_FIELDS = {"id", "section", "iast"}
 TIBETAN_SEGMENT_FIELDS = {"id", "section", "tibetan"}
 
+# Optional but recognized fields per witness type
+CHINESE_OPTIONAL_FIELDS = {"pinyin", "english_gloss", "variants_from_T251", "chinese_parallel", "notes"}
+SANSKRIT_OPTIONAL_FIELDS = {"devanagari", "chinese_parallel", "note", "english_gloss"}
+TIBETAN_OPTIONAL_FIELDS = {"wylie", "chinese_parallel", "note", "english_gloss"}
+
 
 def validate_witness_file(path: Path, witness_type: str) -> list[str]:
     """
@@ -58,6 +63,7 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
         "tibetan": TIBETAN_SEGMENT_FIELDS,
     }.get(witness_type, CHINESE_SEGMENT_FIELDS)
 
+    seen_ids = set()
     for i, seg in enumerate(segments):
         if not isinstance(seg, dict):
             errors.append(f"{path.name}: segment {i} is not a dict")
@@ -67,6 +73,22 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
             errors.append(
                 f"{path.name}: segment {seg.get('id', i)} missing fields: {missing}"
             )
+
+        # Check for duplicate segment IDs
+        seg_id = seg.get("id")
+        if seg_id is not None:
+            if seg_id in seen_ids:
+                errors.append(f"{path.name}: duplicate segment id '{seg_id}'")
+            seen_ids.add(seg_id)
+
+        # Check that text fields are non-empty strings
+        for field in required:
+            val = seg.get(field)
+            if val is not None and not isinstance(val, str):
+                errors.append(
+                    f"{path.name}: segment {seg.get('id', i)} field '{field}' "
+                    f"should be str, got {type(val).__name__}"
+                )
 
     return errors
 

@@ -284,6 +284,16 @@ class HeartSutraCollator:
         text_lower = text.lower()
         return any(marker in text_lower for marker in extraction_markers)
 
+    @staticmethod
+    def _first_diff_position(base: str, variant: str) -> int:
+        """Return the character index where two strings first diverge, or -1 if identical."""
+        for i, (a, b) in enumerate(zip(base, variant)):
+            if a != b:
+                return i
+        if len(base) != len(variant):
+            return min(len(base), len(variant))
+        return -1
+
     def collate_section(
         self,
         section_name: str,
@@ -327,6 +337,45 @@ class HeartSutraCollator:
         if not chinese:
             raise ValueError("Chinese base text is required for collation")
 
+        # Pre-build Sanskrit and Tibetan indices (by chinese_parallel)
+        sanskrit_by_parallel: dict[str, dict] = {}
+        if sanskrit:
+            for s in sanskrit.get("segments", []):
+                cp = s.get("chinese_parallel")
+                if cp:
+                    sanskrit_by_parallel[cp] = s
+
+        tibetan_by_parallel: dict[str, dict] = {}
+        if tibetan:
+            for t in tibetan.get("segments", []):
+                cp = t.get("chinese_parallel")
+                if cp:
+                    tibetan_by_parallel[cp] = t
+
+        # Determine alternate witness IDs
+        alt_ids = alternate_chinese if alternate_chinese is not None else [
+            wid for wid in self._get_available_chinese_witnesses()
+            if wid != chinese_witness
+        ]
+
+        # Pre-build alternate witness indices (by chinese_parallel, then section+index fallback)
+        alt_indices: dict[str, dict[str, dict]] = {}  # alt_id -> {base_seg_id -> alt_seg}
+        alt_section_indices: dict[str, dict[str, list[dict]]] = {}  # alt_id -> {section -> [segs]}
+        for alt_id in alt_ids:
+            try:
+                alt = self.load_chinese_witness(alt_id)
+            except FileNotFoundError:
+                continue
+            by_parallel: dict[str, dict] = {}
+            by_section: dict[str, list[dict]] = {}
+            for alt_seg in alt.get("segments", []):
+                cp = alt_seg.get("chinese_parallel")
+                if cp:
+                    by_parallel[cp] = alt_seg
+                by_section.setdefault(alt_seg.get("section"), []).append(alt_seg)
+            alt_indices[alt_id] = by_parallel
+            alt_section_indices[alt_id] = by_section
+
         # Get segments for the section
         chinese_segs = [
             s for s in chinese.get("segments", [])
@@ -337,20 +386,10 @@ class HeartSutraCollator:
             seg_id = c_seg.get("id")
 
             # Find corresponding Sanskrit segment
-            s_seg = None
-            if sanskrit:
-                for s in sanskrit.get("segments", []):
-                    if s.get("chinese_parallel") == seg_id:
-                        s_seg = s
-                        break
+            s_seg = sanskrit_by_parallel.get(seg_id)
 
             # Find corresponding Tibetan segment
-            t_seg = None
-            if tibetan:
-                for t in tibetan.get("segments", []):
-                    if t.get("chinese_parallel") == seg_id:
-                        t_seg = t
-                        break
+            t_seg = tibetan_by_parallel.get(seg_id)
 
             # Create collation result
             result = CollationResult(
@@ -387,39 +426,32 @@ class HeartSutraCollator:
             if t_seg:
                 result.tibetan_texts[tibetan_witness] = t_seg.get("tibetan", "")
 
-            # Load alternate Chinese witnesses and detect inter-Chinese variants
-            alt_ids = alternate_chinese if alternate_chinese is not None else [
-                wid for wid in self._get_available_chinese_witnesses()
-                if wid != chinese_witness
-            ]
-            for alt_id in alt_ids:
-                try:
-                    alt = self.load_chinese_witness(alt_id)
-                except FileNotFoundError:
+            # Match alternate Chinese witnesses using chinese_parallel, then section+index fallback
+            for alt_id in alt_indices:
+                alt_seg = alt_indices[alt_id].get(seg_id)
+                if alt_seg is None and alt_id in alt_section_indices:
+                    # Fallback: match by section + index
+                    fallback = alt_section_indices[alt_id].get(section_name, [])
+                    if seg_index < len(fallback):
+                        alt_seg = fallback[seg_index]
+                if alt_seg is None:
                     continue
-                # Build index: section -> list of segments (preserving order)
-                alt_by_section: dict[str, list[dict]] = {}
-                for alt_seg in alt.get("segments", []):
-                    alt_by_section.setdefault(
-                        alt_seg.get("section"), []
-                    ).append(alt_seg)
-                # Match by section name and position within section
-                alt_segs_in_section = alt_by_section.get(section_name, [])
-                if seg_index < len(alt_segs_in_section):
-                    alt_seg = alt_segs_in_section[seg_index]
-                    alt_text = alt_seg.get("text", "")
-                    result.chinese_texts[alt_id] = alt_text
-                    if alt_text != c_seg.get("text", ""):
-                        result.variants.append(Variant(
-                            segment_id=seg_id,
-                            position=-1,
-                            base_reading=c_seg.get("text", ""),
-                            variant_reading=alt_text,
-                            variant_type=VariantType.DISTINCTIVE_READING,
-                            dependence=DependenceDirection.UNCERTAIN,
-                            base_witnesses=[chinese_witness],
-                            variant_witnesses=[alt_id],
-                        ))
+
+                alt_text = alt_seg.get("text", "")
+                result.chinese_texts[alt_id] = alt_text
+                base_text = c_seg.get("text", "")
+                if alt_text != base_text:
+                    pos = self._first_diff_position(base_text, alt_text)
+                    result.variants.append(Variant(
+                        segment_id=seg_id,
+                        position=pos,
+                        base_reading=base_text,
+                        variant_reading=alt_text,
+                        variant_type=VariantType.DISTINCTIVE_READING,
+                        dependence=DependenceDirection.UNCERTAIN,
+                        base_witnesses=[chinese_witness],
+                        variant_witnesses=[alt_id],
+                    ))
 
             results.append(result)
 

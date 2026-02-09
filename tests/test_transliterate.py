@@ -43,6 +43,24 @@ class TestIASTToDevanagari:
         result = iast_to_devanagari("gate gate")
         assert " " in result
 
+    @pytest.mark.parametrize("iast,expected", [
+        ("gate gate pāragate", "गते गते पारगते"),
+        ("bodhi", "बोधि"),
+        ("svāhā", "स्वाहा"),
+        ("prajñā", "प्रज्ञा"),
+        ("śūnyatā", "शून्यता"),
+    ])
+    def test_complex_words(self, iast, expected):
+        assert iast_to_devanagari(iast) == expected
+
+    def test_roundtrip_gate(self):
+        """Test Devanagari→IAST→Devanagari roundtrip."""
+        original = "गते"
+        iast = devanagari_to_iast(original)
+        assert iast == "gate"
+        back = iast_to_devanagari(iast)
+        assert back == original
+
 
 class TestNormalizeIAST:
     """Test IAST normalization."""

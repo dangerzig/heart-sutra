@@ -77,3 +77,33 @@ class TestHeartSutraCollator:
         available = collator._get_available_chinese_witnesses()
         assert "T251" in available
         assert "T250" in available
+
+    def test_alignment_uses_chinese_parallel(self, collator):
+        """Regression: alignment prefers chinese_parallel over section+index."""
+        results = collator.collate_section("mantra_praise", alternate_chinese=["T250"])
+        assert len(results) > 0
+        result = results[0]
+        # T250:11 has chinese_parallel=T251:11 (mantra_praise), verify it matched
+        if "T250" in result.chinese_texts:
+            assert "明呪" in result.chinese_texts["T250"]
+
+    def test_variant_position_is_real_offset(self, collator):
+        """Variants should have a real character offset, not always -1."""
+        results = collator.collate_section("opening", alternate_chinese=["T250"])
+        assert len(results) > 0
+        result = results[0]
+        # T250 opening starts with 觀世音 vs T251 觀自在 — differ at position 1
+        for v in result.variants:
+            if "T250" in v.variant_witnesses:
+                assert v.position >= 0  # real offset, not -1
+
+    def test_no_match_for_unparalleled_section(self, collator):
+        """Sections unique to alternate witnesses should not produce false matches."""
+        # T250 has 'skandha_characteristics' with chinese_parallel=null
+        # When collating T251 sections, this should not appear
+        results = collator.collate_section("opening", alternate_chinese=["T250"])
+        assert len(results) > 0
+        result = results[0]
+        # The result text should be T250's opening, not skandha_characteristics
+        if "T250" in result.chinese_texts:
+            assert "觀世音" in result.chinese_texts["T250"]
