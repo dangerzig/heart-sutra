@@ -29,10 +29,10 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 10. **#6 Reproducible pipeline** ✓ — Pipeline documented in `docs/METHODOLOGY.md` §13. 61 tests pass. CI added.
 11. **#7 Variant classification formalization** ✓ — Formal criteria with worked examples. See `research/VARIANT_CLASSIFICATION_CRITERIA.md`.
 
-### Phase 5: Polish
-12. **#10 Dating methodology** — Brief section, write late.
-13. **#9 Māyā→Śūnyatā** — Decide in/out.
-14. **#13 Prose tightening** — Always last.
+### Phase 5: Polish ✓ COMPLETE
+12. **#10 Dating methodology** ✓ — Dating hierarchy, sensitivity analysis. See `research/DATING_METHODOLOGY.md`.
+13. **#9 Māyā→Śūnyatā** ✓ — Decision: REMOVE from paper, save for separate publication. See `research/MAYA_SUNYATA_DECISION.md`.
+14. **#13 Prose tightening** ✓ — Consolidation guide with ~2,000-word savings. See `research/PROSE_TIGHTENING_GUIDE.md`.
 
 ---
 
@@ -126,18 +126,21 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - **Peer review note:** Specific Issue 4 addressed
 
 ### 9. Māyā→Śūnyatā Observation
-- [ ] Decide: integrate into argument (does T250 handle māyā/śūnyatā differently from T251?) or remove
-- [ ] If no T250/T251 difference exists, save for separate publication
-- **Current status:** In Discussion section; does not directly support the parallel composition hypothesis
+- [x] Decide: integrate into argument (does T250 handle māyā/śūnyatā differently from T251?) or remove — **REMOVE**
+- [x] T250 and T251 both use the same śūnyatā formula; observation does not distinguish them
+- [x] Saved for separate publication — see `research/MAYA_SUNYATA_DECISION.md`
+- **Decision:** Remove from paper. Add one-sentence forward reference in Conclusion.
 
 ---
 
 ## Lower Priority
 
 ### 10. Dating Methodology Discussion
-- [ ] Add methodological discussion of dating reliability and confidence bounds for key witnesses
-- [ ] Address which claims depend on dating and how sensitive they are to dating uncertainty
-- **Peer review note:** Minor Concern 1
+- [x] Add methodological discussion of dating reliability and confidence bounds for key witnesses — see `research/DATING_METHODOLOGY.md`
+- [x] Sensitivity analysis: T250's date is critical; all other claims are date-insensitive
+- [x] Dating hierarchy table with confidence levels
+- [ ] Integrate as brief (500–800 word) subsection into paper Methodology section
+- **Peer review note:** Minor Concern 1 addressed
 
 ### 11. Terminological Precision
 - [x] Define "compositionally prior," "derived," "back-translation," "digest text," "parallel composition"
@@ -152,7 +155,9 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - **See:** `research/PAPER_DRAFT_SECTIONS.md` §C
 
 ### 13. Prose Tightening
-- [ ] Compress by ~20%, reduce repetition
+- [x] Identify consolidation targets — see `research/PROSE_TIGHTENING_GUIDE.md`
+- [x] Estimated ~2,000-word savings identified across 6 areas
+- [ ] Compress by ~20%, reduce repetition — apply guide to actual paper draft
 - [ ] Consolidate "deletion is unlikely" argument (currently in Section 2.3, restated in 4.2, implied in 5.1)
 - [ ] Consolidate terminological consistency observation (Section 4 and Discussion)
 
