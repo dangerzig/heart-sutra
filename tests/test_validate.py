@@ -5,7 +5,12 @@ import tempfile
 from pathlib import Path
 
 import pytest
-from hrdaya.validate import validate_witness_file, validate_data_dir, validate_cross_references
+from hrdaya.validate import (
+    validate_witness_file,
+    validate_data_dir,
+    validate_cross_references,
+    KNOWN_SECTIONS,
+)
 
 
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -61,6 +66,58 @@ class TestValidateWitnessFile:
         if path.exists():
             errors = validate_witness_file(path, "tibetan")
             assert errors == []
+
+
+class TestSchemaValidation:
+    """Test schema-level checks added in v6."""
+
+    def test_unknown_section_flagged(self):
+        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
+            json.dump({"segments": [
+                {"id": "X:1", "section": "nonexistent_section", "text": "abc"}
+            ]}, f)
+            path = Path(f.name)
+        errors = validate_witness_file(path, "chinese")
+        assert any("unknown section" in e for e in errors)
+        path.unlink()
+
+    def test_bad_chinese_parallel_format_flagged(self):
+        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
+            json.dump({"segments": [
+                {"id": "X:1", "section": "opening", "text": "abc",
+                 "chinese_parallel": "bad-format"}
+            ]}, f)
+            path = Path(f.name)
+        errors = validate_witness_file(path, "chinese")
+        assert any("does not match expected pattern" in e for e in errors)
+        path.unlink()
+
+    def test_valid_chinese_parallel_accepted(self):
+        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
+            json.dump({"segments": [
+                {"id": "X:1", "section": "opening", "text": "abc",
+                 "chinese_parallel": "T251:1"}
+            ]}, f)
+            path = Path(f.name)
+        errors = validate_witness_file(path, "chinese")
+        assert errors == []
+        path.unlink()
+
+    def test_empty_required_field_flagged(self):
+        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
+            json.dump({"segments": [
+                {"id": "X:1", "section": "opening", "text": ""}
+            ]}, f)
+            path = Path(f.name)
+        errors = validate_witness_file(path, "chinese")
+        assert any("is empty" in e for e in errors)
+        path.unlink()
+
+    def test_known_sections_includes_long_recension(self):
+        """Long recension sections must be recognized."""
+        assert "nidana" in KNOWN_SECTIONS
+        assert "colophon" in KNOWN_SECTIONS
+        assert "buddha_approval" in KNOWN_SECTIONS
 
 
 class TestValidateCrossReferences:

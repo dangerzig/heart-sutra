@@ -76,7 +76,11 @@ class SynopticBuilder:
         Args:
             data_dir: Path to data directory
         """
+        from .data import DATA_VERSION, compute_data_hash
+
         self.data_dir = Path(data_dir)
+        self._data_version = DATA_VERSION
+        self._data_hash = compute_data_hash(self.data_dir)
 
     def load_witness(self, tradition: str, witness_id: str) -> dict:
         """
@@ -443,6 +447,8 @@ class SynopticBuilder:
                 "generated": datetime.now(timezone.utc).isoformat(),
                 "tool": "hrdaya.synoptic",
                 "version": "1.0.0",
+                "data_version": self._data_version,
+                "data_hash": self._data_hash,
             },
         }
         return json.dumps(data, ensure_ascii=False, indent=2)

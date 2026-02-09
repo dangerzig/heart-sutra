@@ -264,14 +264,27 @@ class HeartSutraCollator:
         return False
 
     def _get_available_chinese_witnesses(self) -> list[str]:
-        """Return IDs of Chinese witnesses with data files on disk."""
+        """
+        Return IDs of segment-based Chinese witnesses on disk.
+
+        Only files containing a 'segments' array are included. Catalog
+        files (dunhuang_manuscripts.json) and non-segment structures
+        (fangshan_stele.json, t256.json) are excluded because they
+        cannot participate in segment-level collation.
+        """
         available = []
         taisho_dir = self.chinese_dir / "taisho"
         if taisho_dir.exists():
             for f in taisho_dir.glob("*.json"):
-                # Normalize to canonical form (e.g., T251, t250 -> T250)
+                try:
+                    with open(f, 'r', encoding='utf-8') as fh:
+                        data = json.load(fh)
+                    if not isinstance(data.get("segments"), list):
+                        continue
+                except (json.JSONDecodeError, OSError):
+                    continue
                 stem = f.stem
-                wid = stem if stem[0] == "T" else stem.upper()
+                wid = stem if stem.startswith("T") else stem.upper()
                 available.append(wid)
         return sorted(available)
 
@@ -307,13 +320,19 @@ class HeartSutraCollator:
         """
         Collate a section across all traditions.
 
+        Alignment is strictly by ``chinese_parallel`` reference — there is
+        no section+index fallback.  Segments in alternate witnesses that
+        lack a ``chinese_parallel`` field are silently excluded (logged at
+        DEBUG level).  This is the correct scholarly behaviour: we never
+        guess at correspondences.
+
         Args:
             section_name: Name of section to collate
             chinese_witness: Chinese witness ID (default T251)
             sanskrit_witness: Sanskrit witness ID (default GRETIL)
             tibetan_witness: Tibetan witness ID (default Toh21)
             alternate_chinese: Additional Chinese witnesses to compare
-                (default: all from CHINESE_WITNESSES except the base)
+                (default: all segment-based Taishō witnesses except the base)
 
         Returns:
             List of CollationResult objects
@@ -339,20 +358,37 @@ class HeartSutraCollator:
         if not chinese:
             raise ValueError("Chinese base text is required for collation")
 
-        # Pre-build Sanskrit and Tibetan indices (by chinese_parallel)
+        # Pre-build Sanskrit and Tibetan indices keyed by chinese_parallel.
+        # Segments without chinese_parallel are excluded — no fallback.
         sanskrit_by_parallel: dict[str, dict] = {}
         if sanskrit:
+            skipped = 0
             for s in sanskrit.get("segments", []):
                 cp = s.get("chinese_parallel")
                 if cp:
                     sanskrit_by_parallel[cp] = s
+                else:
+                    skipped += 1
+            if skipped:
+                logger.debug(
+                    "%s: %d Sanskrit segment(s) lack chinese_parallel, excluded from alignment",
+                    sanskrit_witness, skipped,
+                )
 
         tibetan_by_parallel: dict[str, dict] = {}
         if tibetan:
+            skipped = 0
             for t in tibetan.get("segments", []):
                 cp = t.get("chinese_parallel")
                 if cp:
                     tibetan_by_parallel[cp] = t
+                else:
+                    skipped += 1
+            if skipped:
+                logger.debug(
+                    "%s: %d Tibetan segment(s) lack chinese_parallel, excluded from alignment",
+                    tibetan_witness, skipped,
+                )
 
         # Determine alternate witness IDs
         alt_ids = alternate_chinese if alternate_chinese is not None else [
@@ -538,11 +574,15 @@ def collate_full_text(data_dir: Path) -> dict:
         except (ValueError, FileNotFoundError) as e:
             all_results[section] = {"error": str(e)}
 
+    from .data import DATA_VERSION, compute_data_hash
+
     return {
         "provenance": {
             "generated": datetime.now(timezone.utc).isoformat(),
             "tool": "hrdaya.collate",
             "version": "1.0.0",
+            "data_version": DATA_VERSION,
+            "data_hash": compute_data_hash(data_dir),
             "base_witness": HeartSutraCollator.DEFAULT_CHINESE,
         },
         "sections": all_results,

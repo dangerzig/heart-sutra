@@ -15,10 +15,15 @@ scripts = ["markdown>=3.4"]
 [project.scripts]
 hrdaya-synoptic = "hrdaya.synoptic:main"
 hrdaya-collate = "hrdaya.collate:main"
+hrdaya-validate = "hrdaya.validate:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
+# Note: Witness data files (data/) are intentionally NOT shipped in the
+# wheel.  They are scholarly primary-source material versioned alongside
+# the code in git.  See src/hrdaya/data.py for resolution strategy and
+# docs/METHODOLOGY.md § 13 for details.
 [tool.setuptools.package-data]
 hrdaya = ["py.typed"]
 

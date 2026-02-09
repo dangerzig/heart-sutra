@@ -79,7 +79,7 @@ class TestHeartSutraCollator:
         assert "T250" in available
 
     def test_alignment_uses_chinese_parallel(self, collator):
-        """Regression: alignment prefers chinese_parallel over section+index."""
+        """Alignment is strictly by chinese_parallel (no fallback)."""
         results = collator.collate_section("mantra_praise", alternate_chinese=["T250"])
         assert len(results) > 0
         result = results[0]
@@ -114,9 +114,12 @@ class TestCollateFullText:
 
     def test_returns_dict_with_provenance(self):
         result = collate_full_text(DATA_DIR)
-        assert "provenance" in result
-        assert result["provenance"]["tool"] == "hrdaya.collate"
-        assert result["provenance"]["base_witness"] == "T251"
+        prov = result["provenance"]
+        assert prov["tool"] == "hrdaya.collate"
+        assert prov["base_witness"] == "T251"
+        assert "data_version" in prov
+        assert "data_hash" in prov
+        assert len(prov["data_hash"]) == 12
 
     def test_returns_sections(self):
         result = collate_full_text(DATA_DIR)
