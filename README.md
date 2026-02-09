@@ -83,8 +83,8 @@ This edition follows the methodological principles outlined in `docs/METHODOLOGY
 
 | ID | Name | Date |
 |----|------|------|
-| Toh21 | Degé Kangyur | c. 9th c. (trans.) |
-| IOL_J751 | Dunhuang | c. 823 CE |
+| Toh21 | Degé Kangyur (long recension) | c. 9th c. (trans.) |
+| IOL_Tib_J_751 | Dunhuang IOL Tib J 751 (short recension) | c. 823 CE |
 
 ## Data Formats
 
@@ -137,6 +137,22 @@ source venv/bin/activate
 # Core library uses standard library only
 # Optional: pip install -r requirements.txt  (for scripts)
 ```
+
+## Data Files
+
+The witness data files (JSON) are **not shipped in the Python wheel**. This is intentional — scholarly primary-source data is versioned alongside the code in git, not packaged inside a wheel. You must either:
+
+1. **Clone the repo and install in editable mode** (recommended):
+   ```bash
+   git clone <repository-url> && cd heart-sutra && pip install -e .
+   ```
+
+2. **Or download the `data/` directory separately** and point to it:
+   ```bash
+   export HRDAYA_DATA_DIR=/path/to/heart-sutra/data
+   ```
+
+The data directory is resolved automatically for editable installs. See `src/hrdaya/data.py` for the full resolution logic.
 
 ## Usage
 
@@ -209,7 +225,7 @@ This edition has significant limitations that users should understand:
 
 1. **Not a traditional critical edition.** We have worked primarily from published editions and digital texts rather than conducting fresh manuscript collation. A full critical edition would require examination of physical manuscripts and rubbings.
 
-2. **Dunhuang manuscripts are cataloged but not fully collated.** Character-by-character comparison of all Dunhuang witnesses has not been performed.
+2. **Dunhuang Chinese manuscripts are cataloged but not fully collated.** Character-by-character comparison of Dunhuang Chinese witnesses (S.2464, S.700, P.2323) has not been performed. The Dunhuang Tibetan witness (IOL Tib J 751) is fully segmented and integrated into the collation pipeline.
 
 3. **Witness coverage is incomplete.** Korean Tripiṭaka, Japanese manuscript traditions (beyond Hōryū-ji), Xixia, Khotanese, and Uyghur traditions are not included.
 

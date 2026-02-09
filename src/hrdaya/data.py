@@ -22,7 +22,7 @@ from pathlib import Path
 #   major = structural schema change
 #   minor = new witnesses or segments added
 #   patch = corrections to existing data
-DATA_VERSION = "1.0.0"
+DATA_VERSION = "1.1.0"
 
 
 def compute_data_hash(data_dir: Path) -> str:

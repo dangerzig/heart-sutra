@@ -2,6 +2,39 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.2.0] - 2026-02-09
+
+### Added
+- Data distribution policy section in README.md
+- Tibetan variant creation in collation engine (Tibetan vs Chinese base)
+- CI check (`scripts/check_data_version.py`) enforcing DATA_VERSION bump when data/ changes
+- Chinese witness discovery now scans all subdirectories (taisho, dunhuang, epigraphy, manuscripts)
+- Fangshan stele (661 CE, earliest dated witness) now discoverable by collation engine
+
+### Changed
+- `load_chinese_witness()` searches all chinese/ subdirectories, not just taisho/
+- Cross-linguistic variant position convention (`position=-1`) documented in model and code
+- DATA_VERSION bumped to 1.1.0 to reflect data additions
+
+### Tests
+- New: `test_cross_linguistic_variants_use_minus_one` — verifies position=-1 for Sanskrit/Tibetan
+- New: `test_tibetan_variants_created` — verifies Tibetan produces variants against Chinese base
+- Updated: `test_available_chinese_witnesses` — now asserts Fangshan is discoverable
+
+## [1.1.0] - 2026-02-08
+
+### Added
+- Word-by-word literal glosses and fluid English translations in all critical editions
+- Word-by-word glossary appendix in synoptic editions
+- English glosses (english_gloss) for all 14 Sanskrit GRETIL segments
+- Dunhuang IOL Tib J 751 fully integrated into collation and synoptic pipelines
+
+### Fixed
+- Dunhuang witness pipeline gap: load_tibetan_witness() and load_witness() now search dunhuang/ directory
+- Witness ID mismatch: IOL_Tib_J_751 aligned between witnesses.py and data file
+- Tibetan critical edition now documents both short (Dunhuang) and long (Kangyur) recensions
+- Stemmatic diagrams updated to show Tibetan short/long recension split
+
 ## [1.0.0] - 2026-02-08
 
 ### Added

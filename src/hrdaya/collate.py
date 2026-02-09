@@ -79,17 +79,32 @@ class HeartSutraCollator:
         self._tibetan_cache: dict[str, dict] = {}
 
     def load_chinese_witness(self, witness_id: str) -> dict:
-        """Load a Chinese witness from JSON."""
+        """Load a Chinese witness from JSON.
+
+        Searches all subdirectories under chinese/ (taisho, dunhuang,
+        epigraphy, manuscripts) for a matching file by ID or filename.
+        """
         if witness_id in self._chinese_cache:
             return self._chinese_cache[witness_id]
 
-        # Try Taishō first
-        path = self.chinese_dir / "taisho" / f"{witness_id}.json"
-        if path.exists():
-            with open(path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                self._chinese_cache[witness_id] = data
-                return data
+        # Search all subdirectories for a file matching this witness
+        for subdir in sorted(self.chinese_dir.iterdir()):
+            if not subdir.is_dir():
+                continue
+            # Try lowercased witness_id as filename
+            path = subdir / f"{witness_id.lower()}.json"
+            if path.exists():
+                with open(path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    self._chinese_cache[witness_id] = data
+                    return data
+            # Also try original case (Taishō files use lowercase t250, etc.)
+            path = subdir / f"{witness_id}.json"
+            if path.exists():
+                with open(path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    self._chinese_cache[witness_id] = data
+                    return data
 
         raise FileNotFoundError(f"Chinese witness {witness_id} not found")
 
@@ -116,13 +131,14 @@ class HeartSutraCollator:
         if witness_id in self._tibetan_cache:
             return self._tibetan_cache[witness_id]
 
-        # Try Kangyur first
-        path = self.tibetan_dir / "kangyur" / f"{witness_id.lower()}.json"
-        if path.exists():
-            with open(path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                self._tibetan_cache[witness_id] = data
-                return data
+        # Try Kangyur first, then Dunhuang
+        for subdir in ("kangyur", "dunhuang"):
+            path = self.tibetan_dir / subdir / f"{witness_id.lower()}.json"
+            if path.exists():
+                with open(path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    self._tibetan_cache[witness_id] = data
+                    return data
 
         raise FileNotFoundError(f"Tibetan witness {witness_id} not found")
 
@@ -267,15 +283,19 @@ class HeartSutraCollator:
         """
         Return IDs of segment-based Chinese witnesses on disk.
 
-        Only files containing a 'segments' array are included. Catalog
-        files (dunhuang_manuscripts.json) and non-segment structures
-        (fangshan_stele.json, t256.json) are excluded because they
-        cannot participate in segment-level collation.
+        Scans all subdirectories under chinese/ (taisho, dunhuang,
+        epigraphy, manuscripts). Only files containing a 'segments'
+        array are included — catalog files and non-segment structures
+        are excluded because they cannot participate in segment-level
+        collation.
         """
         available = []
-        taisho_dir = self.chinese_dir / "taisho"
-        if taisho_dir.exists():
-            for f in taisho_dir.glob("*.json"):
+        if not self.chinese_dir.exists():
+            return available
+        for subdir in sorted(self.chinese_dir.iterdir()):
+            if not subdir.is_dir():
+                continue
+            for f in subdir.glob("*.json"):
                 try:
                     with open(f, 'r', encoding='utf-8') as fh:
                         data = json.load(fh)
@@ -283,8 +303,12 @@ class HeartSutraCollator:
                         continue
                 except (json.JSONDecodeError, OSError):
                     continue
-                stem = f.stem
-                wid = stem if stem.startswith("T") else stem.upper()
+                # Use the 'id' field from the JSON if available,
+                # otherwise derive from filename
+                wid = data.get("id")
+                if not wid:
+                    stem = f.stem
+                    wid = stem if stem.startswith("T") else stem.upper()
                 available.append(wid)
         return sorted(available)
 
@@ -445,7 +469,10 @@ class HeartSutraCollator:
             if s_seg:
                 result.sanskrit_texts[sanskrit_witness] = s_seg.get("iast", "")
 
-                # Classify Sanskrit variants against Chinese base
+                # Classify Sanskrit variants against Chinese base.
+                # position=-1 signals a whole-segment cross-linguistic variant:
+                # character-level offsets are meaningless across scripts
+                # (IAST vs hanzi), so we use -1 by convention.
                 s_text = s_seg.get("iast", "")
                 if s_text:
                     vtype, direction = self.classify_variant(
@@ -467,6 +494,26 @@ class HeartSutraCollator:
 
             if t_seg:
                 result.tibetan_texts[tibetan_witness] = t_seg.get("tibetan", "")
+
+                # Classify Tibetan variants against Chinese base.
+                # Same convention: position=-1 for cross-linguistic variants.
+                t_text = t_seg.get("tibetan", "")
+                if t_text:
+                    vtype, direction = self.classify_variant(
+                        c_seg.get("text", ""), t_text,
+                        context={"tradition": "tibetan"}
+                    )
+                    if vtype != VariantType.ORTHOGRAPHIC:
+                        result.variants.append(Variant(
+                            segment_id=seg_id,
+                            position=-1,
+                            base_reading=c_seg.get("text", ""),
+                            variant_reading=t_text,
+                            variant_type=vtype,
+                            dependence=DependenceDirection.UNCERTAIN,
+                            base_witnesses=[chinese_witness],
+                            variant_witnesses=[tibetan_witness],
+                        ))
 
             # Match alternate Chinese witnesses using chinese_parallel only
             for alt_id in alt_indices:
