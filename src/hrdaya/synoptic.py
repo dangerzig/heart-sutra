@@ -10,6 +10,7 @@ Generates side-by-side views of:
 
 import json
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -75,7 +76,22 @@ class SynopticBuilder:
         self.data_dir = Path(data_dir)
 
     def load_witness(self, tradition: str, witness_id: str) -> dict:
-        """Load a witness file."""
+        """
+        Load a witness file.
+
+        Args:
+            tradition: "chinese", "sanskrit", or "tibetan"
+            witness_id: Witness identifier (e.g., "T251", "GRETIL", "Toh21")
+
+        Returns:
+            Parsed JSON data, or empty dict if witness file not found
+
+        Raises:
+            ValueError: If tradition is unknown
+        """
+        import logging
+        logger = logging.getLogger(__name__)
+
         if tradition == "chinese":
             path = self.data_dir / "chinese" / "taisho" / f"{witness_id}.json"
         elif tradition == "sanskrit":
@@ -89,24 +105,34 @@ class SynopticBuilder:
             raise ValueError(f"Unknown tradition: {tradition}")
 
         if not path.exists():
+            logger.warning(
+                "Witness file not found: %s/%s (expected at %s). "
+                "This witness will be omitted from the alignment.",
+                tradition, witness_id, path
+            )
             return {}
 
         with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
 
+    # Default witness IDs for the standard alignment
+    DEFAULT_CHINESE = "T251"
+    DEFAULT_SANSKRIT = "GRETIL"
+    DEFAULT_TIBETAN = "Toh21"
+
     def build_alignment(
         self,
-        chinese_id: str = "T251",
-        sanskrit_id: str = "GRETIL",
-        tibetan_id: str = "Toh21"
+        chinese_id: str = DEFAULT_CHINESE,
+        sanskrit_id: str = DEFAULT_SANSKRIT,
+        tibetan_id: str = DEFAULT_TIBETAN,
     ) -> SynopticAlignment:
         """
         Build synoptic alignment from specified witnesses.
 
         Args:
-            chinese_id: Chinese witness ID
-            sanskrit_id: Sanskrit witness ID
-            tibetan_id: Tibetan witness ID
+            chinese_id: Chinese witness ID (default: T251)
+            sanskrit_id: Sanskrit witness ID (default: GRETIL)
+            tibetan_id: Tibetan witness ID (default: Toh21)
 
         Returns:
             SynopticAlignment object
@@ -408,6 +434,11 @@ class SynopticBuilder:
                 for row in alignment.rows
             ],
             "notes": alignment.notes,
+            "provenance": {
+                "generated": datetime.now(timezone.utc).isoformat(),
+                "tool": "hrdaya.synoptic",
+                "version": "1.0.0",
+            },
         }
         return json.dumps(data, ensure_ascii=False, indent=2)
 
@@ -436,10 +467,15 @@ def build_synoptic(data_dir: Path, output_format: str = "markdown") -> str:
         raise ValueError(f"Unknown format: {output_format}")
 
 
-if __name__ == "__main__":
+def main():
+    """CLI entry point for synoptic alignment."""
     import sys
 
     data_dir = Path(__file__).parent.parent.parent / "data"
     output_format = sys.argv[1] if len(sys.argv) > 1 else "markdown"
 
     print(build_synoptic(data_dir, output_format))
+
+
+if __name__ == "__main__":
+    main()

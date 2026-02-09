@@ -27,15 +27,17 @@ heart-sutra/
 │   │   └── manuscripts/           # Other Chinese witnesses
 │   ├── sanskrit/
 │   │   ├── gretil/                # GRETIL edition
-│   │   ├── dsbc/                  # Digital Sanskrit Buddhist Canon
-│   │   └── manuscripts/           # Organized by provenance
-│   │       ├── nepalese/          # Na-Nl (Conze sigla)
-│   │       ├── japanese/          # Ja, Jb
-│   │       ├── chinese-inscriptions/  # Ca-Cg
-│   │       └── central-asian/     # Gilgit, Dunhuang
+│   │   ├── dsbc/                  # Digital Sanskrit Buddhist Canon (placeholder)
+│   │   └── manuscripts/           # Manuscript data
+│   │       ├── horyuji.json       # Hōryū-ji palm-leaf (Ja)
+│   │       ├── nepalese.json      # Nepalese manuscripts (Nb, Nk)
+│   │       ├── nepalese/          # Individual Nepalese MSS (future)
+│   │       ├── japanese/          # Additional Japanese MSS (future)
+│   │       ├── chinese-inscriptions/  # Ca-Cg (future)
+│   │       └── central-asian/     # Gilgit, Dunhuang (future)
 │   ├── tibetan/
-│   │   ├── kangyur/               # Canonical versions
-│   │   └── dunhuang/              # Early manuscripts
+│   │   ├── kangyur/               # Canonical versions (toh21.json)
+│   │   └── dunhuang/              # Early manuscripts (future)
 │   ├── prajnaparamita/            # Source texts (Large PP parallels)
 │   ├── collation/                 # Collation output
 │   ├── critical/                  # Critical edition output
@@ -243,7 +245,7 @@ The edition currently includes the following scholarly annotations:
 ### 4.1 Immediate Priorities
 
 #### Additional Witnesses
-- [ ] Add remaining Chinese witnesses (T250, T252-257)
+- [x] Add remaining Chinese witnesses (T250, T252-257)
 - [ ] Add Sanskrit manuscript transcriptions from prajnaparamitahrdaya.wordpress.com (Nb, Nk diplomatic editions)
 - [ ] Add Dunhuang Tibetan manuscript (IOL Tib J 751)
 - [ ] Add Stok Palace Kangyur variant readings
@@ -298,7 +300,7 @@ The edition currently includes the following scholarly annotations:
 
 ## 5. Technical Dependencies
 
-### Current (Standard Library Only)
+### Core Library (Standard Library Only, Python 3.10+)
 - `json` - Data serialization
 - `pathlib` - Cross-platform paths
 - `dataclasses` - Data structures
@@ -306,10 +308,12 @@ The edition currently includes the following scholarly annotations:
 - `difflib` - Sequence alignment
 - `typing` - Type hints
 
+### Scripts (Optional)
+- `markdown` - Used by `scripts/md_to_pdf.py` for HTML generation
+
 ### Planned
 - `lxml` - TEI-XML generation
 - `jinja2` - Template rendering
-- `flask` or `fastapi` - Web interface (optional)
 
 ---
 
