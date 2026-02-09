@@ -57,90 +57,105 @@
     {
       "id": "T257:1",
       "section": "title",
+      "chinese_parallel": null,
       "text": "佛說聖佛母般若波羅蜜多經",
       "notes": "Title emphasizes Prajñāpāramitā as Buddha-Mother (佛母), a concept from Indian Prajñāpāramitā tradition"
     },
     {
       "id": "T257:2",
       "section": "nidana",
+      "chinese_parallel": null,
       "text": "如是我聞。一時世尊。在王舍城鷲峯山中。與大苾芻眾。及大菩薩眾俱。爾時世尊。入三摩地名廣大甚深。爾時眾中有一菩薩摩訶薩。名觀自在。行甚深般若波羅蜜多行時。照見五蘊自性皆空。",
       "notes": "Standard sūtra opening (evaṃ mayā śrutam) plus Buddha entering samādhi"
     },
     {
       "id": "T257:3",
       "section": "shariputra_question",
+      "chinese_parallel": null,
       "text": "爾時具壽舍利子。承佛威神。白觀自在菩薩摩訶薩言。若善男子善女人。欲行甚深般若波羅蜜多行者。作何修行。",
       "notes": "Śāriputra asks by Buddha's power (承佛威神), matching long recension frame"
     },
     {
       "id": "T257:4",
       "section": "avalokiteshvara_response",
+      "chinese_parallel": "T251:1",
       "text": "觀自在菩薩摩訶薩。告具壽舍利子言。舍利子。若善男子善女人。欲行甚深般若波羅蜜多行者。應如是觀。照見五蘊自性皆空。",
       "notes": "Avalokiteśvara's response frames the teaching"
     },
     {
       "id": "T257:5",
       "section": "form_emptiness",
+      "chinese_parallel": "T251:2",
       "text": "舍利子。色即是空。空即是色。色不異空。空不異色。受想行識亦復如是。",
       "notes": "Order differs from T251: 色即是空 comes before 色不異空"
     },
     {
       "id": "T257:6",
       "section": "characteristics",
+      "chinese_parallel": "T251:3",
       "text": "舍利子。是諸法性相空。不生不滅。不垢不淨。不增不減。",
       "notes": "Uses 性相空 (essence-characteristics empty) for Sanskrit śūnyatā-lakṣaṇā"
     },
     {
       "id": "T257:7",
       "section": "negations",
+      "chinese_parallel": "T251:4",
       "text": "舍利子。是故空中。無色。無受想行識。無眼耳鼻舌身意。無色聲香味觸法。無眼界。無眼識界。乃至無意界。無意識界。無無明。無無明盡。乃至無老死。亦無老死盡。無苦集滅道。無智。無所得。亦無無得。",
       "notes": "Includes 亦無無得 (na-aprāptiḥ) absent from T251; more detailed dhātu enumeration than T251"
     },
     {
       "id": "T257:8",
       "section": "bodhisattva_result",
+      "chinese_parallel": "T251:9",
       "text": "舍利子。由是無得故。菩薩摩訶薩。依般若波羅蜜多住。心無障礙。心無障礙故。無有恐怖。遠離顛倒。究竟涅槃。",
       "notes": "Uses 障礙 for cittāvaraṇa (T251 uses 罣礙); omits 夢想 after 顛倒"
     },
     {
       "id": "T257:9",
       "section": "buddha_result",
+      "chinese_parallel": "T251:10",
       "text": "三世諸佛。依般若波羅蜜多故。得阿耨多羅三藐三菩提。",
       "notes": "Standard formula matching other versions"
     },
     {
       "id": "T257:10",
       "section": "mantra_praise",
+      "chinese_parallel": "T251:11",
       "text": "是故應知般若波羅蜜多。是大神咒。是大明咒。是無上咒。是無等等咒。能除一切苦。真實不虛。",
       "notes": "Four epithets; uses 咒 consistently (not mixing 咒 and 呪)"
     },
     {
       "id": "T257:11",
       "section": "mantra",
+      "chinese_parallel": "T251:12",
       "text": "故說般若波羅蜜多咒。即說咒曰。唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶",
       "notes": "CRITICAL: Only Chinese Heart Sutra with oṃ (唵). Uses 誐帝 (gēdì) for gate. This proves late Tantric Sanskrit source (Attwood 2024)."
     },
     {
       "id": "T257:12",
       "section": "avalokiteshvara_conclusion",
+      "chinese_parallel": null,
       "text": "舍利子。菩薩摩訶薩。應如是修行般若波羅蜜多。",
       "notes": "Avalokiteśvara's conclusion before Buddha's approval"
     },
     {
       "id": "T257:13",
       "section": "buddha_approval",
+      "chinese_parallel": null,
       "text": "爾時世尊。從三摩地安詳而起。讚觀自在菩薩摩訶薩言。善哉善哉。善男子。如是如是。如汝所說。甚深般若波羅蜜多行。應如是行。一切如來。亦皆隨喜。",
       "notes": "Buddha awakens and approves (sādhu sādhu = 善哉善哉)"
     },
     {
       "id": "T257:14",
       "section": "audience_rejoicing",
+      "chinese_parallel": null,
       "text": "爾時世尊說是語已。具壽舍利子。觀自在菩薩摩訶薩。并諸眷屬天人阿修羅乾闘婆等。一切世間。皆大歡喜。信受奉行。",
       "notes": "Standard sūtra conclusion with audience approval"
     },
     {
       "id": "T257:15",
       "section": "colophon",
+      "chinese_parallel": null,
       "text": "佛說聖佛母般若波羅蜜多經",
       "notes": "Title repeated as colophon"
     }

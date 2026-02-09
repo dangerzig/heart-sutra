@@ -100,8 +100,17 @@ IAST_VOWEL_MARKS = {
     'e': 'े', 'ai': 'ै', 'o': 'ो', 'au': 'ौ',
 }
 
-# Consonants that need virāma when not followed by vowel
-CONSONANTS = set('kgṅcjñṭḍṇtdnpbmyrlvśṣsh')
+# Set of single-char IAST consonant letters (used for lookahead)
+CONSONANT_CHARS = set('kgṅcjñṭḍṇtdnpbmyrlvśṣsh')
+
+# Set of IAST vowel strings (for post-consonant detection)
+IAST_VOWELS = {'a', 'ā', 'i', 'ī', 'u', 'ū', 'ṛ', 'ṝ', 'ḷ', 'ḹ', 'e', 'ai', 'o', 'au'}
+
+# Ordered list of IAST consonant tokens (longest first for greedy match)
+IAST_CONSONANT_TOKENS = sorted(IAST_TO_DEVANAGARI.keys(), key=len, reverse=True)
+
+# Ordered list of IAST vowel tokens (longest first for greedy match)
+IAST_VOWEL_TOKENS = sorted(IAST_VOWELS, key=len, reverse=True)
 
 
 def devanagari_to_iast(text: str) -> str:
@@ -146,9 +155,29 @@ def devanagari_to_iast(text: str) -> str:
     return ''.join(result)
 
 
+def _match_iast_vowel(text: str, pos: int) -> str | None:
+    """Try to match an IAST vowel token at the given position (longest first)."""
+    for tok in IAST_VOWEL_TOKENS:
+        if text[pos:pos + len(tok)] == tok:
+            return tok
+    return None
+
+
+def _match_iast_consonant(text: str, pos: int) -> str | None:
+    """Try to match an IAST consonant token at the given position (longest first)."""
+    for tok in IAST_CONSONANT_TOKENS:
+        if text[pos:pos + len(tok)] == tok:
+            return tok
+    return None
+
+
 def iast_to_devanagari(text: str) -> str:
     """
     Convert IAST transliteration to Devanagari.
+
+    Uses a two-pass approach:
+    1. Tokenize IAST into consonants, vowels, and other characters
+    2. Convert tokens to Devanagari with proper vowel marks and virāma
 
     Args:
         text: Text in IAST transliteration
@@ -156,70 +185,69 @@ def iast_to_devanagari(text: str) -> str:
     Returns:
         Devanagari text
     """
+    src = text.lower()
     result = []
     i = 0
-    text_lower = text.lower()
+    prev_was_consonant = False
 
-    while i < len(text_lower):
-        matched = False
+    while i < len(src):
+        # Special: oṃ
+        if src[i:i + 2] == 'oṃ':
+            result.append('ॐ')
+            i += 2
+            prev_was_consonant = False
+            continue
 
-        # Try to match longest sequences first (e.g., 'kh' before 'k')
-        for length in [3, 2, 1]:
-            if i + length <= len(text_lower):
-                seq = text_lower[i:i + length]
-
-                # Check for special sequences
-                if seq == 'oṃ':
-                    result.append('ॐ')
-                    i += length
-                    matched = True
-                    break
-
-                # Check for consonant + vowel
-                if length >= 2 and seq[0] in CONSONANTS:
-                    # Check if it's an aspirated consonant
-                    if length >= 2 and seq[:2] in IAST_TO_DEVANAGARI:
-                        consonant = IAST_TO_DEVANAGARI[seq[:2]]
-                        vowel_part = seq[2:] if length > 2 else ''
-                        remaining = text_lower[i + 2:i + 3] if i + 2 < len(text_lower) else ''
-
-                        # Add consonant
-                        result.append(consonant)
-
-                        # Check for following vowel
-                        if remaining and remaining in IAST_VOWEL_MARKS:
-                            if remaining != 'a':
-                                result.append(IAST_VOWEL_MARKS[remaining])
-                            i += 3
-                        else:
-                            # Add virāma if not followed by vowel
-                            if remaining and remaining not in 'aāiīuūṛṝḷḹeaioau':
-                                result.append('्')
-                            i += 2
-                        matched = True
-                        break
-
-                # Check for single consonant
-                if seq[0] in IAST_TO_DEVANAGARI:
-                    result.append(IAST_TO_DEVANAGARI[seq[0]])
-
-                    # Check if followed by vowel
-                    if i + 1 < len(text_lower):
-                        next_char = text_lower[i + 1]
-                        if next_char in IAST_VOWEL_MARKS and next_char != 'a':
-                            result.append(IAST_VOWEL_MARKS[next_char])
-                            i += 2
-                            matched = True
-                            break
-
-                    i += 1
-                    matched = True
-                    break
-
-        if not matched:
-            # Pass through unknown characters
-            result.append(text[i])
+        # Special: ṃ and ḥ (anusvāra / visarga)
+        if src[i] == 'ṃ':
+            result.append('ं')
             i += 1
+            prev_was_consonant = False
+            continue
+        if src[i] == 'ḥ':
+            result.append('ः')
+            i += 1
+            prev_was_consonant = False
+            continue
+        if src[i] == 'ṁ':
+            result.append('ँ')
+            i += 1
+            prev_was_consonant = False
+            continue
+
+        # Try consonant match
+        cons = _match_iast_consonant(src, i)
+        if cons:
+            deva_cons = IAST_TO_DEVANAGARI[cons]
+            i += len(cons)
+
+            # Look ahead for a following vowel
+            vowel = _match_iast_vowel(src, i)
+            if vowel:
+                result.append(deva_cons)
+                if vowel != 'a':
+                    result.append(IAST_VOWEL_MARKS[vowel])
+                # 'a' is inherent, no mark needed
+                i += len(vowel)
+            else:
+                # No vowel follows — add virāma (unless at end followed by space/punct)
+                result.append(deva_cons)
+                result.append('्')
+            prev_was_consonant = True
+            continue
+
+        # Try vowel match (independent vowel — not after consonant)
+        vowel = _match_iast_vowel(src, i)
+        if vowel:
+            result.append(IAST_TO_DEVANAGARI.get(vowel, vowel))
+            i += len(vowel)
+            prev_was_consonant = False
+            continue
+
+        # Non-IAST character: pass through
+        result.append(text[i])
+        i += 1
+        prev_was_consonant = False
 
     return ''.join(result)
 

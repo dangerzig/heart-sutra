@@ -31,3 +31,19 @@ jobs:
         env:
           PYTHONPATH: src
         run: pytest tests/ -v
+
+      - name: Validate data integrity
+        env:
+          PYTHONPATH: src
+        run: |
+          python -c "
+          from hrdaya.validate import validate_data_dir
+          from pathlib import Path
+          errors = validate_data_dir(Path('data'))
+          if errors:
+              for path, errs in errors.items():
+                  for e in errs:
+                      print(f'ERROR: {e}')
+              raise SystemExit(f'{len(errors)} file(s) with validation errors')
+          print('All data files valid.')
+          "
