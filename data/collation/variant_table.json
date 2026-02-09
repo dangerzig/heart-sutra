@@ -169,6 +169,48 @@
       "scholarly_ref": "Nattier (1992) pp. 182-184"
     },
     {
+      "id": "VAR-009a",
+      "location": "Section II: T250 skandha characteristics",
+      "issue": "Unique passage in T250 elaborating on skandha emptiness",
+      "readings": {
+        "T250": {"text": "色空故無惱壞相，受空故無受相，想空故無知相，行空故無作相，識空故無覺相。何以故？", "note": "UNIQUE to T250"},
+        "T251": {"text": "—", "note": "Absent"},
+        "Sanskrit": {"text": "—", "note": "Absent"},
+        "Tibetan": {"text": "—", "note": "Absent"}
+      },
+      "analysis": "This passage, found only in T250, provides a detailed elaboration of how emptiness affects each skandha's characteristic. Its absence from T251 and all Sanskrit/Tibetan witnesses suggests T250 may preserve earlier material omitted in later traditions, or represents an independent parallel composition.",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "First fully documented in this edition"
+    },
+    {
+      "id": "VAR-009b",
+      "location": "Section III: T250 temporal negation",
+      "issue": "Unique passage in T250 negating past, future, present",
+      "readings": {
+        "T250": {"text": "是空法，非過去，非未來，非現在。", "note": "UNIQUE to T250"},
+        "T251": {"text": "—", "note": "Absent"},
+        "Sanskrit": {"text": "—", "note": "Absent"},
+        "Tibetan": {"text": "—", "note": "Absent"}
+      },
+      "analysis": "Temporal negation found in some Prajñāpāramitā sources. Its presence only in T250 supports the hypothesis that T250 either preserves earlier material or is an independent composition drawing on different Large Sūtra passages.",
+      "stemmatic_significance": "high",
+      "scholarly_ref": "First fully documented in this edition"
+    },
+    {
+      "id": "VAR-009c",
+      "location": "Section IX: bodhisattva passage elaboration",
+      "issue": "T250 adds 一切 and 苦惱 to delusion passage",
+      "readings": {
+        "T250": {"text": "離一切顛倒夢想苦惱", "note": "離 + 一切 + 苦惱"},
+        "T251": {"text": "遠離顚倒夢想", "note": "遠離 without 一切 or 苦惱"},
+        "Sanskrit": {"text": "viparyāsa-atikrānto", "note": "gone beyond perversions"},
+        "Tibetan": {"text": "ཕྱིན་ཅི་ལོག་ལས་ཤིན་ཏུ་འདས་", "note": "completely transcended perversions"}
+      },
+      "analysis": "T250's fuller form 離一切顛倒夢想苦惱 (separated from all perverted dream-thoughts and afflictions) differs from T251's 遠離顚倒夢想 (far removed from perverted dream-thoughts). This variant suggests different compositional choices rather than revision.",
+      "stemmatic_significance": "medium",
+      "scholarly_ref": "Noted in Woncheuk's commentary T1711"
+    },
+    {
       "id": "VAR-010",
       "location": "Opening: skandha terminology",
       "issue": "五蘊 vs 五陰",
@@ -224,6 +266,42 @@
       },
       "analysis": "The short recension (no frame) is original. The long recension with frame narrative was added later, probably to make the text conform to sūtra conventions. T257 was translated from the long recension tradition.",
       "stemmatic_significance": "high"
+    },
+    {
+      "id": "VAR-014",
+      "location": "Throughout: pāramitā rendering",
+      "issue": "T250 consistently uses 波羅蜜 vs T251 波羅蜜多",
+      "readings": {
+        "T250": {"text": "波羅蜜", "note": "bōluómì - lacks final 多"},
+        "T251": {"text": "波羅蜜多", "note": "bōluómìduō - includes 多 (duō)"},
+        "Sanskrit": {"text": "pāramitā", "note": "Full form"}
+      },
+      "analysis": "T250 consistently uses the shorter 波羅蜜 throughout, while T251 uses 波羅蜜多. The 多 (duō) represents the final syllable -tā of pāramitā. Earlier Chinese translations often omitted this; Xuanzang standardized inclusion. This consistent difference supports T250's earlier dating or independent composition.",
+      "stemmatic_significance": "medium"
+    },
+    {
+      "id": "VAR-015",
+      "location": "Section IX: bodhisattva rendering",
+      "issue": "T250 abbreviates bodhisattva; T251 gives full transliteration",
+      "readings": {
+        "T250": {"text": "菩薩", "note": "púsà - abbreviated form"},
+        "T251": {"text": "菩提薩埵", "note": "pútísàduǒ - full transliteration of bodhisattva"},
+        "Sanskrit": {"text": "bodhisattva", "note": "Full form"}
+      },
+      "analysis": "菩薩 is an abbreviation of the full transliteration 菩提薩埵. Both were used in Chinese Buddhism, but 菩薩 became more common. T251's use of the full form in this formal context is characteristic of Xuanzang's translation style.",
+      "stemmatic_significance": "low"
+    },
+    {
+      "id": "VAR-016",
+      "location": "Throughout: Śāriputra rendering",
+      "issue": "T250 uses 舍利弗 vs T251 舍利子",
+      "readings": {
+        "T250": {"text": "舍利弗", "note": "Shèlìfú"},
+        "T251": {"text": "舍利子", "note": "Shèlìzǐ"},
+        "Sanskrit": {"text": "Śāriputra", "note": "Both Chinese renderings are valid"}
+      },
+      "analysis": "Both are acceptable transliterations of Śāriputra. 舍利弗 (Shèlìfú) is phonetically closer; 舍利子 (Shèlìzǐ) uses 子 (zǐ, 'son') for -putra. The consistent difference throughout both texts suggests independent composition rather than revision.",
+      "stemmatic_significance": "low"
     }
   ],
   "stemma_notes": {
