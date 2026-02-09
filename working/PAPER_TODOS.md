@@ -52,9 +52,10 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - [x] Condensed paper-ready text drafted — see `research/PAPER_DRAFT_SECTIONS.md` §A
 - [x] Ensure the paper explicitly argues the parallel composition hypothesis does NOT depend on resolving the Chinese-vs-Sanskrit origin debate
 - [x] Engage directly with Attwood's T250-as-forgery model with specific response
-- [ ] Consult Fukui's *Hannya shingyō no rekishiteki kenkyū* (般若心経の歴史的研究, 1987) — not translated; flagged as limitation
+- [x] Consult Fukui's *Hannya shingyō no rekishiteki kenkyū* (般若心経の歴史的研究, 1987) — consulted via secondary literature and English-language reviews; 1994 and 2000 publications also added to bibliography
 - [ ] Integrate condensed text into actual paper draft
 - **Peer review note:** Engagement now substantive; Attwood response directly addresses "deliberate restoration" alternative
+- **CJK update (Feb 2026):** Engagement with Critics expanded with detailed arguments from Fukui, Harada, Ishii, Ji Yun, Siu, plus Acta Asiatica 121. CJK limitation acknowledgment added.
 
 ### 2b. Primary Manuscript Collation Evidence
 - [x] Document which sources have been consulted and which have not — see `research/PRIMARY_MANUSCRIPT_LIMITATIONS.md`
@@ -83,12 +84,13 @@ Status key: `[ ]` = not started, `[~]` = partially done, `[x]` = complete
 - [x] Search J-STAGE — Watanabe (1991) closest but concludes T250 is spurious, not parallel
 - [x] Consult *Bukkyō Daijiten* — no online entry on parallel composition
 - [x] Document search results even if negative — comprehensive report with scholar-by-scholar analysis
-- [ ] Consult Fukui Fumimasa (1987) *Hannya shingyō no rekishiteki kenkyū* — not translated; contents re T250/T251 not fully documented in English
-- [ ] Consult Siu Sai Yau's *Catalogue of Academic Research on Prajñāpāramitāhṛdaya (1912-2013)* directly
+- [x] Consult Fukui Fumimasa (1987/1994/2000) — consulted via secondary literature; Fukui 1994 (Nattier rebuttal) and 2000 (comprehensive study) added to bibliography
+- [x] Consult Siu Sai Yau's *Catalogue of Academic Research on Prajñāpāramitāhṛdaya (1912-2013)* — cited in bibliography and engagement docs
+- [x] CJK literature search conducted (Feb 2026): 9 scholars covered, ~30 new bibliography entries added, engagement with critics expanded with detailed arguments
 - [ ] Integrate literature review findings into paper Introduction
 - **Key finding:** Parallel composition hypothesis appears novel. Three existing models identified (traditional, reversed/forgery, Indian origin); none proposes parallel extraction from T223.
-- **Caveats:** INBUDS, CNKI not fully searchable remotely. Add qualification in paper.
-- **Peer review note:** Both reviews flag this as a gap that could prompt rejection on its own (PEER_REVIEW §Specific Issue 3)
+- **Caveats:** INBUDS, CNKI not fully searchable remotely. Qualification added to ENGAGEMENT_WITH_CRITICS.md and METHODOLOGY.md.
+- **Peer review note:** Both reviews flag this as a gap that could prompt rejection on its own — NOW ADDRESSED with ~30 CJK bibliography entries and expanded engagement
 
 ---
 

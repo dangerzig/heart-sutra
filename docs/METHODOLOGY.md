@@ -128,7 +128,7 @@ This transforms the critical apparatus into an **argument about textual history*
 
 ## 8. Variant Classification
 
-Variants are categorized, not merely listed:
+Variants are categorized, not merely listed. The 7-category classification scheme follows explicit criteria documented in `research/VARIANT_CLASSIFICATION_CRITERIA.md`, which includes formal definitions, a decision procedure, worked examples across multiple witnesses, and confidence levels (0.0–1.0 scale). Classification is heuristic and should be reviewed by a scholar; the pipeline's outputs are intended as a starting point for editorial judgment, not as authoritative scholarly claims.
 
 | Type | Description |
 |------|-------------|
@@ -209,8 +209,10 @@ Each witness file contains `segments` — discrete text units aligned by section
 The collation engine takes T251 as the analytical base and aligns witnesses in three dimensions:
 
 1. **Inter-Chinese collation**: T251 vs T250 (and other Taishō witnesses) — matched via explicit `chinese_parallel` references in each witness's data file. Only segment-bearing witness files participate; catalog files and non-segment structures (e.g. `dunhuang_manuscripts.json`, `t256.json`) are automatically excluded.
-2. **Cross-linguistic alignment**: Chinese segments matched to Sanskrit and Tibetan via `chinese_parallel` references. There is no section+index fallback — segments lacking `chinese_parallel` are excluded from alignment rather than guessed at.
+2. **Cross-linguistic alignment**: Chinese segments matched to Sanskrit and Tibetan via `chinese_parallel` references. There is no section+index fallback — segments lacking `chinese_parallel` are excluded from alignment rather than guessed at. See `docs/ALIGNMENT_PROTOCOL.md` for the full alignment methodology: how annotations were produced, decision criteria, edge cases, and verification procedure.
 3. **Variant detection**: Automated classification of differences using the criteria in `research/VARIANT_CLASSIFICATION_CRITERIA.md`
+
+**Unparalleled segments.** Certain segments in non-base witnesses lack a `chinese_parallel` and are excluded from automated collation. These are: the Sanskrit invocation (GRETIL:1, a late Tantric maṅgala absent from T251), the Sanskrit colophon (GRETIL:14, a manuscript closing convention), and Tibetan long-recension frame narrative sections (setting, assembly, Buddha's approval — absent from the T251 short recension). Exclusion is *conservative*, not biasing: these segments have no Chinese counterpart, so cross-linguistic comparison is not meaningful for them. They remain in the data files for independent scholarly examination.
 
 **Variant detection steps:**
 - Orthographic check: normalize (strip diacritics, lowercase), compare with SequenceMatcher (threshold > 0.9)
@@ -294,6 +296,15 @@ Data directory resolution order: (1) explicit CLI argument, (2) `HRDAYA_DATA_DIR
 - **Transliteration** (Devanagari ↔ IAST) delegates to the `indic-transliteration` library (Vishvas Vasuki et al.), the standard package used across Sanskrit digital humanities projects. Sandhi resolution, positional anusvāra normalization, and manuscript-specific orthographic conventions are not handled — these require scholarly judgement, not automation. Input can be validated against a known IAST character set before conversion.
 - **Witness discovery** scans all subdirectories under `data/chinese/` for segment-based witnesses (including Taishō, Dunhuang, and epigraphy). Files without a `segments` array are excluded from automated collation but remain available for manual consultation.
 - **CJK-language scholarship**: This edition's engagement with Chinese- and Japanese-language scholarly literature is partial, relying on published English translations, English-language review articles, and bilingual publications. Key Japanese-language counter-arguments to the Chinese-origins thesis (Fukui 1987/1994/2000, Harada 2002/2010, Ishii 2015/2021, Watanabe 2009/2021) and Chinese-language scholarship (Ji Yun 2012/2017, Siu 2017/2019, He & Xu 2017) have been consulted through secondary literature where original-language access was not possible. The *Acta Asiatica* 121 (2021) special Heart Sūtra issue and Siu's bibliographic catalogue (2019) are cited as the most comprehensive recent surveys. See `docs/BIBLIOGRAPHY.md` and `research/ENGAGEMENT_WITH_CRITICS.md` for full details.
+
+### Data Archival
+
+For scholarly citation and long-term reproducibility, the witness data and pipeline will be archived as follows:
+
+- **Primary archive**: The git repository, with `data_version` (semver) and `data_hash` (SHA-256 fingerprint) embedded in all pipeline outputs for exact traceability.
+- **Stable deposit**: Prior to publication, a versioned snapshot of the data files and code will be deposited on [Zenodo](https://zenodo.org/) to obtain a DOI (Digital Object Identifier). The DOI will be cited in the published paper.
+- **Format longevity**: Witness data is stored as plain JSON — a widely supported, tool-agnostic format that requires no specialized software to read. The Python pipeline has minimal dependencies (`indic-transliteration` only).
+- **Versioning policy**: Any change to files under `data/` requires incrementing `DATA_VERSION` in `src/hrdaya/data.py`. This is enforced by CI (see `scripts/check_data_version.py`).
 
 ## Summary
 
