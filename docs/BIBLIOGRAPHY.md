@@ -124,9 +124,15 @@ Buswell, Robert E., Jr., and Donald S. Lopez Jr. 2014. "Heart Sūtra." In *The P
 
 Eckel, Malcolm David. 1987. "Indian Commentaries on the Heart Sūtra: The Politics of Interpretation." *Journal of the International Association of Buddhist Studies* 10 (2): 69–79.
 
-Fukui, Fumimasa. 1987. "Hannya shingyō no seiritsu" 般若心経の成立 [The Formation of the Heart Sūtra]. *Bukkyōgaku* 仏教学 23: 1–32.
+Fukui, Fumimasa 福井文雅. 1987. *Hannya shingyō no rekishiteki kenkyū* 般若心経の歴史的研究 [A Historical Study of the Heart Sūtra]. Tokyo: Shunjūsha.
 
-Harada, Waso. 1932. "Hannya shingyō no tokushitsu" 般若心経の特質 [Characteristics of the Heart Sūtra]. *Shūkyō kenkyū* 宗教研究 9 (4): 97–113.
+Fukui, Fumimasa 福井文雅. 1994. "Hannya shingyō no kenkyūshi: genkon no mondaiten" 般若心経の研究史──現今の問題点 [Research History of the Heart Sūtra: Current Problems]. *Bukkyōgaku* 仏教学 36: 79–99. [Response to Nattier 1992]
+
+Fukui, Fumimasa 福井文雅. 2000. *Hannya shingyō no sōgōteki kenkyū: rekishi, shakai, shiryō* 般若心経の総合的研究——歴史・社会・資料 [A Comprehensive Study of the Heart Sūtra: History, Society, Documents]. Tokyo: Shunjūsha.
+
+Harada, Waso 原田和宗. 2002. "Bonbun 'Shōhon Hannya shingyō' wayaku" 梵文『小本・般若心経』和訳 [Japanese Translation of the Sanskrit Short Heart Sūtra]. *Mikkyō bunka* 密教文化 209: L17–L62.
+
+Harada, Waso 原田和宗. 2010. *'Hannya shingyō' seiritsu shiron: Daijō Bukkyō to Mikkyō no kōsaro* 『般若心経』成立史論——大乗仏教と密教の交差路 [A Historical Discussion of the Formation of the Heart Sūtra: The Crossroads of Mahayana Buddhism and Esoteric Buddhism]. Tokyo: Daizō Shuppan.
 
 Lancaster, Lewis R. 1977. "The Oldest Mahāyāna Sūtra: Its Significance for the Study of Buddhist Development." *The Eastern Buddhist* 10 (1): 30–41.
 
@@ -146,7 +152,69 @@ Shih, Heng-ching, and Dan Lusthaus. 2006. *A Comprehensive Commentary on the Hea
 
 Tanahashi, Kazuaki. 2014. *The Heart Sutra: A Comprehensive Guide to the Classic of Mahayana Buddhism*. Boston: Shambhala.
 
-Watanabe, Shōgo. 1990. "Hannya shingyō no seiritsu ni tsuite" 般若心経の成立について [On the Formation of the Heart Sūtra]. *Indogaku Bukkyōgaku kenkyū* 印度學佛教學研究 39 (1): 462–460.
+Watanabe, Shōgo 渡辺章悟. 1990. "Hannya shingyō no seiritsu ni tsuite" 般若心経の成立について [On the Formation of the Heart Sūtra]. *Indogaku Bukkyōgaku kenkyū* 印度學佛教學研究 39 (1): 462–460.
+
+Watanabe, Shōgo 渡辺章悟. 1991. "Hannya shingyō seiritsuron josetsu" 般若心経成立論序説 [An Introduction to the Theory on the Formation of the Prajñā-hṛdaya-sūtra]. *Bukkyōgaku* 仏教学 31: 41–86.
+
+Watanabe, Shōgo 渡辺章悟. 2009. *Hannya shingyō: tekusuto, shisō, bunka* 般若心経——テクスト・思想・文化 [The Heart Sūtra: Text, Thought, Culture]. Tokyo: Daihōrinsha.
+
+### CJK-Language Scholarship and the Origins Debate
+
+*Note: Our engagement with Chinese- and Japanese-language scholarship is necessarily partial, relying on published translations, English-language reviews (especially Attwood's review of Acta Asiatica 121 in Buddhist Studies Review 39.2, 2023), and bilingual sources. Entries marked [JA] or [ZH] indicate the primary publication language. See `research/ENGAGEMENT_WITH_CRITICS.md` for how these arguments bear on the present edition.*
+
+#### Acta Asiatica 121 (2021) — Special Heart Sūtra Issue
+
+Saito, Akira 斎藤明. 2021. "Avalokiteśvara in the Prajñāpāramitāhṛdaya." *Acta Asiatica* 121: 1–22.
+
+Watanabe, Shōgo 渡辺章悟. 2021. "The Lineage of the Prajñāpāramitāhṛdaya: With a Focus on Its Introduction and Expressions of 'Emptiness.'" *Acta Asiatica* 121: 23–52.
+
+Horiuchi, Toshio 堀内俊郎. 2021. "Revisiting the 'Indian' Commentaries on the Prajñāpāramitāhṛdaya: Vimalamitra's Interpretation of the 'Eight Aspects.'" *Acta Asiatica* 121: 53–81.
+
+Ishii, Kōsei 石井公成. 2021. "The Chinese Texts and Sanskrit Text of the Prajñāpāramitāhṛdaya Seen by Wŏnch'ŭk 圓測." *Acta Asiatica* 121: 83–97.
+
+Silk, Jonathan A. 2021. "The Heart Sūtra as Dhāraṇī." *Acta Asiatica* 121: 99–125.
+
+#### Japanese Scholarship
+
+Ishii, Kōsei 石井公成. 2015. "'Hannya shingyō' o meguru shomondai: Jan Natī-shi no Genjō sōsakusetsu o utagau" 『般若心経』をめぐる諸問題——ジャン・ナティエ氏の玄奘創作説を疑う [Issues Surrounding the Prajñāpāramitāhṛdaya: Doubts Concerning Jan Nattier's Theory of a Composition by Xuanzang]. *Indogaku Bukkyōgaku kenkyū* 印度學佛教學研究 64 (1): 499–492. Trans. Jeffrey Kotyk. [JA]
+
+Kudō, Noriyuki 工藤順之, and Fukita Takamichi 吹田隆道, trans. 2006. "'Hannya shingyō' wa Chūgoku gikyō ka?" 『般若心経』は中国偽経か？ [Is the Heart Sūtra a Chinese Apocryphal Text?]. *Sankō Bunka Kenkyūjo Nenpō* 三康文化研究所年報 37: 17–83. [Japanese translation of Nattier 1992]
+
+Watanabe, Shōgo 渡辺章悟, and Takahashi Hisao 高橋尚夫. 2016. *Hannya shingyō chūshaku shūsei: Indo, Chibetto hen* 般若心経註釈集成：インド・チベット編 [Collected Commentaries on the Heart Sūtra: India and Tibet Volume]. Urayasu-shi: Kishin Shobō. [JA]
+
+Dreitlein, Thomas Eijō. 2011. "An Annotated Translation of Kūkai's Secret Key to the Heart Sūtra." *Bulletin of the Research Institute of Esoteric Buddhist Culture* (密教文化研究所紀要) 24: 1–47. Kōyasan University.
+
+#### Chinese-Language Scholarship
+
+Ji Yun 紀贇. 2012. "'Xīnjīng' yíwěi wèntí zài yánjiū" 《心经》疑伪问题再研究 [Re-examination of the Heart Sūtra Apocrypha Question]. *Fùyán Fóxué yánjiū* 福嚴佛學研究 7: 115–182. [ZH]
+
+Ji Yun 紀贇. 2017. "Is the Heart Sūtra an Apocryphal Text? A Re-examination." Trans. Chin Shih-Foong. *Singapore Journal of Buddhist Studies* 4: 41–95.
+
+Siu, Sai Yau 蕭世友. 2017. "Lüèběn 'Bōrě bōluómìduō xīnjīng' chóngtàn: hànyì, yìshǐ jí wénběn lèixíng" 略本《般若波羅蜜多心經》重探：漢譯、譯史及文本類型 [Reinvestigation into the Shorter Heart Sūtra: Chinese Translation, History, and Text Type]. SSRN Working Paper. [ZH]
+
+Siu, Sai Yau 蕭世友. 2019. *'Bōrě bōluómìduō xīnjīng' xuéshù yánjiū mùlù (1912–2013)* 《般若波羅蜜多心經》學術研究目錄（1912–2013）[A Catalogue of Academic Research on Prajñāpāramitāhṛdaya (1912–2013)]. SSRN Working Paper. [ZH]
+
+He, Ming 何明, and Xu Xiaoyu 徐小玉. 2017. "Zǎoqī 'Xīnjīng' de bǎnběn" 早期《心经》的版本 [Early Recensions of the Heart Sūtra]. In *Shíjīng yánjiū* 石经研究 [Stone Sūtra Studies], Vol. 1, 12–28. Beijing: Beijing Yanshan Chubanshe. [ZH]
+
+#### Korean Scholarship
+
+Hwang, Chang-Geun. 2000. "A Korean Yogācāra Monk in China: Won-Cheuk (612–696) and His Commentary on the Heart Sūtra." Ph.D. diss., University of Wisconsin–Madison.
+
+Choo, B. Hyun. 2006. "An English Translation of the Banya paramilda simgyeong chan: Wŏnch'ŭk's Commentary on the Heart Sūtra." *International Journal of Buddhist Thought and Culture* 6: 121–205.
+
+#### Additional Attwood Articles
+
+Attwood, Jayarava. 2019b. "Xuanzang's Relationship to the Heart Sūtra in Light of the Fangshan Stele." *Journal of Chinese Buddhist Studies* 32: 1–30.
+
+Attwood, Jayarava. 2020. "The History of the Heart Sūtra as a Palimpsest." *Pacific World*, Series 4, No. 1: 155–182.
+
+Attwood, Jayarava. 2021a. "The Chinese Origins of the Heart Sūtra Revisited: A Comparative Analysis of the Chinese and Sanskrit Texts." *Journal of the International Association of Buddhist Studies* 44: 13–52.
+
+Attwood, Jayarava. 2021b. "Preliminary Notes on the Extended Heart Sūtra in Chinese." *Asian Literature and Translation* 8 (1): 63–85.
+
+#### Commentarial Studies
+
+Lusthaus, Dan. 2003. "The Heart Sūtra in Chinese Yogācāra: Some Comparative Comments on the Heart Sūtra Commentaries of Wŏnch'ŭk and K'uei-chi." *International Journal of Buddhist Thought and Culture* 3: 59–103.
 
 ---
 
