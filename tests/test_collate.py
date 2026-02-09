@@ -2,7 +2,7 @@
 
 import pytest
 from pathlib import Path
-from hrdaya.collate import HeartSutraCollator, CollationResult
+from hrdaya.collate import HeartSutraCollator, CollationResult, collate_full_text
 from hrdaya.models import VariantType, DependenceDirection
 
 
@@ -107,3 +107,26 @@ class TestHeartSutraCollator:
         # The result text should be T250's opening, not skandha_characteristics
         if "T250" in result.chinese_texts:
             assert "觀世音" in result.chinese_texts["T250"]
+
+
+class TestCollateFullText:
+    """Test the high-level collate_full_text entry point."""
+
+    def test_returns_dict_with_provenance(self):
+        result = collate_full_text(DATA_DIR)
+        assert "provenance" in result
+        assert result["provenance"]["tool"] == "hrdaya.collate"
+        assert result["provenance"]["base_witness"] == "T251"
+
+    def test_returns_sections(self):
+        result = collate_full_text(DATA_DIR)
+        assert "sections" in result
+        assert "opening" in result["sections"]
+        assert "mantra" in result["sections"]
+
+    def test_sections_contain_apparatus_entries(self):
+        result = collate_full_text(DATA_DIR)
+        opening = result["sections"]["opening"]
+        assert isinstance(opening, list)
+        assert len(opening) > 0
+        assert "segment_id" in opening[0]

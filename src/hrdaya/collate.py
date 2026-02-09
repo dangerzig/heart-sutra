@@ -12,11 +12,8 @@ import logging
 import unicodedata
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from pathlib import Path
-from typing import Optional
 from difflib import SequenceMatcher
-
-logger = logging.getLogger(__name__)
+from pathlib import Path
 
 from .models import (
     Variant,
@@ -26,6 +23,8 @@ from .models import (
     MultilingualSegment,
     Segment,
 )
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -389,7 +388,7 @@ class HeartSutraCollator:
             if s.get("section") == section_name
         ]
 
-        for seg_index, c_seg in enumerate(chinese_segs):
+        for c_seg in chinese_segs:
             seg_id = c_seg.get("id")
 
             # Find corresponding Sanskrit segment
@@ -536,7 +535,7 @@ def collate_full_text(data_dir: Path) -> dict:
         try:
             results = collator.collate_section(section)
             all_results[section] = collator.generate_apparatus(results)
-        except Exception as e:
+        except (ValueError, FileNotFoundError) as e:
             all_results[section] = {"error": str(e)}
 
     return {
@@ -550,17 +549,12 @@ def collate_full_text(data_dir: Path) -> dict:
     }
 
 
-def _resolve_data_dir(argv_dir: str | None = None) -> Path:
-    """Resolve data directory from argument or default locations."""
-    from .data import resolve_data_dir
-    return resolve_data_dir(argv_dir)
-
-
 def main():
     """CLI entry point for collation."""
     import sys
+    from .data import resolve_data_dir
 
-    data_dir = _resolve_data_dir(sys.argv[1] if len(sys.argv) > 1 else None)
+    data_dir = resolve_data_dir(sys.argv[1] if len(sys.argv) > 1 else None)
     results = collate_full_text(data_dir)
 
     # Output as JSON
