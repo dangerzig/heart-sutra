@@ -32,7 +32,10 @@
 % FONTS
 % ============================================================================
 
-\setmainfont{Noto Serif}
+\setmainfont{Noto Serif}[
+  BoldFont = {Noto Serif},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 \setsansfont{Noto Sans}
 \setCJKmainfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
@@ -104,14 +107,17 @@
 
 \subsection*{Section I: Opening}
 
-\linenum{1} 觀自在\var{1}菩薩，\\
+\linenum{1} 觀自在\footnote{\lemma{觀自在} \textit{Guānzìzài}] \reading{觀世音} \textit{Guānshìyīn} \wit{T250}, \wit{T252}. The reading 觀自在 supports Xuanzang's Sanskrit \textit{avalokita-īśvara} (``Lord who looks down''), representing his new translation of this name. T250's 觀世音 reflects older \textit{avalokita-svara} (``Perceiver of sounds''). This terminological difference confirms T250 predates Xuanzang's translation conventions.}菩薩，\\
 \pinyin{Guānzìzài púsà,}\\[0.3em]
 \linenum{2} 行深般若波羅蜜多時，\\
 \pinyin{xíng shēn bōrě bōluómìduō shí,}\\[0.3em]
-\linenum{3} 照見五蘊\var{2}皆空，\\
+\linenum{3} 照見五蘊\footnote{\lemma{五蘊} \textit{wǔyùn}] \reading{五陰} \textit{wǔyīn} \wit{T250}. T250 uses the older term 五陰 (literally ``five shades/aggregates''), while T251 uses Xuanzang's preferred 五蘊. Both translate Sanskrit \textit{pañca-skandha}.}皆空，\\
 \pinyin{zhàojiàn wǔyùn jiē kōng,}\\[0.3em]
-\linenum{4} 度一切苦厄\var{3}。\\
+\linenum{4} 度一切苦厄\footnote{\lemma{度一切苦厄}] This phrase has no parallel in the Sanskrit text or Large Sūtra source. It appears to be unique to the Chinese Heart Sūtra composition, perhaps added as a liturgical enhancement.}。\\
 \pinyin{dù yīqiè kǔ è.}
+
+\vspace{0.3em}
+\noindent{\small\color{gray}[\,\textit{T250 inserts skandha-characteristic passage here (see Appendix)}\,]}
 
 \vspace{0.5em}
 \gloss{觀自在 (contemplator of self-mastery) 菩薩 (bodhisattva), 行 (practicing) 深 (profound) 般若波羅蜜多 (prajñāpāramitā) 時 (when), 照見 (illuminated and saw) 五蘊 (five aggregates) 皆 (all) 空 (empty), 度 (crossed beyond) 一切 (all) 苦厄 (suffering and distress).}
@@ -145,6 +151,9 @@
 \linenum{10} 不生不滅，不垢不淨，不增不減。\\
 \pinyin{bù shēng bù miè, bù gòu bù jìng, bù zēng bù jiǎn.}
 
+\vspace{0.3em}
+\noindent{\small\color{gray}[\,\textit{T250 inserts temporal negation passage here (see Appendix)}\,]}
+
 \vspace{0.5em}
 \gloss{舍利子 (Śāriputra), 是 (these) 諸法 (all dharmas) 空相 (emptiness-characteristic): 不生 (not arising) 不滅 (not ceasing), 不垢 (not defiled) 不淨 (not pure), 不增 (not increasing) 不減 (not decreasing).}
 
@@ -160,9 +169,9 @@
 \pinyin{wú yǎn ěr bí shé shēn yì, wú sè shēng xiāng wèi chù fǎ,}\\[0.3em]
 \linenum{13} 無眼界，乃至無意識界。\\
 \pinyin{wú yǎn jiè, nǎizhì wú yìshí jiè.}\\[0.3em]
-\linenum{14} 無無明，亦無無明盡\var{4}，乃至無老死，亦無老死盡。\\
+\linenum{14} 無無明，亦無無明盡\footnote{\lemma{盡} \textit{jìn} ``ending''] Key evidence for Chinese priority and Sanskrit back-translation. The Chinese 盡 was translated into Sanskrit as \textit{kṣaya} (``destruction, wearing away'') rather than the standard Prajñāpāramitā term \textit{nirodha} (``cessation''). The Large Sūtra (Pañcaviṃśatisāhasrikā) uses \textit{nirodha}; Kumārajīva's T223 translates this as 盡. A back-translator working from Chinese chose \textit{kṣaya} as a synonym, creating the ``smoking gun'' evidence (Nattier 1992:175--178).}，乃至無老死，亦無老死盡。\\
 \pinyin{Wú wúmíng, yì wú wúmíng jìn, nǎizhì wú lǎosǐ, yì wú lǎosǐ jìn.}\\[0.3em]
-\linenum{15} 無苦集滅道，無智亦無得\var{5}，以無所得故。\\
+\linenum{15} 無苦集滅道，無智亦無得\footnote{\lemma{無智亦無得}] Sanskrit adds \textit{na-aprāptiḥ} (``no non-attainment''), absent from T251, Fangshan stele, and Hōryūji Sanskrit MS. This is a later interpolation in the Sanskrit tradition, subsequently translated back into Chinese in T257 as 亦無無得.}，以無所得故。\\
 \pinyin{Wú kǔ jí miè dào, wú zhì yì wú dé, yǐ wú suǒ dé gù.}
 
 \vspace{0.5em}
@@ -206,7 +215,7 @@
 
 \linenum{21} 故知般若波羅蜜多，\\
 \pinyin{Gùzhī bōrě bōluómìduō,}\\[0.3em]
-\linenum{22} 是大神咒\var{6}，是大明咒，是無上咒，是無等等咒，\\
+\linenum{22} 是大神咒\footnote{\lemma{是大神咒，是大明咒，是無上咒，是無等等咒}] T251's four-epithet formula. \wit{T250} has only three: 是大明呪、無上明呪、無等等明呪---\emph{exactly matching} the Large Sūtra (T223). T251 adds 大神咒 and drops 明 from two epithets. The Sanskrit \textit{mahāmantro mahāvidyāmantro 'nuttaramantro 'samasamamantraḥ} follows T251's four-epithet pattern, confirming it was back-translated from T251, not T250.}，是大明咒，是無上咒，是無等等咒，\\
 \pinyin{shì dà shén zhòu, shì dà míng zhòu, shì wúshàng zhòu, shì wú děngděng zhòu,}\\[0.3em]
 \linenum{23} 能除一切苦，眞實不虛故。\\
 \pinyin{néng chú yīqiè kǔ, zhēnshí bù xū gù.}
@@ -222,7 +231,7 @@
 
 \linenum{24} 說般若波羅蜜多咒，卽說咒曰：\\
 \pinyin{Shuō bōrě bōluómìduō zhòu, jí shuō zhòu yuē:}\\[0.3em]
-\linenum{25} 揭帝揭帝\var{7}，波羅揭帝，波羅僧揭帝，菩提僧莎訶\var{8}。\\
+\linenum{25} 揭帝揭帝\footnote{\lemma{揭帝} \textit{jiēdì}] Phonetic transcription of Sanskrit \textit{gate}. Minor variants exist in Dunhuang manuscripts. The mantra is transliterated, not translated, in all Chinese witnesses.}，波羅揭帝，波羅僧揭帝，菩提僧莎訶\footnote{Note on \textit{oṃ}: The mantra in T251 begins directly with 揭帝 (\textit{gate}). The \textit{oṃ} found in later Sanskrit and Tibetan witnesses is a Tantric addition (9th--10th century), absent from all early Chinese witnesses, Fangshan stele (661 CE), and Hōryūji Sanskrit MS (7th--8th c.).}。\\
 \pinyin{Jiēdì jiēdì, bōluó jiēdì, bōluó sēng jiēdì, pútí sēng suōhē.}
 
 \vspace{0.5em}
@@ -232,37 +241,6 @@
 \fluent{Proclaim the prajñāpāramitā mantra, proclaim the mantra that says: Gone, gone, gone beyond, gone completely beyond --- awakening! Svāhā!}
 
 \newpage
-
-% ----------------------------------------------------------------------------
-% CRITICAL APPARATUS
-% ----------------------------------------------------------------------------
-
-\section*{Critical Apparatus}
-
-\var{1}~\lemma{觀自在} \textit{Guānzìzài}] \reading{觀世音} \textit{Guānshìyīn} \wit{T250}, \wit{T252}. The reading 觀自在 supports Xuanzang's Sanskrit \textit{avalokita-īśvara} (``Lord who looks down''), representing his new translation of this name. T250's 觀世音 reflects older \textit{avalokita-svara} (``Perceiver of sounds''). This terminological difference confirms T250 predates Xuanzang's translation conventions.
-
-\vspace{0.5em}
-\var{2}~\lemma{五蘊} \textit{wǔyùn}] \reading{五陰} \textit{wǔyīn} \wit{T250}. T250 uses the older term 五陰 (literally ``five shades/aggregates''), while T251 uses Xuanzang's preferred 五蘊. Both translate Sanskrit \textit{pañca-skandha}.
-
-\vspace{0.5em}
-\var{3}~\lemma{度一切苦厄}] This phrase has no parallel in the Sanskrit text or Large Sūtra source. It appears to be unique to the Chinese Heart Sūtra composition, perhaps added as a liturgical enhancement.
-
-\vspace{0.5em}
-\var{4}~\lemma{盡} \textit{jìn} ``ending''] Key evidence for Chinese priority and Sanskrit back-translation. The Chinese 盡 was translated into Sanskrit as \textit{kṣaya} (``destruction, wearing away'') rather than the standard Prajñāpāramitā term \textit{nirodha} (``cessation''). The Large Sūtra (Pañcaviṃśatisāhasrikā) uses \textit{nirodha}; Kumārajīva's T223 translates this as 盡. A back-translator working from Chinese chose \textit{kṣaya} as a synonym, creating the ``smoking gun'' evidence (Nattier 1992:175--178).
-
-\vspace{0.5em}
-\var{5}~\lemma{無智亦無得}] Sanskrit adds \textit{na-aprāptiḥ} (``no non-attainment''), absent from T251, Fangshan stele, and Hōryūji Sanskrit MS. This is a later interpolation in the Sanskrit tradition, subsequently translated back into Chinese in T257 as 亦無無得.
-
-\vspace{0.5em}
-\var{6}~\lemma{是大神咒，是大明咒，是無上咒，是無等等咒}] T251's four-epithet formula. \wit{T250} has only three: 是大明呪、無上明呪、無等等明呪---\emph{exactly matching} the Large Sūtra (T223). T251 adds 大神咒 and drops 明 from two epithets. The Sanskrit \textit{mahāmantro mahāvidyāmantro 'nuttaramantro 'samasamamantraḥ} follows T251's four-epithet pattern, confirming it was back-translated from T251, not T250.
-
-\vspace{0.5em}
-\var{7}~\lemma{揭帝} \textit{jiēdì}] Phonetic transcription of Sanskrit \textit{gate}. Minor variants exist in Dunhuang manuscripts. The mantra is transliterated, not translated, in all Chinese witnesses.
-
-\vspace{0.5em}
-\var{8}~\lemma{Note on \textit{oṃ}}] The mantra in T251 begins directly with 揭帝 (\textit{gate}). The \textit{oṃ} found in later Sanskrit and Tibetan witnesses is a Tantric addition (9th--10th century), absent from all early Chinese witnesses, Fangshan stele (661 CE), and Hōryūji Sanskrit MS (7th--8th c.).
-
-\vspace{2em}
 
 % ----------------------------------------------------------------------------
 % T250 UNIQUE PASSAGES
@@ -301,6 +279,30 @@ T250 also includes:
 \end{quote}
 
 \noindent These passages represent substantive doctrinal content. A reviser creating T251 from T250 would have no reason to delete them. Their absence from T251 indicates T251 was composed independently, drawing on the same Large Sūtra source material but making different compositional choices.
+
+\newpage
+
+\section*{Note on Prior Editions}
+
+Standard references for the Chinese Heart Sūtra include the Taishō edition (T8.848--849 for T251; T8.847 for T250) and the CBETA digital corpus. Attwood (2017b, 2021a, 2024) has provided the most sustained modern analysis of the Chinese text, including:
+
+\begin{itemize}
+\item Systematic comparison of Kumārajīva-era and Xuanzang-era translation conventions
+\item Identification of the epithet pattern (3 vs.\ 4 epithets) as key evidence for textual relationships
+\item Analysis of 明呪 \textit{míngzhòu} / 神咒 \textit{shénzhòu} terminology
+\item A revised edition of the Chinese text in Attwood (2024)
+\end{itemize}
+
+The two editions differ in editorial philosophy. Attwood (2024) presents a \emph{revised} edition: he proposes specific emendations to the received Taishō text, replacing 無智亦無得 with Xuanzang's rendering 無得無現觀 (from T220), restoring 明呪 in the epithet passage, correcting 僧莎訶 to 薩婆訶 in the dhāraṇī, and repunctuating 以無所得故 to open a new paragraph. These changes aim to produce a text that can be parsed and translated correctly, and are supported by careful argumentation.
+
+This edition takes a different approach: it is a \emph{critical} edition in the traditional philological sense. We present the received T251 text without emendation, recording variants in the apparatus. Where Attwood proposes changing the text, we note the problem in a footnote and let readers evaluate the evidence. Our further contributions beyond Attwood's work:
+
+\begin{itemize}
+\item We present T251 and T250 as \emph{parallel compositions}, with T250 readings in the apparatus rather than treating either text as a revision of the other
+\item We include the Fangshan stele (661 CE), Dunhuang manuscripts (S.2464, S.700, P.2323), and Dānapāla's T257 as formal witnesses
+\item We mark the locations where T250 preserves passages absent from T251 and present them in full
+\item Pinyin romanization and word-by-word glosses are provided throughout
+\end{itemize}
 
 \vspace{2em}
 \hrule

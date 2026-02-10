@@ -6,8 +6,15 @@
 \usepackage{xcolor}
 
 % Set fonts with Greek support
-\setmainfont{Noto Serif}
-\newfontfamily\greekfont{Noto Serif}[Script=Greek]
+\setmainfont{Noto Serif}[
+  BoldFont = {Noto Serif},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
+\newfontfamily\greekfont{Noto Serif}[
+  Script=Greek,
+  BoldFont = {Noto Serif},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 
 % Define colors
 \definecolor{sourcecolor}{RGB}{139,69,19}      % Brown for sources

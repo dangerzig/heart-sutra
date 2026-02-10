@@ -32,11 +32,17 @@
 % FONTS
 % ============================================================================
 
-\setmainfont{Noto Serif}
+\setmainfont{Noto Serif}[
+  BoldFont = {Noto Serif},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 \setsansfont{Noto Sans}
 \setCJKmainfont{Noto Serif CJK SC}
 
-\newfontfamily\tibetanfont{Noto Serif Tibetan}
+\newfontfamily\tibetanfont{Noto Serif Tibetan}[
+  BoldFont = {Noto Serif Tibetan},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 \newcommand{\tib}[1]{{\tibetanfont #1}}
 
 % ============================================================================
@@ -86,7 +92,21 @@ The Tibetan Heart Sūtra exists in two recensions. The Kangyur text (Toh 21) was
 
 A \textbf{short recension} is attested by IOL Tib J 751, a Dunhuang manuscript dated c.\ 823 CE --- the earliest securely datable Tibetan Heart Sūtra witness. This short text lacks the frame narrative and corresponds to Chinese T251 and the Hōryūji Sanskrit manuscript. Its imperial-period orthography may preserve older translation conventions. The relationship between the Dunhuang short recension and the Kangyur long recension is not that of draft and revision, but likely reflects translation from different Sanskrit source texts (short vs.\ long).
 
-The Tibetan is a \textbf{tertiary witness}: Chinese → Sanskrit → Tibetan. It preserves features of the Sanskrit back-translation, including errors that trace back to Chinese.
+The Tibetan is a \textbf{tertiary witness}: Chinese $\to$ Sanskrit $\to$ Tibetan. It preserves features of the Sanskrit back-translation, including errors that trace back to Chinese.
+
+\section*{Relationship to Prior Editions}
+
+Critical study of the Tibetan Heart Sūtra has largely been confined to Conze's use of Kangyur readings (1967), the ACIP/BUDA digital corpus, and individual manuscript studies. Attwood's research programme (2015--2024) focuses primarily on the Chinese and Sanskrit texts but has identified key features inherited by the Tibetan:
+
+\begin{itemize}
+\item The \textit{na-apr\=apti\d{h}} interpolation, present in Sanskrit and carried into the Tibetan (\tib{མ་ཐོབ་པ་ཡང་མེད})
+\item The \textit{k\d{s}aya}/\textit{zad pa} reading, shared with late Sanskrit manuscripts
+\item The Tantric additions (o\d{m}, frame narrative) indicating translation from a long-recension Sanskrit source
+\end{itemize}
+
+Attwood does not publish a Tibetan edition; his focus is on repairing the Chinese and Sanskrit texts. No prior critical edition collates the Kangyur witnesses against each other or includes the Dunhuang short recension.
+
+This edition makes two contributions: (1) collation of six Kangyur witnesses (Degé, Peking, Narthang, Lhasa, Lithang, Stog Palace) to establish the Tibetan textual tradition, and (2) inclusion of IOL Tib J 751 (c.\ 823 CE), the Dunhuang short recension, as a witness --- the earliest securely datable Tibetan Heart Sūtra text. As with the companion Chinese and Sanskrit editions, this is a \emph{critical} edition presenting the received text with variants in the apparatus, not a revised edition proposing emendations.
 
 \section*{Witnesses}
 
@@ -215,7 +235,7 @@ The Tibetan is a \textbf{tertiary witness}: Chinese → Sanskrit → Tibetan. It
 \wylie{mig gi khams med pa nas yid kyi rnam par shes pa'i khams kyi bar du yang med do |}
 
 \vspace{1em}
-\linenum{13} \tib{མ་རིག་པ་མེད། མ་རིག་པ་ཟད་པ་མེད་པ་ནས།}\var{1}\\
+\linenum{13} \tib{མ་རིག་པ་མེད། མ་རིག་པ་ཟད་པ་མེད་པ་ནས།}\footnote{\lemma{\tib{ཟད་པ}} \textit{zad pa} ``exhaustion''] This translates Sanskrit \textit{kṣaya}, \emph{not} the correct \textit{nirodha} (which would be \tib{འགོག་པ} \textit{'gog pa}). The Tibetan preserves the Sanskrit back-translation error, confirming the transmission chain: Chinese 盡 → Sanskrit \textit{kṣaya} → Tibetan \textit{zad pa}.}\\
 \wylie{ma rig pa med | ma rig pa zad pa med pa nas |}
 
 \vspace{0.3em}
@@ -227,7 +247,7 @@ The Tibetan is a \textbf{tertiary witness}: Chinese → Sanskrit → Tibetan. It
 \wylie{sdug bsngal ba dang | kun 'byung ba dang | 'gog pa dang | lam med |}
 
 \vspace{0.3em}
-\linenum{16} \tib{ཡེ་ཤེས་མེད། ཐོབ་པ་མེད། མ་ཐོབ་པ་ཡང་མེད་དོ།}\var{2}\\
+\linenum{16} \tib{ཡེ་ཤེས་མེད། ཐོབ་པ་མེད། མ་ཐོབ་པ་ཡང་མེད་དོ།}\footnote{\lemma{\tib{མ་ཐོབ་པ་ཡང་མེད}} \textit{ma thob pa yang med}] ``No non-attainment.'' This translates Sanskrit \textit{na-aprāptiḥ}, which is absent from the earliest Chinese (T251, Fangshan) and Sanskrit (Hōryūji) witnesses. It is a late interpolation that entered the Tibetan through its Sanskrit source.}\\
 \wylie{ye shes med | thob pa med | ma thob pa yang med do |}
 
 \vspace{0.5em}
@@ -300,7 +320,7 @@ The Tibetan is a \textbf{tertiary witness}: Chinese → Sanskrit → Tibetan. It
 
 \vspace{0.5em}
 \begin{center}
-{\Large\tib{ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།}}\var{3}
+{\Large\tib{ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།}}\footnote{\lemma{\tib{ཨོཾ}} \textit{oṃ}] The mantra begins with oṃ in all Tibetan editions. This is a Tantric addition (9th--10th century) absent from the earliest Chinese and Sanskrit witnesses. The Tibetan was translated from a Sanskrit text that already contained this addition.}
 
 \vspace{0.3em}
 \wylie{tad+ya thA | oM ga te ga te pA ra ga te pA ra saM ga te bo d+hi swA hA |}
@@ -311,24 +331,6 @@ The Tibetan is a \textbf{tertiary witness}: Chinese → Sanskrit → Tibetan. It
 
 \vspace{0.3em}
 \fluent{The prajñāpāramitā mantra is proclaimed. It runs thus: Oṃ --- gone, gone, gone beyond, gone completely beyond --- awakening! Hail!}
-
-\newpage
-
-% ----------------------------------------------------------------------------
-% CRITICAL APPARATUS
-% ----------------------------------------------------------------------------
-
-\section*{Critical Apparatus}
-
-\var{1}~\lemma{\tib{ཟད་པ}} \textit{zad pa} ``exhaustion''] This translates Sanskrit \textit{kṣaya}, \emph{not} the correct \textit{nirodha} (which would be \tib{འགོག་པ} \textit{'gog pa}). The Tibetan preserves the Sanskrit back-translation error, confirming the transmission chain: Chinese 盡 → Sanskrit \textit{kṣaya} → Tibetan \textit{zad pa}.
-
-\vspace{0.5em}
-\var{2}~\lemma{\tib{མ་ཐོབ་པ་ཡང་མེད}} \textit{ma thob pa yang med}] ``No non-attainment.'' This translates Sanskrit \textit{na-aprāptiḥ}, which is absent from the earliest Chinese (T251, Fangshan) and Sanskrit (Hōryūji) witnesses. It is a late interpolation that entered the Tibetan through its Sanskrit source.
-
-\vspace{0.5em}
-\var{3}~\lemma{\tib{ཨོཾ}} \textit{oṃ}] The mantra begins with oṃ in all Tibetan editions. This is a Tantric addition (9th--10th century) absent from the earliest Chinese and Sanskrit witnesses. The Tibetan was translated from a Sanskrit text that already contained this addition.
-
-\vspace{2em}
 
 % ----------------------------------------------------------------------------
 % VARIANT READINGS
