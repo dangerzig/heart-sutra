@@ -32,15 +32,24 @@
 % FONTS
 % ============================================================================
 
-\setmainfont{Noto Serif}
+\setmainfont{Noto Serif}[
+  BoldFont = {Noto Serif},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 \setsansfont{Noto Sans}
 \setCJKmainfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
 
-\newfontfamily\devanagarifont{Noto Serif Devanagari}
+\newfontfamily\devanagarifont{Noto Serif Devanagari}[
+  BoldFont = {Noto Serif Devanagari},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 \newcommand{\deva}[1]{{\devanagarifont #1}}
 
-\newfontfamily\tibetanfont{Noto Serif Tibetan}
+\newfontfamily\tibetanfont{Noto Serif Tibetan}[
+  BoldFont = {Noto Serif Tibetan},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 \newcommand{\tib}[1]{{\tibetanfont #1}}
 
 % ============================================================================

@@ -32,11 +32,17 @@
 % FONTS
 % ============================================================================
 
-\setmainfont{Noto Serif}
+\setmainfont{Noto Serif}[
+  BoldFont = {Noto Serif},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 \setsansfont{Noto Sans}
 \setCJKmainfont{Noto Serif CJK SC}
 
-\newfontfamily\devanagarifont{Noto Serif Devanagari}
+\newfontfamily\devanagarifont{Noto Serif Devanagari}[
+  BoldFont = {Noto Serif Devanagari},
+  BoldFeatures = {RawFeature=+axis{wght=700}},
+]
 \newcommand{\deva}[1]{{\devanagarifont #1}}
 
 % ============================================================================
@@ -111,7 +117,7 @@ This edition recognizes \textbf{Chinese compositional priority} following Nattie
 
 \vspace{1em}
 
-\linenum{1} namas sarvajñāya\var{1} ||
+\linenum{1} namas sarvajñāya\footnote{\lemma{namas sarvajñāya}] This simple maṅgala appears in \wit{Ja}. Later witnesses have elaborate Tantric formulas: \reading{Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai!} \wit{Nb Nc Nd Ne}. The elaboration is a Tantric development (9th--10th c.).} ||
 
 \vspace{0.3em}
 \gloss{namas (homage) sarvajñāya (to the omniscient one)}
@@ -123,12 +129,12 @@ This edition recognizes \textbf{Chinese compositional priority} following Nattie
 
 \subsection*{Section I: Opening}
 
-\linenum{2} ārya-avalokiteśvaro\var{2} bodhisattvo\\
+\linenum{2} ārya-avalokiteśvaro\footnote{\lemma{avalokiteśvaro}] \reading{avalokita-} \wit{Ja}. The \wit{Ja} reading may represent earlier confusion. Chinese 觀自在 supports the \textit{-īśvara} compound. \depmark{zh}{sa} The Chinese reading is primary.} bodhisattvo\\
 gambhīrāṃ prajñāpāramitā-caryāṃ caramāṇo\\
-vyavalokayati sma\var{3}:
+vyavalokayati sma\footnote{\lemma{vyavalokayati sma}] Unusual periphrastic past tense (\textit{sma} + present). Standard sūtra style uses present or aorist. \depmark{zh}{sa} May reflect Chinese narrative past 時 (\textit{shí}) ``at that time,'' indicating translation from Chinese.}:
 
 \vspace{0.3em}
-\linenum{3} pañca-skandhāṃs\var{4} tāṃś ca svabhāva-śūnyān paśyati sma ||
+\linenum{3} pañca-skandhāṃs\footnote{\lemma{pañca-skandhāṃs}] Accusative. Conze (1967) erroneously prints \reading{pañca-skandhāḥ} (nominative). Attwood (2015) corrects: the bodhisattva \emph{sees} the aggregates (accusative required).} tāṃś ca svabhāva-śūnyān paśyati sma ||
 
 \vspace{0.5em}
 \gloss{ārya (noble) avalokiteśvaro (Avalokiteśvara) bodhisattvo (bodhisattva), gambhīrāṃ (profound) prajñāpāramitā-caryāṃ (prajñāpāramitā-practice) caramāṇo (practicing), vyavalokayati sma (was looking down): pañca-skandhāṃs (five aggregates) tāṃś ca (and those) svabhāva-śūnyān (empty of intrinsic nature) paśyati sma (he saw).}
@@ -141,10 +147,10 @@ vyavalokayati sma\var{3}:
 
 \linenum{4} iha Śāriputra\\
 rūpaṃ śūnyatā śūnyataiva rūpam |\\
-rūpān na pṛthak śūnyatā\var{5} śūnyatāyā na pṛthag rūpam |
+rūpān na pṛthak śūnyatā\footnote{\lemma{rūpān na pṛthak śūnyatā}] Ablative construction ``emptiness is not separate \emph{from} form.'' Grammatically unusual; may reflect Chinese 色不異空 translated woodenly. \depmark{zh}{sa}} śūnyatāyā na pṛthag rūpam |
 
 \vspace{0.3em}
-\linenum{5} yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam\var{6} |
+\linenum{5} yad rūpaṃ sā śūnyatā yā śūnyatā tad rūpam\footnote{\lemma{yad rūpaṃ sā śūnyatā...}] This line (``that which is form, that is emptiness...'') has \emph{no Chinese parallel}. It appears to be an addition made during Sanskrit composition to clarify the form-emptiness equation. Absent from T251, Fangshan stele, and all Chinese witnesses.} |
 
 \vspace{0.3em}
 \linenum{6} evam eva vedanā-saṃjñā-saṃskāra-vijñānāni ||
@@ -183,12 +189,12 @@ na rūpa-śabda-gandha-rasa-spraṣṭavya-dharmāḥ |
 \linenum{10} na cakṣur-dhātur yāvan na manovijñāna-dhātuḥ |
 
 \vspace{0.3em}
-\linenum{11} na-avidyā na-avidyā-kṣayo\var{7}\\
+\linenum{11} na-avidyā na-avidyā-kṣayo\footnote{\lemma{avidyā-kṣayo... jarā-maraṇa-kṣayaḥ}] \textbf{Key evidence for back-translation.} The Sanskrit uses \textit{kṣaya} (``destruction, wearing away'') where the Large Prajñāpāramitā (Sanskrit Pañcaviṃśatisāhasrikā) uses \textit{nirodha} (``cessation''). Chinese 盡 (\textit{jìn}) can translate either term. A translator working \emph{from} Sanskrit would have used \textit{nirodha} (standard Prajñāpāramitā terminology). The use of \textit{kṣaya} indicates someone working \emph{from} Chinese chose an approximate synonym. This is Nattier's ``smoking gun'' (1992:175--178). \depmark{zh}{sa}}\\
 yāvan na jarā-maraṇaṃ na jarā-maraṇa-kṣayaḥ |
 
 \vspace{0.3em}
 \linenum{12} na duḥkha-samudaya-nirodha-mārgāḥ |\\
-na jñānaṃ na prāptiḥ\var{8} ||
+na jñānaṃ na prāptiḥ\footnote{\lemma{na prāptiḥ}] Late witnesses add \reading{na-aprāptiḥ} (``no non-attainment'') \wit{T256 Nb Nc Nd Ne}. This is absent from \wit{T251}, \wit{Fangshan} (661 CE), and \wit{Ja} (7th--8th c.). It is an interpolation in the Sanskrit tradition, subsequently translated into T257 as 亦無無得.} ||
 
 \vspace{0.5em}
 \gloss{tasmāc (therefore) Chāriputra (Śāriputra): śūnyatāyāṃ (in emptiness) na rūpaṃ (no form) na vedanā (no feeling) na saṃjñā (no perception) na saṃskārāḥ (no formations) na vijñānam (no consciousness); na cakṣuḥ (no eye) śrotra (ear) ghrāṇa (nose) jihvā (tongue) kāya (body) manāṃsi (minds); na rūpa (no form) śabda (sound) gandha (smell) rasa (taste) spraṣṭavya (tangible) dharmāḥ (mental objects); na cakṣur-dhātur (no eye-element) yāvan (up to) na manovijñāna-dhātuḥ (no mind-consciousness element). na-avidyā (no ignorance) na-avidyā-kṣayo (no destruction of ignorance), yāvan (up to) na jarā-maraṇaṃ (no old age and death) na jarā-maraṇa-kṣayaḥ (no destruction of old age and death). na duḥkha (no suffering) samudaya (origination) nirodha (cessation) mārgāḥ (paths); na jñānaṃ (no knowledge) na prāptiḥ (no attainment).}
@@ -206,7 +212,7 @@ viharaty acittāvaraṇaḥ |
 \vspace{0.3em}
 \linenum{14} cittāvaraṇa-nāstitvād atrastro\\
 viparyāsa-atikrānto\\
-niṣṭhā-nirvāṇaḥ\var{9} ||
+niṣṭhā-nirvāṇaḥ\footnote{\lemma{niṣṭhā-nirvāṇaḥ}] Conze prints \reading{niṣṭhā-nirvāṇa-prāptaḥ}. Attwood (2018) argues this compound is problematic. The Chinese 究竟涅槃 (\textit{jiūjìng nièpán}) ``ultimate nirvāṇa'' is clear; the Sanskrit may be a calque. The \textit{-prāptaḥ} (``attained'') appears to be a later addition for grammatical clarity.} ||
 
 \vspace{0.5em}
 \gloss{tasmāc (therefore) Chāriputra (Śāriputra): aprāptitvād (because of non-attainment) bodhisattvasya (of the bodhisattva) prajñāpāramitām (prajñāpāramitā) āśritya (relying on) viharaty (dwells) acittāvaraṇaḥ (with mind unobstructed); cittāvaraṇa-nāstitvād (because of the absence of mental obstruction) atrastro (unafraid) viparyāsa-atikrānto (having gone beyond error) niṣṭhā-nirvāṇaḥ (one whose nirvāṇa is complete).}
@@ -253,7 +259,7 @@ satyam amithyatvāt ||
 
 \vspace{0.5em}
 \begin{center}
-{\Large gate gate pāragate pārasaṃgate bodhi svāhā\var{10} ||}
+{\Large gate gate pāragate pārasaṃgate bodhi svāhā\footnote{\lemma{gate gate...}] Late witnesses prefix \reading{oṃ} \wit{Nb Ne T257}. This is a Tantric addition (9th--10th c.), absent from \wit{T251}, \wit{Fangshan} (661 CE), \wit{Ja}, \wit{Na}, and \wit{T256}. All early witnesses begin directly with \textit{gate}.} ||}
 
 \vspace{0.3em}
 {\large\deva{गते गते पारगते पारसंगते बोधि स्वाहा}}
@@ -271,43 +277,6 @@ satyam amithyatvāt ||
 \newpage
 
 % ----------------------------------------------------------------------------
-% CRITICAL APPARATUS
-% ----------------------------------------------------------------------------
-
-\section*{Critical Apparatus}
-
-\var{1}~\lemma{namas sarvajñāya}] This simple maṅgala appears in \wit{Ja}. Later witnesses have elaborate Tantric formulas: \reading{Oṃ namo Bhagavatyai Ārya-Prajñāpāramitāyai!} \wit{Nb Nc Nd Ne}. The elaboration is a Tantric development (9th--10th c.).
-
-\vspace{0.5em}
-\var{2}~\lemma{avalokiteśvaro}] \reading{avalokita-} \wit{Ja}. The \wit{Ja} reading may represent earlier confusion. Chinese 觀自在 supports the \textit{-īśvara} compound. \depmark{zh}{sa} The Chinese reading is primary.
-
-\vspace{0.5em}
-\var{3}~\lemma{vyavalokayati sma}] Unusual periphrastic past tense (\textit{sma} + present). Standard sūtra style uses present or aorist. \depmark{zh}{sa} May reflect Chinese narrative past 時 (\textit{shí}) ``at that time,'' indicating translation from Chinese.
-
-\vspace{0.5em}
-\var{4}~\lemma{pañca-skandhāṃs}] Accusative. Conze (1967) erroneously prints \reading{pañca-skandhāḥ} (nominative). Attwood (2015) corrects: the bodhisattva \emph{sees} the aggregates (accusative required).
-
-\vspace{0.5em}
-\var{5}~\lemma{rūpān na pṛthak śūnyatā}] Ablative construction ``emptiness is not separate \emph{from} form.'' Grammatically unusual; may reflect Chinese 色不異空 translated woodenly. \depmark{zh}{sa}
-
-\vspace{0.5em}
-\var{6}~\lemma{yad rūpaṃ sā śūnyatā...}] This line (``that which is form, that is emptiness...'') has \emph{no Chinese parallel}. It appears to be an addition made during Sanskrit composition to clarify the form-emptiness equation. Absent from T251, Fangshan stele, and all Chinese witnesses.
-
-\vspace{0.5em}
-\var{7}~\lemma{avidyā-kṣayo... jarā-maraṇa-kṣayaḥ}] \textbf{Key evidence for back-translation.} The Sanskrit uses \textit{kṣaya} (``destruction, wearing away'') where the Large Prajñāpāramitā (Sanskrit Pañcaviṃśatisāhasrikā) uses \textit{nirodha} (``cessation''). Chinese 盡 (\textit{jìn}) can translate either term. A translator working \emph{from} Sanskrit would have used \textit{nirodha} (standard Prajñāpāramitā terminology). The use of \textit{kṣaya} indicates someone working \emph{from} Chinese chose an approximate synonym. This is Nattier's ``smoking gun'' (1992:175--178). \depmark{zh}{sa}
-
-\vspace{0.5em}
-\var{8}~\lemma{na prāptiḥ}] Late witnesses add \reading{na-aprāptiḥ} (``no non-attainment'') \wit{T256 Nb Nc Nd Ne}. This is absent from \wit{T251}, \wit{Fangshan} (661 CE), and \wit{Ja} (7th--8th c.). It is an interpolation in the Sanskrit tradition, subsequently translated into T257 as 亦無無得.
-
-\vspace{0.5em}
-\var{9}~\lemma{niṣṭhā-nirvāṇaḥ}] Conze prints \reading{niṣṭhā-nirvāṇa-prāptaḥ}. Attwood (2018) argues this compound is problematic. The Chinese 究竟涅槃 (\textit{jiūjìng nièpán}) ``ultimate nirvāṇa'' is clear; the Sanskrit may be a calque. The \textit{-prāptaḥ} (``attained'') appears to be a later addition for grammatical clarity.
-
-\vspace{0.5em}
-\var{10}~\lemma{gate gate...}] Late witnesses prefix \reading{oṃ} \wit{Nb Ne T257}. This is a Tantric addition (9th--10th c.), absent from \wit{T251}, \wit{Fangshan} (661 CE), \wit{Ja}, \wit{Na}, and \wit{T256}. All early witnesses begin directly with \textit{gate}.
-
-\vspace{2em}
-
-% ----------------------------------------------------------------------------
 % NOTE ON CONZE
 % ----------------------------------------------------------------------------
 
@@ -322,7 +291,9 @@ Edward Conze's critical editions (1948, 1967, 1975) applied classical stemmatic 
 \item The compound \textit{niṣṭhā-nirvāṇa-prāptaḥ} (questioned by Attwood)
 \end{itemize}
 
-This edition follows Attwood (2015--2021) in correcting these errors and recognizing that the Sanskrit represents a translation tradition, not the source.
+Attwood (2015--2024) has systematically identified these problems and proposed corrections. His revised edition (Attwood 2024) presents an emended Sanskrit text with nine specific corrections, accompanied by Devanāgarī, IAST romanization, and an English translation based on his ``phenomenological reading'' of the text. Attwood's corrections include the accusative \textit{pañcaskandhāṃs} (for Conze's nominative), removal of the \textit{na-aprāptiḥ} interpolation, omission of the Tantric \textit{oṃ} and \textit{maṅgala}, and the \textit{yad rūpaṃ} line (no Chinese counterpart).
+
+This edition follows Attwood in making the same substantive corrections but differs in format: where Attwood presents a single revised text, we present a \emph{critical} edition with formal witness sigla and an apparatus recording manuscript variants. Our footnotes explain the Chinese-priority reasoning behind each editorial decision, allowing readers to evaluate the evidence independently.
 
 \vspace{2em}
 \hrule
