@@ -26,9 +26,10 @@ COLLATION  = data/collation/variant_table.json
 # ---------- Top-level targets ----------
 
 .PHONY: all collation editions validate test clean \
-        tibetan sanskrit chinese parallel combined stemma
+        tibetan sanskrit chinese parallel combined stemma \
+        tei check-stale
 
-all: collation editions
+all: collation tei editions
 
 # ---------- Data processing ----------
 
@@ -40,8 +41,16 @@ $(COLLATION): $(shell find $(DATADIR) -name '*.json' 2>/dev/null)
 synoptic:
 	$(PYTHON) -m hrdaya.synoptic json > output/synoptic.json
 
+tei: output/tei/heart_sutra_edition.xml
+
+output/tei/heart_sutra_edition.xml: $(shell find $(DATADIR) -name '*.json' 2>/dev/null)
+	$(PYTHON) -c "from pathlib import Path; from hrdaya.tei_export import export_tei; export_tei(output_path=Path('output/tei/heart_sutra_edition.xml'), data_dir=Path('data'))"
+
 validate:
 	$(PYTHON) -m hrdaya.validate
+
+check-stale:
+	$(PYTHON) scripts/check_latex_staleness.py
 
 test:
 	PYTHONPATH=src python3 -m pytest tests/
