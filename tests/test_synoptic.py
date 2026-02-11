@@ -45,6 +45,14 @@ class TestSynopticBuilder:
         assert "<html" in html
         assert "<table" in html
 
+    def test_html_has_lang_attributes(self, builder):
+        """HTML output should have lang attributes on multilingual spans (np3)."""
+        alignment = builder.build_alignment()
+        html = builder.to_html(alignment)
+        assert "lang='lzh'" in html, "Chinese spans need lang='lzh'"
+        assert "lang='sa-Latn'" in html or "lang='sa-Deva'" in html, "Sanskrit spans need lang attrs"
+        assert "lang='bo'" in html, "Tibetan spans need lang='bo'"
+
 
 class TestBuildSynoptic:
     """Test the high-level build_synoptic entry point."""

@@ -56,16 +56,16 @@ class TestValidateWitnessFile:
     def test_alternate_structure_accepted(self):
         """T256 has id/title_chinese instead of segments."""
         path = DATA_DIR / "chinese" / "taisho" / "t256.json"
-        if path.exists():
-            errors = validate_witness_file(path, "chinese")
-            assert errors == []
+        assert path.exists(), f"Expected test fixture at {path}"
+        errors = validate_witness_file(path, "chinese")
+        assert errors == []
 
     def test_kangyur_editions_accepted(self):
         """kangyur_editions.json has editions key instead of segments."""
         path = DATA_DIR / "tibetan" / "kangyur" / "kangyur_editions.json"
-        if path.exists():
-            errors = validate_witness_file(path, "tibetan")
-            assert errors == []
+        assert path.exists(), f"Expected test fixture at {path}"
+        errors = validate_witness_file(path, "tibetan")
+        assert errors == []
 
 
 class TestSchemaValidation:

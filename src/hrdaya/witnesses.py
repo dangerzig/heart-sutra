@@ -466,8 +466,7 @@ TIBETAN_WITNESSES = {
         id="Stok",
         name="Stok Palace Kangyur",
         witness_type=WitnessType.TIBETAN,
-        date=None,
-        date_circa=False,
+        date=None,  # Date unknown
         location="Stok Palace, Ladakh",
         provenance="Tibet/Ladakh",
         script=Script.TIBETAN,
@@ -497,11 +496,15 @@ TIBETAN_WITNESSES = {
 # =============================================================================
 
 def get_all_witnesses() -> dict[str, Witness]:
-    """Return all witnesses combined."""
+    """Return all witnesses combined.
+
+    Raises AssertionError if any siglum appears in more than one tradition dict.
+    """
     all_witnesses = {}
-    all_witnesses.update(CHINESE_WITNESSES)
-    all_witnesses.update(SANSKRIT_WITNESSES)
-    all_witnesses.update(TIBETAN_WITNESSES)
+    for collection in (CHINESE_WITNESSES, SANSKRIT_WITNESSES, TIBETAN_WITNESSES):
+        overlap = set(all_witnesses) & set(collection)
+        assert not overlap, f"Duplicate witness sigla across traditions: {overlap}"
+        all_witnesses.update(collection)
     return all_witnesses
 
 

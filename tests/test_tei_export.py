@@ -1,7 +1,6 @@
 """Tests for TEI-XML export module."""
 
 import re
-import tempfile
 from pathlib import Path
 
 import pytest
@@ -27,16 +26,11 @@ def data_dir():
 
 
 @pytest.fixture
-def tei_tree(data_dir):
+def tei_tree(data_dir, tmp_path):
     """Generate the full TEI document and parse it."""
-    with tempfile.NamedTemporaryFile(suffix=".xml", delete=False) as f:
-        output_path = Path(f.name)
-    try:
-        export_tei(output_path=output_path, data_dir=data_dir)
-        tree = etree.parse(str(output_path))
-    finally:
-        output_path.unlink(missing_ok=True)
-    return tree
+    output_path = tmp_path / "tei_test.xml"
+    export_tei(output_path=output_path, data_dir=data_dir)
+    return etree.parse(str(output_path))
 
 
 NS = {"tei": TEI_NS}
@@ -45,15 +39,12 @@ NS = {"tei": TEI_NS}
 class TestWellFormed:
     """Verify the generated XML is well-formed and parseable."""
 
-    def test_export_produces_valid_xml(self, data_dir):
-        with tempfile.NamedTemporaryFile(suffix=".xml", delete=False) as f:
-            output_path = Path(f.name)
+    def test_export_produces_valid_xml(self, data_dir, tmp_path):
+        output_path = tmp_path / "valid_test.xml"
         path = export_tei(output_path=output_path, data_dir=data_dir)
         assert path.exists()
-        # Must parse without error
         tree = etree.parse(str(path))
         assert tree.getroot() is not None
-        path.unlink()
 
     def test_root_element_is_tei(self, tei_tree):
         root = tei_tree.getroot()
@@ -202,9 +193,9 @@ class TestEmptyInputs:
         witnesses = _load_tradition_witnesses(tmp_path, "nonexistent")
         assert witnesses == []
 
-    def test_chinese_text_with_no_witnesses(self, data_dir):
+    def test_chinese_text_with_no_witnesses(self):
         """generate_chinese_text with empty witness list returns minimal element."""
-        el = generate_chinese_text(data_dir, [])
+        el = generate_chinese_text([])
         assert el.tag.endswith("text")
 
     def test_sanskrit_text_with_no_witnesses(self):
@@ -264,3 +255,13 @@ class TestSegXmlId:
 
     def test_colons_replaced(self):
         assert _seg_xml_id("T251:1") == "T251-1"
+
+    def test_digit_prefix_gets_w(self):
+        """IDs starting with digits get 'w' prefix for NCName validity."""
+        assert _seg_xml_id("123") == "w123"
+        assert _seg_xml_id("9test") == "w9test"
+
+    def test_letter_prefix_unchanged(self):
+        """IDs starting with letters are NOT prefixed."""
+        assert _seg_xml_id("T251") == "T251"
+        assert not _seg_xml_id("T251").startswith("w")
