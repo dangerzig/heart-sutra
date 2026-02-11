@@ -78,8 +78,8 @@ def resolve_data_dir(explicit_path: str | Path | None = None) -> Path:
     Raises:
         FileNotFoundError: If no valid data directory can be found.
     """
-    # 1. Explicit argument
-    if explicit_path:
+    # 1. Explicit argument (treat empty string same as None)
+    if explicit_path is not None and str(explicit_path) != "":
         p = Path(explicit_path).resolve()
         if p.is_dir():
             return p

@@ -58,6 +58,8 @@ def iast_to_devanagari(text: str) -> str:
 
 # Characters that are valid in IAST text (lowercase).  Includes all
 # consonant and vowel letters, diacritics, and common punctuation.
+# ASCII letters f, q, w, x, z are deliberately excluded — they do not
+# appear in standard IAST transliteration.
 _VALID_IAST_CHARS = frozenset(
     "abcdeghijklmnoprstuvyāīūṛṝḷḹṃḥṁñṅṭḍṇśṣ"
     " .,;:!?-–—'\"()[]{}"
@@ -81,8 +83,8 @@ def validate_iast(text: str) -> list[str]:
         List of error messages (empty means valid).
     """
     errors = []
-    for i, ch in enumerate(text.lower()):
-        if ch not in _VALID_IAST_CHARS:
+    for i, ch in enumerate(text):
+        if ch.lower() not in _VALID_IAST_CHARS:
             errors.append(
                 f"position {i}: unexpected character '{ch}' (U+{ord(ch):04X})"
             )
@@ -97,6 +99,8 @@ def normalize_iast(text: str) -> str:
     - ṁ/ṃ normalization (anusvāra)
     - Smart/curly quote normalization
     """
+    if not text:
+        return text or ""
     # Normalize anusvāra (both cases)
     text = text.replace('ṁ', 'ṃ').replace('Ṁ', 'Ṃ')
 

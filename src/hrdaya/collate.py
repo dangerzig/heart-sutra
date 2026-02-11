@@ -135,8 +135,9 @@ class HeartSutraCollator:
                 with open(path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
             except json.JSONDecodeError as e:
+                logger.warning("Malformed JSON in %s: %s", path, e)
                 raise FileNotFoundError(
-                    f"Sanskrit witness {witness_id}: malformed JSON in {path}"
+                    f"Sanskrit witness {witness_id} not found (malformed JSON)"
                 ) from e
             self._sanskrit_cache[witness_id] = data
             return data
@@ -661,6 +662,10 @@ def collate_full_text(data_dir: Path) -> dict:
         Dictionary with full collation results
     """
     collator = HeartSutraCollator(data_dir)
+
+    # Verify the base Chinese witness is loadable before iterating sections.
+    # A missing/corrupt base witness is fatal — don't silently produce empty output.
+    collator.load_chinese_witness(HeartSutraCollator.DEFAULT_CHINESE)
 
     sections = [
         "opening",

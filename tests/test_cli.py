@@ -1,6 +1,7 @@
 """Tests for CLI main() entry points."""
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -12,6 +13,14 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 PYTHON = sys.executable
 
 
+def _cli_env():
+    """Build subprocess environment inheriting the parent, with PYTHONPATH set."""
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(Path(__file__).parent.parent / "src")
+    env.pop("HRDAYA_DATA_DIR", None)  # avoid interfering with explicit paths
+    return env
+
+
 class TestCollateCLI:
     """Test collate.main() via subprocess."""
 
@@ -19,8 +28,7 @@ class TestCollateCLI:
         result = subprocess.run(
             [PYTHON, "-m", "hrdaya.collate", str(DATA_DIR)],
             capture_output=True, text=True, timeout=30,
-            env={"PYTHONPATH": str(Path(__file__).parent.parent / "src"),
-                 "PATH": ""},
+            env=_cli_env(),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -31,8 +39,7 @@ class TestCollateCLI:
         result = subprocess.run(
             [PYTHON, "-m", "hrdaya.collate", "/nonexistent/path"],
             capture_output=True, text=True, timeout=10,
-            env={"PYTHONPATH": str(Path(__file__).parent.parent / "src"),
-                 "PATH": ""},
+            env=_cli_env(),
         )
         assert result.returncode != 0
 
@@ -45,8 +52,7 @@ class TestSynopticCLI:
             [PYTHON, "-m", "hrdaya.synoptic", "markdown",
              "--data-dir", str(DATA_DIR)],
             capture_output=True, text=True, timeout=30,
-            env={"PYTHONPATH": str(Path(__file__).parent.parent / "src"),
-                 "PATH": ""},
+            env=_cli_env(),
         )
         assert result.returncode == 0
         assert "Chinese" in result.stdout
@@ -56,8 +62,7 @@ class TestSynopticCLI:
             [PYTHON, "-m", "hrdaya.synoptic", "json",
              "--data-dir", str(DATA_DIR)],
             capture_output=True, text=True, timeout=30,
-            env={"PYTHONPATH": str(Path(__file__).parent.parent / "src"),
-                 "PATH": ""},
+            env=_cli_env(),
         )
         assert result.returncode == 0
         data = json.loads(result.stdout)
@@ -67,8 +72,7 @@ class TestSynopticCLI:
         result = subprocess.run(
             [PYTHON, "-m", "hrdaya.synoptic", "--help"],
             capture_output=True, text=True, timeout=10,
-            env={"PYTHONPATH": str(Path(__file__).parent.parent / "src"),
-                 "PATH": ""},
+            env=_cli_env(),
         )
         assert result.returncode == 0
         assert "format" in result.stdout.lower()
@@ -81,8 +85,7 @@ class TestValidateCLI:
         result = subprocess.run(
             [PYTHON, "-m", "hrdaya.validate", str(DATA_DIR)],
             capture_output=True, text=True, timeout=30,
-            env={"PYTHONPATH": str(Path(__file__).parent.parent / "src"),
-                 "PATH": ""},
+            env=_cli_env(),
         )
         assert result.returncode == 0
         output = result.stdout + result.stderr

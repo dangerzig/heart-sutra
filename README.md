@@ -1,14 +1,14 @@
 # Heart Sūtra Critical Edition
 
-A multilingual electronic critical edition of the Prajñāpāramitāhṛdaya (Heart Sūtra) treating the text as a textual complex with Chinese compositional priority.
+A multilingual electronic critical edition of the Prajñāpāramitāhṛdaya (Heart Sūtra) treating the text as a textual complex with T251 as the default alignment anchor.
 
 ## Overview
 
 This project creates a scholarly critical edition of the Heart Sūtra that:
 
-- **Treats Chinese as compositionally prior** following Nattier (1992) and subsequent scholarship
-- **Presents Sanskrit as derived tradition** - evidence of reception and back-translation
-- **Uses Tibetan as mediating witness** for triangulating transmission stages
+- **Uses T251 as default alignment anchor** following Nattier (1992) and subsequent scholarship
+- **Presents all three traditions** (Chinese, Sanskrit, Tibetan) with explicit direction-of-dependence annotations
+- **Remains neutral on compositional priority** -- treated as a hypothesis, not an axiom
 - **Provides dual-script Sanskrit** in both Devanagari and IAST
 - **Annotates direction-of-dependence** in the critical apparatus
 
@@ -52,8 +52,8 @@ This edition follows the methodological principles outlined in `docs/METHODOLOGY
 2. **Define object as textual complex** - Multiple related but non-equivalent forms
 3. **Chinese base text (T251)** - Analytical anchor, not authoritative text
 4. **Exhaustive witness collation** - All traditions systematically compared
-5. **Sanskrit as derived** - Evidence of reception, not origin
-6. **Tibetan as mediating** - Triangulates transmission stages
+5. **Sanskrit tradition** - Presented with direction-of-dependence annotations
+6. **Tibetan tradition** - Presented with direction-of-dependence annotations
 7. **Direction-of-dependence annotation** - Apparatus encodes history
 8. **Parallel presentation** - Chinese critical text + multilingual synoptic
 9. **Composition-focused commentary** - Historical/philological priority
@@ -118,7 +118,7 @@ This edition follows the methodological principles outlined in `docs/METHODOLOGY
   "section": "form_emptiness",
   "iast": "Iha Śāriputra rūpaṃ śūnyatā...",
   "devanagari": "इह शारिपुत्र रूपं शून्यता...",
-  "chinese_parallel": "T251:2"
+  "base_parallel": "T251:2"
 }
 ```
 

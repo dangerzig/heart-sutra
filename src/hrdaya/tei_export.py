@@ -59,8 +59,10 @@ def _seg_xml_id(seg_id: str) -> str:
     - Replace spaces and colons with underscores/hyphens
     - Prefix with 'w' if the ID starts with a digit
     """
+    if not seg_id:
+        return "w_unknown"
     result = seg_id.replace(" ", "_").replace(":", "-")
-    if result and (result[0].isdigit() or result[0] in "-."):
+    if result[0].isdigit() or result[0] in "-.":
         result = "w" + result
     return result
 
@@ -79,7 +81,8 @@ def _load_tradition_witnesses(data_dir: Path,
                 witnesses.append(data)
             else:
                 logger.debug("Skipping %s: no 'segments' key", json_path.name)
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
+            logger.warning("Malformed JSON in %s: %s", json_path.name, e)
             continue
     return witnesses
 
@@ -139,7 +142,7 @@ def generate_tei_header(data_dir: Path) -> etree._Element:
     change = _sub(revision_desc, "change",
                   when=datetime.now(timezone.utc).strftime("%Y-%m-%d"))
     change.text = (f"Generated from hrdaya data version {DATA_VERSION}, "
-                   f"hash {compute_data_hash(data_dir)[:12]}")
+                   f"hash {compute_data_hash(data_dir)}")
 
     return header
 

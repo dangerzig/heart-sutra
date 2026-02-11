@@ -123,8 +123,8 @@ class Segment:
 
     # Witness information
     witness_id: str  # Which manuscript/edition
-    witness_type: WitnessType = WitnessType.CHINESE
-    script: Script = Script.TRADITIONAL_CHINESE
+    witness_type: WitnessType = WitnessType.CHINESE  # Override for non-Chinese segments
+    script: Script = Script.TRADITIONAL_CHINESE  # Override for non-Chinese segments
 
     # Alternative representations
     alt_scripts: dict[Script, str] = field(default_factory=dict)

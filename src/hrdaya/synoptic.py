@@ -42,9 +42,6 @@ class SynopticRow:
     # Notes on divergences
     divergence_notes: list[str] = field(default_factory=list)
 
-    # Direction of dependence for this segment
-    dependence: str = ""
-
 
 @dataclass
 class SynopticAlignment:

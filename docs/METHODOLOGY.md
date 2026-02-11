@@ -21,12 +21,12 @@ To reconstruct the earliest recoverable **Chinese composition** and to document 
 
 The Heart Sūtra is treated as a constellation of related but non-equivalent textual forms:
 
-| Tradition | Status | Relationship |
+| Tradition | Status (per Nattier hypothesis) | Relationship |
 |-----------|--------|--------------|
-| Chinese extract-text | Compositionally prior | Analytical base |
+| Chinese extract-text | Compositionally prior (hypothesized) | Default alignment anchor |
 | Chinese ritualized recensions | Secondary development | Short and long versions |
-| Tibetan translation | Mediating witness | May preserve earlier Sanskrit forms |
-| Sanskrit witnesses | Derived tradition | Evidence of back-translation |
+| Tibetan translation | Independent witness | May preserve earlier Sanskrit forms |
+| Sanskrit witnesses | Potentially derived | Evidence of possible retranslation |
 
 These witnesses do not stand in equal relation to a single archetype and must not be treated as such.
 
@@ -87,9 +87,9 @@ Following Conze (1967) with updates:
 - Stok Palace Kangyur (alternative recension)
 - IOL Tib J 751: Dunhuang manuscript (c. 823 CE)
 
-## 5. Sanskrit as Derived Tradition
+## 5. Sanskrit Tradition
 
-Sanskrit witnesses are presented as evidence of **reception and re-Sanskritization**, not as controls for correcting Chinese readings.
+Sanskrit witnesses are presented with direction-of-dependence annotations, following Nattier's (1992) hypothesis of Chinese compositional priority.
 
 ### Evidence of Back-Translation
 
@@ -104,9 +104,9 @@ The apparatus will:
 - Flag readings that presuppose Chinese syntax or idiom
 - Annotate likely back-translations or misunderstandings
 
-## 6. Tibetan as Mediating Witness
+## 6. Tibetan Tradition
 
-Tibetan witnesses serve as independent but mediating evidence:
+Tibetan witnesses serve as independent evidence:
 
 - May reflect **earlier Sanskrit forms** than surviving Indic manuscripts
 - Still participate in a **secondary transmission chain**
@@ -137,7 +137,7 @@ Variants are categorized, not merely listed. The 7-category classification schem
 | Stylistic | Improvements to flow/readability |
 | Doctrinal | Alignment with doctrinal norms |
 | Extraction Artifact | Traces of source Prajñāpāramitā text |
-| Back-translation | Evidence of translation from Chinese |
+| Retranslation | Evidence of retranslation between traditions |
 | Distinctive | Genuinely different textual reading |
 
 ## 9. Parallel Presentation
@@ -198,7 +198,7 @@ data/
     └── variant_table.json  # Pre-identified critical variants
 ```
 
-Each witness file contains `segments` — discrete text units aligned by section and carrying explicit `chinese_parallel` references (e.g. `"chinese_parallel": "T251:3"`). Segments without `chinese_parallel` are excluded from collation — the pipeline never guesses at correspondences.
+Each witness file contains `segments` — discrete text units aligned by section and carrying explicit `base_parallel` references (e.g. `"base_parallel": "T251:3"`). Segments without `base_parallel` are excluded from collation — the pipeline never guesses at correspondences.
 
 **Data packaging strategy.** The witness data files are scholarly primary-source material and are NOT shipped inside the Python wheel. They are versioned alongside the code in git. This is intentional: the data requires scholarly curation and review, not automated packaging. Users must either (a) clone the repository and install in editable mode (`pip install -e .`), or (b) download the data directory separately and set `HRDAYA_DATA_DIR`.
 
@@ -208,11 +208,11 @@ Each witness file contains `segments` — discrete text units aligned by section
 
 The collation engine takes T251 as the analytical base and aligns witnesses in three dimensions:
 
-1. **Inter-Chinese collation**: T251 vs T250 (and other Taishō witnesses) — matched via explicit `chinese_parallel` references in each witness's data file. Only segment-bearing witness files participate; catalog files and non-segment structures (e.g. `dunhuang_manuscripts.json`, `t256.json`) are automatically excluded.
-2. **Cross-linguistic alignment**: Chinese segments matched to Sanskrit and Tibetan via `chinese_parallel` references. There is no section+index fallback — segments lacking `chinese_parallel` are excluded from alignment rather than guessed at. See `docs/ALIGNMENT_PROTOCOL.md` for the full alignment methodology: how annotations were produced, decision criteria, edge cases, and verification procedure.
+1. **Inter-Chinese collation**: T251 vs T250 (and other Taishō witnesses) — matched via explicit `base_parallel` references in each witness's data file. Only segment-bearing witness files participate; catalog files and non-segment structures (e.g. `dunhuang_manuscripts.json`, `t256.json`) are automatically excluded.
+2. **Cross-linguistic alignment**: Chinese segments matched to Sanskrit and Tibetan via `base_parallel` references. There is no section+index fallback — segments lacking `base_parallel` are excluded from alignment rather than guessed at. See `docs/ALIGNMENT_PROTOCOL.md` for the full alignment methodology: how annotations were produced, decision criteria, edge cases, and verification procedure.
 3. **Variant detection**: Automated classification of differences using the criteria in `research/VARIANT_CLASSIFICATION_CRITERIA.md`
 
-**Unparalleled segments.** Certain segments in non-base witnesses lack a `chinese_parallel` and are excluded from automated collation. These are: the Sanskrit invocation (GRETIL:1, a late Tantric maṅgala absent from T251), the Sanskrit colophon (GRETIL:14, a manuscript closing convention), and Tibetan long-recension frame narrative sections (setting, assembly, Buddha's approval — absent from the T251 short recension). Exclusion is *conservative*, not biasing: these segments have no Chinese counterpart, so cross-linguistic comparison is not meaningful for them. They remain in the data files for independent scholarly examination.
+**Unparalleled segments.** Certain segments in non-base witnesses lack a `base_parallel` and are excluded from automated collation. These are: the Sanskrit invocation (GRETIL:1, a late Tantric maṅgala absent from T251), the Sanskrit colophon (GRETIL:14, a manuscript closing convention), and Tibetan long-recension frame narrative sections (setting, assembly, Buddha's approval — absent from the T251 short recension). Exclusion is *conservative*, not biasing: these segments have no Chinese counterpart, so cross-linguistic comparison is not meaningful for them. They remain in the data files for independent scholarly examination.
 
 **Variant detection steps:**
 - Orthographic check: normalize (strip diacritics, lowercase), compare with SequenceMatcher (threshold > 0.9)
@@ -236,8 +236,8 @@ All JSON witness files are validated against expected schemas:
 
 Additional schema-level checks:
 - **Section values** are validated against a known set covering short recension, long recension, and variant section names
-- **`chinese_parallel`** references must match the format `WitnessID:N` (e.g. `T251:3`)
-- **Cross-reference validation** confirms that `chinese_parallel` targets actually exist in the Chinese witness files
+- **`base_parallel`** references must match the format `WitnessID:N` (e.g. `T251:3`)
+- **Cross-reference validation** confirms that `base_parallel` targets actually exist in the Chinese witness files
 - **Required string fields** must be non-empty
 - **Alternate structures** (e.g. `t256.json`, `kangyur_editions.json`) are recognized and accepted
 
@@ -292,7 +292,7 @@ Data directory resolution order: (1) explicit CLI argument, (2) `HRDAYA_DATA_DIR
 
 - The pipeline operates on **published editions**, not primary manuscripts (see `research/PRIMARY_MANUSCRIPT_LIMITATIONS.md`)
 - Variant classification uses heuristic rules, not a trained model; results should be reviewed by a scholar
-- Cross-linguistic alignment relies exclusively on pre-annotated `chinese_parallel` references. There is no automatic alignment or section+index fallback. Segments lacking `chinese_parallel` are excluded from collation.
+- Cross-linguistic alignment relies exclusively on pre-annotated `base_parallel` references. There is no automatic alignment or section+index fallback. Segments lacking `base_parallel` are excluded from collation.
 - **Transliteration** (Devanagari ↔ IAST) delegates to the `indic-transliteration` library (Vishvas Vasuki et al.), the standard package used across Sanskrit digital humanities projects. Sandhi resolution, positional anusvāra normalization, and manuscript-specific orthographic conventions are not handled — these require scholarly judgement, not automation. Input can be validated against a known IAST character set before conversion.
 - **Witness discovery** scans all subdirectories under `data/chinese/` for segment-based witnesses (including Taishō, Dunhuang, and epigraphy). Files without a `segments` array are excluded from automated collation but remain available for manual consultation.
 - **CJK-language scholarship**: This edition's engagement with Chinese- and Japanese-language scholarly literature is partial, relying on published English translations, English-language review articles, and bilingual publications. Key Japanese-language counter-arguments to the Chinese-origins thesis (Fukui 1987/1994/2000, Harada 2002/2010, Ishii 2015/2021, Watanabe 2009/2021) and Chinese-language scholarship (Ji Yun 2012/2017, Siu 2017/2019, He & Xu 2017) have been consulted through secondary literature where original-language access was not possible. The *Acta Asiatica* 121 (2021) special Heart Sūtra issue and Siu's bibliographic catalogue (2019) are cited as the most comprehensive recent surveys. See `docs/BIBLIOGRAPHY.md` and `research/ENGAGEMENT_WITH_CRITICS.md` for full details.
