@@ -30,12 +30,12 @@ class TestHeartSutraCollator:
         )
         assert vtype == VariantType.ORTHOGRAPHIC
 
-    def test_classify_back_translation(self, collator):
+    def test_classify_retranslation(self, collator):
         vtype, direction = collator.classify_variant(
             "盡", "kṣaya",
             context={"tradition": "sanskrit"}
         )
-        assert vtype == VariantType.BACK_TRANSLATION
+        assert vtype == VariantType.RETRANSLATION
         assert direction == DependenceDirection.CHINESE_TO_SANSKRIT
 
     def test_collate_section(self, collator):
@@ -60,8 +60,8 @@ class TestHeartSutraCollator:
         assert len(results) > 0
         result = results[0]
         # T250 has a form_emptiness segment with 非色異空 (not the skandha_characteristics)
-        if "T250" in result.chinese_texts:
-            assert "非色異空" in result.chinese_texts["T250"] or "色即是空" in result.chinese_texts["T250"]
+        assert "T250" in result.chinese_texts, "T250 must be present in form_emptiness results"
+        assert "非色異空" in result.chinese_texts["T250"] or "色即是空" in result.chinese_texts["T250"]
 
     def test_configurable_alternate_witnesses(self, collator):
         """Test that alternate_chinese parameter controls which witnesses are compared."""
@@ -80,14 +80,14 @@ class TestHeartSutraCollator:
         # Fangshan stele (epigraphy) has segments and should be discovered
         assert "Fangshan" in available
 
-    def test_alignment_uses_chinese_parallel(self, collator):
-        """Alignment is strictly by chinese_parallel (no fallback)."""
+    def test_alignment_uses_base_parallel(self, collator):
+        """Alignment is strictly by base_parallel (no fallback)."""
         results = collator.collate_section("mantra_praise", alternate_chinese=["T250"])
         assert len(results) > 0
         result = results[0]
-        # T250:11 has chinese_parallel=T251:11 (mantra_praise), verify it matched
-        if "T250" in result.chinese_texts:
-            assert "明呪" in result.chinese_texts["T250"]
+        # T250:11 has base_parallel=T251:11 (mantra_praise), verify it matched
+        assert "T250" in result.chinese_texts, "T250 must be present in mantra_praise results"
+        assert "明呪" in result.chinese_texts["T250"]
 
     def test_variant_position_is_real_offset(self, collator):
         """Variants should have a real character offset, not always -1."""
@@ -125,14 +125,98 @@ class TestHeartSutraCollator:
 
     def test_no_match_for_unparalleled_section(self, collator):
         """Sections unique to alternate witnesses should not produce false matches."""
-        # T250 has 'skandha_characteristics' with chinese_parallel=null
+        # T250 has 'skandha_characteristics' with base_parallel=null
         # When collating T251 sections, this should not appear
         results = collator.collate_section("opening", alternate_chinese=["T250"])
         assert len(results) > 0
         result = results[0]
         # The result text should be T250's opening, not skandha_characteristics
-        if "T250" in result.chinese_texts:
-            assert "觀世音" in result.chinese_texts["T250"]
+        assert "T250" in result.chinese_texts, "T250 must be present in opening results"
+        assert "觀世音" in result.chinese_texts["T250"]
+
+
+class TestAlignSegments:
+    """Test the align_segments method (MJ11 coverage gap)."""
+
+    @pytest.fixture
+    def collator(self):
+        return HeartSutraCollator(DATA_DIR)
+
+    def test_chinese_only(self, collator):
+        seg = {"id": "T251:1", "text": "觀自在菩薩", "section": "opening"}
+        result = collator.align_segments(seg)
+        assert result.chinese is not None
+        assert result.chinese.text == "觀自在菩薩"
+        assert result.sanskrit is None
+        assert result.tibetan is None
+
+    def test_all_three_traditions(self, collator):
+        zh = {"id": "T251:1", "text": "觀自在菩薩", "section": "opening"}
+        sa = {"id": "GRETIL:1", "iast": "avalokiteśvara", "devanagari": "अवलोकितेश्वर"}
+        bo = {"id": "Toh21:1", "tibetan": "སྤྱན་རས་གཟིགས་", "wylie": "spyan ras gzigs"}
+        result = collator.align_segments(zh, sa, bo)
+        assert result.chinese is not None
+        assert result.sanskrit is not None
+        assert result.tibetan is not None
+        assert result.sanskrit_devanagari == "अवलोकितेश्वर"
+        assert result.tibetan_wylie == "spyan ras gzigs"
+
+    def test_correct_witness_ids(self, collator):
+        zh = {"id": "T251:1", "text": "test"}
+        result = collator.align_segments(zh, chinese_witness="T250")
+        assert result.chinese.witness_id == "T250"
+
+    def test_correct_script_assignments(self, collator):
+        from hrdaya.models import Script
+        zh = {"id": "T251:1", "text": "test"}
+        sa = {"id": "GRETIL:1", "iast": "test"}
+        bo = {"id": "Toh21:1", "tibetan": "test"}
+        result = collator.align_segments(zh, sa, bo)
+        assert result.chinese.script == Script.TRADITIONAL_CHINESE
+        assert result.sanskrit.script == Script.IAST
+        assert result.tibetan.script == Script.TIBETAN
+
+
+class TestLoadTibetanWitness:
+    """Test load_tibetan_witness (MJ11 coverage gap)."""
+
+    @pytest.fixture
+    def collator(self):
+        return HeartSutraCollator(DATA_DIR)
+
+    def test_load_toh21(self, collator):
+        data = collator.load_tibetan_witness("Toh21")
+        assert "segments" in data
+        assert len(data["segments"]) > 0
+
+    def test_load_dunhuang_witness(self, collator):
+        data = collator.load_tibetan_witness("IOL_Tib_J_751")
+        assert "segments" in data
+
+    def test_missing_tibetan_raises(self, collator):
+        with pytest.raises(FileNotFoundError):
+            collator.load_tibetan_witness("NONEXISTENT")
+
+    def test_caching(self, collator):
+        data1 = collator.load_tibetan_witness("Toh21")
+        data2 = collator.load_tibetan_witness("Toh21")
+        assert data1 is data2  # same object from cache
+
+
+class TestAnchorTraditionValidation:
+    """Test that non-Chinese anchor_tradition raises ValueError."""
+
+    @pytest.fixture
+    def collator(self):
+        return HeartSutraCollator(DATA_DIR)
+
+    def test_sanskrit_anchor_raises(self, collator):
+        with pytest.raises(ValueError, match="not supported"):
+            collator.collate_section("opening", anchor_tradition="sanskrit")
+
+    def test_tibetan_anchor_raises(self, collator):
+        with pytest.raises(ValueError, match="not supported"):
+            collator.collate_section("opening", anchor_tradition="tibetan")
 
 
 class TestCollateFullText:

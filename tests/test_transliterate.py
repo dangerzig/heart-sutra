@@ -179,3 +179,20 @@ class TestNormalizeIAST:
     def test_plain_text_unchanged(self):
         text = "prajnaparamita"
         assert normalize_iast(text) == text
+
+
+class TestNewlineHandling:
+    """Test that newlines in IAST text are handled (mn9)."""
+
+    def test_newline_in_iast_accepted(self):
+        """Multi-line IAST should not produce errors for newline chars."""
+        errors = validate_iast("gate gate\npāragate")
+        assert errors == []
+
+    def test_tab_in_iast_accepted(self):
+        errors = validate_iast("gate\tgate")
+        assert errors == []
+
+    def test_carriage_return_accepted(self):
+        errors = validate_iast("gate\r\ngate")
+        assert errors == []

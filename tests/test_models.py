@@ -1,9 +1,12 @@
 """Tests for data models."""
 
+import pytest
+
 from hrdaya.models import (
     WitnessType,
     VariantType,
     DependenceDirection,
+    Script,
     Witness,
     Segment,
     Variant,
@@ -26,7 +29,7 @@ class TestEnums:
         expected = [
             "orthographic", "scribal_error", "stylistic", "register",
             "doctrinal", "expansion", "abbreviation", "extraction",
-            "back_translation", "translation_choice", "grammatical",
+            "retranslation", "translation_choice", "grammatical",
             "distinctive", "uncertain",
         ]
         actual = [vt.value for vt in VariantType]
@@ -36,6 +39,13 @@ class TestEnums:
     def test_dependence_directions(self):
         assert DependenceDirection.CHINESE_TO_SANSKRIT.value == "zh→sa"
         assert DependenceDirection.PRAJNAPARAMITA_TO_HEART.value == "pp→hs"
+
+    def test_script_includes_ranjana_and_bhujimol(self):
+        assert Script.RANJANA.value == "ranj"
+        assert Script.BHUJIMOL.value == "bhuj"
+
+    def test_script_includes_proto_sharada(self):
+        assert Script.PROTO_SHARADA.value == "shrd"
 
 
 class TestWitness:
@@ -79,6 +89,36 @@ class TestVariant:
         assert v.variant_type == VariantType.UNCERTAIN
         assert v.confidence == 0.5
 
+    def test_confidence_too_high(self):
+        with pytest.raises(ValueError, match="confidence must be between"):
+            Variant(
+                segment_id="T251:1", position=0,
+                base_reading="a", variant_reading="b",
+                confidence=1.5,
+            )
+
+    def test_confidence_too_low(self):
+        with pytest.raises(ValueError, match="confidence must be between"):
+            Variant(
+                segment_id="T251:1", position=0,
+                base_reading="a", variant_reading="b",
+                confidence=-0.1,
+            )
+
+    def test_confidence_boundary_values(self):
+        v0 = Variant(
+            segment_id="T251:1", position=0,
+            base_reading="a", variant_reading="b",
+            confidence=0.0,
+        )
+        assert v0.confidence == 0.0
+        v1 = Variant(
+            segment_id="T251:1", position=0,
+            base_reading="a", variant_reading="b",
+            confidence=1.0,
+        )
+        assert v1.confidence == 1.0
+
 
 class TestCriticalApparatus:
     """Test CriticalApparatus dataclass."""
@@ -86,5 +126,5 @@ class TestCriticalApparatus:
     def test_defaults(self):
         ca = CriticalApparatus()
         assert ca.base_text_id == "T251"
-        assert ca.methodology == "chinese-priority-multilingual"
+        assert ca.methodology == "T251-anchored-multilingual"
         assert ca.segments == []

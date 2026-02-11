@@ -3,7 +3,7 @@ Data validation for Heart Sūtra witness files.
 
 Validates that JSON data files conform to expected schemas
 for Chinese, Sanskrit, and Tibetan witnesses.  Includes
-cross-file consistency checks for chinese_parallel references.
+cross-file consistency checks for base_parallel references.
 """
 
 import json
@@ -50,8 +50,8 @@ KNOWN_SECTIONS = {
     "mangala",                # Sanskrit/Hōryū-ji maṅgala verse
 }
 
-# Pattern for chinese_parallel values: WitnessID:Number  (e.g. "T251:1")
-_CHINESE_PARALLEL_RE = re.compile(r"^[A-Za-z0-9_]+:\d+$")
+# Pattern for base_parallel values: WitnessID:Number  (e.g. "T251:1")
+_BASE_PARALLEL_RE = re.compile(r"^[A-Za-z0-9_]+:\d+$")
 
 
 def validate_witness_file(path: Path, witness_type: str) -> list[str]:
@@ -64,7 +64,7 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
     - Each segment has required fields of the correct type
     - Required string fields are non-empty
     - No duplicate segment IDs
-    - chinese_parallel format is valid when present
+    - base_parallel format is valid when present
     - Section values are from the known set
 
     Args:
@@ -90,8 +90,10 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
 
     segments = data.get("segments")
     if segments is None:
-        # Some files (e.g., T256, kangyur_editions) have alternate structures
-        if "id" in data or "title_chinese" in data or "editions" in data:
+        # Some files (e.g., T256, kangyur_editions) have alternate structures.
+        # Require at least two recognized metadata keys to accept.
+        _ALTERNATE_KEYS = {"id", "title_chinese", "title_english", "editions", "title", "source", "description"}
+        if len(_ALTERNATE_KEYS & set(data.keys())) >= 2:
             return []  # Valid alternate structure
         errors.append(f"{path.name}: missing 'segments' key")
         return errors
@@ -100,11 +102,17 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
         errors.append(f"{path.name}: 'segments' must be a list")
         return errors
 
-    required = {
+    _REQUIRED_BY_TYPE = {
         "chinese": CHINESE_SEGMENT_FIELDS,
         "sanskrit": SANSKRIT_SEGMENT_FIELDS,
         "tibetan": TIBETAN_SEGMENT_FIELDS,
-    }.get(witness_type, CHINESE_SEGMENT_FIELDS)
+    }
+    if witness_type not in _REQUIRED_BY_TYPE:
+        raise ValueError(
+            f"Unknown witness_type={witness_type!r}. "
+            f"Must be one of: {', '.join(sorted(_REQUIRED_BY_TYPE))}"
+        )
+    required = _REQUIRED_BY_TYPE[witness_type]
 
     seen_ids = set()
     for i, seg in enumerate(segments):
@@ -147,17 +155,17 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
                 f"{path.name}: segment {seg_label} has unknown section '{section}'"
             )
 
-        # --- chinese_parallel format ---
-        cp = seg.get("chinese_parallel")
+        # --- base_parallel format ---
+        cp = seg.get("base_parallel")
         if cp is not None:
             if not isinstance(cp, str):
                 errors.append(
-                    f"{path.name}: segment {seg_label} chinese_parallel "
+                    f"{path.name}: segment {seg_label} base_parallel "
                     f"should be str or null, got {type(cp).__name__}"
                 )
-            elif not _CHINESE_PARALLEL_RE.match(cp):
+            elif not _BASE_PARALLEL_RE.match(cp):
                 errors.append(
-                    f"{path.name}: segment {seg_label} chinese_parallel='{cp}' "
+                    f"{path.name}: segment {seg_label} base_parallel='{cp}' "
                     f"does not match expected pattern WitnessID:N"
                 )
 
@@ -185,11 +193,11 @@ def _collect_segment_ids(data_dir: Path) -> set[str]:
 
 def validate_cross_references(data_dir: Path) -> list[str]:
     """
-    Validate that chinese_parallel references point to real segment IDs.
+    Validate that base_parallel references point to real segment IDs.
 
     Checks all witnesses (Chinese alternates, Sanskrit, Tibetan) that have
-    chinese_parallel fields and verifies the target IDs exist in the base
-    Chinese witness files.
+    base_parallel fields and verifies the target IDs exist in the base
+    witness files.
 
     Returns:
         List of error messages (empty if all references are valid)
@@ -199,10 +207,14 @@ def validate_cross_references(data_dir: Path) -> list[str]:
     if not chinese_ids:
         return errors
 
-    # Check all witness directories
+    # Check all witness directories (must match validate_data_dir's scan)
     dirs_to_check = [
         (data_dir / "chinese" / "taisho", "chinese"),
+        (data_dir / "chinese" / "dunhuang", "chinese"),
+        (data_dir / "chinese" / "epigraphy", "chinese"),
+        (data_dir / "chinese" / "manuscripts", "chinese"),
         (data_dir / "sanskrit" / "gretil", "sanskrit"),
+        (data_dir / "sanskrit" / "manuscripts", "sanskrit"),
         (data_dir / "tibetan" / "kangyur", "tibetan"),
         (data_dir / "tibetan" / "dunhuang", "tibetan"),
     ]
@@ -217,12 +229,12 @@ def validate_cross_references(data_dir: Path) -> list[str]:
             except (json.JSONDecodeError, KeyError):
                 continue
             for seg in data.get("segments", []):
-                cp = seg.get("chinese_parallel")
+                cp = seg.get("base_parallel")
                 if cp and cp not in chinese_ids:
                     errors.append(
                         f"{f.name}: segment {seg.get('id', '?')} has "
-                        f"chinese_parallel='{cp}' which does not match any "
-                        f"Chinese segment ID"
+                        f"base_parallel='{cp}' which does not match any "
+                        f"base witness segment ID"
                     )
 
     return errors
