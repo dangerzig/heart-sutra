@@ -123,7 +123,7 @@ class SynopticBuilder:
             if witness_id == "GRETIL":
                 path = self.data_dir / "sanskrit" / "gretil" / "prajnaparamitahrdaya.json"
             else:
-                path = self.data_dir / "sanskrit" / "manuscripts" / f"{witness_id}.json"
+                path = self.data_dir / "sanskrit" / "manuscripts" / f"{witness_id.lower()}.json"
         elif tradition == "tibetan":
             path = self.data_dir / "tibetan" / "kangyur" / f"{witness_id.lower()}.json"
             if not path.exists():
@@ -202,6 +202,12 @@ class SynopticBuilder:
         for seg in sanskrit.get("segments", []):
             parallel = seg.get("base_parallel")
             if parallel:
+                if parallel in sanskrit_by_parallel:
+                    logger.warning(
+                        "%s: duplicate base_parallel=%r in Sanskrit, "
+                        "later segment overwrites earlier",
+                        sanskrit_id, parallel,
+                    )
                 sanskrit_by_parallel[parallel] = seg
 
         # Build segment index for Tibetan
@@ -209,6 +215,12 @@ class SynopticBuilder:
         for seg in tibetan.get("segments", []):
             parallel = seg.get("base_parallel")
             if parallel:
+                if parallel in tibetan_by_parallel:
+                    logger.warning(
+                        "%s: duplicate base_parallel=%r in Tibetan, "
+                        "later segment overwrites earlier",
+                        tibetan_id, parallel,
+                    )
                 tibetan_by_parallel[parallel] = seg
 
         # Iterate through Chinese segments (base)
@@ -400,22 +412,22 @@ class SynopticBuilder:
                     f"<td colspan='5'>{html_escape(section_title)}</td></tr>"
                 )
 
-            # Data row (all text values HTML-escaped)
-            chinese_cell = f"<span class='chinese'>{html_escape(row.chinese)}</span>"
+            # Data row (all text values HTML-escaped, lang attrs for accessibility)
+            chinese_cell = f"<span class='chinese' lang='lzh'>{html_escape(row.chinese)}</span>"
             if row.chinese_pinyin:
-                chinese_cell += f"<br><span class='pinyin'>{html_escape(row.chinese_pinyin)}</span>"
+                chinese_cell += f"<br><span class='pinyin' lang='zh-Latn'>{html_escape(row.chinese_pinyin)}</span>"
 
             sanskrit_cell = ""
             if row.sanskrit_devanagari:
-                sanskrit_cell += f"<span class='sanskrit'>{html_escape(row.sanskrit_devanagari)}</span><br>"
+                sanskrit_cell += f"<span class='sanskrit' lang='sa-Deva'>{html_escape(row.sanskrit_devanagari)}</span><br>"
             if row.sanskrit_iast:
-                sanskrit_cell += f"<span class='iast'>{html_escape(row.sanskrit_iast)}</span>"
+                sanskrit_cell += f"<span class='iast' lang='sa-Latn'>{html_escape(row.sanskrit_iast)}</span>"
 
             tibetan_cell = ""
             if row.tibetan:
-                tibetan_cell += f"<span class='tibetan'>{html_escape(row.tibetan)}</span>"
+                tibetan_cell += f"<span class='tibetan' lang='bo'>{html_escape(row.tibetan)}</span>"
             if row.tibetan_wylie:
-                tibetan_cell += f"<br><span class='wylie'>{html_escape(row.tibetan_wylie)}</span>"
+                tibetan_cell += f"<br><span class='wylie' lang='bo-Latn'>{html_escape(row.tibetan_wylie)}</span>"
 
             english_cell = html_escape(row.english)
             if row.divergence_notes:
@@ -520,21 +532,25 @@ def build_synoptic(data_dir: Path, output_format: str = "markdown") -> str:
 
 def main():
     """CLI entry point for synoptic alignment."""
-    import sys
+    import argparse
     from .data import resolve_data_dir
 
-    args = sys.argv[1:]
-    output_format = "markdown"
-    data_arg = None
+    parser = argparse.ArgumentParser(
+        description="Generate synoptic alignment of the Heart Sūtra."
+    )
+    parser.add_argument(
+        "format", nargs="?", default="markdown",
+        choices=["markdown", "html", "json"],
+        help="Output format (default: markdown)",
+    )
+    parser.add_argument(
+        "--data-dir", default=None,
+        help="Path to data directory (auto-detected if not specified)",
+    )
+    args = parser.parse_args()
 
-    for arg in args:
-        if arg in ("markdown", "html", "json"):
-            output_format = arg
-        else:
-            data_arg = arg
-
-    data_dir = resolve_data_dir(data_arg)
-    print(build_synoptic(data_dir, output_format))
+    data_dir = resolve_data_dir(args.data_dir)
+    print(build_synoptic(data_dir, args.format))
 
 
 if __name__ == "__main__":

@@ -97,8 +97,8 @@ def normalize_iast(text: str) -> str:
     - ṁ/ṃ normalization (anusvāra)
     - Smart/curly quote normalization
     """
-    # Normalize anusvāra
-    text = text.replace('ṁ', 'ṃ')
+    # Normalize anusvāra (both cases)
+    text = text.replace('ṁ', 'ṃ').replace('Ṁ', 'Ṃ')
 
     # Normalize curly/smart quotes to straight quotes
     text = text.replace('\u201c', '"').replace('\u201d', '"')

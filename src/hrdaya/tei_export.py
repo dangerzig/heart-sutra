@@ -8,12 +8,15 @@ Generates a TEI P5 XML document containing all three traditions
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from datetime import datetime, timezone
 
 from lxml import etree
 
 from hrdaya.data import resolve_data_dir, DATA_VERSION, compute_data_hash
+
+logger = logging.getLogger(__name__)
 
 TEI_NS = "http://www.tei-c.org/ns/1.0"
 XML_NS = "http://www.w3.org/XML/1998/namespace"
@@ -49,12 +52,17 @@ def _load_json(path: Path) -> dict:
 
 
 def _seg_xml_id(seg_id: str) -> str:
-    """Generate XML-safe ID for a segment.
+    """Generate a valid XML NCName ID for a segment.
 
     Segment IDs like 'T251:1' or 'IOL Tib J 751:3' are already unique,
-    so we just make them XML-safe (no spaces, no colons).
+    so we sanitize for XML NCName compliance:
+    - Replace spaces and colons with underscores/hyphens
+    - Prefix with 'w' if the ID starts with a digit
     """
-    return seg_id.replace(" ", "_").replace(":", "-")
+    result = seg_id.replace(" ", "_").replace(":", "-")
+    if result and (result[0].isdigit() or result[0] in "-."):
+        result = "w" + result
+    return result
 
 
 def _load_tradition_witnesses(data_dir: Path,
@@ -69,6 +77,8 @@ def _load_tradition_witnesses(data_dir: Path,
             data = _load_json(json_path)
             if "segments" in data:
                 witnesses.append(data)
+            else:
+                logger.debug("Skipping %s: no 'segments' key", json_path.name)
         except json.JSONDecodeError:
             continue
     return witnesses
@@ -152,8 +162,7 @@ def _group_segments_by_section(witness: dict) -> dict[str, list[dict]]:
     return by_section
 
 
-def generate_chinese_text(data_dir: Path,
-                           witnesses: list[dict]) -> etree._Element:
+def generate_chinese_text(witnesses: list[dict]) -> etree._Element:
     """Generate <text xml:lang="lzh"> for the Chinese tradition."""
     text_el = _element("text", xml_lang="lzh")
     body = _sub(text_el, "body")
@@ -213,7 +222,7 @@ def generate_sanskrit_text(witnesses: list[dict]) -> etree._Element:
             seg_id = seg.get("id", f"sa-{i}")
             xml_id = _seg_xml_id(seg_id)
             iast_text = seg.get("iast", "")
-            seg_el = _sub(div, "seg", iast_text, xml_id=xml_id)
+            _sub(div, "seg", iast_text, xml_id=xml_id)
 
     return text_el
 
@@ -234,7 +243,7 @@ def generate_tibetan_text(witnesses: list[dict]) -> etree._Element:
             seg_id = seg.get("id", f"bo-{i}")
             xml_id = _seg_xml_id(seg_id)
             tib_text = seg.get("tibetan", "")
-            seg_el = _sub(div, "seg", tib_text, xml_id=xml_id)
+            _sub(div, "seg", tib_text, xml_id=xml_id)
 
     return text_el
 
@@ -306,7 +315,7 @@ def export_tei(output_path: str | Path | None = None,
     Path
         The path to the written XML file.
     """
-    data_path = Path(resolve_data_dir(str(data_dir) if data_dir else None))
+    data_path = resolve_data_dir(data_dir)
 
     # Load witnesses
     zh_witnesses = _load_tradition_witnesses(data_path, "chinese")
@@ -325,7 +334,7 @@ def export_tei(output_path: str | Path | None = None,
 
     # Group with three text elements
     group = _sub(tei, "group")
-    group.append(generate_chinese_text(data_path, zh_witnesses))
+    group.append(generate_chinese_text(zh_witnesses))
     group.append(generate_sanskrit_text(sa_witnesses))
     group.append(generate_tibetan_text(bo_witnesses))
 

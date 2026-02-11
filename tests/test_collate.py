@@ -95,14 +95,18 @@ class TestHeartSutraCollator:
         assert len(results) > 0
         result = results[0]
         # T250 opening starts with 觀世音 vs T251 觀自在 — differ at position 1
+        found = False
         for v in result.variants:
             if "T250" in v.variant_witnesses:
                 assert v.position >= 0  # real offset, not -1
+                found = True
+        assert found, "Expected at least one T250 variant in opening"
 
     def test_cross_linguistic_variants_use_minus_one(self, collator):
         """Cross-linguistic variants (Sanskrit/Tibetan vs Chinese) use position=-1."""
         results = collator.collate_section("form_emptiness")
         assert len(results) > 0
+        found = False
         for result in results:
             for v in result.variants:
                 # Variants where witnesses span different scripts should be -1
@@ -112,6 +116,8 @@ class TestHeartSutraCollator:
                     assert v.position == -1, (
                         f"Cross-linguistic variant should use position=-1, got {v.position}"
                     )
+                    found = True
+        assert found, "Expected at least one cross-linguistic variant"
 
     def test_tibetan_variants_created(self, collator):
         """Tibetan witnesses should produce variants against Chinese base."""
@@ -201,6 +207,23 @@ class TestLoadTibetanWitness:
         data1 = collator.load_tibetan_witness("Toh21")
         data2 = collator.load_tibetan_witness("Toh21")
         assert data1 is data2  # same object from cache
+
+
+class TestLoadSanskritWitness:
+    """Test load_sanskrit_witness edge cases (mn3)."""
+
+    @pytest.fixture
+    def collator(self):
+        return HeartSutraCollator(DATA_DIR)
+
+    def test_load_gretil(self, collator):
+        data = collator.load_sanskrit_witness("GRETIL")
+        assert "segments" in data
+
+    def test_nonexistent_sanskrit_raises(self, collator):
+        """Non-GRETIL unknown IDs should raise, not silently return GRETIL."""
+        with pytest.raises(FileNotFoundError):
+            collator.load_sanskrit_witness("NONEXISTENT_SANSKRIT")
 
 
 class TestAnchorTraditionValidation:

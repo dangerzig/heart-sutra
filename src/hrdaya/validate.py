@@ -16,6 +16,30 @@ CHINESE_SEGMENT_FIELDS = {"id", "section", "text"}
 SANSKRIT_SEGMENT_FIELDS = {"id", "section", "iast"}
 TIBETAN_SEGMENT_FIELDS = {"id", "section", "tibetan"}
 
+_REQUIRED_BY_TYPE = {
+    "chinese": CHINESE_SEGMENT_FIELDS,
+    "sanskrit": SANSKRIT_SEGMENT_FIELDS,
+    "tibetan": TIBETAN_SEGMENT_FIELDS,
+}
+
+# Keys that signal a valid alternate (non-segment) witness structure.
+# Files with at least 2 of these keys are accepted without "segments".
+_ALTERNATE_KEYS = {"id", "title_chinese", "title_english", "editions",
+                   "title", "source", "description"}
+
+# Witness directory layout — single source of truth for validate_data_dir
+# and validate_cross_references.
+_WITNESS_DIRS: list[tuple[str, str]] = [
+    ("chinese/taisho", "chinese"),
+    ("chinese/dunhuang", "chinese"),
+    ("chinese/epigraphy", "chinese"),
+    ("chinese/manuscripts", "chinese"),
+    ("sanskrit/gretil", "sanskrit"),
+    ("sanskrit/manuscripts", "sanskrit"),
+    ("tibetan/kangyur", "tibetan"),
+    ("tibetan/dunhuang", "tibetan"),
+]
+
 # Known section names used in the Heart Sūtra data files.
 # Segments with section values not in this set will be flagged.
 KNOWN_SECTIONS = {
@@ -92,7 +116,6 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
     if segments is None:
         # Some files (e.g., T256, kangyur_editions) have alternate structures.
         # Require at least two recognized metadata keys to accept.
-        _ALTERNATE_KEYS = {"id", "title_chinese", "title_english", "editions", "title", "source", "description"}
         if len(_ALTERNATE_KEYS & set(data.keys())) >= 2:
             return []  # Valid alternate structure
         errors.append(f"{path.name}: missing 'segments' key")
@@ -102,11 +125,6 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
         errors.append(f"{path.name}: 'segments' must be a list")
         return errors
 
-    _REQUIRED_BY_TYPE = {
-        "chinese": CHINESE_SEGMENT_FIELDS,
-        "sanskrit": SANSKRIT_SEGMENT_FIELDS,
-        "tibetan": TIBETAN_SEGMENT_FIELDS,
-    }
     if witness_type not in _REQUIRED_BY_TYPE:
         raise ValueError(
             f"Unknown witness_type={witness_type!r}. "
@@ -173,21 +191,24 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
 
 
 def _collect_segment_ids(data_dir: Path) -> set[str]:
-    """Collect all segment IDs from Chinese Taishō witness files."""
+    """Collect all segment IDs from Chinese witness files across all subdirs."""
     ids: set[str] = set()
-    taisho_dir = data_dir / "chinese" / "taisho"
-    if not taisho_dir.exists():
+    chinese_dir = data_dir / "chinese"
+    if not chinese_dir.exists():
         return ids
-    for f in taisho_dir.glob("*.json"):
-        try:
-            with open(f, 'r', encoding='utf-8') as fh:
-                data = json.load(fh)
-            for seg in data.get("segments", []):
-                seg_id = seg.get("id")
-                if seg_id:
-                    ids.add(seg_id)
-        except (json.JSONDecodeError, KeyError):
-            pass
+    for subdir in sorted(chinese_dir.iterdir()):
+        if not subdir.is_dir():
+            continue
+        for f in subdir.glob("*.json"):
+            try:
+                with open(f, 'r', encoding='utf-8') as fh:
+                    data = json.load(fh)
+                for seg in data.get("segments", []):
+                    seg_id = seg.get("id")
+                    if seg_id:
+                        ids.add(seg_id)
+            except json.JSONDecodeError:
+                pass
     return ids
 
 
@@ -207,26 +228,15 @@ def validate_cross_references(data_dir: Path) -> list[str]:
     if not chinese_ids:
         return errors
 
-    # Check all witness directories (must match validate_data_dir's scan)
-    dirs_to_check = [
-        (data_dir / "chinese" / "taisho", "chinese"),
-        (data_dir / "chinese" / "dunhuang", "chinese"),
-        (data_dir / "chinese" / "epigraphy", "chinese"),
-        (data_dir / "chinese" / "manuscripts", "chinese"),
-        (data_dir / "sanskrit" / "gretil", "sanskrit"),
-        (data_dir / "sanskrit" / "manuscripts", "sanskrit"),
-        (data_dir / "tibetan" / "kangyur", "tibetan"),
-        (data_dir / "tibetan" / "dunhuang", "tibetan"),
-    ]
-
-    for d, _wtype in dirs_to_check:
+    for relpath, _wtype in _WITNESS_DIRS:
+        d = data_dir / relpath
         if not d.exists():
             continue
         for f in d.glob("*.json"):
             try:
                 with open(f, 'r', encoding='utf-8') as fh:
                     data = json.load(fh)
-            except (json.JSONDecodeError, KeyError):
+            except json.JSONDecodeError:
                 continue
             for seg in data.get("segments", []):
                 cp = seg.get("base_parallel")
@@ -252,43 +262,15 @@ def validate_data_dir(data_dir: Path) -> dict[str, list[str]]:
     """
     results = {}
 
-    # Chinese witness directories
-    chinese_dirs = [
-        data_dir / "chinese" / "taisho",
-        data_dir / "chinese" / "dunhuang",
-        data_dir / "chinese" / "epigraphy",
-        data_dir / "chinese" / "manuscripts",
-    ]
-    for d in chinese_dirs:
-        if d.exists():
-            for f in d.glob("*.json"):
-                errors = validate_witness_file(f, "chinese")
-                if errors:
-                    results[str(f)] = errors
-
-    # Sanskrit witness directories
-    sanskrit_dirs = [
-        data_dir / "sanskrit" / "gretil",
-        data_dir / "sanskrit" / "manuscripts",
-    ]
-    for d in sanskrit_dirs:
-        if d.exists():
-            for f in d.glob("*.json"):
-                errors = validate_witness_file(f, "sanskrit")
-                if errors:
-                    results[str(f)] = errors
-
-    # Tibetan witness directories
-    tibetan_dirs = [
-        data_dir / "tibetan" / "kangyur",
-        data_dir / "tibetan" / "dunhuang",
-    ]
-    for d in tibetan_dirs:
-        if d.exists():
-            for f in d.glob("*.json"):
-                errors = validate_witness_file(f, "tibetan")
-                if errors:
-                    results[str(f)] = errors
+    # Validate witness files across all tradition directories
+    for relpath, wtype in _WITNESS_DIRS:
+        d = data_dir / relpath
+        if not d.exists():
+            continue
+        for f in d.glob("*.json"):
+            errors = validate_witness_file(f, wtype)
+            if errors:
+                results[str(f)] = errors
 
     # Collation data (not a witness, but validate JSON structure)
     collation_dir = data_dir / "collation"
@@ -324,6 +306,17 @@ def main():
         for path, errs in errors.items():
             for e in errs:
                 print(f"ERROR: {e}")
-        raise SystemExit(f"\n{len(errors)} file(s) with validation errors")
+        n_file = sum(1 for k in errors if k != "cross_references")
+        n_xref = len(errors.get("cross_references", []))
+        parts = []
+        if n_file:
+            parts.append(f"{n_file} file(s) with validation errors")
+        if n_xref:
+            parts.append(f"{n_xref} cross-reference error(s)")
+        raise SystemExit(f"\n{'; '.join(parts)}")
     else:
         print("All data files valid.")
+
+
+if __name__ == "__main__":
+    main()

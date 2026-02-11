@@ -27,6 +27,10 @@ logger = logging.getLogger(__name__)
 #   patch = corrections to existing data
 DATA_VERSION = "1.1.0"
 
+# Source witness directories (hashed for reproducibility fingerprint).
+# Derived/generated directories (e.g., collation/) are excluded.
+_SOURCE_DIRS = ("chinese", "sanskrit", "tibetan", "prajnaparamita")
+
 
 def compute_data_hash(data_dir: Path) -> str:
     """
@@ -45,13 +49,17 @@ def compute_data_hash(data_dir: Path) -> str:
         logger.warning("compute_data_hash: directory does not exist: %s", data_dir)
         return hashlib.sha256().hexdigest()[:12]
     h = hashlib.sha256()
-    for p in sorted(data_dir.rglob("*.json"), key=lambda x: x.relative_to(data_dir).as_posix()):
-        h.update(p.relative_to(data_dir).as_posix().encode())
-        h.update(p.read_bytes())
+    for src_dir in _SOURCE_DIRS:
+        subdir = data_dir / src_dir
+        if not subdir.is_dir():
+            continue
+        for p in sorted(subdir.rglob("*.json"), key=lambda x: x.relative_to(data_dir).as_posix()):
+            h.update(p.relative_to(data_dir).as_posix().encode())
+            h.update(p.read_bytes())
     return h.hexdigest()[:12]
 
 
-def resolve_data_dir(explicit_path: str | None = None) -> Path:
+def resolve_data_dir(explicit_path: str | Path | None = None) -> Path:
     """
     Resolve the data directory from the most specific source available.
 
@@ -72,7 +80,7 @@ def resolve_data_dir(explicit_path: str | None = None) -> Path:
     """
     # 1. Explicit argument
     if explicit_path:
-        p = Path(explicit_path)
+        p = Path(explicit_path).resolve()
         if p.is_dir():
             return p
         raise FileNotFoundError(f"Data directory not found: {p}")
@@ -80,7 +88,7 @@ def resolve_data_dir(explicit_path: str | None = None) -> Path:
     # 2. Environment variable
     env_dir = os.environ.get("HRDAYA_DATA_DIR")
     if env_dir:
-        p = Path(env_dir)
+        p = Path(env_dir).resolve()
         if p.is_dir():
             return p
         raise FileNotFoundError(
@@ -88,12 +96,12 @@ def resolve_data_dir(explicit_path: str | None = None) -> Path:
         )
 
     # 3. Relative to source tree (development / editable install)
-    dev_path = Path(__file__).parent.parent.parent / "data"
+    dev_path = (Path(__file__).parent.parent.parent / "data").resolve()
     if dev_path.is_dir():
         return dev_path
 
     # 4. Current working directory
-    cwd_path = Path.cwd() / "data"
+    cwd_path = (Path.cwd() / "data").resolve()
     if cwd_path.is_dir():
         return cwd_path
 

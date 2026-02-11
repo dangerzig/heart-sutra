@@ -75,6 +75,7 @@ class HeartSutraCollator:
         self._chinese_cache: dict[str, dict] = {}
         self._sanskrit_cache: dict[str, dict] = {}
         self._tibetan_cache: dict[str, dict] = {}
+        self._available_chinese: list[str] | None = None
 
     def load_chinese_witness(self, witness_id: str) -> dict:
         """Load a Chinese witness from JSON.
@@ -92,35 +93,53 @@ class HeartSutraCollator:
             # Try lowercased witness_id as filename
             path = subdir / f"{witness_id.lower()}.json"
             if path.exists():
-                with open(path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    self._chinese_cache[witness_id] = data
-                    return data
+                try:
+                    with open(path, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                except json.JSONDecodeError as e:
+                    logger.warning("Malformed JSON in %s: %s", path, e)
+                    continue
+                self._chinese_cache[witness_id] = data
+                return data
             # Also try original case (Taishō files use lowercase t250, etc.)
             path = subdir / f"{witness_id}.json"
             if path.exists():
-                with open(path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    self._chinese_cache[witness_id] = data
-                    return data
+                try:
+                    with open(path, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                except json.JSONDecodeError as e:
+                    logger.warning("Malformed JSON in %s: %s", path, e)
+                    continue
+                self._chinese_cache[witness_id] = data
+                return data
 
         raise FileNotFoundError(f"Chinese witness {witness_id} not found")
 
     def load_sanskrit_witness(self, witness_id: str) -> dict:
-        """Load a Sanskrit witness from JSON."""
+        """Load a Sanskrit witness from JSON.
+
+        Searches gretil/ directory by witness ID.  For 'GRETIL', loads the
+        canonical prajnaparamitahrdaya.json file.
+        """
         if witness_id in self._sanskrit_cache:
             return self._sanskrit_cache[witness_id]
 
-        # Try GRETIL first
+        # Try exact witness ID match first
         path = self.sanskrit_dir / "gretil" / f"{witness_id.lower()}.json"
-        if not path.exists():
+        if not path.exists() and witness_id.upper() == "GRETIL":
+            # GRETIL is the canonical Sanskrit source
             path = self.sanskrit_dir / "gretil" / "prajnaparamitahrdaya.json"
 
         if path.exists():
-            with open(path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                self._sanskrit_cache[witness_id] = data
-                return data
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+            except json.JSONDecodeError as e:
+                raise FileNotFoundError(
+                    f"Sanskrit witness {witness_id}: malformed JSON in {path}"
+                ) from e
+            self._sanskrit_cache[witness_id] = data
+            return data
 
         raise FileNotFoundError(f"Sanskrit witness {witness_id} not found")
 
@@ -133,10 +152,14 @@ class HeartSutraCollator:
         for subdir in ("kangyur", "dunhuang"):
             path = self.tibetan_dir / subdir / f"{witness_id.lower()}.json"
             if path.exists():
-                with open(path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    self._tibetan_cache[witness_id] = data
-                    return data
+                try:
+                    with open(path, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                except json.JSONDecodeError as e:
+                    logger.warning("Malformed JSON in %s: %s", path, e)
+                    continue
+                self._tibetan_cache[witness_id] = data
+                return data
 
         raise FileNotFoundError(f"Tibetan witness {witness_id} not found")
 
@@ -275,14 +298,12 @@ class HeartSutraCollator:
         - Non-standard terminology
         - Chinese word-order traces
         """
-        # Known retranslation indicators
-        indicators = [
-            ("kṣaya", "nirodha"),  # kṣaya used instead of standard nirodha
-            ("avidyā-kṣaya", "avidyā-nirodha"),
-        ]
+        # Known retranslation indicators (from Nattier 1992):
+        # kṣaya used instead of standard nirodha
+        indicators = ["kṣaya", "avidyā-kṣaya"]
 
         sanskrit_lower = sanskrit.lower()
-        for indicator, standard in indicators:
+        for indicator in indicators:
             if indicator in sanskrit_lower:
                 return True
 
@@ -297,7 +318,11 @@ class HeartSutraCollator:
         array are included — catalog files and non-segment structures
         are excluded because they cannot participate in segment-level
         collation.
+
+        Results are cached for the lifetime of this collator instance.
         """
+        if self._available_chinese is not None:
+            return self._available_chinese
         available = []
         if not self.chinese_dir.exists():
             return available
@@ -319,7 +344,8 @@ class HeartSutraCollator:
                     stem = f.stem
                     wid = stem if stem.startswith("T") else stem.upper()
                 available.append(wid)
-        return sorted(available)
+        self._available_chinese = sorted(available)
+        return self._available_chinese
 
     def _is_extraction_artifact(self, text: str) -> bool:
         """Check if reading shows extraction from larger PP text."""

@@ -106,8 +106,12 @@ class TestGetWitness:
     def test_caching(self):
         """get_witness should use cached dict."""
         import hrdaya.witnesses as wmod
-        wmod._ALL_WITNESSES_CACHE = None  # reset
-        w1 = get_witness("T251")
-        assert wmod._ALL_WITNESSES_CACHE is not None
-        w2 = get_witness("T251")
-        assert w1 is w2
+        saved = wmod._ALL_WITNESSES_CACHE
+        try:
+            wmod._ALL_WITNESSES_CACHE = None  # reset
+            w1 = get_witness("T251")
+            assert wmod._ALL_WITNESSES_CACHE is not None
+            w2 = get_witness("T251")
+            assert w1 is w2
+        finally:
+            wmod._ALL_WITNESSES_CACHE = saved
