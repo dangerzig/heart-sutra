@@ -45,24 +45,28 @@
     {
       "id": "Fangshan:1",
       "section": "opening",
+      "base_parallel": "T251:1",
       "text": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
       "comparison_T251": "identical"
     },
     {
       "id": "Fangshan:2",
       "section": "form_emptiness",
+      "base_parallel": "T251:2",
       "text": "舍利子，色不異空，空不異色，色即是空，空即是色。受想行識亦復如是。",
       "comparison_T251": "identical"
     },
     {
       "id": "Fangshan:3",
       "section": "characteristics",
+      "base_parallel": "T251:3",
       "text": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
       "comparison_T251": "identical"
     },
     {
       "id": "Fangshan:4",
       "section": "negations_skandhas",
+      "base_parallel": "T251:4",
       "text": "是故空中无色，无受想行識，",
       "text_normalized": "是故空中無色，無受想行識，",
       "comparison_T251": "identical (orthographic variant 无 for 無)"
@@ -70,6 +74,7 @@
     {
       "id": "Fangshan:5",
       "section": "negations_ayatanas",
+      "base_parallel": "T251:5",
       "text": "无眼耳鼻舌身意，无色聲香味觸法，",
       "text_normalized": "無眼耳鼻舌身意，無色聲香味觸法，",
       "comparison_T251": "identical (orthographic variant)"
@@ -77,6 +82,7 @@
     {
       "id": "Fangshan:6",
       "section": "negations_dhatus",
+      "base_parallel": "T251:6",
       "text": "无眼界，乃至无意識界，",
       "text_normalized": "無眼界，乃至無意識界，",
       "comparison_T251": "identical (orthographic variant)"
@@ -84,6 +90,7 @@
     {
       "id": "Fangshan:7",
       "section": "negations_pratityasamutpada",
+      "base_parallel": "T251:7",
       "text": "无无明，亦无无明盡，乃至无老死，亦无老死盡，",
       "text_normalized": "無無明，亦無無明盡，乃至無老死，亦無老死盡，",
       "comparison_T251": "identical (orthographic variant)"
@@ -91,6 +98,7 @@
     {
       "id": "Fangshan:8",
       "section": "negations_truths",
+      "base_parallel": "T251:8",
       "text": "无苦集滅道，无智亦无得，以无所得故。",
       "text_normalized": "無苦集滅道，無智亦無得，以無所得故。",
       "comparison_T251": "identical (orthographic variant)"
@@ -98,6 +106,7 @@
     {
       "id": "Fangshan:9",
       "section": "bodhisattva_result",
+      "base_parallel": "T251:9",
       "text": "菩提薩埵依般若波羅蜜多故，心无罣礙，无罣礙故，无有恐怖，遠離顛倒夢想，究竟涅槃。",
       "text_normalized": "菩提薩埵依般若波羅蜜多故，心無罣礙，無罣礙故，無有恐怖，遠離顛倒夢想，究竟涅槃。",
       "comparison_T251": "identical (orthographic variant)"
@@ -105,12 +114,14 @@
     {
       "id": "Fangshan:10",
       "section": "buddha_result",
+      "base_parallel": "T251:10",
       "text": "三世諸佛依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
       "comparison_T251": "identical"
     },
     {
       "id": "Fangshan:11",
       "section": "mantra_praise",
+      "base_parallel": "T251:11",
       "text": "故知般若波羅蜜多是大神呪，是大明呪，是无上呪，是无等等呪，能除一切苦，真實不虛。",
       "text_normalized": "故知般若波羅蜜多是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，真實不虛。",
       "comparison_T251": "identical (orthographic variants 呪/咒, 无/無)"
@@ -118,6 +129,7 @@
     {
       "id": "Fangshan:12",
       "section": "mantra",
+      "base_parallel": "T251:12",
       "text": "故說般若波羅蜜多呪，即說呪曰：揭諦揭諦，波羅揭諦，波羅僧揭諦，菩提薩婆訶。",
       "text_normalized": "故說般若波羅蜜多咒，即說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提薩婆訶。",
       "comparison_T251": "variants: 諦 for 帝 in mantra; 薩婆訶 for 僧莎訶 at end",
