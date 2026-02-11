@@ -98,6 +98,13 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
     Returns:
         List of error messages (empty if valid)
     """
+    # Validate witness_type before any file I/O
+    if witness_type not in _REQUIRED_BY_TYPE:
+        raise ValueError(
+            f"Unknown witness_type={witness_type!r}. "
+            f"Must be one of: {', '.join(sorted(_REQUIRED_BY_TYPE))}"
+        )
+
     errors = []
 
     if not path.exists():
@@ -125,11 +132,6 @@ def validate_witness_file(path: Path, witness_type: str) -> list[str]:
         errors.append(f"{path.name}: 'segments' must be a list")
         return errors
 
-    if witness_type not in _REQUIRED_BY_TYPE:
-        raise ValueError(
-            f"Unknown witness_type={witness_type!r}. "
-            f"Must be one of: {', '.join(sorted(_REQUIRED_BY_TYPE))}"
-        )
     required = _REQUIRED_BY_TYPE[witness_type]
 
     seen_ids = set()

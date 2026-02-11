@@ -1,7 +1,6 @@
 """Tests for data validation."""
 
 import json
-import tempfile
 from pathlib import Path
 
 import pytest
@@ -44,14 +43,12 @@ class TestValidateWitnessFile:
         assert len(errors) == 1
         assert "not found" in errors[0].lower()
 
-    def test_invalid_json(self):
-        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
-            f.write("{bad json")
-            path = Path(f.name)
+    def test_invalid_json(self, tmp_path):
+        path = tmp_path / "bad.json"
+        path.write_text("{bad json")
         errors = validate_witness_file(path, "chinese")
         assert len(errors) == 1
         assert "Invalid JSON" in errors[0]
-        path.unlink()
 
     def test_alternate_structure_accepted(self):
         """T256 has id/title_chinese instead of segments."""
@@ -71,47 +68,39 @@ class TestValidateWitnessFile:
 class TestSchemaValidation:
     """Test schema-level checks added in v6."""
 
-    def test_unknown_section_flagged(self):
-        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
-            json.dump({"segments": [
-                {"id": "X:1", "section": "nonexistent_section", "text": "abc"}
-            ]}, f)
-            path = Path(f.name)
+    def test_unknown_section_flagged(self, tmp_path):
+        path = tmp_path / "unknown_section.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": "X:1", "section": "nonexistent_section", "text": "abc"}
+        ]}))
         errors = validate_witness_file(path, "chinese")
         assert any("unknown section" in e for e in errors)
-        path.unlink()
 
-    def test_bad_base_parallel_format_flagged(self):
-        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
-            json.dump({"segments": [
-                {"id": "X:1", "section": "opening", "text": "abc",
-                 "base_parallel": "bad-format"}
-            ]}, f)
-            path = Path(f.name)
+    def test_bad_base_parallel_format_flagged(self, tmp_path):
+        path = tmp_path / "bad_parallel.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": "X:1", "section": "opening", "text": "abc",
+             "base_parallel": "bad-format"}
+        ]}))
         errors = validate_witness_file(path, "chinese")
         assert any("does not match expected pattern" in e for e in errors)
-        path.unlink()
 
-    def test_valid_base_parallel_accepted(self):
-        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
-            json.dump({"segments": [
-                {"id": "X:1", "section": "opening", "text": "abc",
-                 "base_parallel": "T251:1"}
-            ]}, f)
-            path = Path(f.name)
+    def test_valid_base_parallel_accepted(self, tmp_path):
+        path = tmp_path / "good_parallel.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": "X:1", "section": "opening", "text": "abc",
+             "base_parallel": "T251:1"}
+        ]}))
         errors = validate_witness_file(path, "chinese")
         assert errors == []
-        path.unlink()
 
-    def test_empty_required_field_flagged(self):
-        with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
-            json.dump({"segments": [
-                {"id": "X:1", "section": "opening", "text": ""}
-            ]}, f)
-            path = Path(f.name)
+    def test_empty_required_field_flagged(self, tmp_path):
+        path = tmp_path / "empty_field.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": "X:1", "section": "opening", "text": ""}
+        ]}))
         errors = validate_witness_file(path, "chinese")
         assert any("is empty" in e for e in errors)
-        path.unlink()
 
     def test_known_sections_includes_long_recension(self):
         """Long recension sections must be recognized."""

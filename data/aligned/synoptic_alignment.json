@@ -1,6 +1,6 @@
 {
   "title": "Prajñāpāramitāhṛdaya Synoptic Alignment",
-  "methodology": "chinese-priority",
+  "methodology": "T251-anchored",
   "witnesses": {
     "chinese_primary": "T251",
     "chinese_secondary": ["T250", "Fangshan", "T256", "T257"],
@@ -276,7 +276,7 @@
     }
   ],
   "notes": [
-    "Synoptic alignment follows Chinese compositional priority methodology (Nattier 1992)",
+    "Synoptic alignment uses T251 as default alignment anchor following Nattier (1992)",
     "T251 (short version) serves as base text; Tibetan Toh21 (long version) includes frame narrative not shown in main alignment",
     "Tibetan segments extracted from Toh21 correspond to doctrinal core matching T251 structure",
     "Sanskrit textual corrections based on Attwood (2015, 2017a, 2017b, 2018a, 2020a, 2021) and Huifeng (2014)",

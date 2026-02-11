@@ -14,7 +14,7 @@
     {
       "id": "T250:1",
       "section": "opening",
-      "chinese_parallel": "T251:1",
+      "base_parallel": "T251:1",
       "text": "觀世音菩薩，行深般若波羅蜜時，照見五陰空，度一切苦厄。",
       "pinyin": "Guānshìyīn púsà, xíng shēn bōrě bōluómì shí, zhàojiàn wǔyīn kōng, dù yīqiè kǔ è.",
       "english_gloss": "When Avalokiteśvara Bodhisattva was practicing the profound prajñāpāramitā, he illuminated the five skandhas as empty, thus transcending all suffering.",
@@ -27,7 +27,7 @@
     {
       "id": "T250:2a",
       "section": "skandha_characteristics",
-      "chinese_parallel": null,
+      "base_parallel": null,
       "text": "舍利弗，色空故無惱壞相，受空故無受相，想空故無知相，行空故無作相，識空故無覺相。何以故？",
       "pinyin": "Shèlìfú, sè kōng gù wú nǎo huài xiāng, shòu kōng gù wú shòu xiāng, xiǎng kōng gù wú zhī xiāng, xíng kōng gù wú zuò xiāng, shí kōng gù wú jué xiāng. Héyǐgù?",
       "english_gloss": "Śāriputra, because form is empty there is no characteristic of affliction and decay; because feeling is empty there is no characteristic of feeling; because perception is empty there is no characteristic of cognizing; because volition is empty there is no characteristic of acting; because consciousness is empty there is no characteristic of awareness. Why is this?",
@@ -40,7 +40,7 @@
     {
       "id": "T250:2b",
       "section": "form_emptiness",
-      "chinese_parallel": "T251:2",
+      "base_parallel": "T251:2",
       "text": "舍利弗，非色異空，非空異色，色即是空，空即是色。受想行識亦如是。",
       "pinyin": "Shèlìfú, fēi sè yì kōng, fēi kōng yì sè, sè jí shì kōng, kōng jí shì sè. Shòu xiǎng xíng shí yì rúshì.",
       "english_gloss": "Śāriputra, it is not that form is different from emptiness, it is not that emptiness is different from form; form is emptiness, emptiness is form. Feeling, perception, volition, and consciousness are also like this.",
@@ -52,7 +52,7 @@
     {
       "id": "T250:3",
       "section": "characteristics",
-      "chinese_parallel": "T251:3",
+      "base_parallel": "T251:3",
       "text": "舍利弗，是諸法空相，不生不滅，不垢不淨，不增不減。",
       "pinyin": "Shèlìfú, shì zhūfǎ kōng xiāng, bù shēng bù miè, bù gòu bù jìng, bù zēng bù jiǎn.",
       "english_gloss": "Śāriputra, the emptiness characteristic of all dharmas is: not arising, not ceasing; not defiled, not pure; not increasing, not decreasing.",
@@ -63,7 +63,7 @@
     {
       "id": "T250:3a",
       "section": "temporal_negation",
-      "chinese_parallel": null,
+      "base_parallel": null,
       "text": "是空法，非過去，非未來，非現在。",
       "pinyin": "Shì kōng fǎ, fēi guòqù, fēi wèilái, fēi xiànzài.",
       "english_gloss": "This emptiness-dharma is not past, not future, not present.",
@@ -75,7 +75,7 @@
     {
       "id": "T250:4",
       "section": "negations_skandhas",
-      "chinese_parallel": "T251:4",
+      "base_parallel": "T251:4",
       "text": "是故空中，無色，無受想行識，",
       "pinyin": "Shìgù kōng zhōng, wú sè, wú shòu xiǎng xíng shí,",
       "english_gloss": "Therefore, in emptiness there is no form, no feeling, perception, volition, or consciousness;",
@@ -86,7 +86,7 @@
     {
       "id": "T250:5",
       "section": "negations_ayatanas",
-      "chinese_parallel": "T251:5",
+      "base_parallel": "T251:5",
       "text": "無眼耳鼻舌身意，無色聲香味觸法，",
       "pinyin": "wú yǎn ěr bí shé shēn yì, wú sè shēng xiāng wèi chù fǎ,",
       "english_gloss": "no eyes, ears, nose, tongue, body, or mind; no forms, sounds, smells, tastes, tangibles, or mental objects;",
@@ -97,7 +97,7 @@
     {
       "id": "T250:6",
       "section": "negations_dhatus",
-      "chinese_parallel": "T251:6",
+      "base_parallel": "T251:6",
       "text": "無眼界，乃至無意識界。",
       "pinyin": "wú yǎn jiè, nǎizhì wú yìshí jiè.",
       "english_gloss": "no eye-element, up to and including no mind-consciousness element.",
@@ -108,7 +108,7 @@
     {
       "id": "T250:7",
       "section": "negations_pratityasamutpada",
-      "chinese_parallel": "T251:7",
+      "base_parallel": "T251:7",
       "text": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
       "pinyin": "Wú wúmíng, yì wú wúmíng jìn, nǎizhì wú lǎosǐ, yì wú lǎosǐ jìn.",
       "english_gloss": "No ignorance and no ending of ignorance, up to and including no old age and death, and no ending of old age and death.",
@@ -119,7 +119,7 @@
     {
       "id": "T250:8",
       "section": "negations_truths",
-      "chinese_parallel": "T251:8",
+      "base_parallel": "T251:8",
       "text": "無苦集滅道，無智亦無得，以無所得故。",
       "pinyin": "Wú kǔ jí miè dào, wú zhì yì wú dé, yǐ wú suǒ dé gù.",
       "english_gloss": "No suffering, origination, cessation, or path; no wisdom and no attainment, because there is nothing to attain.",
@@ -130,7 +130,7 @@
     {
       "id": "T250:9",
       "section": "bodhisattva_result",
-      "chinese_parallel": "T251:9",
+      "base_parallel": "T251:9",
       "text": "菩薩依般若波羅蜜故，心無罣礙，無罣礙故，無有恐怖，離一切顛倒夢想苦惱，究竟涅槃。",
       "pinyin": "Púsà yī bōrě bōluómì gù, xīn wú guà'ài, wú guà'ài gù, wú yǒu kǒngbù, lí yīqiè diāndǎo mèngxiǎng kǔnǎo, jiūjìng nièpán.",
       "english_gloss": "Because bodhisattvas rely on prajñāpāramitā, their minds are without obstruction. Without obstruction, they have no fear, are separated from all inverted dream-thoughts and afflictions, and attain ultimate nirvāṇa.",
@@ -143,7 +143,7 @@
     {
       "id": "T250:10",
       "section": "buddha_result",
-      "chinese_parallel": "T251:10",
+      "base_parallel": "T251:10",
       "text": "三世諸佛，依般若波羅蜜故，得阿耨多羅三藐三菩提。",
       "pinyin": "Sānshì zhū fó, yī bōrě bōluómì gù, dé ānòuduōluó sānmiǎo sānpútí.",
       "english_gloss": "All buddhas of the three times, relying on prajñāpāramitā, attain anuttarā-samyak-saṃbodhi.",
@@ -154,7 +154,7 @@
     {
       "id": "T250:11",
       "section": "mantra_praise",
-      "chinese_parallel": "T251:11",
+      "base_parallel": "T251:11",
       "text": "故知般若波羅蜜，是大明呪，是無上明呪，是無等等明呪，能除一切苦，真實不虛。",
       "pinyin": "Gùzhī bōrě bōluómì, shì dà míng zhòu, shì wúshàng míng zhòu, shì wú děngděng míng zhòu, néng chú yīqiè kǔ, zhēnshí bù xū.",
       "english_gloss": "Therefore know that prajñāpāramitā is the great illumination-mantra, the supreme illumination-mantra, the unequalled illumination-mantra, which can remove all suffering; it is true and not false.",
@@ -168,7 +168,7 @@
     {
       "id": "T250:12",
       "section": "mantra",
-      "chinese_parallel": "T251:12",
+      "base_parallel": "T251:12",
       "text": "故說般若波羅蜜呪，即說呪曰：竭帝竭帝，波羅竭帝，波羅僧竭帝，菩提僧莎呵。",
       "pinyin": "Gù shuō bōrě bōluómì zhòu, jí shuō zhòu yuē: Jiédì jiédì, bōluó jiédì, bōluó sēng jiédì, pútí sēng suōhē.",
       "english_gloss": "Therefore proclaim the prajñāpāramitā mantra, proclaim the mantra that says: Gate gate pāragate pārasaṃgate bodhi svāhā.",

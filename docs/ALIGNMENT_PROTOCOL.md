@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document describes how `chinese_parallel` annotations in the witness data files were produced, what criteria govern them, and how they can be verified or modified. It provides the methodological transparency required for scholarly publication of the critical apparatus.
+This document describes how `base_parallel` annotations in the witness data files were produced, what criteria govern them, and how they can be verified or modified. It provides the methodological transparency required for scholarly publication of the critical apparatus.
 
 ## 1. Alignment Principles
 
@@ -40,18 +40,18 @@ In practice, the Heart Sūtra's concise structure makes alignments unambiguous f
 
 ### Null Alignment
 
-A segment receives `"chinese_parallel": null` when it has **no corresponding content in T251**. This occurs for:
+A segment receives `"base_parallel": null` when it has **no corresponding content in T251**. This occurs for:
 - Material unique to one tradition (Sanskrit invocations, colophons)
 - Long-recension frame narratives absent from the short recension
 - Tradition-specific interpolations
 
-Segments without a `chinese_parallel` field (as opposed to `null`) are handled identically: they are excluded from automated collation.
+Segments without a `base_parallel` field (as opposed to `null`) are handled identically: they are excluded from automated collation.
 
 ## 2. Alignment Decisions by Witness
 
 ### Sanskrit GRETIL (14 segments)
 
-| GRETIL Segment | chinese_parallel | Rationale |
+| GRETIL Segment | base_parallel | Rationale |
 |----------------|-----------------|-----------|
 | GRETIL:1 (invocation) | null | *Oṃ Namo Bhagavatyai* — Tantric maṅgala absent from T251 and earliest witnesses. Late Nepalese interpolation (Attwood 2024). |
 | GRETIL:2–13 | T251:1–12 | 1:1 correspondence with T251 segments. Content matches semantically and structurally. |
@@ -59,7 +59,7 @@ Segments without a `chinese_parallel` field (as opposed to `null`) are handled i
 
 ### Tibetan Toh 21 (Degé Kangyur, long recension)
 
-Toh 21 is a long recension containing a frame narrative (setting, assembly, Buddha's samādhi, Avalokiteśvara's dialogue, Buddha's approval). The 12 core segments align 1:1 with T251. Frame narrative sections have no `chinese_parallel` because T251 (short recension) lacks frame material.
+Toh 21 is a long recension containing a frame narrative (setting, assembly, Buddha's samādhi, Avalokiteśvara's dialogue, Buddha's approval). The 12 core segments align 1:1 with T251. Frame narrative sections have no `base_parallel` because T251 (short recension) lacks frame material.
 
 ### Tibetan IOL Tib J 751 (Dunhuang, short recension)
 
@@ -67,7 +67,7 @@ All 12 segments align 1:1 with T251:1–12. As a short recension without frame n
 
 ### Chinese T250
 
-T250 segments carry `chinese_parallel` references to their T251 counterparts (e.g., `"chinese_parallel": "T251:2"`), enabling inter-Chinese collation. T250's content matches T251's segmentation with minor variations in scope.
+T250 segments carry `base_parallel` references to their T251 counterparts (e.g., `"base_parallel": "T251:2"`), enabling inter-Chinese collation. T250's content matches T251's segmentation with minor variations in scope.
 
 ## 3. Annotation Process
 
@@ -85,7 +85,7 @@ Alignments were produced by **manual scholarly analysis** following this procedu
    - Attwood (2024) — Revised parallel editions of both texts
    - Silk (1994) — Tibetan critical edition with cross-references
 
-4. **Recording**: The `chinese_parallel` field was set in each witness's JSON data file. Values take the form `"T251:N"` where N is the segment number (1–12), or `null` for unaligned material.
+4. **Recording**: The `base_parallel` field was set in each witness's JSON data file. Values take the form `"T251:N"` where N is the segment number (1–12), or `null` for unaligned material.
 
 ### No Computational Alignment
 
@@ -103,7 +103,7 @@ The closing formula *Ity ārya-prajñāpāramitā-hṛdayaṃ samāptam* is a st
 
 ### Tibetan Frame Narrative (Toh 21)
 
-The Degé Kangyur long recension contains extensive frame narrative material (setting at Vulture Peak, assembly of bodhisattvas and arhats, Buddha entering samādhi, dialogue authorization, Buddha's approval). This material is absent from T251 (short recension) and cannot be meaningfully aligned to it. These sections have no `chinese_parallel` field.
+The Degé Kangyur long recension contains extensive frame narrative material (setting at Vulture Peak, assembly of bodhisattvas and arhats, Buddha entering samādhi, dialogue authorization, Buddha's approval). This material is absent from T251 (short recension) and cannot be meaningfully aligned to it. These sections have no `base_parallel` field.
 
 ### Combined/Split Segments
 
@@ -118,14 +118,14 @@ To verify or modify an alignment:
 3. Read the segment's text content (IAST, Devanagari, or Tibetan)
 4. Compare against the corresponding T251 segment (in `data/chinese/taisho/t251.json`)
 5. Confirm that the content addresses the same doctrinal passage
-6. If the alignment is incorrect, edit the `chinese_parallel` field
+6. If the alignment is incorrect, edit the `base_parallel` field
 7. Run `hrdaya-validate` to confirm the reference format is valid
 
-The pipeline's cross-reference validation (`hrdaya-validate`) automatically confirms that all `chinese_parallel` targets exist in the Chinese witness files.
+The pipeline's cross-reference validation (`hrdaya-validate`) automatically confirms that all `base_parallel` targets exist in the Chinese witness files.
 
 ## 6. Replicability
 
-All alignment decisions are transparent: they are recorded as `chinese_parallel` fields in the JSON data files and can be inspected, verified, or modified by any scholar. The alignment protocol described here provides the criteria for producing or evaluating these annotations.
+All alignment decisions are transparent: they are recorded as `base_parallel` fields in the JSON data files and can be inspected, verified, or modified by any scholar. The alignment protocol described here provides the criteria for producing or evaluating these annotations.
 
 The deliberate choice to exclude unaligned segments from automated collation (rather than guessing at correspondences) means the apparatus is conservative: it may omit interesting material, but it will not produce spurious alignments.
 

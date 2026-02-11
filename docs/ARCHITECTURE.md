@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This project implements a **multilingual electronic critical edition** of the Prajñāpāramitāhṛdaya (Heart Sūtra) following a methodology fundamentally different from traditional Lachmannian textual criticism. Rather than reconstructing a hypothetical Sanskrit Ur-text, this edition treats the Heart Sūtra as a **textual complex** with **Chinese compositional priority**, documenting the subsequent multilingual textualization across Chinese, Sanskrit, and Tibetan traditions.
+This project implements a **multilingual electronic critical edition** of the Prajñāpāramitāhṛdaya (Heart Sūtra) following a methodology fundamentally different from traditional Lachmannian textual criticism. Rather than reconstructing a hypothetical Sanskrit Ur-text, this edition treats the Heart Sūtra as a **textual complex** with **T251 as the default alignment anchor**, documenting the multilingual textualization across Chinese, Sanskrit, and Tibetan traditions.
 
 ---
 
@@ -107,9 +107,9 @@ Generates synoptic alignments in multiple formats:
 
 ## 2. Witnesses Included
 
-### 2.1 Chinese Witnesses (Compositionally Prior)
+### 2.1 Chinese Witnesses
 
-The Chinese tradition is treated as **compositionally prior** following Nattier (1992). The edition includes all major Taishō Canon versions:
+The Chinese tradition provides the default alignment anchor (T251) following Nattier (1992). The edition includes all major Taisho Canon versions:
 
 | Siglum | Title | Date | Recension | Rationale |
 |--------|-------|------|-----------|-----------|
@@ -125,9 +125,9 @@ The Chinese tradition is treated as **compositionally prior** following Nattier 
 
 **Selection Rationale**: T251 is the analytical base because it is (1) compositionally central according to Nattier's analysis, (2) the most widely used recension, and (3) the first to use the distinctive "Heart Sūtra" title. T256 is critical for demonstrating the Chinese → Sanskrit transmission.
 
-### 2.2 Sanskrit Witnesses (Derived Tradition)
+### 2.2 Sanskrit Witnesses
 
-Sanskrit witnesses are treated as evidence of **reception and re-Sanskritization**, not as sources for correcting Chinese readings. Following Conze (1967) with updates:
+Sanskrit witnesses are presented with direction-of-dependence annotations. Following Conze (1967) with updates:
 
 #### Japanese Provenance
 
@@ -170,9 +170,9 @@ Sanskrit witnesses are treated as evidence of **reception and re-Sanskritization
 
 **Selection Rationale**: All witnesses from Conze's critical edition are included to enable comprehensive comparison. Priority witnesses (bold) are those that either (1) are earliest, (2) are most precisely dated, or (3) provide critical evidence for transmission history.
 
-### 2.3 Tibetan Witnesses (Mediating)
+### 2.3 Tibetan Witnesses
 
-Tibetan witnesses serve as **mediating evidence** that may reflect earlier Sanskrit forms while still participating in a secondary transmission chain:
+Tibetan witnesses may reflect earlier Sanskrit forms than surviving Indic manuscripts:
 
 | Siglum | Name | Date | Rationale |
 |--------|------|------|-----------|
@@ -352,7 +352,7 @@ The edition currently includes the following scholarly annotations:
 
 ## 7. Conclusion
 
-This project represents a new approach to editing the Heart Sūtra that takes seriously the scholarly consensus on its Chinese compositional origin. Rather than treating Sanskrit as the source and Chinese as a translation, the edition inverts this assumption and documents how a Chinese composition became a multilingual Buddhist scripture.
+This project represents a new approach to editing the Heart Sūtra informed by current scholarship on its transmission history. Rather than assuming any single tradition as the source, the edition uses T251 as a pragmatic alignment anchor while documenting the multilingual textualization of the Heart Sutra across traditions.
 
 The architecture is designed to be:
 - **Extensible**: New witnesses can be added without restructuring

@@ -163,6 +163,9 @@ class TestChineseText:
         rdgs = app.xpath("tei:rdg", namespaces=NS)
         assert len(lems) == 1
         assert len(rdgs) >= 1
+        # Apparatus entries should contain actual text, not be empty
+        assert lems[0].text, "Lemma should contain text"
+        assert rdgs[0].text, "Reading should contain text"
 
 
 class TestSanskritText:
@@ -264,4 +267,3 @@ class TestSegXmlId:
     def test_letter_prefix_unchanged(self):
         """IDs starting with letters are NOT prefixed."""
         assert _seg_xml_id("T251") == "T251"
-        assert not _seg_xml_id("T251").startswith("w")

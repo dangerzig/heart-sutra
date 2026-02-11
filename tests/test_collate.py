@@ -61,7 +61,9 @@ class TestHeartSutraCollator:
         result = results[0]
         # T250 has a form_emptiness segment with 非色異空 (not the skandha_characteristics)
         assert "T250" in result.chinese_texts, "T250 must be present in form_emptiness results"
-        assert "非色異空" in result.chinese_texts["T250"] or "色即是空" in result.chinese_texts["T250"]
+        assert "非色異空" in result.chinese_texts["T250"], (
+            f"Expected T250 form_emptiness text to contain '非色異空', got: {result.chinese_texts['T250']!r}"
+        )
 
     def test_configurable_alternate_witnesses(self, collator):
         """Test that alternate_chinese parameter controls which witnesses are compared."""
@@ -257,8 +259,8 @@ class TestCollateFullText:
     def test_returns_sections(self):
         result = collate_full_text(DATA_DIR)
         assert "sections" in result
-        assert "opening" in result["sections"]
-        assert "mantra" in result["sections"]
+        for section in ("opening", "form_emptiness", "mantra_praise", "mantra"):
+            assert section in result["sections"], f"Missing section: {section}"
 
     def test_sections_contain_apparatus_entries(self):
         result = collate_full_text(DATA_DIR)
