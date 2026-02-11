@@ -7,9 +7,11 @@ cross-file consistency checks for base_parallel references.
 """
 
 import json
+import logging
 import re
 from pathlib import Path
 
+logger = logging.getLogger(__name__)
 
 # Required fields per witness type
 CHINESE_SEGMENT_FIELDS = {"id", "section", "text"}
@@ -209,8 +211,8 @@ def _collect_segment_ids(data_dir: Path) -> set[str]:
                     seg_id = seg.get("id")
                     if seg_id:
                         ids.add(seg_id)
-            except json.JSONDecodeError:
-                pass
+            except json.JSONDecodeError as e:
+                logger.warning("Malformed JSON in %s: %s", f.name, e)
     return ids
 
 
@@ -238,7 +240,8 @@ def validate_cross_references(data_dir: Path) -> list[str]:
             try:
                 with open(f, 'r', encoding='utf-8') as fh:
                     data = json.load(fh)
-            except json.JSONDecodeError:
+            except json.JSONDecodeError as e:
+                logger.warning("Malformed JSON in %s: %s", f.name, e)
                 continue
             for seg in data.get("segments", []):
                 cp = seg.get("base_parallel")

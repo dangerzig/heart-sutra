@@ -12,10 +12,6 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 class TestHeartSutraCollator:
     """Test collation functionality."""
 
-    @pytest.fixture
-    def collator(self):
-        return HeartSutraCollator(DATA_DIR)
-
     def test_load_chinese_witness(self, collator):
         data = collator.load_chinese_witness("T251")
         assert "segments" in data
@@ -146,10 +142,6 @@ class TestHeartSutraCollator:
 class TestAlignSegments:
     """Test the align_segments method (MJ11 coverage gap)."""
 
-    @pytest.fixture
-    def collator(self):
-        return HeartSutraCollator(DATA_DIR)
-
     def test_chinese_only(self, collator):
         seg = {"id": "T251:1", "text": "觀自在菩薩", "section": "opening"}
         result = collator.align_segments(seg)
@@ -188,10 +180,6 @@ class TestAlignSegments:
 class TestLoadTibetanWitness:
     """Test load_tibetan_witness (MJ11 coverage gap)."""
 
-    @pytest.fixture
-    def collator(self):
-        return HeartSutraCollator(DATA_DIR)
-
     def test_load_toh21(self, collator):
         data = collator.load_tibetan_witness("Toh21")
         assert "segments" in data
@@ -214,10 +202,6 @@ class TestLoadTibetanWitness:
 class TestLoadSanskritWitness:
     """Test load_sanskrit_witness edge cases (mn3)."""
 
-    @pytest.fixture
-    def collator(self):
-        return HeartSutraCollator(DATA_DIR)
-
     def test_load_gretil(self, collator):
         data = collator.load_sanskrit_witness("GRETIL")
         assert "segments" in data
@@ -231,10 +215,6 @@ class TestLoadSanskritWitness:
 class TestAnchorTraditionValidation:
     """Test that non-Chinese anchor_tradition raises ValueError."""
 
-    @pytest.fixture
-    def collator(self):
-        return HeartSutraCollator(DATA_DIR)
-
     def test_sanskrit_anchor_raises(self, collator):
         with pytest.raises(ValueError, match="not supported"):
             collator.collate_section("opening", anchor_tradition="sanskrit")
@@ -244,27 +224,78 @@ class TestAnchorTraditionValidation:
             collator.collate_section("opening", anchor_tradition="tibetan")
 
 
+@pytest.fixture(scope="module")
+def full_text_result():
+    """Module-scoped collate_full_text result (expensive, run once)."""
+    return collate_full_text(DATA_DIR)
+
+
 class TestCollateFullText:
     """Test the high-level collate_full_text entry point."""
 
-    def test_returns_dict_with_provenance(self):
-        result = collate_full_text(DATA_DIR)
-        prov = result["provenance"]
+    def test_returns_dict_with_provenance(self, full_text_result):
+        prov = full_text_result["provenance"]
         assert prov["tool"] == "hrdaya.collate"
         assert prov["base_witness"] == "T251"
         assert "data_version" in prov
         assert "data_hash" in prov
         assert len(prov["data_hash"]) == 12
 
-    def test_returns_sections(self):
-        result = collate_full_text(DATA_DIR)
-        assert "sections" in result
+    def test_returns_sections(self, full_text_result):
+        assert "sections" in full_text_result
         for section in ("opening", "form_emptiness", "mantra_praise", "mantra"):
-            assert section in result["sections"], f"Missing section: {section}"
+            assert section in full_text_result["sections"], f"Missing section: {section}"
 
-    def test_sections_contain_apparatus_entries(self):
-        result = collate_full_text(DATA_DIR)
-        opening = result["sections"]["opening"]
+    def test_sections_contain_apparatus_entries(self, full_text_result):
+        opening = full_text_result["sections"]["opening"]
         assert isinstance(opening, list)
         assert len(opening) > 0
         assert "segment_id" in opening[0]
+        assert "base_text" in opening[0]
+        assert "readings" in opening[0]
+
+    def test_sections_have_variant_readings(self, full_text_result):
+        """Verify that collation produces actual variant data, not just structure."""
+        opening = full_text_result["sections"]["opening"]
+        # Opening section should have readings from multiple Chinese witnesses
+        has_variant = False
+        for entry in opening:
+            readings = entry.get("readings", {})
+            chinese = readings.get("chinese", {})
+            if len(chinese) > 1:  # more than just the base witness
+                has_variant = True
+                break
+        assert has_variant, "Opening section should have readings from multiple witnesses"
+
+
+class TestClassifyDefaultPath:
+    """Test that unrecognized variants get the default distinctive_reading classification."""
+
+    def test_non_orthographic_non_artifact(self, collator):
+        """A plain text difference should be classified as distinctive_reading."""
+        vtype, direction = collator.classify_variant(
+            "觀自在", "觀世音",
+            context={"tradition": "chinese"}
+        )
+        assert vtype == VariantType.DISTINCTIVE_READING
+        assert direction == DependenceDirection.UNCERTAIN
+
+
+class TestClassifyExtractionArtifact:
+    """Test extraction artifact classification."""
+
+    def test_evam_ukte_classified(self, collator):
+        """'evam ukte' should indicate an extraction artifact."""
+        vtype, direction = collator.classify_variant(
+            "base", "evam ukte bhagavān",
+            context={"tradition": "sanskrit"}
+        )
+        assert vtype == VariantType.EXTRACTION_ARTIFACT
+
+    def test_ayusman_classified(self, collator):
+        """'āyuṣmān' should indicate an extraction artifact."""
+        vtype, direction = collator.classify_variant(
+            "base", "āyuṣmān śāriputra",
+            context={"tradition": "sanskrit"}
+        )
+        assert vtype == VariantType.EXTRACTION_ARTIFACT

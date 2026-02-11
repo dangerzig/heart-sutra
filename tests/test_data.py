@@ -16,8 +16,7 @@ class TestChineseData:
     ])
     def test_taisho_files_valid_json(self, filename):
         path = DATA_DIR / "chinese" / "taisho" / filename
-        if not path.exists():
-            pytest.skip(f"{filename} not present")
+        assert path.exists(), f"Required witness file {filename} not found"
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         assert "segments" in data, f"{filename} missing 'segments' key"
@@ -27,7 +26,8 @@ class TestChineseData:
         path = DATA_DIR / "chinese" / "taisho" / "t256.json"
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        assert "id" in data or "title_chinese" in data
+        assert "id" in data, "t256.json missing 'id' key"
+        assert "title_chinese" in data, "t256.json missing 'title_chinese' key"
 
     def test_t251_has_segments(self):
         path = DATA_DIR / "chinese" / "taisho" / "T251.json"
@@ -79,7 +79,9 @@ class TestCollationData:
         path = DATA_DIR / "collation" / "variant_table.json"
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        assert isinstance(data, (dict, list))
+        assert isinstance(data, dict), "variant_table.json should be a dict"
+        assert "sections" in data, "variant_table.json missing 'sections' key"
+        assert "provenance" in data, "variant_table.json missing 'provenance' key"
 
 
 class TestAlignedData:
@@ -89,4 +91,6 @@ class TestAlignedData:
         path = DATA_DIR / "aligned" / "synoptic_alignment.json"
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        assert "rows" in data or "segments" in data or isinstance(data, list)
+        assert isinstance(data, dict), "synoptic_alignment.json should be a dict"
+        assert "rows" in data, "synoptic_alignment.json missing 'rows' key"
+        assert len(data["rows"]) > 0, "synoptic_alignment.json should have rows"

@@ -19,10 +19,6 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 class TestNoBaseParallelNoAlignment:
     """Segments without base_parallel MUST be excluded from alignment."""
 
-    @pytest.fixture
-    def collator(self):
-        return HeartSutraCollator(DATA_DIR)
-
     def test_alternate_segment_without_base_parallel_excluded(self, collator):
         """A segment with base_parallel=null must never appear in results."""
         # Collate opening with T250 — T250 has some segments with null base_parallel

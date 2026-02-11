@@ -156,6 +156,10 @@ class TestValidateIAST:
     def test_punctuation_accepted(self):
         assert validate_iast("gate, gate.") == []
 
+    def test_danda_accepted(self):
+        """Pipe/danda separator used in Sanskrit manuscripts is valid IAST."""
+        assert validate_iast("namas sarvajñāya |") == []
+
     def test_all_consonants_valid(self):
         consonants = "k kh g gh ṅ c ch j jh ñ ṭ ṭh ḍ ḍh ṇ t th d dh n p ph b bh m y r l v ś ṣ s h"
         assert validate_iast(consonants) == []
@@ -179,6 +183,9 @@ class TestNormalizeIAST:
     def test_plain_text_unchanged(self):
         text = "prajnaparamita"
         assert normalize_iast(text) == text
+
+    def test_empty_string(self):
+        assert normalize_iast("") == ""
 
 
 class TestNewlineHandling:

@@ -168,6 +168,50 @@ class TestAlternateStructureValidation:
         assert errors == []
 
 
+class TestValidateErrorPaths:
+    """Test validate_witness_file error branches for defensive code paths."""
+
+    def test_top_level_not_dict(self, tmp_path):
+        """JSON that is a bare list (not a dict) should be flagged."""
+        path = tmp_path / "list.json"
+        path.write_text(json.dumps([{"id": "X:1"}]))
+        errors = validate_witness_file(path, "chinese")
+        assert any("must be a dict" in e for e in errors)
+
+    def test_segments_not_a_list(self, tmp_path):
+        """'segments' key present but not a list should be flagged."""
+        path = tmp_path / "not_list.json"
+        path.write_text(json.dumps({"segments": "not-a-list"}))
+        errors = validate_witness_file(path, "chinese")
+        assert any("must be a list" in e for e in errors)
+
+    def test_segment_not_a_dict(self, tmp_path):
+        """A segment that is not a dict should be flagged."""
+        path = tmp_path / "bad_seg.json"
+        path.write_text(json.dumps({"segments": ["just a string"]}))
+        errors = validate_witness_file(path, "chinese")
+        assert any("not a dict" in e for e in errors)
+
+    def test_required_field_wrong_type(self, tmp_path):
+        """A required field that is not a string should be flagged."""
+        path = tmp_path / "wrong_type.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": 123, "section": "opening", "text": "abc"}
+        ]}))
+        errors = validate_witness_file(path, "chinese")
+        assert any("should be str" in e for e in errors)
+
+    def test_base_parallel_wrong_type(self, tmp_path):
+        """A base_parallel that is not a string or null should be flagged."""
+        path = tmp_path / "bad_bp.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": "X:1", "section": "opening", "text": "abc",
+             "base_parallel": 42}
+        ]}))
+        errors = validate_witness_file(path, "chinese")
+        assert any("base_parallel" in e and "str" in e for e in errors)
+
+
 class TestValidateDataDir:
     """Test full data directory validation."""
 

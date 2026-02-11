@@ -20,16 +20,12 @@ from hrdaya.tei_export import (
 )
 
 
-@pytest.fixture
-def data_dir():
-    return Path(__file__).parent.parent / "data"
-
-
-@pytest.fixture
-def tei_tree(data_dir, tmp_path):
-    """Generate the full TEI document and parse it."""
-    output_path = tmp_path / "tei_test.xml"
-    export_tei(output_path=output_path, data_dir=data_dir)
+@pytest.fixture(scope="module")
+def tei_tree(tmp_path_factory):
+    """Generate the full TEI document and parse it (module-scoped for performance)."""
+    data = Path(__file__).parent.parent / "data"
+    output_path = tmp_path_factory.mktemp("tei") / "tei_test.xml"
+    export_tei(output_path=output_path, data_dir=data)
     return etree.parse(str(output_path))
 
 
@@ -156,16 +152,21 @@ class TestChineseText:
         assert len(apps) > 0, "Chinese text should have apparatus entries"
 
     def test_apparatus_has_lem_and_rdg(self, tei_tree):
-        app = tei_tree.xpath(
+        """Every <app> element should have one <lem>; at least one <app> should have <rdg>."""
+        apps = tei_tree.xpath(
             "//tei:text[@xml:lang='lzh']//tei:app", namespaces=NS
-        )[0]
-        lems = app.xpath("tei:lem", namespaces=NS)
-        rdgs = app.xpath("tei:rdg", namespaces=NS)
-        assert len(lems) == 1
-        assert len(rdgs) >= 1
-        # Apparatus entries should contain actual text, not be empty
-        assert lems[0].text, "Lemma should contain text"
-        assert rdgs[0].text, "Reading should contain text"
+        )
+        assert len(apps) > 0
+        total_rdgs = 0
+        for app in apps:
+            lems = app.xpath("tei:lem", namespaces=NS)
+            rdgs = app.xpath("tei:rdg", namespaces=NS)
+            assert len(lems) == 1, f"Expected 1 <lem>, got {len(lems)}"
+            assert lems[0].text, "Lemma should contain text"
+            total_rdgs += len(rdgs)
+            for rdg in rdgs:
+                assert rdg.text, "Reading should contain text"
+        assert total_rdgs > 0, "At least one <app> should have variant readings"
 
 
 class TestSanskritText:
@@ -267,3 +268,15 @@ class TestSegXmlId:
     def test_letter_prefix_unchanged(self):
         """IDs starting with letters are NOT prefixed."""
         assert _seg_xml_id("T251") == "T251"
+
+    def test_empty_string_returns_unknown(self):
+        """Empty segment ID returns sentinel value."""
+        assert _seg_xml_id("") == "w_unknown"
+
+    def test_dash_prefix_gets_w(self):
+        """IDs starting with '-' get 'w' prefix for NCName validity."""
+        assert _seg_xml_id("-test") == "w-test"
+
+    def test_dot_prefix_gets_w(self):
+        """IDs starting with '.' get 'w' prefix for NCName validity."""
+        assert _seg_xml_id(".test") == "w.test"
