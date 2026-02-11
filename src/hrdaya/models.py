@@ -2,11 +2,11 @@
 Data models for the Heart Sūtra multilingual critical edition.
 
 Design Principles:
-1. Chinese compositional priority - Chinese is the analytical base
-2. Sanskrit as derived tradition - evidence of reception, not origin
-3. Tibetan as mediating witness - triangulates transmission stages
-4. Direction-of-dependence annotation - apparatus encodes textual history
-5. Dual script support - Sanskrit in both Devanagari and IAST
+1. T251 as default alignment anchor - pragmatic analytical base
+2. Direction-of-dependence annotation - apparatus encodes textual history
+3. Configurable anchor tradition - any witness can serve as base
+4. Multi-script support - Sanskrit, Chinese, and Tibetan scripts
+5. Neutrality regarding compositional priority - treated as a hypothesis, not an axiom
 """
 
 from dataclasses import dataclass, field
@@ -34,6 +34,9 @@ class Script(Enum):
     DEVANAGARI = "deva"  # देवनागरी
     IAST = "iast"  # International Alphabet of Sanskrit Transliteration
     SIDDHAM = "sidd"  # 悉曇 - used in East Asian Buddhist manuscripts
+    RANJANA = "ranj"  # Rañjana/Newari script
+    BHUJIMOL = "bhuj"  # Bhujimol/Nepalese hooked script
+    PROTO_SHARADA = "shrd"  # Proto-Śāradā (Gilgit manuscripts)
 
     # Tibetan scripts
     TIBETAN = "tibt"  # Uchen script
@@ -62,7 +65,7 @@ class VariantType(Enum):
     EXTRACTION_ARTIFACT = "extraction"  # Traces of source Prajñāpāramitā text
 
     # Translation-related
-    BACK_TRANSLATION = "back_translation"  # Evidence of translation from Chinese
+    RETRANSLATION = "retranslation"  # Evidence of retranslation between traditions
     TRANSLATION_CHOICE = "translation_choice"  # Different rendering of same meaning
     GRAMMATICAL_ADAPTATION = "grammatical"  # Adaptation to target language grammar
 
@@ -77,10 +80,12 @@ class DependenceDirection(Enum):
     """Direction of textual dependence/borrowing."""
     # Primary directions
     PRAJNAPARAMITA_TO_HEART = "pp→hs"  # Larger PP text → Heart Sūtra
-    CHINESE_TO_SANSKRIT = "zh→sa"  # Chinese → Sanskrit (back-translation)
+    CHINESE_TO_SANSKRIT = "zh→sa"  # Chinese → Sanskrit
     CHINESE_TO_TIBETAN = "zh→bo"  # Chinese → Tibetan
     TIBETAN_TO_SANSKRIT = "bo→sa"  # Tibetan → Sanskrit
     SANSKRIT_TO_TIBETAN = "sa→bo"  # Sanskrit → Tibetan
+    SANSKRIT_TO_CHINESE = "sa→zh"  # Sanskrit → Chinese
+    TIBETAN_TO_CHINESE = "bo→zh"  # Tibetan → Chinese
 
     # Uncertain/complex
     SHARED_SOURCE = "shared"  # Both derive from common source
@@ -153,7 +158,9 @@ class Variant:
     variant_type: VariantType = VariantType.UNCERTAIN
     dependence: DependenceDirection = DependenceDirection.UNCERTAIN
 
-    # Cross-linguistic evidence
+    # Cross-linguistic evidence: these record which parallel passage in
+    # each tradition is relevant to this variant.  They are distinct from
+    # the segment-level base_parallel field used for alignment.
     chinese_parallel: str | None = None
     sanskrit_parallel: str | None = None
     tibetan_parallel: str | None = None
@@ -165,6 +172,12 @@ class Variant:
 
     # Confidence
     confidence: float = 0.5  # 0.0 to 1.0
+
+    def __post_init__(self):
+        if not 0.0 <= self.confidence <= 1.0:
+            raise ValueError(
+                f"confidence must be between 0.0 and 1.0, got {self.confidence}"
+            )
 
 
 @dataclass
@@ -203,16 +216,16 @@ class MultilingualSegment:
     """Aligned segments across all language traditions."""
     id: str  # Segment identifier (e.g., "hs:1.1")
 
-    # Chinese (compositionally prior)
+    # Chinese
     chinese: Segment | None = None
     chinese_variants: list[Variant] = field(default_factory=list)
 
-    # Sanskrit (derived tradition)
+    # Sanskrit
     sanskrit: Segment | None = None
     sanskrit_devanagari: str | None = None  # Devanagari rendering
     sanskrit_variants: list[Variant] = field(default_factory=list)
 
-    # Tibetan (mediating witness)
+    # Tibetan
     tibetan: Segment | None = None
     tibetan_wylie: str | None = None  # Wylie transliteration
     tibetan_variants: list[Variant] = field(default_factory=list)
@@ -234,7 +247,7 @@ class CriticalApparatus:
     """Complete critical apparatus for the Heart Sūtra."""
     # Metadata
     version: str = "1.0.0"
-    methodology: str = "chinese-priority-multilingual"
+    methodology: str = "T251-anchored-multilingual"
 
     # Base text
     base_text_id: str = "T251"  # Taishō 251 as default base

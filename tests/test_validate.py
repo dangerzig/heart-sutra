@@ -81,22 +81,22 @@ class TestSchemaValidation:
         assert any("unknown section" in e for e in errors)
         path.unlink()
 
-    def test_bad_chinese_parallel_format_flagged(self):
+    def test_bad_base_parallel_format_flagged(self):
         with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
             json.dump({"segments": [
                 {"id": "X:1", "section": "opening", "text": "abc",
-                 "chinese_parallel": "bad-format"}
+                 "base_parallel": "bad-format"}
             ]}, f)
             path = Path(f.name)
         errors = validate_witness_file(path, "chinese")
         assert any("does not match expected pattern" in e for e in errors)
         path.unlink()
 
-    def test_valid_chinese_parallel_accepted(self):
+    def test_valid_base_parallel_accepted(self):
         with tempfile.NamedTemporaryFile(suffix=".json", mode='w', delete=False) as f:
             json.dump({"segments": [
                 {"id": "X:1", "section": "opening", "text": "abc",
-                 "chinese_parallel": "T251:1"}
+                 "base_parallel": "T251:1"}
             ]}, f)
             path = Path(f.name)
         errors = validate_witness_file(path, "chinese")
@@ -126,6 +126,57 @@ class TestValidateCrossReferences:
     def test_cross_references_valid(self):
         errors = validate_cross_references(DATA_DIR)
         assert errors == [], f"Cross-reference errors: {errors}"
+
+
+class TestUnknownWitnessType:
+    """Test that unknown witness_type raises ValueError (MJ4)."""
+
+    def test_unknown_type_raises(self, tmp_path):
+        path = tmp_path / "test.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": "X:1", "section": "opening", "text": "abc"}
+        ]}))
+        with pytest.raises(ValueError, match="Unknown witness_type"):
+            validate_witness_file(path, "pali")
+
+    def test_typo_type_raises(self, tmp_path):
+        path = tmp_path / "test.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": "X:1", "section": "opening", "text": "abc"}
+        ]}))
+        with pytest.raises(ValueError, match="Unknown witness_type"):
+            validate_witness_file(path, "sanskri")
+
+
+class TestDuplicateSegmentIds:
+    """Test that duplicate segment IDs are caught."""
+
+    def test_duplicate_id_flagged(self, tmp_path):
+        path = tmp_path / "dup.json"
+        path.write_text(json.dumps({"segments": [
+            {"id": "X:1", "section": "opening", "text": "a"},
+            {"id": "X:1", "section": "opening", "text": "b"},
+        ]}))
+        errors = validate_witness_file(path, "chinese")
+        assert any("duplicate" in e for e in errors)
+
+
+class TestAlternateStructureValidation:
+    """Test tightened alternate structure detection (mn12)."""
+
+    def test_only_id_rejected(self, tmp_path):
+        """A JSON with only 'id' and no other recognized key is rejected."""
+        path = tmp_path / "only_id.json"
+        path.write_text(json.dumps({"id": "test", "random_key": "value"}))
+        errors = validate_witness_file(path, "chinese")
+        assert any("missing 'segments'" in e for e in errors)
+
+    def test_id_plus_description_accepted(self, tmp_path):
+        """A JSON with 'id' + 'description' (both recognized) is accepted."""
+        path = tmp_path / "alt.json"
+        path.write_text(json.dumps({"id": "test", "description": "something"}))
+        errors = validate_witness_file(path, "chinese")
+        assert errors == []
 
 
 class TestValidateDataDir:

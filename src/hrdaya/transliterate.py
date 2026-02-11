@@ -62,6 +62,7 @@ _VALID_IAST_CHARS = frozenset(
     "abcdeghijklmnoprstuvyāīūṛṝḷḹṃḥṁñṅṭḍṇśṣ"
     " .,;:!?-–—'\"()[]{}"
     "0123456789"
+    "\n\r\t"
 )
 
 
@@ -93,9 +94,8 @@ def normalize_iast(text: str) -> str:
     Normalize IAST text to standard form.
 
     Handles common variations:
-    - ṁ/ṃ normalization
-    - Spacing around punctuation
-    - Hyphenation
+    - ṁ/ṃ normalization (anusvāra)
+    - Smart/curly quote normalization
     """
     # Normalize anusvāra
     text = text.replace('ṁ', 'ṃ')

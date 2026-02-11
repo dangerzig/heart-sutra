@@ -14,8 +14,11 @@ Users who install via pip must either:
 """
 
 import hashlib
+import logging
 import os
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 # Data version: bump when witness files change in a way that affects
 # collation or synoptic output. Follows semver:
@@ -38,9 +41,12 @@ def compute_data_hash(data_dir: Path) -> str:
     Returns:
         First 12 hex characters of the SHA-256 digest.
     """
+    if not data_dir.is_dir():
+        logger.warning("compute_data_hash: directory does not exist: %s", data_dir)
+        return hashlib.sha256().hexdigest()[:12]
     h = hashlib.sha256()
-    for p in sorted(data_dir.rglob("*.json")):
-        h.update(str(p.relative_to(data_dir)).encode())
+    for p in sorted(data_dir.rglob("*.json"), key=lambda x: x.relative_to(data_dir).as_posix()):
+        h.update(p.relative_to(data_dir).as_posix().encode())
         h.update(p.read_bytes())
     return h.hexdigest()[:12]
 
@@ -62,14 +68,14 @@ def resolve_data_dir(explicit_path: str | None = None) -> Path:
         Path to the data directory.
 
     Raises:
-        SystemExit: If no valid data directory can be found.
+        FileNotFoundError: If no valid data directory can be found.
     """
     # 1. Explicit argument
     if explicit_path:
         p = Path(explicit_path)
         if p.is_dir():
             return p
-        raise SystemExit(f"Error: data directory not found: {p}")
+        raise FileNotFoundError(f"Data directory not found: {p}")
 
     # 2. Environment variable
     env_dir = os.environ.get("HRDAYA_DATA_DIR")
@@ -77,8 +83,8 @@ def resolve_data_dir(explicit_path: str | None = None) -> Path:
         p = Path(env_dir)
         if p.is_dir():
             return p
-        raise SystemExit(
-            f"Error: HRDAYA_DATA_DIR is set to '{env_dir}' but that directory does not exist."
+        raise FileNotFoundError(
+            f"HRDAYA_DATA_DIR is set to '{env_dir}' but that directory does not exist."
         )
 
     # 3. Relative to source tree (development / editable install)
@@ -91,8 +97,8 @@ def resolve_data_dir(explicit_path: str | None = None) -> Path:
     if cwd_path.is_dir():
         return cwd_path
 
-    raise SystemExit(
-        "Error: cannot locate the hrdaya data directory.\n"
+    raise FileNotFoundError(
+        "Cannot locate the hrdaya data directory.\n"
         "\n"
         "The witness data files are not packaged inside the Python wheel.\n"
         "To provide data, use one of these methods:\n"

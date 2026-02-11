@@ -5,7 +5,8 @@ This module defines all known witnesses organized by tradition,
 following Conze (1967), Nattier (1992), and subsequent scholarship.
 """
 
-from typing import Optional
+from __future__ import annotations
+
 from .models import Witness, WitnessType, Script
 
 
@@ -210,7 +211,7 @@ SANSKRIT_WITNESSES = {
         location="Cambridge University Library",
         provenance="Nepal",
         material="Black paper with gold ink",
-        script=Script.DEVANAGARI,  # Rañjana script
+        script=Script.RANJANA,
         description="Nepalese manuscript in Rañjana script. Gold ink on black paper. "
                     "Contains Prajñāpāramitāhṛdaya with other dhāraṇī texts (leaves 16-54).",
         scholarly_refs=["Conze 1967", "Bendall"],
@@ -302,7 +303,7 @@ SANSKRIT_WITNESSES = {
         location="Cambridge University Library",
         provenance="Nepal",
         material="Palm leaf",
-        script=Script.DEVANAGARI,  # Bhujimol/Nepalese hooked script
+        script=Script.BHUJIMOL,
         description="Section ix of bundle. Palm leaf in Bhujimol script. "
                     "Missing first leaf; begins at section 8. Worm damage. "
                     "One of the oldest Nepalese witnesses.",
@@ -331,7 +332,7 @@ SANSKRIT_WITNESSES = {
         provenance="Dunhuang",
         script=Script.TRADITIONAL_CHINESE,  # Sanskrit transliterated
         description="Sanskrit text transliterated into Chinese characters. "
-                    "Corresponds to T256. Critical evidence for back-translation thesis.",
+                    "Corresponds to T256. Critical evidence for retranslation thesis.",
         scholarly_refs=["Conze 1967", "Nattier 1992"],
     ),
     "Cc": Witness(
@@ -366,6 +367,7 @@ SANSKRIT_WITNESSES = {
         date="c. 17th century CE",
         date_circa=True,
         provenance="China → Japan",
+        script=Script.SIDDHAM,
         description="Historical polyglot edition (Sanskrit-Chinese-Japanese).",
         scholarly_refs=["Conze 1967", "Feer"],
     ),
@@ -405,7 +407,7 @@ SANSKRIT_WITNESSES = {
         location="National Archives of India, New Delhi",
         provenance="Gilgit (modern Pakistan)",
         material="Birch bark",
-        script=Script.DEVANAGARI,  # Proto-Śāradā
+        script=Script.PROTO_SHARADA,
         description="Fragmentary. Covers approximately 80% of text. "
                     "Published by Raghu Vira and Lokesh Chandra (1966). "
                     "Important early witness.",
@@ -421,7 +423,7 @@ SANSKRIT_WITNESSES = {
         location="Various (fragments)",
         provenance="Gilgit",
         material="Birch bark",
-        script=Script.DEVANAGARI,
+        script=Script.PROTO_SHARADA,
         description="25,000 line PP. Sanskrit parallel for comparative analysis. "
                     "Contains the 'iha śāriputra...' passage paralleling Heart Sūtra core.",
         scholarly_refs=["Kimura", "Conze"],
@@ -465,6 +467,7 @@ TIBETAN_WITNESSES = {
         name="Stok Palace Kangyur",
         witness_type=WitnessType.TIBETAN,
         date=None,
+        date_circa=False,
         location="Stok Palace, Ladakh",
         provenance="Tibet/Ladakh",
         script=Script.TIBETAN,
@@ -503,24 +506,32 @@ def get_all_witnesses() -> dict[str, Witness]:
 
 
 def get_witnesses_by_type(witness_type: WitnessType) -> dict[str, Witness]:
-    """Return witnesses of a specific type."""
-    if witness_type == WitnessType.CHINESE:
-        return CHINESE_WITNESSES
-    elif witness_type == WitnessType.SANSKRIT:
-        return SANSKRIT_WITNESSES
-    elif witness_type == WitnessType.TIBETAN:
-        return TIBETAN_WITNESSES
-    elif witness_type == WitnessType.SOURCE:
-        # Return source texts from all language collections
-        return {k: v for k, v in get_all_witnesses().items()
-                if v.witness_type == WitnessType.SOURCE}
-    elif witness_type == WitnessType.PARALLEL:
-        # Return parallel texts from all language collections
-        return {k: v for k, v in get_all_witnesses().items()
-                if v.witness_type == WitnessType.PARALLEL}
-    return {}
+    """Return witnesses of a specific type.
+
+    For language types (CHINESE, SANSKRIT, TIBETAN), returns witnesses
+    from the corresponding language collection whose ``witness_type``
+    matches the requested type.  For functional types (SOURCE, PARALLEL),
+    searches across all collections.
+    """
+    if witness_type in (WitnessType.CHINESE, WitnessType.SANSKRIT, WitnessType.TIBETAN):
+        collection = {
+            WitnessType.CHINESE: CHINESE_WITNESSES,
+            WitnessType.SANSKRIT: SANSKRIT_WITNESSES,
+            WitnessType.TIBETAN: TIBETAN_WITNESSES,
+        }[witness_type]
+        return {k: v for k, v in collection.items()
+                if v.witness_type == witness_type}
+    # SOURCE and PARALLEL span all collections
+    return {k: v for k, v in get_all_witnesses().items()
+            if v.witness_type == witness_type}
 
 
-def get_witness(siglum: str) -> Optional[Witness]:
+_ALL_WITNESSES_CACHE: dict[str, Witness] | None = None
+
+
+def get_witness(siglum: str) -> Witness | None:
     """Look up a witness by its siglum."""
-    return get_all_witnesses().get(siglum)
+    global _ALL_WITNESSES_CACHE
+    if _ALL_WITNESSES_CACHE is None:
+        _ALL_WITNESSES_CACHE = get_all_witnesses()
+    return _ALL_WITNESSES_CACHE.get(siglum)

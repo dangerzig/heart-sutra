@@ -75,6 +75,51 @@ class TestBuildSynoptic:
             build_synoptic(DATA_DIR, "xml")
 
 
+class TestSynopticErrorPaths:
+    """Test error handling in synoptic builder."""
+
+    @pytest.fixture
+    def builder(self):
+        return SynopticBuilder(DATA_DIR)
+
+    def test_unknown_tradition_raises(self, builder):
+        with pytest.raises(ValueError, match="Unknown tradition"):
+            builder.load_witness("pali", "test")
+
+    def test_missing_witness_returns_empty(self, builder):
+        result = builder.load_witness("chinese", "NONEXISTENT_WITNESS")
+        assert result == {}
+
+    def test_malformed_json_returns_empty(self, tmp_path):
+        """Synoptic builder handles malformed JSON gracefully."""
+        chinese_dir = tmp_path / "chinese" / "taisho"
+        chinese_dir.mkdir(parents=True)
+        (chinese_dir / "bad.json").write_text("{invalid")
+        builder = SynopticBuilder(tmp_path)
+        result = builder.load_witness("chinese", "bad")
+        assert result == {}
+
+
+class TestAnchorTraditionValidation:
+    """Test anchor_tradition parameter validation (CR3)."""
+
+    @pytest.fixture
+    def builder(self):
+        return SynopticBuilder(DATA_DIR)
+
+    def test_sanskrit_anchor_raises(self, builder):
+        with pytest.raises(ValueError, match="not supported"):
+            builder.build_alignment(anchor_tradition="sanskrit")
+
+    def test_tibetan_anchor_raises(self, builder):
+        with pytest.raises(ValueError, match="not supported"):
+            builder.build_alignment(anchor_tradition="tibetan")
+
+    def test_chinese_anchor_works(self, builder):
+        alignment = builder.build_alignment(anchor_tradition="chinese")
+        assert len(alignment.rows) > 0
+
+
 class TestSynopticRow:
     """Test SynopticRow dataclass."""
 

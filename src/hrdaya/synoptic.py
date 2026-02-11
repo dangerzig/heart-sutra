@@ -24,15 +24,15 @@ class SynopticRow:
     segment_id: str
     section: str
 
-    # Chinese (compositionally prior)
+    # Chinese
     chinese: str = ""
     chinese_pinyin: str = ""
 
-    # Sanskrit (derived tradition)
+    # Sanskrit
     sanskrit_iast: str = ""
     sanskrit_devanagari: str = ""
 
-    # Tibetan (mediating witness)
+    # Tibetan
     tibetan: str = ""
     tibetan_wylie: str = ""
 
@@ -50,7 +50,7 @@ class SynopticRow:
 class SynopticAlignment:
     """Complete synoptic alignment of the Heart Sūtra."""
     title: str = "Prajñāpāramitāhṛdaya Synoptic Alignment"
-    methodology: str = "chinese-priority"
+    methodology: str = "T251-anchored"
 
     # Witness information
     chinese_witness: str = "T251"
@@ -97,7 +97,28 @@ class SynopticBuilder:
             ValueError: If tradition is unknown
         """
         if tradition == "chinese":
-            path = self.data_dir / "chinese" / "taisho" / f"{witness_id}.json"
+            # Search all subdirectories under chinese/
+            path = None
+            chinese_dir = self.data_dir / "chinese"
+            if chinese_dir.exists():
+                for subdir in sorted(chinese_dir.iterdir()):
+                    if not subdir.is_dir():
+                        continue
+                    candidate = subdir / f"{witness_id.lower()}.json"
+                    if candidate.exists():
+                        path = candidate
+                        break
+                    candidate = subdir / f"{witness_id}.json"
+                    if candidate.exists():
+                        path = candidate
+                        break
+            if path is None:
+                logger.warning(
+                    "Witness file not found: %s/%s. "
+                    "This witness will be omitted from the alignment.",
+                    tradition, witness_id,
+                )
+                return {}
         elif tradition == "sanskrit":
             if witness_id == "GRETIL":
                 path = self.data_dir / "sanskrit" / "gretil" / "prajnaparamitahrdaya.json"
@@ -118,8 +139,16 @@ class SynopticBuilder:
             )
             return {}
 
-        with open(path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except json.JSONDecodeError as e:
+            logger.warning(
+                "Malformed JSON in %s: %s. "
+                "This witness will be omitted from the alignment.",
+                path, e,
+            )
+            return {}
 
     # Default witness IDs for the standard alignment
     DEFAULT_CHINESE = "T251"
@@ -131,6 +160,7 @@ class SynopticBuilder:
         chinese_id: str = DEFAULT_CHINESE,
         sanskrit_id: str = DEFAULT_SANSKRIT,
         tibetan_id: str = DEFAULT_TIBETAN,
+        anchor_tradition: str = "chinese",
     ) -> SynopticAlignment:
         """
         Build synoptic alignment from specified witnesses.
@@ -139,16 +169,24 @@ class SynopticBuilder:
             chinese_id: Chinese witness ID (default: T251)
             sanskrit_id: Sanskrit witness ID (default: GRETIL)
             tibetan_id: Tibetan witness ID (default: Toh21)
+            anchor_tradition: Tradition to use as anchor
+                ("chinese", "sanskrit", or "tibetan"; default "chinese")
 
         Returns:
             SynopticAlignment object
         """
+        if anchor_tradition != "chinese":
+            raise ValueError(
+                f"anchor_tradition={anchor_tradition!r} is not supported. "
+                f"Only 'chinese' is currently implemented."
+            )
+
         # Load witnesses
         chinese = self.load_witness("chinese", chinese_id)
         if not chinese or not chinese.get("segments"):
             raise ValueError(
                 f"Base Chinese witness '{chinese_id}' not found or has no segments. "
-                f"Check that data/{chinese_id}.json exists."
+                f"Check that data/chinese/taisho/{chinese_id.lower()}.json exists."
             )
         sanskrit = self.load_witness("sanskrit", sanskrit_id)
         tibetan = self.load_witness("tibetan", tibetan_id)
@@ -162,14 +200,14 @@ class SynopticBuilder:
         # Build segment index for Sanskrit
         sanskrit_by_parallel = {}
         for seg in sanskrit.get("segments", []):
-            parallel = seg.get("chinese_parallel")
+            parallel = seg.get("base_parallel")
             if parallel:
                 sanskrit_by_parallel[parallel] = seg
 
         # Build segment index for Tibetan
         tibetan_by_parallel = {}
         for seg in tibetan.get("segments", []):
-            parallel = seg.get("chinese_parallel")
+            parallel = seg.get("base_parallel")
             if parallel:
                 tibetan_by_parallel[parallel] = seg
 
@@ -359,7 +397,7 @@ class SynopticBuilder:
                 section_title = current_section.replace("_", " ").title()
                 html_parts.append(
                     f"      <tr class='section-header'>"
-                    f"<td colspan='5'>{section_title}</td></tr>"
+                    f"<td colspan='5'>{html_escape(section_title)}</td></tr>"
                 )
 
             # Data row (all text values HTML-escaped)
@@ -388,7 +426,7 @@ class SynopticBuilder:
 
             html_parts.append(
                 f"      <tr>"
-                f"<td>{row.segment_id}</td>"
+                f"<td>{html_escape(row.segment_id)}</td>"
                 f"<td>{chinese_cell}</td>"
                 f"<td>{sanskrit_cell}</td>"
                 f"<td>{tibetan_cell}</td>"

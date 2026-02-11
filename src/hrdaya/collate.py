@@ -50,10 +50,8 @@ class HeartSutraCollator:
     """
     Collator for Heart Sūtra witnesses across traditions.
 
-    Follows the Chinese-priority methodology:
-    - Chinese T251 as analytical base
-    - Sanskrit as derived tradition
-    - Tibetan as mediating witness
+    Uses T251 as the default alignment anchor. The anchor tradition
+    is configurable via ``collate_section()`` parameters.
     """
 
     # Default witness IDs
@@ -146,7 +144,10 @@ class HeartSutraCollator:
         self,
         chinese_seg: dict,
         sanskrit_seg: dict | None = None,
-        tibetan_seg: dict | None = None
+        tibetan_seg: dict | None = None,
+        chinese_witness: str = DEFAULT_CHINESE,
+        sanskrit_witness: str = DEFAULT_SANSKRIT,
+        tibetan_witness: str = DEFAULT_TIBETAN,
     ) -> MultilingualSegment:
         """
         Create aligned multilingual segment.
@@ -155,18 +156,24 @@ class HeartSutraCollator:
             chinese_seg: Chinese segment (required, base)
             sanskrit_seg: Sanskrit segment (optional)
             tibetan_seg: Tibetan segment (optional)
+            chinese_witness: Chinese witness ID (default T251)
+            sanskrit_witness: Sanskrit witness ID (default GRETIL)
+            tibetan_witness: Tibetan witness ID (default Toh21)
 
         Returns:
             MultilingualSegment with aligned texts
         """
+        from .models import Script
+
         seg_id = chinese_seg.get("id", "unknown")
 
         # Create Chinese segment
         chinese = Segment(
             id=seg_id,
             text=chinese_seg.get("text", ""),
-            witness_id="T251",
+            witness_id=chinese_witness,
             witness_type=WitnessType.CHINESE,
+            script=Script.TRADITIONAL_CHINESE,
         )
 
         # Create Sanskrit segment if provided
@@ -176,8 +183,9 @@ class HeartSutraCollator:
             sanskrit = Segment(
                 id=sanskrit_seg.get("id", seg_id),
                 text=sanskrit_seg.get("iast", ""),
-                witness_id="GRETIL",
+                witness_id=sanskrit_witness,
                 witness_type=WitnessType.SANSKRIT,
+                script=Script.IAST,
             )
             sanskrit_deva = sanskrit_seg.get("devanagari")
 
@@ -188,8 +196,9 @@ class HeartSutraCollator:
             tibetan = Segment(
                 id=tibetan_seg.get("id", seg_id),
                 text=tibetan_seg.get("tibetan", ""),
-                witness_id="Toh21",
+                witness_id=tibetan_witness,
                 witness_type=WitnessType.TIBETAN,
+                script=Script.TIBETAN,
             )
             tibetan_wylie = tibetan_seg.get("wylie")
 
@@ -229,10 +238,10 @@ class HeartSutraCollator:
         if self._is_orthographic_variant(base_reading, variant_reading):
             return VariantType.ORTHOGRAPHIC, DependenceDirection.UNCERTAIN
 
-        # Check for likely back-translation indicators
+        # Check for likely retranslation indicators
         if tradition == "sanskrit":
-            if self._indicates_back_translation(base_reading, variant_reading):
-                return VariantType.BACK_TRANSLATION, DependenceDirection.CHINESE_TO_SANSKRIT
+            if self._indicates_retranslation(variant_reading):
+                return VariantType.RETRANSLATION, DependenceDirection.CHINESE_TO_SANSKRIT
 
         # Check for extraction artifacts
         if self._is_extraction_artifact(variant_reading):
@@ -257,16 +266,16 @@ class HeartSutraCollator:
         ratio = SequenceMatcher(None, t1, t2).ratio()
         return ratio > 0.9
 
-    def _indicates_back_translation(self, chinese: str, sanskrit: str) -> bool:
+    def _indicates_retranslation(self, sanskrit: str) -> bool:
         """
-        Check if Sanskrit reading indicates back-translation from Chinese.
+        Check if Sanskrit reading indicates retranslation from Chinese.
 
         Key indicators (from Nattier 1992):
         - Use of kṣaya instead of nirodha
         - Non-standard terminology
         - Chinese word-order traces
         """
-        # Known back-translation indicators
+        # Known retranslation indicators
         indicators = [
             ("kṣaya", "nirodha"),  # kṣaya used instead of standard nirodha
             ("avidyā-kṣaya", "avidyā-nirodha"),
@@ -340,13 +349,15 @@ class HeartSutraCollator:
         sanskrit_witness: str = DEFAULT_SANSKRIT,
         tibetan_witness: str = DEFAULT_TIBETAN,
         alternate_chinese: list[str] | None = None,
+        anchor_witness: str | None = None,
+        anchor_tradition: str = "chinese",
     ) -> list[CollationResult]:
         """
         Collate a section across all traditions.
 
-        Alignment is strictly by ``chinese_parallel`` reference — there is
+        Alignment is strictly by ``base_parallel`` reference — there is
         no section+index fallback.  Segments in alternate witnesses that
-        lack a ``chinese_parallel`` field are silently excluded (logged at
+        lack a ``base_parallel`` field are silently excluded (logged at
         DEBUG level).  This is the correct scholarly behaviour: we never
         guess at correspondences.
 
@@ -356,11 +367,24 @@ class HeartSutraCollator:
             sanskrit_witness: Sanskrit witness ID (default GRETIL)
             tibetan_witness: Tibetan witness ID (default Toh21)
             alternate_chinese: Additional Chinese witnesses to compare
-                (default: all segment-based Taishō witnesses except the base)
+                (default: all segment-based Taisho witnesses except the base)
+            anchor_witness: Override the anchor witness ID (defaults to
+                chinese_witness for backward compatibility)
+            anchor_tradition: Tradition of the anchor witness
+                ("chinese", "sanskrit", or "tibetan"; default "chinese")
 
         Returns:
             List of CollationResult objects
         """
+        if anchor_tradition != "chinese":
+            raise ValueError(
+                f"anchor_tradition={anchor_tradition!r} is not supported. "
+                f"Only 'chinese' is currently implemented."
+            )
+
+        if anchor_witness is None:
+            anchor_witness = chinese_witness
+
         results = []
 
         # Load witnesses
@@ -382,20 +406,26 @@ class HeartSutraCollator:
         if not chinese:
             raise ValueError("Chinese base text is required for collation")
 
-        # Pre-build Sanskrit and Tibetan indices keyed by chinese_parallel.
-        # Segments without chinese_parallel are excluded — no fallback.
+        # Pre-build Sanskrit and Tibetan indices keyed by base_parallel.
+        # Segments without base_parallel are excluded — no fallback.
         sanskrit_by_parallel: dict[str, dict] = {}
         if sanskrit:
             skipped = 0
             for s in sanskrit.get("segments", []):
-                cp = s.get("chinese_parallel")
+                cp = s.get("base_parallel")
                 if cp:
+                    if cp in sanskrit_by_parallel:
+                        logger.warning(
+                            "%s: duplicate base_parallel=%r in Sanskrit, "
+                            "later segment overwrites earlier",
+                            sanskrit_witness, cp,
+                        )
                     sanskrit_by_parallel[cp] = s
                 else:
                     skipped += 1
             if skipped:
                 logger.debug(
-                    "%s: %d Sanskrit segment(s) lack chinese_parallel, excluded from alignment",
+                    "%s: %d Sanskrit segment(s) lack base_parallel, excluded from alignment",
                     sanskrit_witness, skipped,
                 )
 
@@ -403,14 +433,20 @@ class HeartSutraCollator:
         if tibetan:
             skipped = 0
             for t in tibetan.get("segments", []):
-                cp = t.get("chinese_parallel")
+                cp = t.get("base_parallel")
                 if cp:
+                    if cp in tibetan_by_parallel:
+                        logger.warning(
+                            "%s: duplicate base_parallel=%r in Tibetan, "
+                            "later segment overwrites earlier",
+                            tibetan_witness, cp,
+                        )
                     tibetan_by_parallel[cp] = t
                 else:
                     skipped += 1
             if skipped:
                 logger.debug(
-                    "%s: %d Tibetan segment(s) lack chinese_parallel, excluded from alignment",
+                    "%s: %d Tibetan segment(s) lack base_parallel, excluded from alignment",
                     tibetan_witness, skipped,
                 )
 
@@ -420,7 +456,7 @@ class HeartSutraCollator:
             if wid != chinese_witness
         ]
 
-        # Pre-build alternate witness indices keyed by chinese_parallel
+        # Pre-build alternate witness indices keyed by base_parallel
         alt_indices: dict[str, dict[str, dict]] = {}  # alt_id -> {base_seg_id -> alt_seg}
         for alt_id in alt_ids:
             try:
@@ -430,14 +466,14 @@ class HeartSutraCollator:
             by_parallel: dict[str, dict] = {}
             unmapped = 0
             for alt_seg in alt.get("segments", []):
-                cp = alt_seg.get("chinese_parallel")
+                cp = alt_seg.get("base_parallel")
                 if cp:
                     by_parallel[cp] = alt_seg
                 else:
                     unmapped += 1
             if unmapped:
                 logger.debug(
-                    "%s: %d segment(s) lack chinese_parallel and will not be aligned",
+                    "%s: %d segment(s) lack base_parallel and will not be aligned",
                     alt_id, unmapped,
                 )
             alt_indices[alt_id] = by_parallel
@@ -450,6 +486,9 @@ class HeartSutraCollator:
 
         for c_seg in chinese_segs:
             seg_id = c_seg.get("id")
+            if not seg_id:
+                logger.warning("Skipping segment with missing id in section %s", section_name)
+                continue
 
             # Find corresponding Sanskrit segment
             s_seg = sanskrit_by_parallel.get(seg_id)
@@ -515,7 +554,7 @@ class HeartSutraCollator:
                             variant_witnesses=[tibetan_witness],
                         ))
 
-            # Match alternate Chinese witnesses using chinese_parallel only
+            # Match alternate Chinese witnesses using base_parallel only
             for alt_id in alt_indices:
                 alt_seg = alt_indices[alt_id].get(seg_id)
                 if alt_seg is None:
@@ -619,7 +658,8 @@ def collate_full_text(data_dir: Path) -> dict:
             results = collator.collate_section(section)
             all_results[section] = collator.generate_apparatus(results)
         except (ValueError, FileNotFoundError) as e:
-            all_results[section] = {"error": str(e)}
+            logger.warning("Section %s failed: %s", section, e)
+            all_results[section] = []
 
     from .data import DATA_VERSION, compute_data_hash
 

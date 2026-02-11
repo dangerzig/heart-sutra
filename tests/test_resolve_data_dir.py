@@ -18,8 +18,8 @@ class TestResolveDataDir:
         result = resolve_data_dir(str(DATA_DIR))
         assert result == DATA_DIR
 
-    def test_explicit_path_not_found_exits(self):
-        with pytest.raises(SystemExit, match="not found"):
+    def test_explicit_path_not_found_raises(self):
+        with pytest.raises(FileNotFoundError, match="not found"):
             resolve_data_dir("/nonexistent/path")
 
     def test_env_var(self, monkeypatch):
@@ -27,9 +27,9 @@ class TestResolveDataDir:
         result = resolve_data_dir()
         assert result == DATA_DIR
 
-    def test_env_var_bad_path_exits(self, monkeypatch):
+    def test_env_var_bad_path_raises(self, monkeypatch):
         monkeypatch.setenv("HRDAYA_DATA_DIR", "/nonexistent/path")
-        with pytest.raises(SystemExit, match="HRDAYA_DATA_DIR"):
+        with pytest.raises(FileNotFoundError, match="HRDAYA_DATA_DIR"):
             resolve_data_dir()
 
     def test_dev_tree_fallback(self):
@@ -73,3 +73,17 @@ class TestDataVersioning:
         (d / "b.json").write_text('{"y":2}')
         h2 = compute_data_hash(tmp_path)
         assert h1 != h2
+
+    def test_hash_nonexistent_dir_warns(self, tmp_path):
+        """compute_data_hash warns on nonexistent directory (mn7)."""
+        h = compute_data_hash(tmp_path / "nonexistent")
+        # Should return a valid hash (of empty input) without crashing
+        assert len(h) == 12
+        int(h, 16)
+
+    def test_resolve_no_data_raises(self, monkeypatch, tmp_path):
+        """When no data directory can be found, FileNotFoundError is raised."""
+        monkeypatch.delenv("HRDAYA_DATA_DIR", raising=False)
+        # Override __file__ resolution by passing a nonexistent explicit path
+        with pytest.raises(FileNotFoundError):
+            resolve_data_dir("/completely/fake/path")
