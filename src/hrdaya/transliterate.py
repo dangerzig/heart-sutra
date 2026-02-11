@@ -22,6 +22,8 @@ Use ``validate_iast()`` to check whether a string contains only valid
 IAST characters before conversion.
 """
 
+import unicodedata
+
 from indic_transliteration import sanscript
 from indic_transliteration.sanscript import transliterate
 
@@ -82,6 +84,7 @@ def validate_iast(text: str) -> list[str]:
     Returns:
         List of error messages (empty means valid).
     """
+    text = unicodedata.normalize("NFC", text)
     errors = []
     for i, ch in enumerate(text):
         if ch.lower() not in _VALID_IAST_CHARS:

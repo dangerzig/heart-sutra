@@ -203,3 +203,11 @@ class TestNewlineHandling:
     def test_carriage_return_accepted(self):
         errors = validate_iast("gate\r\ngate")
         assert errors == []
+
+    def test_nfd_input_accepted(self):
+        """NFD-decomposed IAST (e.g. a + combining macron) should be NFC-normalized."""
+        import unicodedata
+        nfd = unicodedata.normalize("NFD", "pāragate")
+        assert nfd != "pāragate"  # confirm it's actually decomposed
+        errors = validate_iast(nfd)
+        assert errors == []

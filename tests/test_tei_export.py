@@ -200,17 +200,20 @@ class TestEmptyInputs:
     def test_chinese_text_with_no_witnesses(self):
         """generate_chinese_text with empty witness list returns minimal element."""
         el = generate_chinese_text([])
-        assert el.tag.endswith("text")
+        assert el.tag == f"{{{TEI_NS}}}text"
+        assert el.get(f"{{{XML_NS}}}lang") == "lzh"
 
     def test_sanskrit_text_with_no_witnesses(self):
         """generate_sanskrit_text with empty witness list returns minimal element."""
         el = generate_sanskrit_text([])
-        assert el.tag.endswith("text")
+        assert el.tag == f"{{{TEI_NS}}}text"
+        assert el.get(f"{{{XML_NS}}}lang") == "sa"
 
     def test_tibetan_text_with_no_witnesses(self):
         """generate_tibetan_text with empty witness list returns minimal element."""
         el = generate_tibetan_text([])
-        assert el.tag.endswith("text")
+        assert el.tag == f"{{{TEI_NS}}}text"
+        assert el.get(f"{{{XML_NS}}}lang") == "bo"
 
     def test_standoff_with_no_chinese_base(self):
         """standoff with empty Chinese witnesses returns element with no links."""
