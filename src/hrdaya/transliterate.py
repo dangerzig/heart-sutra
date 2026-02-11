@@ -62,7 +62,7 @@ def iast_to_devanagari(text: str) -> str:
 # appear in standard IAST transliteration.
 _VALID_IAST_CHARS = frozenset(
     "abcdeghijklmnoprstuvyāīūṛṝḷḹṃḥṁñṅṭḍṇśṣ"
-    " .,;:!?-–—'\"()[]{}"
+    " .,;:!?-–—'\"()[]{}|"
     "0123456789"
     "\n\r\t"
 )

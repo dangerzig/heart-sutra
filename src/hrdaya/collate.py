@@ -87,23 +87,19 @@ class HeartSutraCollator:
             return self._chinese_cache[witness_id]
 
         # Search all subdirectories for a file matching this witness
+        if not self.chinese_dir.exists():
+            raise FileNotFoundError(f"Chinese witness {witness_id} not found")
         for subdir in sorted(self.chinese_dir.iterdir()):
             if not subdir.is_dir():
                 continue
-            # Try lowercased witness_id as filename
-            path = subdir / f"{witness_id.lower()}.json"
-            if path.exists():
-                try:
-                    with open(path, 'r', encoding='utf-8') as f:
-                        data = json.load(f)
-                except json.JSONDecodeError as e:
-                    logger.warning("Malformed JSON in %s: %s", path, e)
+            # Try both lowercased and original-case filenames in each subdir
+            candidates = [
+                subdir / f"{witness_id.lower()}.json",
+                subdir / f"{witness_id}.json",
+            ]
+            for path in candidates:
+                if not path.exists():
                     continue
-                self._chinese_cache[witness_id] = data
-                return data
-            # Also try original case (Taishō files use lowercase t250, etc.)
-            path = subdir / f"{witness_id}.json"
-            if path.exists():
                 try:
                     with open(path, 'r', encoding='utf-8') as f:
                         data = json.load(f)
@@ -376,7 +372,6 @@ class HeartSutraCollator:
         sanskrit_witness: str = DEFAULT_SANSKRIT,
         tibetan_witness: str = DEFAULT_TIBETAN,
         alternate_chinese: list[str] | None = None,
-        anchor_witness: str | None = None,
         anchor_tradition: str = "chinese",
     ) -> list[CollationResult]:
         """
@@ -395,8 +390,6 @@ class HeartSutraCollator:
             tibetan_witness: Tibetan witness ID (default Toh21)
             alternate_chinese: Additional Chinese witnesses to compare
                 (default: all segment-based Taisho witnesses except the base)
-            anchor_witness: Override the anchor witness ID (defaults to
-                chinese_witness for backward compatibility)
             anchor_tradition: Tradition of the anchor witness
                 ("chinese", "sanskrit", or "tibetan"; default "chinese")
 
@@ -408,9 +401,6 @@ class HeartSutraCollator:
                 f"anchor_tradition={anchor_tradition!r} is not supported. "
                 f"Only 'chinese' is currently implemented."
             )
-
-        if anchor_witness is None:
-            anchor_witness = chinese_witness
 
         results = []
 
@@ -495,6 +485,12 @@ class HeartSutraCollator:
             for alt_seg in alt.get("segments", []):
                 cp = alt_seg.get("base_parallel")
                 if cp:
+                    if cp in by_parallel:
+                        logger.warning(
+                            "%s: duplicate base_parallel '%s' — "
+                            "later segment overwrites earlier",
+                            alt_id, cp,
+                        )
                     by_parallel[cp] = alt_seg
                 else:
                     unmapped += 1
@@ -576,9 +572,10 @@ class HeartSutraCollator:
                             base_reading=c_seg.get("text", ""),
                             variant_reading=t_text,
                             variant_type=vtype,
-                            dependence=DependenceDirection.UNCERTAIN,
+                            dependence=direction,
                             base_witnesses=[chinese_witness],
                             variant_witnesses=[tibetan_witness],
+                            note=t_seg.get("note", ""),
                         ))
 
             # Match alternate Chinese witnesses using base_parallel only
@@ -601,6 +598,7 @@ class HeartSutraCollator:
                         dependence=DependenceDirection.UNCERTAIN,
                         base_witnesses=[chinese_witness],
                         variant_witnesses=[alt_id],
+                        note=alt_seg.get("note", ""),
                     ))
 
             results.append(result)

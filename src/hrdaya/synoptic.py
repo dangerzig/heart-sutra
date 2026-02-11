@@ -192,6 +192,7 @@ class SynopticBuilder:
             chinese_witness=chinese_id,
             sanskrit_witness=sanskrit_id,
             tibetan_witness=tibetan_id,
+            methodology=f"{chinese_id}-anchored",
         )
 
         # Build segment index for Sanskrit

@@ -8,12 +8,13 @@ from hrdaya.synoptic import SynopticBuilder, SynopticAlignment, SynopticRow, bui
 DATA_DIR = Path(__file__).parent.parent / "data"
 
 
+@pytest.fixture
+def builder():
+    return SynopticBuilder(DATA_DIR)
+
+
 class TestSynopticBuilder:
     """Test synoptic alignment building."""
-
-    @pytest.fixture
-    def builder(self):
-        return SynopticBuilder(DATA_DIR)
 
     def test_build_alignment(self, builder):
         alignment = builder.build_alignment()
@@ -29,8 +30,10 @@ class TestSynopticBuilder:
         alignment = builder.build_alignment()
         md = builder.to_markdown(alignment)
         assert isinstance(md, str)
-        assert len(md) > 0
+        assert len(md) > 100, "Markdown should contain substantial content"
         assert "Chinese" in md
+        assert "Sanskrit" in md
+        assert "Tibetan" in md
 
     def test_to_json(self, builder):
         import json
@@ -86,10 +89,6 @@ class TestBuildSynoptic:
 class TestSynopticErrorPaths:
     """Test error handling in synoptic builder."""
 
-    @pytest.fixture
-    def builder(self):
-        return SynopticBuilder(DATA_DIR)
-
     def test_unknown_tradition_raises(self, builder):
         with pytest.raises(ValueError, match="Unknown tradition"):
             builder.load_witness("pali", "test")
@@ -110,10 +109,6 @@ class TestSynopticErrorPaths:
 
 class TestAnchorTraditionValidation:
     """Test anchor_tradition parameter validation (CR3)."""
-
-    @pytest.fixture
-    def builder(self):
-        return SynopticBuilder(DATA_DIR)
 
     def test_sanskrit_anchor_raises(self, builder):
         with pytest.raises(ValueError, match="not supported"):

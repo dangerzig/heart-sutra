@@ -498,12 +498,13 @@ TIBETAN_WITNESSES = {
 def get_all_witnesses() -> dict[str, Witness]:
     """Return all witnesses combined.
 
-    Raises AssertionError if any siglum appears in more than one tradition dict.
+    Raises ValueError if any siglum appears in more than one tradition dict.
     """
     all_witnesses = {}
     for collection in (CHINESE_WITNESSES, SANSKRIT_WITNESSES, TIBETAN_WITNESSES):
         overlap = set(all_witnesses) & set(collection)
-        assert not overlap, f"Duplicate witness sigla across traditions: {overlap}"
+        if overlap:
+            raise ValueError(f"Duplicate witness sigla across traditions: {overlap}")
         all_witnesses.update(collection)
     return all_witnesses
 

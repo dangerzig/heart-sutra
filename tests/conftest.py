@@ -3,14 +3,19 @@
 import pytest
 from pathlib import Path
 
+from hrdaya.collate import HeartSutraCollator
+
+
+DATA_DIR = Path(__file__).parent.parent / "data"
+
 
 @pytest.fixture
 def data_dir():
     """Path to the project data directory."""
-    return Path(__file__).parent.parent / "data"
+    return DATA_DIR
 
 
 @pytest.fixture
-def src_dir():
-    """Path to the project src directory."""
-    return Path(__file__).parent.parent / "src"
+def collator():
+    """Shared HeartSutraCollator instance for tests."""
+    return HeartSutraCollator(DATA_DIR)

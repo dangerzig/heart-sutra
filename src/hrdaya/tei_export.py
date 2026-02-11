@@ -87,8 +87,18 @@ def _load_tradition_witnesses(data_dir: Path,
     return witnesses
 
 
-def generate_tei_header(data_dir: Path) -> etree._Element:
-    """Generate <teiHeader> with file description and encoding info."""
+def generate_tei_header(data_dir: Path,
+                        all_witnesses: list[dict] | None = None,
+                        ) -> etree._Element:
+    """Generate <teiHeader> with file description and encoding info.
+
+    Parameters
+    ----------
+    data_dir : Path
+        Path to the data directory (used for hash/version info).
+    all_witnesses : list[dict], optional
+        Pre-loaded witness dicts. If None, witnesses are loaded from disk.
+    """
     header = _element("teiHeader")
 
     # fileDesc
@@ -107,22 +117,27 @@ def generate_tei_header(data_dir: Path) -> etree._Element:
     source_desc = _sub(file_desc, "sourceDesc")
     list_wit = _sub(source_desc, "listWit")
 
-    # Load witness metadata from all traditions
-    for tradition in ("chinese", "sanskrit", "tibetan"):
-        witnesses = _load_tradition_witnesses(data_dir, tradition)
-        for wit_data in witnesses:
-            wit_id = wit_data.get("id", "unknown")
-            safe_id = _seg_xml_id(wit_id)
-            wit_el = _sub(list_wit, "witness", xml_id=safe_id)
-            # Build description
-            parts = [wit_id]
-            if "attributed_translator" in wit_data:
-                parts.append(f"({wit_data['attributed_translator']})")
-            elif "source" in wit_data:
-                parts.append(f"({wit_data['source']})")
-            if "date" in wit_data:
-                parts.append(wit_data["date"])
-            wit_el.text = " ".join(parts)
+    # Use pre-loaded witnesses if provided, otherwise load from disk
+    if all_witnesses is not None:
+        witness_list = all_witnesses
+    else:
+        witness_list = []
+        for tradition in ("chinese", "sanskrit", "tibetan"):
+            witness_list.extend(_load_tradition_witnesses(data_dir, tradition))
+
+    for wit_data in witness_list:
+        wit_id = wit_data.get("id", "unknown")
+        safe_id = _seg_xml_id(wit_id)
+        wit_el = _sub(list_wit, "witness", xml_id=safe_id)
+        # Build description
+        parts = [wit_id]
+        if "attributed_translator" in wit_data:
+            parts.append(f"({wit_data['attributed_translator']})")
+        elif "source" in wit_data:
+            parts.append(f"({wit_data['source']})")
+        if "date" in wit_data:
+            parts.append(wit_data["date"])
+        wit_el.text = " ".join(parts)
 
     # encodingDesc
     encoding_desc = _sub(header, "encodingDesc")
@@ -194,15 +209,18 @@ def generate_chinese_text(witnesses: list[dict]) -> etree._Element:
             base_text = seg.get("text", "")
             variants = alt_by_parallel.get(seg_id, [])
 
-            if variants:
+            # Pre-filter variants that actually differ from the base
+            differing = [
+                (alt_id, alt_seg) for alt_id, alt_seg in variants
+                if alt_seg.get("text", "") and alt_seg.get("text", "") != base_text
+            ]
+            if differing:
                 app = _sub(seg_el, "app")
-                safe_base = base.get("id", "T251").replace(" ", "_")
-                lem = _sub(app, "lem", base_text, wit=f"#{safe_base}")
-                for alt_id, alt_seg in variants:
-                    alt_text = alt_seg.get("text", "")
-                    if alt_text and alt_text != base_text:
-                        safe_alt = alt_id.replace(" ", "_")
-                        _sub(app, "rdg", alt_text, wit=f"#{safe_alt}")
+                safe_base = _seg_xml_id(base.get("id", "T251"))
+                _sub(app, "lem", base_text, wit=f"#{safe_base}")
+                for alt_id, alt_seg in differing:
+                    safe_alt = _seg_xml_id(alt_id)
+                    _sub(app, "rdg", alt_seg.get("text", ""), wit=f"#{safe_alt}")
             else:
                 seg_el.text = base_text
 
@@ -210,7 +228,12 @@ def generate_chinese_text(witnesses: list[dict]) -> etree._Element:
 
 
 def generate_sanskrit_text(witnesses: list[dict]) -> etree._Element:
-    """Generate <text xml:lang="sa"> for the Sanskrit tradition."""
+    """Generate <text xml:lang="sa"> for the Sanskrit tradition.
+
+    Note: Currently renders only the GRETIL base witness text without
+    critical apparatus. The Horyuji manuscript lacks base_parallel
+    alignment data needed for automated apparatus construction.
+    """
     text_el = _element("text", xml_lang="sa")
     body = _sub(text_el, "body")
 
@@ -231,7 +254,12 @@ def generate_sanskrit_text(witnesses: list[dict]) -> etree._Element:
 
 
 def generate_tibetan_text(witnesses: list[dict]) -> etree._Element:
-    """Generate <text xml:lang="bo"> for the Tibetan tradition."""
+    """Generate <text xml:lang="bo"> for the Tibetan tradition.
+
+    Note: Currently renders only the Toh21 (Kangyur) base witness
+    text without critical apparatus. Tibetan variant data is captured
+    in the collation output rather than the TEI export.
+    """
     text_el = _element("text", xml_lang="bo")
     body = _sub(text_el, "body")
 
@@ -328,8 +356,9 @@ def export_tei(output_path: str | Path | None = None,
     # Build TEI document
     tei = _element("TEI")
 
-    # Header
-    tei.append(generate_tei_header(data_path))
+    # Header (pass pre-loaded witnesses to avoid double I/O)
+    all_witnesses = zh_witnesses + sa_witnesses + bo_witnesses
+    tei.append(generate_tei_header(data_path, all_witnesses=all_witnesses))
 
     # StandOff alignment
     tei.append(generate_standoff_alignment(
