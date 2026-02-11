@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 #   major = structural schema change
 #   minor = new witnesses or segments added
 #   patch = corrections to existing data
-DATA_VERSION = "1.1.0"
+DATA_VERSION = "1.2.0"
 
 # Source witness directories (hashed for reproducibility fingerprint).
 # Derived/generated directories (e.g., collation/) are excluded.
