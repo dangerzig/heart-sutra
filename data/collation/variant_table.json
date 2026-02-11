@@ -1,10 +1,10 @@
 {
   "provenance": {
-    "generated": "2026-02-09T17:38:33.231339+00:00",
+    "generated": "2026-02-11T21:57:25.681725+00:00",
     "tool": "hrdaya.collate",
     "version": "1.0.0",
-    "data_version": "1.1.0",
-    "data_hash": "11a206971e17",
+    "data_version": "1.2.0",
+    "data_hash": "b0f93d2af26b",
     "base_witness": "T251"
   },
   "sections": {
@@ -16,6 +16,7 @@
         "readings": {
           "chinese": {
             "T251": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
+            "Fangshan": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。",
             "T250": "觀世音菩薩，行深般若波羅蜜時，照見五陰空，度一切苦厄。",
             "T257": "觀自在菩薩摩訶薩。告具壽舍利子言。舍利子。若善男子善女人。欲行甚深般若波羅蜜多行者。應如是觀。照見五蘊自性皆空。"
           },
@@ -47,7 +48,7 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": "T251 omits frame context; Tibetan preserves 'at that time' temporal marker"
           },
           {
             "position": 1,
@@ -58,7 +59,7 @@
             "witnesses": [
               "T250"
             ],
-            "note": null
+            "note": ""
           },
           {
             "position": 5,
@@ -69,7 +70,7 @@
             "witnesses": [
               "T257"
             ],
-            "note": null
+            "note": ""
           }
         ],
         "notes": []
@@ -83,6 +84,7 @@
         "readings": {
           "chinese": {
             "T251": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+            "Fangshan": "舍利子，色不異空，空不異色，色即是空，空即是色。受想行識亦復如是。",
             "T250": "舍利弗，非色異空，非空異色，色即是空，空即是色。受想行識亦如是。",
             "T257": "舍利子。色即是空。空即是色。色不異空。空不異色。受想行識亦復如是。"
           },
@@ -114,7 +116,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 13,
+            "base_reading": "舍利子，色不異空，空不異色；色即是空，空即是色。受想行識亦復如是。",
+            "variant_reading": "舍利子，色不異空，空不異色，色即是空，空即是色。受想行識亦復如是。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           },
           {
             "position": 2,
@@ -125,7 +138,7 @@
             "witnesses": [
               "T250"
             ],
-            "note": null
+            "note": ""
           },
           {
             "position": 3,
@@ -136,7 +149,7 @@
             "witnesses": [
               "T257"
             ],
-            "note": null
+            "note": ""
           }
         ],
         "notes": []
@@ -150,6 +163,7 @@
         "readings": {
           "chinese": {
             "T251": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
+            "Fangshan": "舍利子，是諸法空相，不生不滅，不垢不淨，不增不減。",
             "T250": "舍利弗，是諸法空相，不生不滅，不垢不淨，不增不減。",
             "T257": "舍利子。是諸法性相空。不生不滅。不垢不淨。不增不減。"
           },
@@ -181,7 +195,7 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
           },
           {
             "position": 2,
@@ -192,7 +206,7 @@
             "witnesses": [
               "T250"
             ],
-            "note": null
+            "note": ""
           },
           {
             "position": 3,
@@ -203,7 +217,7 @@
             "witnesses": [
               "T257"
             ],
-            "note": null
+            "note": ""
           }
         ],
         "notes": []
@@ -217,6 +231,7 @@
         "readings": {
           "chinese": {
             "T251": "是故空中，無色，無受想行識，",
+            "Fangshan": "是故空中无色，无受想行識，",
             "T250": "是故空中，無色，無受想行識，",
             "T257": "舍利子。是故空中。無色。無受想行識。無眼耳鼻舌身意。無色聲香味觸法。無眼界。無眼識界。乃至無意界。無意識界。無無明。無無明盡。乃至無老死。亦無老死盡。無苦集滅道。無智。無所得。亦無無得。"
           },
@@ -248,7 +263,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 4,
+            "base_reading": "是故空中，無色，無受想行識，",
+            "variant_reading": "是故空中无色，无受想行識，",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           },
           {
             "position": 0,
@@ -259,7 +285,7 @@
             "witnesses": [
               "T257"
             ],
-            "note": null
+            "note": ""
           }
         ],
         "notes": []
@@ -273,6 +299,7 @@
         "readings": {
           "chinese": {
             "T251": "無眼耳鼻舌身意，無色聲香味觸法，",
+            "Fangshan": "无眼耳鼻舌身意，无色聲香味觸法，",
             "T250": "無眼耳鼻舌身意，無色聲香味觸法，"
           },
           "sanskrit": {
@@ -303,7 +330,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 0,
+            "base_reading": "無眼耳鼻舌身意，無色聲香味觸法，",
+            "variant_reading": "无眼耳鼻舌身意，无色聲香味觸法，",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           }
         ],
         "notes": []
@@ -317,6 +355,7 @@
         "readings": {
           "chinese": {
             "T251": "無眼界，乃至無意識界。",
+            "Fangshan": "无眼界，乃至无意識界，",
             "T250": "無眼界，乃至無意識界。"
           },
           "sanskrit": {
@@ -347,7 +386,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 0,
+            "base_reading": "無眼界，乃至無意識界。",
+            "variant_reading": "无眼界，乃至无意識界，",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           }
         ],
         "notes": []
@@ -361,6 +411,7 @@
         "readings": {
           "chinese": {
             "T251": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+            "Fangshan": "无无明，亦无无明盡，乃至无老死，亦无老死盡，",
             "T250": "無無明，亦無無明盡，乃至無老死，亦無老死盡。"
           },
           "sanskrit": {
@@ -391,7 +442,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": "Tibetan uses zad pa (exhaustion) matching Sanskrit kṣaya rather than standard nirodha - evidence for Nattier's back-translation thesis"
+          },
+          {
+            "position": 0,
+            "base_reading": "無無明，亦無無明盡，乃至無老死，亦無老死盡。",
+            "variant_reading": "无无明，亦无无明盡，乃至无老死，亦无老死盡，",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           }
         ],
         "notes": []
@@ -405,6 +467,7 @@
         "readings": {
           "chinese": {
             "T251": "無苦集滅道，無智亦無得，以無所得故。",
+            "Fangshan": "无苦集滅道，无智亦无得，以无所得故。",
             "T250": "無苦集滅道，無智亦無得，以無所得故。"
           },
           "sanskrit": {
@@ -435,7 +498,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 0,
+            "base_reading": "無苦集滅道，無智亦無得，以無所得故。",
+            "variant_reading": "无苦集滅道，无智亦无得，以无所得故。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           }
         ],
         "notes": []
@@ -449,6 +523,7 @@
         "readings": {
           "chinese": {
             "T251": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+            "Fangshan": "菩提薩埵依般若波羅蜜多故，心无罣礙，无罣礙故，无有恐怖，遠離顛倒夢想，究竟涅槃。",
             "T250": "菩薩依般若波羅蜜故，心無罣礙，無罣礙故，無有恐怖，離一切顛倒夢想苦惱，究竟涅槃。",
             "T257": "舍利子。由是無得故。菩薩摩訶薩。依般若波羅蜜多住。心無障礙。心無障礙故。無有恐怖。遠離顛倒。究竟涅槃。"
           },
@@ -480,7 +555,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 4,
+            "base_reading": "菩提薩埵，依般若波羅蜜多故。心無罣礙，無罣礙故。無有恐怖，遠離顚倒夢想，究竟涅槃。",
+            "variant_reading": "菩提薩埵依般若波羅蜜多故，心无罣礙，无罣礙故，无有恐怖，遠離顛倒夢想，究竟涅槃。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           },
           {
             "position": 1,
@@ -491,7 +577,7 @@
             "witnesses": [
               "T250"
             ],
-            "note": null
+            "note": ""
           },
           {
             "position": 0,
@@ -502,7 +588,7 @@
             "witnesses": [
               "T257"
             ],
-            "note": null
+            "note": ""
           }
         ],
         "notes": []
@@ -516,6 +602,7 @@
         "readings": {
           "chinese": {
             "T251": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+            "Fangshan": "三世諸佛依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
             "T250": "三世諸佛，依般若波羅蜜故，得阿耨多羅三藐三菩提。",
             "T257": "三世諸佛。依般若波羅蜜多故。得阿耨多羅三藐三菩提。"
           },
@@ -547,7 +634,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 4,
+            "base_reading": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+            "variant_reading": "三世諸佛依般若波羅蜜多故，得阿耨多羅三藐三菩提。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           },
           {
             "position": 11,
@@ -558,7 +656,7 @@
             "witnesses": [
               "T250"
             ],
-            "note": null
+            "note": ""
           },
           {
             "position": 4,
@@ -569,7 +667,7 @@
             "witnesses": [
               "T257"
             ],
-            "note": null
+            "note": ""
           }
         ],
         "notes": []
@@ -583,6 +681,7 @@
         "readings": {
           "chinese": {
             "T251": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+            "Fangshan": "故知般若波羅蜜多是大神呪，是大明呪，是无上呪，是无等等呪，能除一切苦，真實不虛。",
             "T250": "故知般若波羅蜜，是大明呪，是無上明呪，是無等等明呪，能除一切苦，真實不虛。",
             "T257": "是故應知般若波羅蜜多。是大神咒。是大明咒。是無上咒。是無等等咒。能除一切苦。真實不虛。"
           },
@@ -614,7 +713,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 8,
+            "base_reading": "故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，眞實不虛故。",
+            "variant_reading": "故知般若波羅蜜多是大神呪，是大明呪，是无上呪，是无等等呪，能除一切苦，真實不虛。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": ""
           },
           {
             "position": 7,
@@ -625,7 +735,7 @@
             "witnesses": [
               "T250"
             ],
-            "note": null
+            "note": ""
           },
           {
             "position": 0,
@@ -636,7 +746,7 @@
             "witnesses": [
               "T257"
             ],
-            "note": null
+            "note": ""
           }
         ],
         "notes": []
@@ -650,6 +760,7 @@
         "readings": {
           "chinese": {
             "T251": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+            "Fangshan": "故說般若波羅蜜多呪，即說呪曰：揭諦揭諦，波羅揭諦，波羅僧揭諦，菩提薩婆訶。",
             "T250": "故說般若波羅蜜呪，即說呪曰：竭帝竭帝，波羅竭帝，波羅僧竭帝，菩提僧莎呵。",
             "T257": "故說般若波羅蜜多咒。即說咒曰。唵 誐帝誐帝 波囉誐帝 波囉僧誐帝 菩提莎訶"
           },
@@ -681,7 +792,18 @@
             "witnesses": [
               "Toh21"
             ],
-            "note": null
+            "note": ""
+          },
+          {
+            "position": 0,
+            "base_reading": "說般若波羅蜜多咒，卽說咒曰：揭帝揭帝，波羅揭帝，波羅僧揭帝，菩提僧莎訶。",
+            "variant_reading": "故說般若波羅蜜多呪，即說呪曰：揭諦揭諦，波羅揭諦，波羅僧揭諦，菩提薩婆訶。",
+            "type": "distinctive",
+            "dependence": "uncertain",
+            "witnesses": [
+              "Fangshan"
+            ],
+            "note": "The Fangshan reading 薩婆訶 (sàpóhē) is a more accurate transliteration of Sanskrit svāhā than T251's 僧莎訶 (sēng suōhē), which appears to be corrupt."
           },
           {
             "position": 0,
@@ -692,7 +814,7 @@
             "witnesses": [
               "T250"
             ],
-            "note": null
+            "note": ""
           },
           {
             "position": 0,
@@ -703,7 +825,7 @@
             "witnesses": [
               "T257"
             ],
-            "note": null
+            "note": ""
           }
         ],
         "notes": []
