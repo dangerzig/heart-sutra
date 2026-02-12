@@ -5,7 +5,8 @@
 # Targets:
 #   make all              Build all editions (collation + PDFs)
 #   make collation        Run collation and synoptic alignment (JSON output)
-#   make editions         Build all PDF editions
+#   make latex-gen        Generate LaTeX .tex files from collation data
+#   make editions         Build all PDF editions (runs latex-gen first)
 #   make tibetan          Build Tibetan critical edition PDF
 #   make sanskrit         Build Sanskrit critical edition PDF
 #   make chinese          Build Chinese critical edition PDF
@@ -27,7 +28,7 @@ COLLATION  = data/collation/variant_table.json
 
 .PHONY: all collation editions validate test clean \
         tibetan sanskrit chinese parallel combined stemma \
-        tei check-stale
+        tei check-stale latex-gen
 
 all: collation tei editions
 
@@ -49,6 +50,9 @@ output/tei/heart_sutra_edition.xml: $(shell find $(DATADIR) -name '*.json' 2>/de
 validate:
 	$(PYTHON) -m hrdaya.validate
 
+latex-gen: $(COLLATION)
+	$(PYTHON) -m hrdaya.latex_gen
+
 check-stale:
 	$(PYTHON) scripts/check_latex_staleness.py
 
@@ -57,7 +61,7 @@ test:
 
 # ---------- PDF editions ----------
 
-editions: tibetan sanskrit chinese parallel combined stemma
+editions: latex-gen tibetan sanskrit chinese parallel combined stemma
 
 tibetan: $(LATEXDIR)/tibetan_critical.pdf
 
