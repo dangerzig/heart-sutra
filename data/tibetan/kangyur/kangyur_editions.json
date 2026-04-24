@@ -1,170 +1,247 @@
 {
   "id": "kangyur_editions",
   "title": "Tibetan Kangyur Editions of the Heart Sūtra",
-  "description": "Comparison of the Heart Sūtra across major Kangyur editions. The Tibetan translation was made in the 8th-9th century from Sanskrit. Both short and long recensions exist in the Kangyur.",
+  "description": "Comparison of the Heart Sūtra across major Kangyur editions. The Tibetan translation was made in the 8th-9th century from Sanskrit. Both short and long recensions exist in the Kangyur. Sigla follow Silk (1994).",
+  "source": "Silk, Jonathan A. (1994). The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions Contained in the Kanjur. Wiener Studien zur Tibetologie und Buddhismuskunde 34. Vienna.",
   "editions": [
     {
       "id": "Degé",
       "siglum": "D",
+      "silk_siglum": "D (D1 = Prajñāpāramitā section, Toh 21; D2 = Tantra section, Toh 531)",
       "name_tibetan": "སྡེ་དགེ",
       "name_wylie": "sde dge",
       "name_english": "Degé (Derge) Kangyur",
-      "catalog": "Toh 21 (Prajñāpāramitā section); also Toh 531 (Tantra section)",
+      "catalog": "Toh 21 (Prajñāpāramitā section); Toh 531 (Tantra section)",
       "location": "Degé Parkhang, Kham (eastern Tibet)",
       "date": "1733 CE (woodblock printing)",
-      "volumes": "Vol. 34 (ka), folios 144b-146a",
-      "authority": "Standard reference edition used by Western scholars",
-      "recension": "long",
-      "notes": "The Degé is considered the most reliable edition due to careful editorial work. It serves as the base text for this critical edition."
+      "volumes": "D1: shes rab, ka, 144.b.6-146.a.2; D2: rgyud, na (Tantra section)",
+      "authority": "Standard reference edition used by Western scholars. Silk (1994) uses D as base text. Both D1 and D2 are Recension A texts.",
+      "recension": "long (Recension A in both locations)",
+      "notes": "The Degé contains the Heart Sūtra twice: in Prajñāpāramitā (D1) and Tantra (D2) sections. Both are Recension A texts, virtually identical. Silk observes that this is because the Degé editors added a copy of their Tantra text to the Prajñāpāramitā section (pp. 27). D is stemmatically a copy of J ('Phying ba stag rtse), with contamination from the Them spangs ma line (Silk stemma, p. 21)."
     },
     {
       "id": "Peking",
       "siglum": "Q",
+      "silk_siglum": "K (1692 edition); P (1737 reprint)",
       "name_tibetan": "པེ་ཅིན",
       "name_wylie": "pe cin",
       "name_english": "Peking (Beijing) Kangyur",
-      "catalog": "Q20 (Prajñāpāramitā); Q542 (Tantra)",
+      "catalog": "K/Q: rgyud, na, 39.b.7-41.a.5; P: rgyud, na, 39.b.7-41.a.5",
       "location": "Beijing, commissioned by Qing Emperor Kangxi",
-      "date": "1684-1692 CE (first printing); 1737 revision",
-      "volumes": "Vol. 6, pp. 162-164",
-      "authority": "Important alternate edition; differs from Degé in orthography and some readings",
-      "recension": "long",
-      "notes": "The Peking Kangyur was printed in Beijing for the Qing court. It preserves some readings different from Degé, occasionally reflecting older transmission."
+      "date": "1692 CE",
+      "date_note": "Silk (1994, p. 89) dates K to 1692. P is the 1737 reprint/revision. The text upon which the Tokyo reprint is based is the 1720 edition (called Q by Eimer); the Paris edition is the 1737 print (p. 95).",
+      "volumes": "Vol. 6, pp. 162-164 (reprint pagination)",
+      "authority": "Important alternate edition. Silk's siglum K refers to the 1692 edition (hand-copy from Harvard-Yenching Institute), while P refers to the 1737 xylograph.",
+      "recension": "long (Recension A)",
+      "notes": "The Peking Kangyur preserves only the Tantra section text (Recension A). The Peking line (K, P) descends from the Wanli (1606) and ultimately the Yongle (1410) editions, in the Tshal pa textual lineage. K contains hand corrections. Folio 40 of the Harvard K copy is missing (Silk p. 95)."
     },
     {
       "id": "Narthang",
       "siglum": "N",
+      "silk_siglum": "N (N1 = Prajñāpāramitā section; N2 = Tantra section)",
       "name_tibetan": "སྣར་ཐང",
       "name_wylie": "snar thang",
       "name_english": "Narthang Kangyur",
-      "catalog": "Vol. 6 (ka)",
+      "catalog": "N1: sna tshogs, ka, 262.b.1-264.a.4; N2: rgyud, da, 92.a.4-94.a.2",
       "location": "Narthang Monastery, near Shigatse, central Tibet",
-      "date": "1730-1732 CE",
-      "volumes": "Vol. 6",
-      "authority": "Important Gelug-affiliated edition",
-      "recension": "long",
-      "notes": "Closely related to the Lhasa edition; together they represent the central Tibetan textual tradition."
+      "date": "1730-1731 CE",
+      "volumes": "N1: 26 leaves; N2: 475 (Takasaki 476)",
+      "authority": "Important Gelug-affiliated edition from the Them spangs ma / Tshal pa mixed tradition",
+      "recension": "long (N1 = Recension A; N2 = Recension A)",
+      "notes": "Both N1 and N2 are Recension A. The Narthang, completed in two separate periods, contains texts from both the Them spangs ma and Tshal pa lines depending on the section (Silk p. 26). All exemplars are very difficult to read (Silk p. 92-93)."
     },
     {
       "id": "Lhasa",
       "siglum": "H",
+      "silk_siglum": "H (H1 = Prajñāpāramitā section, Recension B; H2 = Tantra section, Recension A)",
       "name_tibetan": "ལྷ་ས",
       "name_wylie": "lha sa",
       "name_english": "Lhasa (Zhol) Kangyur",
-      "catalog": "Vol. 34 (ka)",
+      "catalog": "H1: sna tshogs (Prajñāpāramitā); H2: rgyud, tha, 45.a.1-47.a.2",
       "location": "Zhol Parkhang, Lhasa",
       "date": "1934 CE",
-      "volumes": "Vol. 34",
-      "authority": "Latest major Kangyur edition; corrected from earlier editions",
-      "recension": "long",
-      "notes": "The Lhasa Kangyur was printed in the 20th century with corrections from earlier editions. It often agrees with Narthang against Degé."
+      "volumes": "H1: found in H.5933; H2: found in H.5987",
+      "authority": "Latest major Kangyur edition. H1 is notable as a Recension B text with heavy conflation from Recension A.",
+      "recension": "long (H1 = Recension B with Rec A conflation; H2 = Recension A)",
+      "notes": "The Lhasa Kangyur is stemmatically a copy of N (Narthang) for most texts, with contamination from D. H1 is one of the few Recension B witnesses in the Prajñāpāramitā section, though it shows considerable conflation with Recension A (Silk pp. 26, 88). H2 is a standard Recension A text."
     },
     {
       "id": "Lithang",
       "siglum": "J",
+      "silk_siglum": "J",
       "name_tibetan": "ལི་ཐང",
       "name_wylie": "li thang",
-      "name_english": "Lithang (Jang Satham) Kangyur",
-      "catalog": "Vol. 31",
-      "location": "Lithang, Kham",
-      "date": "1609-1621 CE",
-      "volumes": "Vol. 31",
-      "authority": "Earliest printed Kangyur; important for establishing early readings",
-      "recension": "long",
-      "notes": "The Lithang was the first complete printed Kangyur. It sometimes preserves readings older than the more commonly used Degé."
+      "name_english": "Lithang ('Jang sa tham / Li-thang) Kangyur",
+      "catalog": "rgyud, na, 39.b.1-40.b.7",
+      "location": "Lithang, Kham (also known as 'Jang sa tham)",
+      "date": "1608-1621 CE (Samten 1987: 17-18)",
+      "date_note": "Imaeda suggested 1608-1621; Silk notes this as 'Phying ba stag rtse in the stemma. The date is between 1609 and 1614 per Samten (1987).",
+      "volumes": "Vol. 31, 498 leaves",
+      "authority": "Earliest datable printed Kangyur. Source for D (Degé) and C (Cone). J is a Tshal pa / 'Phying ba stag rtse text.",
+      "recension": "long (Recension A)",
+      "notes": "The legibility of copies available to Silk was very poor (p. 89). J is the ancestor of D and C in the Tshal pa / 'Phying ba stag rtse line. It preserves some readings older than D, as D was later contaminated by Them spangs ma readings (Silk pp. 23, 89)."
     },
     {
       "id": "Stog",
-      "siglum": "S",
+      "siglum": "R",
+      "silk_siglum": "R (R1 = Prajñāpāramitā section; R2 = Tantra section)",
       "name_tibetan": "སྟོག",
       "name_wylie": "stog",
-      "name_english": "Stog Palace Kangyur",
-      "catalog": "Manuscript",
+      "name_english": "Stog (Tog) Palace Kangyur",
+      "catalog": "R1: sras sna tshogs, ka, 277.a.2-278.b.5; R2: rgyud, da, 94.a.5-95.b.7",
       "location": "Stog Palace, Ladakh",
-      "date": "14th-15th century (manuscript)",
-      "volumes": "Manuscript",
-      "authority": "One of the oldest surviving Kangyur manuscripts",
-      "recension": "long",
-      "notes": "The Stog Palace manuscript predates the printed editions and may preserve older readings. However, access is limited."
+      "date": "Unknown",
+      "date_note": "Silk (1994, p. 96) lists the date as 'Unknown' for both R1 and R2. The reprint edition was published in Leh, 1979 (vol. 51, #13). The manuscript is from the Them spangs ma line but cannot be securely placed in the stemma.",
+      "volumes": "R1: 28 leaves; R2: 490 leaves",
+      "authority": "One of the most important Kanjurs for text criticism. Preserves a Them spangs ma text that is somewhat independent of the main stemma.",
+      "recension": "long (R1 = Recension A; R2 = Recension A)",
+      "notes": "S (as Silk calls the Phu brag manuscript, not Stog) is somewhat difficult to place stemmatically. Silk places it floating near Recension A in his stemma but not firmly attached to any branch (p. 26). R1 and R2 preserve separate recensions without apparent editorial leveling (Silk p. 26). The Tantra section of the Phu brag (S) apparently does not contain the Heart Sūtra (Silk p. 27). The tsheg before the shad is found only after nga (Silk p. 96)."
+    },
+    {
+      "id": "Phugbrag",
+      "siglum": "S",
+      "silk_siglum": "S",
+      "name_tibetan": "ཕུག་བྲག",
+      "name_wylie": "phug brag",
+      "name_english": "Phu(g)-brag Manuscript Kangyur",
+      "catalog": "shes phyin sna tshogs, 35a2-36b7",
+      "location": "Library of Tibetan Works and Archives, Dharamsala (from IASWR microfiche)",
+      "date": "1696-1706 CE",
+      "date_note": "Silk (1994, p. 97) gives 1696-1706, per Samten (1989). The manuscript seems very well written.",
+      "volumes": "Prajñāpāramitā section only (no Tantra copy)",
+      "authority": "Important independent Them spangs ma witness. Appears only in the Prajñāpāramitā section, unlike most Kangyurs which have it in Tantra or both.",
+      "recension": "long (Recension A, with some distinctive readings)",
+      "notes": "Silk uses the siglum S for this manuscript. It is the only Kangyur available to Silk that has the Heart Sūtra only in the Prajñāpāramitā section and not in the Tantra section (p. 27). S preserves important independent readings and cannot be firmly placed in the stemma; Silk represents it as floating near Recension A (p. 21 stemma). The microfiche quality is very poor (p. 97)."
     }
   ],
+  "siglum_concordance": {
+    "note": "Concordance between sigla used in this dataset and Silk (1994). Silk uses different sigla from some other reference systems.",
+    "concordance": [
+      {"this_dataset": "D", "silk": "D (D1/D2)", "other_systems": "D (standard)"},
+      {"this_dataset": "Q", "silk": "K (1692) / P (1737)", "other_systems": "Q (Ōtani reprint numbering)"},
+      {"this_dataset": "N", "silk": "N (N1/N2)", "other_systems": "N (standard)"},
+      {"this_dataset": "H", "silk": "H (H1/H2)", "other_systems": "H (standard)"},
+      {"this_dataset": "J", "silk": "J", "other_systems": "J (standard)"},
+      {"this_dataset": "R (Stog)", "silk": "R (R1/R2)", "other_systems": "R (standard for Stog/Tog)"},
+      {"this_dataset": "S (Phugbrag)", "silk": "S", "other_systems": "S (Phu brag / Phug brag)"}
+    ],
+    "additional_silk_sigla": [
+      {"siglum": "B", "edition": "Berlin Manuscript Kangyur", "date": "1680"},
+      {"siglum": "C", "edition": "Cone (Co ne) xylograph", "date": "1721-31"},
+      {"siglum": "F", "edition": "Taipei Manuscript Kangyur", "date": "1670?"},
+      {"siglum": "L (L1/L2)", "edition": "London Manuscript Kangyur", "date": "1712"},
+      {"siglum": "M (M1/M2)", "edition": "Tōyō Bunko Manuscript Kangyur", "date": "1858-78"},
+      {"siglum": "U (U1/U2)", "edition": "Urga xylograph", "date": "1908-10"}
+    ]
+  },
   "short_recension": {
-    "note": "The Tibetan tradition preserves both long and short recensions. The short recension lacks the frame narrative.",
-    "location_in_kangyur": "Sometimes included as a separate text or variant within the long recension entries",
+    "note": "The Tibetan tradition preserves both long and short recensions. The short recension lacks the frame narrative. Silk calls these Recension A (Tantra section / Tshal pa line, typically) and Recension B (Prajñāpāramitā section / Them spangs ma line). Both are long-form texts with frame narratives; the 'short recension' without frame narrative is found only in Dunhuang manuscripts and commentaries, not in printed Kangyur editions.",
+    "clarification": "Silk's Recension A vs Recension B distinction is NOT the same as short vs long recension. Both Rec A and Rec B in the Kangyur are 'long' texts with frame narratives. They differ in specific readings (e.g., invocation formula, verb forms, word order). The truly 'short' recension (without frame narrative) is preserved in Dunhuang manuscripts like IOL Tib J 751 and in Kamalaśīla's commentary.",
     "relationship_to_long": "The short recension corresponds more closely to T251 (Chinese) and the Hōryūji manuscript (Sanskrit). The long recension adds the frame narrative found in Sanskrit long recension and T257."
   },
   "variant_readings": {
-    "methodology": "Key orthographic and substantive variants between Kangyur editions. Base text: Degé (D).",
+    "methodology": "Key orthographic and substantive variants between Kangyur editions. Base text: Degé (D). Variants documented from Silk (1994) critical apparatus.",
     "variants": [
       {
-        "location": "title",
-        "degé": "བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།",
-        "peking": "བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྙིང་པོ།",
-        "note": "Titles are identical across editions; 'Bhagavatī' (feminine) is notable"
+        "location": "title (Silk para A)",
+        "silk_paragraph": "A",
+        "degé": "བྷ་ག་བ་ཏཱི་པྲཛྙཱ་པཱ་ར་མི་ཏཱ་ཧྲྀ་ད་ཡ (bha ga ba tI praj+nyA pA ra mi tA h+rI da ya)",
+        "note": "Recension A has bha ga ba ti (variants: CDJU read ti; BFKPs read ta). Recension B has ārya bha ga ba ti. D1 reads h+rI (not hri), matching the 'Phying ba stag rtse texts."
       },
       {
-        "location": "opening homage",
-        "degé": "སངས་རྒྱས་དང་བྱང་ཆུབ་སེམས་དཔའ་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ།",
-        "peking": "སངས་རྒྱས་དང་བྱང་ཆུབ་སེམས་དཔའ་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ།",
-        "narthang": "སངས་རྒྱས་དང་བྱང་ཆུབ་སེམས་དཔའ་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ།",
-        "note": "Opening homage consistent across editions"
+        "location": "opening homage / invocation (Silk para C)",
+        "silk_paragraph": "C",
+        "recension_A": "བཅོམ་ལྡན་འདས་མ་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ལ་ཕྱག་འཚལ་ལོ། (bcom ldan 'das ma shes rab kyi pha rol tu phyin pa la phyag 'tshal lo)",
+        "recension_B": "སངས་རྒྱས་དང་བྱང་ཆུབ་སེམས་དཔའ་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ། (sangs rgyas dang byang chub sems dpa' thams cad la phyag 'tshal lo)",
+        "note": "The invocations differ between recensions. Rec A addresses Bhagavatī Prajñāpāramitā; Rec B addresses all buddhas and bodhisattvas. This corresponds to different Sanskrit namo formulae (Silk p. 33). The old JSON incorrectly had the Rec B form for Degé."
       },
       {
-        "location": "skandha terminology",
-        "issue": "Orthographic variants in ཕུང་པོ་ལྔ (phung po lnga)",
-        "degé": "ཕུང་པོ་ལྔ་པོ་དེ་དག",
-        "peking": "ཕུང་པོ་ལྔ་པོ་དེ་དག",
-        "note": "Consistent use of ལྔ་པོ (lnga po, 'the five') across editions"
+        "location": "nidāna / Rājagṛha (Silk para D)",
+        "silk_paragraph": "D",
+        "recension_A": "rgyal po'i khab ... (with na inserted by D1, J, U1 after khab; shad inserted by most Them spangs ma texts)",
+        "recension_B": "rgyal po'i khab na ... (with na and shad)",
+        "note": "D1 inserts na after khab, agreeing with Recension B (Silk para D, note 2). The 'Phying ba stag rtse texts (C, D1, J, U1) share this reading."
+      },
+      {
+        "location": "buddha's power (Silk para F)",
+        "silk_paragraph": "F",
+        "recension_A": "སངས་རྒྱས་ཀྱི་མཐུས (sangs rgyas kyi mthus)",
+        "recension_B": "སངས་རྒྱས་ཀྱི་མཐུས (sangs rgyas kyi mthus)",
+        "note": "Both recensions read sangs rgyas kyi mthus (through the power of the Buddha). The Sanskritized form bud+d+has stobs kyis does NOT appear in any Kangyur witness collated by Silk. The old JSON incorrectly had bud+d+has stobs kyis."
+      },
+      {
+        "location": "Avalokiteśvara's observation (Silk para E)",
+        "silk_paragraph": "E",
+        "recension_A": "ཟབ་མོ་སྤྱོད་པ (zab mo spyod pa, without genitive 'i)",
+        "recension_B": "ཟབ་མོ་སྤྱོད་པ (zab mo spyod pa, without genitive 'i; S reads mo 'i)",
+        "note": "Both recensions lack the genitive 'i between zab mo and spyod pa in most witnesses. Only S (Phu brag) reads mo 'i. The old JSON incorrectly had zab mo'i."
+      },
+      {
+        "location": "characteristics (Silk para K)",
+        "silk_paragraph": "K",
+        "recension_A": "དེ་ལྟ་བས་ན (de lta bas na, 'therefore')",
+        "recension_B": "དེ་ལྟར (de ltar, 'thus')",
+        "note": "Rec A reads de lta bas na; Rec B reads de ltar. S reads ltar, corresponding to Rec B. The old JSON had de ltar for the Degé text, which was incorrect."
+      },
+      {
+        "location": "fear (Silk para P)",
+        "silk_paragraph": "P",
+        "recension_A": "སྐྲག་པ (skrag pa, 'fear/fright')",
+        "recension_B": "འཇིགས་པ ('jigs pa, 'fear/terror')",
+        "note": "Rec A reads skrag pa; Rec B reads 'jigs pa. Both translate Sanskrit trāsa/trasta. The old JSON incorrectly had 'jigs pa for the Degé. U2 may read sgrag? (Silk p. 132 note l)."
+      },
+      {
+        "location": "mantra (Silk para S)",
+        "silk_paragraph": "S",
+        "recension_A_base": "ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ ... (tadya thā / oṃ ga te ga te ...)",
+        "D1_reading": "ཏདྱ་ཐཱ། ག་ཏེ་ག་ཏེ ... (tadya thā / ga te ga te ..., NO oṃ)",
+        "recension_B": "ཏདྱ་ཐཱ། ག་ཏེ་ག་ཏེ ... (tad ya thā / ga te ga te ..., NO oṃ)",
+        "note": "The Rec A base text includes oṃ, but D1 individually omits it. Silk (p. 138, note 1): 'C, D1, D2, H2, J, U1, U2: Omit oṃ, agreeing with Recension B.' This means D1 agrees with Rec B on this point, while the Rec A base (B, F, K, P) retains oṃ. The old JSON incorrectly included oṃ in the Degé mantra."
+      },
+      {
+        "location": "epilogue word order (Silk para T)",
+        "silk_paragraph": "T",
+        "recension_A": "ཤཱ་རིའི་བུ་བྱང་ཆུབ་སེམས་དཔའ་སེམས་དཔའ་ཆེན་པོས་དེ་ལྟར་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ཟབ་མོ་ལ་བསླབ་པར་བྱའོ།",
+        "recension_B": "ཤཱ་རིའི་བུ་བྱང་ཆུབ་སེམས་དཔའ་སེམས་དཔའ་ཆེན་པོས་ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པ་ཟབ་མོ་ལ་དེ་ལྟར་བསླབ་པར་བྱའོ།",
+        "note": "Rec A places de ltar before shes rab; Rec B places it after zab mo la. The old JSON had the Rec B word order."
       },
       {
         "location": "exhaustion terminology",
         "degé": "མ་རིག་པ་ཟད་པ (ma rig pa zad pa)",
-        "peking": "མ་རིག་པ་ཟད་པ (ma rig pa zad pa)",
-        "note": "All editions use zad pa (exhaustion/kṣaya) rather than a term for nirodha. This matches Sanskrit kṣaya and supports Nattier's back-translation thesis."
+        "note": "All editions use zad pa (exhaustion/kṣaya) rather than a term for nirodha. This matches Sanskrit kṣaya."
       },
       {
-        "location": "mantra",
-        "degé": "ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།",
-        "peking": "ཏདྱ་ཐཱ། ཨོཾ་ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།",
-        "note": "The Tibetan tradition includes oṃ in the mantra, unlike the earliest Chinese and Sanskrit witnesses. This reflects the long recension Sanskrit source."
-      },
-      {
-        "location": "samādhi name",
-        "degé": "ཟབ་མོ་སྣང་བ (zab mo snang ba, 'Illumination of the Profound')",
-        "peking": "ཟབ་མོ་སྣང་བ",
-        "sanskrit": "gambhīrāvabhāsa",
-        "note": "The samādhi name is consistent across Tibetan editions"
-      },
-      {
-        "location": "epithets",
+        "location": "epithets (Silk para R)",
         "count": 5,
         "tibetan": "ཤེས་རབ་ཀྱི་ཕ་རོལ་ཏུ་ཕྱིན་པའི་སྔགས། རིག་པ་ཆེན་པོའི་སྔགས། བླ་ན་མེད་པའི་སྔགས། མི་མཉམ་པ་དང་མཉམ་པའི་སྔགས། སྡུག་བསྔལ་ཐམས་ཅད་རབ་ཏུ་ཞི་བར་བྱེད་པའི་སྔགས།",
-        "note": "Tibetan has 5 epithets (prajñāpāramitā mantra, great knowledge mantra, unsurpassed mantra, unequalled mantra, all-suffering-pacifying mantra), while Chinese T251 has 4 and T250 has 3."
+        "note": "Tibetan has 5 epithets, while Chinese T251 has 4 and T250 has 3."
       }
     ]
   },
   "translation_colophon": {
     "translators": "Vimalamitra (བི་མ་ལ་མི་ཏྲ) and Rinchen Dé (རིན་ཆེན་སྡེ)",
-    "revisers": "Gewé Lodrö (དགེ་བའི་བློ་གྲོས) and Namkha (ནམ་མཁའ)",
+    "revisers": "Gewé Lo (དགེ་བློ) and Namkha (ནམ་མཁའ) et al.",
     "period": "Imperial period (8th-9th century CE)",
-    "note": "The colophon in most editions credits these translators and revisers. The translation was made during the Tibetan Empire period when major translation projects were sponsored by the court."
+    "note": "The colophon credits these translators and revisers. Silk (1994, pp. 47-56) discusses the colophon in detail. The translation was attributed to Vimalamitra, who is thought to have arrived in Tibet around 797 CE (Horiuchi 2022). The revised Kangyur text reflects the 'new, fixed language' (skad gsar bcad) of the second resolution (c. 815 CE)."
   },
   "stemmatic_position": {
     "summary": "The Tibetan translation was made from Sanskrit, not Chinese. It therefore represents a witness to the Sanskrit tradition, not an independent transmission line.",
-    "relationship_to_sanskrit": "The Tibetan long recension corresponds to the Sanskrit long recension (with frame narrative). The Tibetan short recension corresponds to the Sanskrit short recension.",
+    "relationship_to_sanskrit": "The Tibetan long recension corresponds to the Sanskrit long recension (with frame narrative). The Tibetan short recension (Dunhuang manuscripts only) corresponds to the Sanskrit short recension.",
     "relationship_to_chinese": "The Tibetan is a secondary witness for establishing the original Chinese text, mediated through Sanskrit.",
     "value_for_text_criticism": [
       "Tibetan zad pa matches Sanskrit kṣaya, confirming back-translation from Chinese",
-      "Tibetan includes oṃ in mantra, reflecting Sanskrit long recension source",
+      "D1 omits oṃ from mantra, agreeing with Rec B and some Sanskrit witnesses",
       "Tibetan preserves frame narrative matching Sanskrit long recension",
-      "Tibetan ma thob pa (no non-attainment) reflects Sanskrit na-aprāptiḥ interpolation"
+      "Tibetan ma thob pa (no non-attainment) reflects Sanskrit na-aprāptiḥ interpolation",
+      "Two Tibetan recensions (A and B) likely reflect two different Sanskrit exemplars (Silk pp. 31-48)"
     ]
   },
   "scholarly_refs": [
-    "Silk, Jonathan A. (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions Contained in the Kanjur.' Wiener Studien zur Tibetologie und Buddhismuskunde 34.",
+    "Silk, Jonathan A. (1994). 'The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions Contained in the Kanjur.' Wiener Studien zur Tibetologie und Buddhismuskunde 34. Vienna.",
     "84000: Translating the Words of the Buddha (2022). The Heart of the Perfection of Wisdom. https://read.84000.co/translation/toh21.html",
-    "Skilling, Peter (1994). Mahāsūtras: Great Discourses of the Buddha. Pali Text Society.",
+    "Apple, James B. (2024). 'Kamalaśīla's Word Commentary to the Heart Sūtra, Translation and Edition.' Revue d'Études Tibétaines, no. 70, pp. 5-82.",
+    "Harrison, Paul (1996). 'A Brief History of the Tibetan bKa' 'gyur.' In Tibetan Literature: Studies in Genre, pp. 70-94.",
     "Eimer, Helmut (1992). Der Tantra-Teil des Kanjur. Arbeitskreis für Tibetische und Buddhistische Studien.",
-    "Harrison, Paul (1996). 'A Brief History of the Tibetan bKa' 'gyur.' In Tibetan Literature: Studies in Genre, pp. 70-94."
+    "Samten, Jampa (1987). 'Notes on the Lithang Edition of the Tibetan bKa'-'gyur.' Tibet Journal 12(3): 17-40."
   ]
 }

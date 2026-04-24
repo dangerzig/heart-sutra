@@ -16,7 +16,7 @@
     "condition": "good, with minor lacunae",
     "dimensions": "Standard Dunhuang pothi format"
   },
-  "notes": "One of the earliest known Tibetan manuscripts of the Heart Sūtra. Short recension without frame narrative. Preserves early Tibetan translation conventions from the imperial period. Lacks the prologue and epilogue found in Kangyur long recension (Toh 21). Important for establishing the short recension's early circulation in Tibetan.",
+  "notes": "One of the earliest known Tibetan manuscripts of the Heart Sūtra. Short recension without frame narrative. Preserves early Tibetan translation conventions from the imperial period. Lacks the prologue and epilogue found in Kangyur long recension (Toh 21). Important for establishing the short recension's early circulation in Tibetan. Apple (2024b) discusses IOL Tib J 751 as part of a 'Prayer of Dégayutsel' liturgical text (PT 16 / IOL Tib J 751), dated to 822 CE. Note: Apple 2024b provides a critical edition of IOL Tib J 122 (Kamalaśīla's commentary embedding a Short Recension), not a direct transcription of IOL Tib J 751 itself. The segment texts below are normalized Kangyur-style readings and may not reflect exact Old Tibetan orthography of the manuscript.",
   "significance": [
     "Earliest securely datable Tibetan Heart Sūtra witness",
     "Short recension — corresponds to T251 (Chinese) and Hōryūji manuscript (Sanskrit)",
@@ -124,12 +124,13 @@
       "tibetan": "ཏདྱ་ཐཱ། ག་ཏེ་ག་ཏེ་པཱ་ར་ག་ཏེ་པཱ་ར་སཾ་ག་ཏེ་བོ་དྷི་སྭཱ་ཧཱ།",
       "wylie": "tad+ya thA/ ga te ga te pA ra ga te pA ra saM ga te bo d+hi swA hA/",
       "english_gloss": "Tadyathā: gate gate pāragate pārasaṃgate bodhi svāhā.",
-      "note": "Short recension manuscript lacks oṃ before mantra, unlike Kangyur Toh 21 which has ཨོཾ. This matches T251 and the earliest Sanskrit witnesses."
+      "note": "Short recension manuscript lacks oṃ before mantra. The Degé Kangyur (D1) also omits oṃ (Silk 1994, p. 138 note 1). The omission matches T251 and the earliest Sanskrit witnesses."
     }
   ],
   "scholarly_refs": [
     "De La Vallée Poussin, Louis (1962). Catalogue of the Tibetan Manuscripts from Tun-huang in the India Office Library. Oxford.",
-    "Silk, Jonathan A. (1994). The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions Contained in the Kanjur. Vienna.",
+    "Silk, Jonathan A. (1994). The Heart Sūtra in Tibetan: A Critical Edition of the Two Recensions Contained in the Kanjur. Wiener Studien zur Tibetologie und Buddhismuskunde 34. Vienna.",
+    "Apple, James B. (2024). 'Kamalaśīla's Word Commentary to the Heart Sūtra, Translation and Edition.' Revue d'Études Tibétaines, no. 70, pp. 5-82.",
     "International Dunhuang Project (IDP). http://idp.bl.uk/",
     "Dalton, Jacob & van Schaik, Sam (2006). Tibetan Tantric Manuscripts from Dunhuang. Leiden: Brill."
   ],
