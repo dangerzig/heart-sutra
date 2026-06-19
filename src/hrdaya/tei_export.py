@@ -201,10 +201,13 @@ def generate_chinese_text(witnesses: list[dict]) -> etree._Element:
     sections = _group_segments_by_section(base)
     for section_name, segs in sections.items():
         div = _sub(body, "div", type="section", n=section_name)
+        # Wrap segments in an anonymous block <ab>: in TEI, <div> requires
+        # block-level content, so <seg>/<app> may not be a direct child of <div>.
+        ab = _sub(div, "ab")
         for i, seg in enumerate(segs):
             seg_id = seg.get("id", f"zh-{i}")
             xml_id = _seg_xml_id(seg_id)
-            seg_el = _sub(div, "seg", xml_id=xml_id)
+            seg_el = _sub(ab, "seg", xml_id=xml_id)
 
             base_text = seg.get("text", "")
             variants = alt_by_parallel.get(seg_id, [])
@@ -244,11 +247,13 @@ def generate_sanskrit_text(witnesses: list[dict]) -> etree._Element:
     sections = _group_segments_by_section(base)
     for section_name, segs in sections.items():
         div = _sub(body, "div", type="section", n=section_name)
+        # <ab> wrapper: <seg> may not be a direct child of <div> in TEI.
+        ab = _sub(div, "ab")
         for i, seg in enumerate(segs):
             seg_id = seg.get("id", f"sa-{i}")
             xml_id = _seg_xml_id(seg_id)
             iast_text = seg.get("iast", "")
-            _sub(div, "seg", iast_text, xml_id=xml_id)
+            _sub(ab, "seg", iast_text, xml_id=xml_id)
 
     return text_el
 
@@ -270,11 +275,13 @@ def generate_tibetan_text(witnesses: list[dict]) -> etree._Element:
     sections = _group_segments_by_section(base)
     for section_name, segs in sections.items():
         div = _sub(body, "div", type="section", n=section_name)
+        # <ab> wrapper: <seg> may not be a direct child of <div> in TEI.
+        ab = _sub(div, "ab")
         for i, seg in enumerate(segs):
             seg_id = seg.get("id", f"bo-{i}")
             xml_id = _seg_xml_id(seg_id)
             tib_text = seg.get("tibetan", "")
-            _sub(div, "seg", tib_text, xml_id=xml_id)
+            _sub(ab, "seg", tib_text, xml_id=xml_id)
 
     return text_el
 
@@ -364,8 +371,11 @@ def export_tei(output_path: str | Path | None = None,
     tei.append(generate_standoff_alignment(
         zh_witnesses, sa_witnesses, bo_witnesses))
 
-    # Group with three text elements
-    group = _sub(tei, "group")
+    # Composite text: in TEI, <group> may not be a direct child of <TEI>;
+    # it must be wrapped in an outer <text> element (the composite-text
+    # pattern), with one <text> per tradition inside the <group>.
+    outer_text = _sub(tei, "text")
+    group = _sub(outer_text, "group")
     group.append(generate_chinese_text(zh_witnesses))
     group.append(generate_sanskrit_text(sa_witnesses))
     group.append(generate_tibetan_text(bo_witnesses))
